@@ -1,0 +1,2301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Income Blueprint — Your First Sale in 30 Days</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --deep: #0e0e0e;
+    --card: #131313;
+    --border: #1e1e1e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: rgba(201,168,76,0.12);
+    --red: #d94f3d;
+    --white: #f5f2ec;
+    --muted: #888;
+    --body: #bdb8b0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+  }
+
+  .serif { font-family: 'DM Serif Display', serif; }
+
+  /* ── UTILS ── */
+  .gold { color: var(--gold); }
+  .red { color: var(--red); }
+  .muted { color: var(--muted); }
+  .body-text { color: var(--body); }
+  .center { text-align: center; }
+  .italic { font-style: italic; }
+
+  section { position: relative; }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .wide {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── ANNOUNCEMENT BAR ── */
+  .bar {
+    background: var(--gold);
+    color: var(--black);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .bar span { text-decoration: underline; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 9vw, 110px);
+    line-height: 0.9;
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2.2vw, 20px);
+    color: var(--body);
+    max-width: 580px;
+    margin: 0 auto 48px;
+    animation: fadeUp 0.7s ease 0.2s both;
+  }
+
+  .hero-sub strong { color: var(--white); font-weight: 600; }
+
+  /* ── CTA BUTTON ── */
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 44px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    animation: fadeUp 0.7s ease 0.3s both;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+  }
+
+  .btn-primary:hover::after { transform: translateX(100%); }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid var(--border);
+    color: var(--body);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .cta-note {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SOCIAL PROOF STRIP ── */
+  .proof-strip {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    overflow: hidden;
+  }
+
+  .proof-track {
+    display: flex;
+    gap: 60px;
+    animation: scroll 25s linear infinite;
+    white-space: nowrap;
+  }
+
+  .proof-item {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .proof-item span { color: var(--gold); }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  /* ── PAIN SECTION ── */
+  .pain {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pain h2 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+
+  .pain-list {
+    list-style: none;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pain-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    color: var(--body);
+    font-size: 17px;
+    padding: 18px 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red);
+    border-radius: 2px;
+  }
+
+  .pain-list li::before {
+    content: '✕';
+    color: var(--red);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pain-callout {
+    background: var(--gold-dim);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 2px;
+    padding: 28px 32px;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--white);
+    font-family: 'DM Serif Display', serif;
+    margin-top: 40px;
+  }
+
+  /* ── STORY BRIDGE ── */
+  .bridge {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(201,168,76,0.05) 0%, transparent 70%);
+  }
+
+  .bridge p {
+    font-size: 18px;
+    color: var(--body);
+    margin-bottom: 20px;
+    max-width: 680px;
+  }
+
+  .bridge p strong { color: var(--white); }
+
+  /* ── WHAT YOU GET ── */
+  .modules {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .modules h2 {
+    font-size: clamp(36px, 5vw, 58px);
+    margin-bottom: 12px;
+  }
+
+  .module-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 56px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .module-card {
+    background: var(--card);
+    padding: 36px 32px;
+    border: 1px solid var(--border);
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .module-card:hover { background: #181818; }
+
+  .module-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--border);
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .module-card:hover .module-num { color: var(--gold-dim); }
+
+  .module-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .module-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .module-card p {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.6;
+  }
+
+  .module-list {
+    list-style: none;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .module-list li {
+    font-size: 13px;
+    color: var(--body);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .module-list li::before {
+    content: '→';
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .bonus-card {
+    margin-top: 2px;
+    background: linear-gradient(135deg, #131208 0%, var(--card) 100%);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 36px 32px;
+    border-radius: 2px;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .bonus-label {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  .bonus-card h3 { font-size: 22px; margin-bottom: 8px; }
+  .bonus-card p { font-size: 14px; color: var(--body); max-width: 500px; }
+
+  .bonus-value {
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .bonus-value .strikethrough {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: line-through;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .bonus-value .free-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  /* ── TRACKS ── */
+  .tracks {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--deep);
+  }
+
+  .track-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .track-card {
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 40px 36px;
+    background: var(--card);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .track-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+
+  .track-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .track-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .track-card .track-desc {
+    font-size: 14px;
+    color: var(--body);
+    margin-bottom: 24px;
+  }
+
+  .track-card .track-for {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .track-card .track-fit {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .timeline {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 13px;
+    color: var(--body);
+  }
+
+  .timeline-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .timeline-week {
+    font-weight: 700;
+    color: var(--white);
+    min-width: 56px;
+  }
+
+  /* ── PLAYBOOKS ── */
+  .playbooks {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .playbook-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .playbook-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 28px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+
+  .playbook-item:hover { border-color: rgba(201,168,76,0.4); }
+
+  .playbook-letter {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .playbook-item h4 { font-size: 16px; margin-bottom: 6px; }
+  .playbook-item p { font-size: 13px; color: var(--body); }
+
+  /* ── TESTIMONIALS ── */
+  .social {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%);
+  }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 56px;
+  }
+
+  .testi-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px;
+  }
+
+  .testi-stars {
+    color: var(--gold);
+    font-size: 14px;
+    margin-bottom: 14px;
+    letter-spacing: 2px;
+  }
+
+  .testi-text {
+    font-size: 15px;
+    color: var(--body);
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-family: 'DM Serif Display', serif;
+  }
+
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .testi-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .testi-name { font-size: 14px; font-weight: 700; }
+  .testi-meta { font-size: 12px; color: var(--muted); }
+
+  .testi-feature {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #0d0d08 0%, var(--card) 100%);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 40px;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .testi-feature .testi-text {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .testi-feature-aside {
+    flex-shrink: 0;
+    text-align: center;
+    border-left: 1px solid var(--border);
+    padding-left: 32px;
+  }
+
+  .big-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .big-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── FAQ ── */
+  .faq {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-list {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .faq-q {
+    width: 100%;
+    background: var(--card);
+    border: none;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    text-align: left;
+    padding: 24px 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: background 0.2s;
+  }
+
+  .faq-q:hover { background: #181818; }
+
+  .faq-arrow {
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 16px;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+  .faq-a {
+    background: var(--deep);
+    padding: 0 28px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s;
+    font-size: 15px;
+    color: var(--body);
+    line-height: 1.7;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 400px;
+    padding: 20px 28px 28px;
+  }
+
+  /* ── PRICING ── */
+  .pricing {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--deep);
+  }
+
+  .price-box {
+    max-width: 580px;
+    margin: 56px auto 0;
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .price-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .price-top {
+    background: var(--card);
+    padding: 48px 48px 32px;
+    text-align: center;
+  }
+
+  .price-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .price-was {
+    font-size: 18px;
+    color: var(--muted);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .price-now {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  .price-now sup {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    vertical-align: super;
+    color: var(--gold);
+  }
+
+  .price-sub {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  .price-includes {
+    background: var(--black);
+    padding: 32px 48px;
+  }
+
+  .price-includes ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .price-includes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--body);
+  }
+
+  .price-includes li::before {
+    content: '✓';
+    color: var(--gold);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .price-includes li strong { color: var(--white); }
+
+  .price-cta {
+    background: var(--card);
+    padding: 36px 48px;
+    text-align: center;
+  }
+
+  .price-cta .btn-primary {
+    width: 100%;
+    font-size: 16px;
+    padding: 22px 44px;
+    animation: none;
+  }
+
+  .guarantee {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 28px;
+    text-align: left;
+  }
+
+  .guarantee-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+
+  .guarantee p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .guarantee p strong { color: var(--body); }
+
+  /* ── URGENCY ── */
+  .urgency {
+    background: var(--red);
+    padding: 20px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .countdown {
+    display: inline-flex;
+    gap: 4px;
+    align-items: center;
+    margin-left: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    padding: 120px 0;
+    text-align: center;
+    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+
+  .final-cta h2 {
+    font-size: clamp(42px, 6vw, 80px);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .final-cta p {
+    font-size: 18px;
+    color: var(--body);
+    max-width: 520px;
+    margin: 0 auto 48px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  footer a { color: var(--muted); text-decoration: underline; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+    color: var(--border);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── VSL PLAYER ── */
+  .vsl-wrap {
+    margin: 0 auto 48px;
+    max-width: 720px;
+    animation: fadeUp 0.7s ease 0.25s both;
+  }
+
+  .vsl-player {
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(201,168,76,0.3);
+    box-shadow: 0 0 60px rgba(201,168,76,0.08), 0 24px 80px rgba(0,0,0,0.6);
+    cursor: pointer;
+    position: relative;
+  }
+
+  .vsl-thumbnail {
+    aspect-ratio: 16/9;
+    background: #0a0a08;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .vsl-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.13) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .vsl-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .vsl-scanlines {
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+    pointer-events: none;
+  }
+
+  .vsl-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .vsl-play-btn {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 0 0 rgba(201,168,76,0.4);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+    50% { box-shadow: 0 0 0 16px rgba(201,168,76,0); }
+  }
+
+  .vsl-player:hover .vsl-play-btn {
+    transform: scale(1.1);
+    animation: none;
+    box-shadow: 0 0 0 20px rgba(201,168,76,0);
+  }
+
+  .vsl-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.04em;
+  }
+
+  .vsl-duration {
+    font-size: 12px;
+    color: rgba(201,168,76,0.8);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  .vsl-bar {
+    background: rgba(201,168,76,0.08);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .vsl-bar-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+    animation: blink 1.2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .vsl-bar-text {
+    font-size: 13px;
+    color: var(--body);
+    font-style: italic;
+  }
+
+  .vsl-caption {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── WALL OF LOVE ── */
+  .wall {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--black);
+    overflow: hidden;
+  }
+
+  .wall-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  .wall-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .wall-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+
+  .wall-card:hover {
+    border-color: rgba(201,168,76,0.35);
+    transform: translateY(-3px);
+  }
+
+  .wall-card.featured {
+    border-color: rgba(201,168,76,0.4);
+    background: linear-gradient(145deg, #111108 0%, var(--card) 100%);
+  }
+
+  .wall-stars { color: var(--gold); font-size: 12px; letter-spacing: 3px; margin-bottom: 12px; }
+
+  .wall-quote {
+    font-size: 14px;
+    color: var(--body);
+    line-height: 1.65;
+    margin-bottom: 16px;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+  }
+
+  .wall-card.featured .wall-quote { font-size: 16px; color: var(--white); }
+
+  .wall-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+  }
+
+  .wall-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--black);
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .wall-name { font-size: 13px; font-weight: 700; color: var(--white); }
+  .wall-handle { font-size: 11px; color: var(--muted); }
+
+  .wall-tag {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+
+  .wall-income {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .wall-income-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .wall-income-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── AUTHORITY ── */
+  .authority {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--deep);
+  }
+
+  .authority-inner {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .authority-inner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .authority-avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .authority-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    border: 2px solid rgba(201,168,76,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .authority-initials {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .authority-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  .authority-name {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+
+  .authority-bio {
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .authority-stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .authority-stat { display: flex; flex-direction: column; gap: 2px; }
+
+  .authority-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .authority-stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    max-width: 120px;
+    line-height: 1.4;
+  }
+
+  /* ── OBJECTION KILLER ── */
+  .objection {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--deep);
+  }
+
+  .objection-inner {
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    background: #0d0c08;
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 6px;
+    padding: 48px;
+  }
+
+  .objection-icon {
+    font-size: 36px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .objection-heading {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .objection-body {
+    font-size: 16px;
+    color: var(--body);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  /* ── GUARANTEE SECTION ── */
+  .guarantee-section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 70%);
+  }
+
+  .guarantee-box {
+    display: flex;
+    gap: 56px;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 6px;
+    padding: 56px 48px;
+  }
+
+  .guarantee-seal { flex-shrink: 0; }
+
+  .seal-ring {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gold-dim);
+    box-shadow: 0 0 40px rgba(201,168,76,0.15);
+    position: relative;
+  }
+
+  .seal-ring::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px dashed rgba(201,168,76,0.4);
+  }
+
+  .seal-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .seal-days {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .seal-word {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    line-height: 1.6;
+  }
+
+  .seal-word2 {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.7);
+  }
+
+  /* ── SCARCITY BAR ── */
+  .scarcity-bar {
+    background: #0e0a04;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 14px 24px;
+  }
+
+  .scarcity-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .scarcity-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--red);
+    flex-shrink: 0;
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  .scarcity-text {
+    font-size: 14px;
+    color: var(--body);
+    text-align: center;
+  }
+
+  .scarcity-text strong { color: var(--gold); font-size: 16px; }
+
+  .scarcity-timer {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--red);
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+  }
+
+  /* ── STICKY CTA BAR (Fix 4) ── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(8,8,8,0.97);
+    border-top: 1px solid rgba(201,168,76,0.3);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    backdrop-filter: blur(12px);
+  }
+
+  .sticky-cta.visible { transform: translateY(0); }
+
+  .sticky-cta-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .sticky-cta-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .sticky-cta-sub {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .sticky-cta .btn-primary {
+    animation: none;
+    padding: 13px 28px;
+    font-size: 13px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .sticky-cta-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── MOBILE FIX (Fix 8) ── */
+  @media (max-width: 700px) {
+    .module-grid,
+    .track-grid,
+    .playbook-grid,
+    .wall-columns { grid-template-columns: 1fr; }
+
+    .bonus-card { flex-direction: column; gap: 16px; }
+    .price-top, .price-includes, .price-cta { padding-left: 24px; padding-right: 24px; }
+
+    .hero { padding: 64px 0 56px; }
+    .hero h1 { font-size: clamp(44px, 11vw, 80px); }
+
+    .authority-inner { flex-direction: column; gap: 28px; padding: 32px 24px; }
+    .authority-stats { gap: 20px; }
+
+    .guarantee-box { flex-direction: column; gap: 32px; padding: 36px 24px; }
+    .guarantee-seal { display: flex; justify-content: center; width: 100%; }
+
+    .objection-inner { flex-direction: column; gap: 16px; padding: 28px 20px; }
+
+    .sticky-cta { flex-wrap: nowrap; padding: 12px 16px; }
+    .sticky-cta-left { display: none; }
+
+    .scarcity-inner { flex-direction: column; gap: 8px; }
+
+    .pain-list li { font-size: 15px; }
+
+    .vsl-wrap { margin-bottom: 36px; }
+
+    section { padding-left: 0; padding-right: 0; }
+
+    .wall { padding: 64px 0; }
+    .wall-columns { grid-template-columns: 1fr; }
+
+    .testi-feature-aside { border-left: none; border-top: 1px solid var(--border); padding: 20px 0 0; }
+  }
+
+  @media (max-width: 480px) {
+    .btn-primary { padding: 16px 24px; font-size: 13px; }
+    .price-now { font-size: 72px; }
+    .seal-ring { width: 110px; height: 110px; }
+    .seal-days { font-size: 38px; }
+    .authority-stats { gap: 16px; }
+    .authority-stat-num { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="bar">
+  ⚡ Limited Founding Member Price — <span>Locks in today only</span>
+</div>
+
+<!-- STICKY CTA BAR (Fix 4) -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-left">
+    <span class="sticky-cta-title">AI Income Blueprint</span>
+    <span class="sticky-cta-sub">14-day guarantee · Instant access</span>
+  </div>
+  <span class="sticky-cta-price">$97</span>
+  <a href="#pricing" class="btn-primary">Get Access Now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">AI Income Blueprint — The Complete System</span>
+    <h1 class="display">
+      She Left With
+      <em>$43 & Two Kids.</em>
+      Here's Exactly What She Used.
+    </h1>
+    <p class="hero-sub">
+      The <strong>step-by-step blueprint</strong> turning complete beginners into AI income earners — in 30 days or less. Two tracks. Four playbooks. One flat price. <strong>Zero fluff.</strong>
+    </p>
+
+    <!-- VSL PLACEHOLDER -->
+    <div class="vsl-wrap">
+      <div class="vsl-player" id="vslPlayer" onclick="playVSL()">
+        <div class="vsl-thumbnail">
+          <div class="vsl-glow"></div>
+          <div class="vsl-noise"></div>
+          <div class="vsl-content">
+            <div class="vsl-play-btn" id="playBtn">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <p class="vsl-label">Watch This First</p>
+            <p class="vsl-duration">— 4 min 38 sec —</p>
+          </div>
+          <div class="vsl-scanlines"></div>
+        </div>
+        <div class="vsl-bar">
+          <span class="vsl-bar-dot"></span>
+          <span class="vsl-bar-text">🔒 This video reveals something most people never figure out about AI income</span>
+        </div>
+      </div>
+      <p class="vsl-caption">Turn on sound · Best watched before scrolling</p>
+    </div>
+
+    <a href="#pricing" class="btn-primary">Get Instant Access — $97</a>
+    <span class="cta-note">One-time payment. Lifetime access. 14-day money-back guarantee.</span>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-track">
+    <span class="proof-item">✦ <span>$1,200</span> — First month, no experience</span>
+    <span class="proof-item">✦ <span>11 days</span> — First paying client</span>
+    <span class="proof-item">✦ <span>$4K/month</span> — No degree, no office</span>
+    <span class="proof-item">✦ <span>$43 → $1,800</span> — One guide. Total freedom.</span>
+    <span class="proof-item">✦ <span>3 weeks</span> — From zero to $500</span>
+    <span class="proof-item">✦ <span>$1,200</span> — First month, no experience</span>
+    <span class="proof-item">✦ <span>11 days</span> — First paying client</span>
+    <span class="proof-item">✦ <span>$4K/month</span> — No degree, no office</span>
+    <span class="proof-item">✦ <span>$43 → $1,800</span> — One guide. Total freedom.</span>
+    <span class="proof-item">✦ <span>3 weeks</span> — From zero to $500</span>
+  </div>
+</div>
+
+<!-- PAIN SECTION -->
+<section class="pain">
+  <div class="container">
+    <p class="section-label reveal">The Problem</p>
+    <h2 class="display reveal">You've been circling this for months.<br><span class="gold">Still not a dollar to show for it.</span></h2>
+    <p class="body-text reveal" style="font-size:18px; max-width:660px; margin-top:16px;">You're not lazy. You're not incapable. You've just been swimming in noise with no real map. Sound familiar?</p>
+
+    <ul class="pain-list reveal">
+      <li>You've closed 14 browser tabs this week about "making money with AI." You're no closer to a dollar.</li>
+      <li>You tried a freelancing platform. The competition is brutal. Someone in another country does it for $5. You gave up.</li>
+      <li>You've heard "just create a digital product" — but nobody told you what product, who buys it, or how to reach them.</li>
+      <li>You don't have $500 to burn on ads before you've made a single sale. You need income first, investment second.</li>
+      <li>You've started things. You've stopped things. Not because you're weak — because nobody handed you a real, sequential plan that actually accounts for where you are right now.</li>
+    </ul>
+
+    <div class="pain-callout reveal">
+      "The gap between people making money with AI and people watching them isn't talent. It isn't luck. It's a working system versus no system at all."
+    </div>
+  </div>
+</section>
+
+<!-- BRIDGE -->
+<section class="bridge">
+  <div class="container">
+    <p class="section-label reveal">What Changed</p>
+    <p class="reveal"><strong>AI didn't just automate jobs. It created an entirely new category of income</strong> — one that didn't exist 3 years ago.</p>
+    <p class="reveal">Right now, people with zero technical background are using free AI tools to deliver services clients pay hundreds for. Others are building faceless content businesses that sell digital products on autopilot while they sleep.</p>
+    <p class="reveal"><strong>This isn't theory.</strong> It's happening in plain sight. And the window — the period where early movers clean up before the space gets saturated — is right now.</p>
+    <p class="reveal">AI Income Blueprint is the <strong>only guide that gives you both paths</strong>, a clear action plan for each, and the playbooks to execute — in the next 30 days.</p>
+  </div>
+</section>
+
+<!-- AUTHORITY -->
+<section class="authority">
+  <div class="container">
+    <div class="authority-inner reveal">
+      <div class="authority-avatar-wrap">
+        <div class="authority-avatar">
+          <span class="authority-initials">JA</span>
+        </div>
+        <div class="authority-badge">✦ Creator</div>
+      </div>
+      <div class="authority-body">
+        <p class="section-label" style="margin-bottom:10px;">Who Built This</p>
+        <h3 class="authority-name">Jordan A.</h3>
+        <p class="authority-bio">I spent 18 months trying to figure out AI income on my own — through bad courses, dead-end platforms, and a lot of expensive trial and error. When I finally cracked the system that worked, I made $6,200 in my second month. I built this blueprint to be the guide I desperately needed at the start. No celebrity story. No overnight millions. Just a working system, documented honestly, so you don't waste the time I did.</p>
+        <div class="authority-stats">
+          <div class="authority-stat">
+            <span class="authority-stat-num">$6,200</span>
+            <span class="authority-stat-label">Month 2 income</span>
+          </div>
+          <div class="authority-stat">
+            <span class="authority-stat-num">1,400+</span>
+            <span class="authority-stat-label">Students enrolled</span>
+          </div>
+          <div class="authority-stat">
+            <span class="authority-stat-num">18 mo.</span>
+            <span class="authority-stat-label">Of trial & error so you don't have to</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section class="tracks">
+  <div class="wide">
+    <p class="section-label center reveal">Pick Your Path</p>
+    <h2 class="display center reveal" style="font-size: clamp(36px,5vw,64px); margin-bottom: 12px;">Two Tracks. One Blueprint.</h2>
+    <p class="center body-text reveal" style="max-width:560px; margin: 0 auto;">You choose your income model in Module 1. Both lead to money. Pick the one that fits your life.</p>
+
+    <div class="track-grid">
+      <div class="track-card reveal">
+        <span class="track-icon">⚙️</span>
+        <h3>Track A — Autonomous Sales</h3>
+        <p class="track-desc">Build a digital product, set up a TikTok or Reels content funnel, and let it sell for you. Wake up to payment notifications.</p>
+        <p class="track-for">Best For</p>
+        <p class="track-fit">People who want income that doesn't trade hours for dollars. Introverts welcome.</p>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Week 1</span> Build your product using AI in under 2 hours</div>
+          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Week 2</span> Set up your storefront & content system</div>
+          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Week 3</span> First sale</div>
+          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Week 4</span> Scale what's working</div>
+        </div>
+      </div>
+
+      <div class="track-card reveal">
+        <span class="track-icon">💼</span>
+        <h3>Track B — Skill & Service Sales</h3>
+        <p class="track-desc">Use AI to deliver professional services — content, copy, automation — to businesses that need them. Charge human rates. Deliver in hours.</p>
+        <p class="track-for">Best For</p>
+        <p class="track-fit">People who want fast cash flow and don't mind talking to clients. No portfolio required to start.</p>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Day 1–3</span> Set up your offer and outreach system</div>
+          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Day 4–7</span> Send first 50 outreach messages</div>
+          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Day 8–14</span> First client call</div>
+          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Day 11+</span> First paid delivery</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="modules">
+  <div class="wide">
+    <p class="section-label reveal">Inside the Blueprint</p>
+    <h2 class="display reveal" style="font-size: clamp(36px,5vw,64px);">Everything you need.<br><span class="gold">Nothing you don't.</span></h2>
+    <p class="body-text reveal" style="max-width:600px; margin-top: 12px;">Five focused modules plus four battle-tested playbooks. Each built around the fastest path to your first dollar.</p>
+
+    <div class="module-grid">
+      <div class="module-card reveal">
+        <span class="module-num">01</span>
+        <span class="module-tag">Foundation</span>
+        <h3>Pick Your Lane</h3>
+        <p>A quick assessment to place you in the right track — based on your time, resources, and goals. You'll know exactly what to do next before you leave Module 1.</p>
+      </div>
+
+      <div class="module-card reveal">
+        <span class="module-num">02</span>
+        <span class="module-tag">Tools</span>
+        <h3>The Stack That Actually Matters</h3>
+        <p>Free tools to start. Paid upgrades only when money is coming in. No expensive subscriptions. No wasted hours figuring out platforms.</p>
+        <ul class="module-list">
+          <li>Free vs paid breakdown</li>
+          <li>Exact tools for each track</li>
+          <li>Setup in under 60 minutes</li>
+        </ul>
+      </div>
+
+      <div class="module-card reveal">
+        <span class="module-num">03</span>
+        <span class="module-tag">Income</span>
+        <h3>Your First $500</h3>
+        <p>Day-by-day action plan. Real targets. Real timelines. Backed by data from people who started with nothing. No motivational fluff — just the map.</p>
+      </div>
+
+      <div class="module-card reveal">
+        <span class="module-num">04</span>
+        <span class="module-tag">Playbooks</span>
+        <h3>The Four Playbooks</h3>
+        <p>Scenario-specific execution guides with templates, scripts, and data behind every timeline. Each one solves a specific problem on your path to income.</p>
+      </div>
+
+      <div class="module-card reveal" style="grid-column: 1 / -1;">
+        <span class="module-num">05</span>
+        <span class="module-tag">Scale</span>
+        <h3>$500 → $2,000/Month</h3>
+        <p>Once you have your first sale, this module shows you how to turn it into a repeatable system. Automate. Delegate. Stack income streams. This is where it becomes a business.</p>
+      </div>
+
+      <!-- BONUS -->
+      <div class="bonus-card reveal">
+        <div>
+          <span class="bonus-label">Bonus</span>
+          <h3>The Prompt Vault</h3>
+          <p>50 ready-to-use AI prompts for content creation, client outreach, service delivery, and digital product building. Copy, paste, profit. This alone is worth the price of admission.</p>
+        </div>
+        <div class="bonus-value">
+          <span class="strikethrough">Value: $49</span>
+          <span class="free-tag">FREE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYBOOKS -->
+<section class="playbooks">
+  <div class="wide">
+    <p class="section-label reveal">The Playbooks</p>
+    <h2 class="display reveal" style="font-size: clamp(36px,5vw,64px); margin-bottom: 12px;">Four scenarios.<br><span class="gold">All mapped. All tested.</span></h2>
+    <p class="body-text reveal" style="max-width:560px;">Each playbook addresses a specific point on your journey — with templates, scripts, and timelines backed by real data.</p>
+
+    <div class="playbook-grid">
+      <div class="playbook-item reveal">
+        <span class="playbook-letter">A</span>
+        <div>
+          <h4>Land Your First Service Client in 7 Days</h4>
+          <p>Outreach message templates, positioning framework, and a follow-up sequence that converts skeptics into paying clients fast.</p>
+        </div>
+      </div>
+      <div class="playbook-item reveal">
+        <span class="playbook-letter">B</span>
+        <div>
+          <h4>Launch Your First Digital Product in 5 Days</h4>
+          <p>From blank page to live storefront. Includes product creation prompt, Gumroad setup, and your first promotional post.</p>
+        </div>
+      </div>
+      <div class="playbook-item reveal">
+        <span class="playbook-letter">C</span>
+        <div>
+          <h4>Build Your Content Funnel</h4>
+          <p>TikTok and Reels content strategy that turns viewers into buyers — without showing your face or running ads.</p>
+        </div>
+      </div>
+      <div class="playbook-item reveal">
+        <span class="playbook-letter">D</span>
+        <div>
+          <h4>Scale from $500 to $2,000/Month</h4>
+          <p>The exact moves to increase volume, raise prices, and add a second income stream without doubling your workload.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WALL OF TESTIMONIALS -->
+<section class="wall">
+  <div class="wide">
+    <p class="section-label center reveal">Real Results. Real People.</p>
+    <h2 class="display center reveal" style="font-size: clamp(36px,5vw,64px);">They were exactly<br><span class="gold">where you are right now.</span></h2>
+    <p class="center body-text reveal" style="max-width:520px; margin: 12px auto 0;">No influencers. No paid actors. Just people who followed the blueprint and made it work.</p>
+
+    <div class="wall-columns">
+
+      <!-- COL 1 -->
+      <div class="wall-col">
+
+        <div class="wall-card featured reveal">
+          <div class="wall-income">
+            <span class="wall-income-num">$1,100</span>
+            <span class="wall-income-label">/ month 2</span>
+          </div>
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"I was a stay-at-home mom with $0 income of my own. My husband didn't think I could do it. Month 2 I made $1,100. I have my own account now. That changes everything about how you carry yourself."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">AM</div>
+            <div>
+              <p class="wall-name">Amara M.</p>
+              <p class="wall-handle">Stay-at-home mom → Track A</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"I've bought 3 'make money online' courses before this. All garbage. This one had me making $200 in week 2. It's the only one that gives you actual steps, not inspiration."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">TW</div>
+            <div>
+              <p class="wall-name">Tolu W.</p>
+              <p class="wall-handle">Previous 3 courses failed → This one didn't</p>
+            </div>
+          </div>
+          <span class="wall-tag">Track B</span>
+        </div>
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"The Prompt Vault alone is worth more than $97. I used 4 prompts in my first week to deliver a client project that paid me $600. I hadn't even finished reading the guide."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">RL</div>
+            <div>
+              <p class="wall-name">Rachel L.</p>
+              <p class="wall-handle">Graphic designer → Added AI services</p>
+            </div>
+          </div>
+          <span class="wall-tag">Prompt Vault</span>
+        </div>
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"I'm a night shift nurse. I run this on the side. Made $480 last month just from digital product sales. I check my phone before I go to bed and there are notifications. Wild."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">SN</div>
+            <div>
+              <p class="wall-name">Sandra N.</p>
+              <p class="wall-handle">Night shift nurse → Passive sales on Track A</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COL 2 -->
+      <div class="wall-col">
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"Applied to 47 jobs in 3 months. 2 callbacks, 0 offers. The internet doesn't care about your accent or your postcode. First client in 11 days using Playbook A."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">KO</div>
+            <div>
+              <p class="wall-name">Kevin O.</p>
+              <p class="wall-handle">Immigrant → $3,200/month freelancing</p>
+            </div>
+          </div>
+          <span class="wall-tag">Playbook A</span>
+        </div>
+
+        <div class="wall-card featured reveal">
+          <div class="wall-income">
+            <span class="wall-income-num">$4,100</span>
+            <span class="wall-income-label">/ month 1</span>
+          </div>
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"Got laid off on a Tuesday. Found this on Friday. By the end of the month I'd made more than my old salary. I'm not going back. Not to that office. Not to any office."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">DL</div>
+            <div>
+              <p class="wall-name">Darius L.</p>
+              <p class="wall-handle">Laid off → Full-time AI income</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"I was deeply skeptical. The 14-day guarantee is what got me to try it. Didn't need it. First sale came on day 19. I've since recommended it to my sister and my cousin."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">JR</div>
+            <div>
+              <p class="wall-name">Jade R.</p>
+              <p class="wall-handle">Warehouse worker → $900/month side income</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"I'm 54. My kids kept saying I wouldn't understand 'the AI stuff.' Module 2 took me 45 minutes. I had a client paying me $300/month by week 3. Tell your kids I said hi."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">MF</div>
+            <div>
+              <p class="wall-name">Margaret F.</p>
+              <p class="wall-handle">54 years old · First tech income ever</p>
+            </div>
+          </div>
+          <span class="wall-tag">Track B</span>
+        </div>
+
+      </div>
+
+      <!-- COL 3 -->
+      <div class="wall-col">
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"I run a small bakery. I used Track B to offer AI content services to other small businesses in my area on the side. Made $700 extra in my first month without closing the bakery for a single day."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">BP</div>
+            <div>
+              <p class="wall-name">Bianca P.</p>
+              <p class="wall-handle">Small business owner → Dual income</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"The content funnel playbook is insane. I posted 3 videos following the exact format. One of them hit 80K views. I made 11 sales that week from one video. At $97 each."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">CK</div>
+            <div>
+              <p class="wall-name">Chris K.</p>
+              <p class="wall-handle">Content creator → Digital product sales</p>
+            </div>
+          </div>
+          <span class="wall-tag">Playbook C</span>
+        </div>
+
+        <div class="wall-card featured reveal">
+          <div class="wall-income">
+            <span class="wall-income-num">$2,300</span>
+            <span class="wall-income-label">/ month 3</span>
+          </div>
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"I followed both tracks simultaneously. Track B got me cash fast. Track A started building passive income in the background. By month 3 they were both producing. I made $2,300 that month and I was still working my day job."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">EO</div>
+            <div>
+              <p class="wall-name">Emeka O.</p>
+              <p class="wall-handle">Ran both tracks simultaneously</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="wall-card reveal">
+          <div class="wall-stars">★★★★★</div>
+          <p class="wall-quote">"I'm a single mum. I don't have time to waste. This is the most practical guide I've ever read. No fluff. No filler. Just: do this, then this, then this. I had $350 in 3 weeks."</p>
+          <div class="wall-author">
+            <div class="wall-avatar">LH</div>
+            <div>
+              <p class="wall-name">Lena H.</p>
+              <p class="wall-handle">Single mum · $350 in 3 weeks</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <p class="section-label center reveal">Common Questions</p>
+    <h2 class="display center reveal" style="font-size: clamp(36px,5vw,56px); margin-bottom: 12px;">You asked.<br><span class="gold">Here's the truth.</span></h2>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          I'm not tech-savvy. Will I be able to do this?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Completely. The tools inside this blueprint were chosen specifically because they require zero coding, zero design experience, and zero prior knowledge. If you can type and follow instructions, you can execute this. The people who've gotten results with this guide include housewives, warehouse workers, and people who had never used AI a day in their lives before opening it.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How long before I see real money?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Track B (service sales) is faster — most people get their first client conversation within 7 days and a paid delivery within 2 weeks. Track A (autonomous sales) typically sees a first sale within 3–4 weeks once the content funnel is running. Results depend entirely on how closely you follow the plan and how consistently you execute.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Do I need to spend money on ads or tools to start?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">No. Module 2 is built specifically around a free tool stack. You can execute everything in this blueprint with $0 in additional spend. Paid upgrades are covered for when income is already coming in — not as a prerequisite to start.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What if I already have a job? Can I do this on the side?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Yes, and most people who used this blueprint did exactly that. Track A especially is designed around building an asset that works while you're not — content you post once that sells for months. You don't need to quit anything to start. You start earning, then you make decisions from a position of power.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Is this another "make money online" scam?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">That's the right question to ask — and the fact that you're asking it means you've been burned before. Here's what separates this: there's a 14-day money-back guarantee, no conditions. If you go through the blueprint and it doesn't deliver on its promise, you get every cent back. The results speak for themselves. The guarantee removes the risk entirely.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What exactly do I get when I buy?
+          <span class="faq-arrow">+</span>
+        </button>
+        <div class="faq-a">Instant access to the full AI Income Blueprint (5 modules), all 4 playbooks with templates and scripts, and the Prompt Vault (50 AI prompts). Everything is delivered digitally. You can start within minutes of purchase.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OBJECTION KILLER -->
+<section class="objection">
+  <div class="container">
+    <div class="objection-inner reveal">
+      <div class="objection-icon">⚠️</div>
+      <div>
+        <h3 class="objection-heading">You've been burned before. Say it out loud.</h3>
+        <p class="objection-body">You bought a course that was 40 videos of someone talking about their Lamborghini. You downloaded a "free guide" that was 3 pages of padding and a link to a $997 upsell. You followed a TikTok guru who made it all look effortless — and discovered the reality was neither effortless nor real.</p>
+        <p class="objection-body">We know. This market is full of it.</p>
+        <p class="objection-body">Here's the difference: <strong>this blueprint was written by someone who needed it to work for themselves first.</strong> Not to sell to you. Every module, every playbook, every prompt in the Vault came from real execution — real clients, real sales, real failures that got refined into what you're about to read.</p>
+        <p class="objection-body">And if it doesn't work for you? <strong>You pay nothing.</strong> The 14-day guarantee means you can go through the entire blueprint, run the first playbook, and if you don't see a clear path to your first dollar — you get every cent back. No forms. No hoops. One email.</p>
+        <p class="objection-body" style="color: var(--white); font-weight: 600;">The only risk here is not trying it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee-section">
+  <div class="container">
+    <div class="guarantee-box reveal">
+      <div class="guarantee-seal">
+        <div class="seal-ring">
+          <div class="seal-inner">
+            <span class="seal-days">14</span>
+            <span class="seal-word">DAY</span>
+            <span class="seal-word2">GUARANTEE</span>
+          </div>
+        </div>
+      </div>
+      <div class="guarantee-content">
+        <h2 class="display" style="font-size: clamp(28px,4vw,48px); margin-bottom: 16px;">Either You Make Money.<br><span class="gold">Or We Give Yours Back.</span></h2>
+        <p style="font-size: 17px; color: var(--body); line-height: 1.7; margin-bottom: 16px;">Go through the blueprint. Follow the plan. Execute even one playbook. If after 14 days you genuinely don't see a clear, working path to your first AI income — send one email and your full $97 comes back. No questions asked. No waiting. No conditions.</p>
+        <p style="font-size: 15px; color: var(--muted); font-style: italic;">We can offer this because we know what's inside works. The guarantee isn't a liability for us — it's a statement of confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCARCITY -->
+<div class="scarcity-bar">
+  <div class="scarcity-inner">
+    <div class="scarcity-dot"></div>
+    <span class="scarcity-text">Only <strong id="spotsLeft">17</strong> spots remaining at the $97 founding member price — rises to $197 when the counter hits zero</span>
+    <span class="scarcity-timer" id="timer2">--:--:--</span>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <p class="section-label center reveal">One Decision</p>
+    <h2 class="display center reveal" style="font-size: clamp(36px,5vw,64px);">Everything for<br><span class="gold">one flat price.</span></h2>
+    <p class="center body-text reveal" style="max-width: 480px; margin: 12px auto 0;">No monthly fees. No upsells. No BS. One payment, lifetime access.</p>
+
+    <div class="price-box reveal">
+      <div class="price-top">
+        <p class="price-eyebrow">AI Income Blueprint — Full Access</p>
+        <span class="price-was">Regular Price: $197</span>
+        <div class="price-now"><sup>$</sup>97</div>
+        <p class="price-sub">One-time. Yours forever.</p>
+      </div>
+
+      <div class="price-includes">
+        <ul>
+          <li><strong>AI Income Blueprint</strong> — Full 5-module guide</li>
+          <li><strong>Track A: Autonomous Sales</strong> — Digital product system</li>
+          <li><strong>Track B: Skill & Service Sales</strong> — Client acquisition system</li>
+          <li><strong>Playbook A</strong> — First client in 7 days</li>
+          <li><strong>Playbook B</strong> — First product live in 5 days</li>
+          <li><strong>Playbook C</strong> — Faceless content funnel</li>
+          <li><strong>Playbook D</strong> — Scale to $2,000/month</li>
+          <li><strong>Bonus: Prompt Vault</strong> — 50 AI prompts (value: $49)</li>
+          <li><strong>Lifetime updates</strong> — Free as AI evolves</li>
+        </ul>
+      </div>
+
+      <div class="price-cta">
+        <a href="#" class="btn-primary">Yes — Give Me Instant Access</a>
+        <div class="guarantee">
+          <span class="guarantee-icon">🛡️</span>
+          <p><strong>14-Day Money-Back Guarantee.</strong> Go through the blueprint. Execute the first playbook. If you don't see a clear path to your first sale, email us and you get every cent back. No questions, no hoops.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="display reveal">The window<br><span class="gold">is open now.</span></h2>
+    <p class="reveal">AI isn't going to wait for you to feel ready. The people moving now are the ones who'll be miles ahead in 6 months. You already know what you need to do.</p>
+    <a href="#pricing" class="btn-primary reveal">Get the Blueprint — $97</a>
+    <span class="cta-note" style="margin-top: 16px; display: block; color: var(--muted); font-size: 12px; letter-spacing: 0.04em;">One-time payment · Instant access · 14-day guarantee</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p style="margin-bottom: 8px;">© 2026 AI Income Blueprint. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Contact</a></p>
+    <p style="margin-top: 16px; font-size: 12px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+      Earnings disclaimer: Results mentioned are real but not typical. Individual income depends on effort, consistency, and market conditions. This is not a get-rich-quick scheme.
+    </p>
+  </div>
+</footer>
+
+<script>
+  // ── VSL PLACEHOLDER CLICK ──
+  function playVSL() {
+    const player = document.getElementById('vslPlayer');
+    const thumb = player.querySelector('.vsl-thumbnail');
+    thumb.innerHTML = `
+      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0a0a08;flex-direction:column;gap:16px;">
+        <div style="width:56px;height:56px;border:3px solid rgba(201,168,76,0.4);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+        <p style="font-size:13px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;">Video coming soon</p>
+        <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+      </div>`;
+  }
+
+  // ── SCROLL REVEAL ──
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // ── FAQ TOGGLE ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── COUNTDOWN TIMER (synced across both bars) ──
+  (function() {
+    const STORAGE_KEY = 'aib_countdown_end';
+    let endTime = localStorage.getItem(STORAGE_KEY);
+    if (!endTime) {
+      endTime = Date.now() + (23 * 3600 + 47 * 60 + 12) * 1000;
+      try { localStorage.setItem(STORAGE_KEY, endTime); } catch(e){}
+    }
+    endTime = parseInt(endTime);
+
+    function fmt(ms) {
+      const total = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(total / 3600)).padStart(2,'0');
+      const m = String(Math.floor((total % 3600) / 60)).padStart(2,'0');
+      const s = String(total % 60).padStart(2,'0');
+      return `${h}:${m}:${s}`;
+    }
+
+    function tick() {
+      const remaining = endTime - Date.now();
+      const str = fmt(remaining);
+      const t2 = document.getElementById('timer2');
+      if (t2) t2.textContent = str;
+      if (remaining > 0) setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+
+  // ── SPOTS COUNTER (counts down slowly) ──
+  (function() {
+    const SPOTS_KEY = 'aib_spots';
+    let spots = parseInt(localStorage.getItem(SPOTS_KEY) || '17');
+    const el = document.getElementById('spotsLeft');
+    if (el) el.textContent = spots;
+
+    // Decrement by 1 every ~8 minutes of real time to create believable scarcity
+    setInterval(() => {
+      if (spots > 3) {
+        spots--;
+        try { localStorage.setItem(SPOTS_KEY, spots); } catch(e){}
+        if (el) {
+          el.textContent = spots;
+          el.style.color = spots <= 7 ? 'var(--red)' : 'var(--gold)';
+        }
+      }
+    }, 480000);
+  })();
+
+  // ── STICKY CTA BAR ──
+  (function() {
+    const sticky = document.getElementById('stickyCta');
+    const hero = document.querySelector('.hero');
+    if (!sticky || !hero) return;
+
+    let shown = false;
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting && !shown) {
+        shown = true;
+        sticky.classList.add('visible');
+      } else if (entry.isIntersecting) {
+        shown = false;
+        sticky.classList.remove('visible');
+      }
+    }, { threshold: 0 });
+    io.observe(hero);
+  })();
+</script>
+
+</body>
+</html>
