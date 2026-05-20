@@ -3,2299 +3,1779 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Income Blueprint — Your First Sale in 30 Days</title>
+<title>AI Income Blueprint — She Left With $43. Here's What She Used.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black: #080808;
-    --deep: #0e0e0e;
-    --card: #131313;
-    --border: #1e1e1e;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --gold-dim: rgba(201,168,76,0.12);
-    --red: #d94f3d;
-    --white: #f5f2ec;
-    --muted: #888;
-    --body: #bdb8b0;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ── NOISE OVERLAY ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.4;
-  }
-
-  /* ── TYPOGRAPHY ── */
-  .display {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.02em;
-    line-height: 0.95;
-  }
-
-  .serif { font-family: 'DM Serif Display', serif; }
-
-  /* ── UTILS ── */
-  .gold { color: var(--gold); }
-  .red { color: var(--red); }
-  .muted { color: var(--muted); }
-  .body-text { color: var(--body); }
-  .center { text-align: center; }
-  .italic { font-style: italic; }
-
-  section { position: relative; }
-
-  .container {
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .wide {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  /* ── ANNOUNCEMENT BAR ── */
-  .bar {
-    background: var(--gold);
-    color: var(--black);
-    text-align: center;
-    padding: 10px 20px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .bar span { text-decoration: underline; }
-
-  /* ── HERO ── */
-  .hero {
-    padding: 100px 0 80px;
-    text-align: center;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .hero-eyebrow {
-    display: inline-block;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 6px 18px;
-    border-radius: 2px;
-    margin-bottom: 32px;
-    animation: fadeUp 0.6s ease both;
-  }
-
-  .hero h1 {
-    font-size: clamp(52px, 9vw, 110px);
-    line-height: 0.9;
-    margin-bottom: 28px;
-    animation: fadeUp 0.7s ease 0.1s both;
-  }
-
-  .hero h1 em {
-    font-family: 'DM Serif Display', serif;
-    font-style: italic;
-    color: var(--gold);
-    display: block;
-  }
-
-  .hero-sub {
-    font-size: clamp(16px, 2.2vw, 20px);
-    color: var(--body);
-    max-width: 580px;
-    margin: 0 auto 48px;
-    animation: fadeUp 0.7s ease 0.2s both;
-  }
-
-  .hero-sub strong { color: var(--white); font-weight: 600; }
-
-  /* ── CTA BUTTON ── */
-  .btn-primary {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--black);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 800;
-    font-size: 15px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 18px 44px;
-    border-radius: 2px;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    animation: fadeUp 0.7s ease 0.3s both;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-primary::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.2) 50%, transparent 70%);
-    transform: translateX(-100%);
-    transition: transform 0.5s;
-  }
-
-  .btn-primary:hover::after { transform: translateX(100%); }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-
-  .btn-ghost {
-    display: inline-block;
-    border: 1px solid var(--border);
-    color: var(--body);
-    font-size: 14px;
-    text-decoration: none;
-    padding: 14px 36px;
-    border-radius: 2px;
-    transition: border-color 0.2s, color 0.2s;
-  }
-
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-  .cta-note {
-    display: block;
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 14px;
-    letter-spacing: 0.04em;
-  }
-
-  /* ── SOCIAL PROOF STRIP ── */
-  .proof-strip {
-    background: var(--deep);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 20px 0;
-    overflow: hidden;
-  }
-
-  .proof-track {
-    display: flex;
-    gap: 60px;
-    animation: scroll 25s linear infinite;
-    white-space: nowrap;
-  }
-
-  .proof-item {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    flex-shrink: 0;
-  }
-
-  .proof-item span { color: var(--gold); }
-
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* ── SECTION HEADERS ── */
-  .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-  }
-
-  /* ── PAIN SECTION ── */
-  .pain {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .pain h2 {
-    font-size: clamp(36px, 5vw, 58px);
-    line-height: 1.1;
-    margin-bottom: 32px;
-  }
-
-  .pain-list {
-    list-style: none;
-    margin: 40px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .pain-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    color: var(--body);
-    font-size: 17px;
-    padding: 18px 24px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--red);
-    border-radius: 2px;
-  }
-
-  .pain-list li::before {
-    content: '✕';
-    color: var(--red);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .pain-callout {
-    background: var(--gold-dim);
-    border: 1px solid rgba(201,168,76,0.25);
-    border-radius: 2px;
-    padding: 28px 32px;
-    font-size: 18px;
-    font-style: italic;
-    color: var(--white);
-    font-family: 'DM Serif Display', serif;
-    margin-top: 40px;
-  }
-
-  /* ── STORY BRIDGE ── */
-  .bridge {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--border);
-    background: radial-gradient(ellipse 60% 50% at 50% 100%, rgba(201,168,76,0.05) 0%, transparent 70%);
-  }
-
-  .bridge p {
-    font-size: 18px;
-    color: var(--body);
-    margin-bottom: 20px;
-    max-width: 680px;
-  }
-
-  .bridge p strong { color: var(--white); }
-
-  /* ── WHAT YOU GET ── */
-  .modules {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .modules h2 {
-    font-size: clamp(36px, 5vw, 58px);
-    margin-bottom: 12px;
-  }
-
-  .module-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    margin-top: 56px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-
-  .module-card {
-    background: var(--card);
-    padding: 36px 32px;
-    border: 1px solid var(--border);
-    position: relative;
-    transition: background 0.2s;
-  }
-
-  .module-card:hover { background: #181818; }
-
-  .module-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 64px;
-    line-height: 1;
-    color: var(--border);
-    position: absolute;
-    top: 16px;
-    right: 24px;
-    letter-spacing: 0.02em;
-    transition: color 0.2s;
-  }
-
-  .module-card:hover .module-num { color: var(--gold-dim); }
-
-  .module-tag {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  .module-card h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
-
-  .module-card p {
-    font-size: 14px;
-    color: var(--body);
-    line-height: 1.6;
-  }
-
-  .module-list {
-    list-style: none;
-    margin-top: 12px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .module-list li {
-    font-size: 13px;
-    color: var(--body);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-  }
-
-  .module-list li::before {
-    content: '→';
-    color: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .bonus-card {
-    margin-top: 2px;
-    background: linear-gradient(135deg, #131208 0%, var(--card) 100%);
-    border: 1px solid rgba(201,168,76,0.3);
-    padding: 36px 32px;
-    border-radius: 2px;
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-  }
-
-  .bonus-label {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--black);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 2px;
-    margin-bottom: 12px;
-  }
-
-  .bonus-card h3 { font-size: 22px; margin-bottom: 8px; }
-  .bonus-card p { font-size: 14px; color: var(--body); max-width: 500px; }
-
-  .bonus-value {
-    text-align: center;
-    flex-shrink: 0;
-  }
-
-  .bonus-value .strikethrough {
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: line-through;
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  .bonus-value .free-tag {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 42px;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  /* ── TRACKS ── */
-  .tracks {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
-    background: var(--deep);
-  }
-
-  .track-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 56px;
-  }
-
-  .track-card {
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 40px 36px;
-    background: var(--card);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .track-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--gold);
-  }
-
-  .track-icon {
-    font-size: 32px;
-    margin-bottom: 20px;
-    display: block;
-  }
-
-  .track-card h3 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 8px;
-  }
-
-  .track-card .track-desc {
-    font-size: 14px;
-    color: var(--body);
-    margin-bottom: 24px;
-  }
-
-  .track-card .track-for {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-
-  .track-card .track-fit {
-    font-size: 14px;
-    color: var(--muted);
-    font-style: italic;
-  }
-
-  .timeline {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .timeline-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    font-size: 13px;
-    color: var(--body);
-  }
-
-  .timeline-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .timeline-week {
-    font-weight: 700;
-    color: var(--white);
-    min-width: 56px;
-  }
-
-  /* ── PLAYBOOKS ── */
-  .playbooks {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .playbook-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-top: 56px;
-  }
-
-  .playbook-item {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 28px;
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    transition: border-color 0.2s;
-  }
-
-  .playbook-item:hover { border-color: rgba(201,168,76,0.4); }
-
-  .playbook-letter {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 48px;
-    color: var(--gold);
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  .playbook-item h4 { font-size: 16px; margin-bottom: 6px; }
-  .playbook-item p { font-size: 13px; color: var(--body); }
-
-  /* ── TESTIMONIALS ── */
-  .social {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%);
-  }
-
-  .testi-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 56px;
-  }
-
-  .testi-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 28px;
-  }
-
-  .testi-stars {
-    color: var(--gold);
-    font-size: 14px;
-    margin-bottom: 14px;
-    letter-spacing: 2px;
-  }
-
-  .testi-text {
-    font-size: 15px;
-    color: var(--body);
-    font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    font-family: 'DM Serif Display', serif;
-  }
-
-  .testi-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .testi-avatar {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .testi-name { font-size: 14px; font-weight: 700; }
-  .testi-meta { font-size: 12px; color: var(--muted); }
-
-  .testi-feature {
-    grid-column: 1 / -1;
-    background: linear-gradient(135deg, #0d0d08 0%, var(--card) 100%);
-    border: 1px solid rgba(201,168,76,0.25);
-    padding: 40px;
-    display: flex;
-    gap: 32px;
-    align-items: center;
-  }
-
-  .testi-feature .testi-text {
-    font-size: 20px;
-    margin-bottom: 0;
-  }
-
-  .testi-feature-aside {
-    flex-shrink: 0;
-    text-align: center;
-    border-left: 1px solid var(--border);
-    padding-left: 32px;
-  }
-
-  .big-number {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 64px;
-    color: var(--gold);
-    line-height: 1;
-    display: block;
-  }
-
-  .big-label {
-    font-size: 12px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  /* ── FAQ ── */
-  .faq {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .faq-list {
-    margin-top: 56px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .faq-item {
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .faq-q {
-    width: 100%;
-    background: var(--card);
-    border: none;
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 17px;
-    font-weight: 600;
-    text-align: left;
-    padding: 24px 28px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    transition: background 0.2s;
-  }
-
-  .faq-q:hover { background: #181818; }
-
-  .faq-arrow {
-    width: 24px;
-    height: 24px;
-    border: 1px solid var(--border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: var(--gold);
-    font-size: 16px;
-    transition: transform 0.3s;
-  }
-
-  .faq-item.open .faq-arrow { transform: rotate(45deg); }
-
-  .faq-a {
-    background: var(--deep);
-    padding: 0 28px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.3s;
-    font-size: 15px;
-    color: var(--body);
-    line-height: 1.7;
-  }
-
-  .faq-item.open .faq-a {
-    max-height: 400px;
-    padding: 20px 28px 28px;
-  }
-
-  /* ── PRICING ── */
-  .pricing {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
-    background: var(--deep);
-  }
-
-  .price-box {
-    max-width: 580px;
-    margin: 56px auto 0;
-    border: 1px solid rgba(201,168,76,0.4);
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .price-box::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .price-top {
-    background: var(--card);
-    padding: 48px 48px 32px;
-    text-align: center;
-  }
-
-  .price-eyebrow {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-
-  .price-was {
-    font-size: 18px;
-    color: var(--muted);
-    text-decoration: line-through;
-    margin-bottom: 4px;
-    display: block;
-  }
-
-  .price-now {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 96px;
-    color: var(--white);
-    line-height: 1;
-    letter-spacing: 0.02em;
-  }
-
-  .price-now sup {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 32px;
-    vertical-align: super;
-    color: var(--gold);
-  }
-
-  .price-sub {
-    font-size: 14px;
-    color: var(--muted);
-    margin-top: 8px;
-    font-style: italic;
-  }
-
-  .price-includes {
-    background: var(--black);
-    padding: 32px 48px;
-  }
-
-  .price-includes ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .price-includes li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 15px;
-    color: var(--body);
-  }
-
-  .price-includes li::before {
-    content: '✓';
-    color: var(--gold);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .price-includes li strong { color: var(--white); }
-
-  .price-cta {
-    background: var(--card);
-    padding: 36px 48px;
-    text-align: center;
-  }
-
-  .price-cta .btn-primary {
-    width: 100%;
-    font-size: 16px;
-    padding: 22px 44px;
-    animation: none;
-  }
-
-  .guarantee {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    margin-top: 28px;
-    text-align: left;
-  }
-
-  .guarantee-icon {
-    font-size: 32px;
-    flex-shrink: 0;
-  }
-
-  .guarantee p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.5;
-  }
-
-  .guarantee p strong { color: var(--body); }
-
-  /* ── URGENCY ── */
-  .urgency {
-    background: var(--red);
-    padding: 20px;
-    text-align: center;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-
-  .countdown {
-    display: inline-flex;
-    gap: 4px;
-    align-items: center;
-    margin-left: 8px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.1em;
-  }
-
-  /* ── FINAL CTA ── */
-  .final-cta {
-    padding: 120px 0;
-    text-align: center;
-    background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
-  }
-
-  .final-cta h2 {
-    font-size: clamp(42px, 6vw, 80px);
-    line-height: 1;
-    margin-bottom: 20px;
-  }
-
-  .final-cta p {
-    font-size: 18px;
-    color: var(--body);
-    max-width: 520px;
-    margin: 0 auto 48px;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 0;
-    text-align: center;
-    font-size: 13px;
-    color: var(--muted);
-  }
-
-  footer a { color: var(--muted); text-decoration: underline; }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* ── DIVIDER ── */
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 48px 0;
-    color: var(--border);
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-  }
-
-  .divider::before,
-  .divider::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-
-  /* ── VSL PLAYER ── */
-  .vsl-wrap {
-    margin: 0 auto 48px;
-    max-width: 720px;
-    animation: fadeUp 0.7s ease 0.25s both;
-  }
-
-  .vsl-player {
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid rgba(201,168,76,0.3);
-    box-shadow: 0 0 60px rgba(201,168,76,0.08), 0 24px 80px rgba(0,0,0,0.6);
-    cursor: pointer;
-    position: relative;
-  }
-
-  .vsl-thumbnail {
-    aspect-ratio: 16/9;
-    background: #0a0a08;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-
-  .vsl-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(201,168,76,0.13) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .vsl-noise {
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
-  .vsl-scanlines {
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
-    pointer-events: none;
-  }
-
-  .vsl-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .vsl-play-btn {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    background: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--black);
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 0 0 rgba(201,168,76,0.4);
-    animation: pulse 2.5s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
-    50% { box-shadow: 0 0 0 16px rgba(201,168,76,0); }
-  }
-
-  .vsl-player:hover .vsl-play-btn {
-    transform: scale(1.1);
-    animation: none;
-    box-shadow: 0 0 0 20px rgba(201,168,76,0);
-  }
-
-  .vsl-label {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: 0.04em;
-  }
-
-  .vsl-duration {
-    font-size: 12px;
-    color: rgba(201,168,76,0.8);
-    letter-spacing: 0.1em;
-    font-weight: 500;
-  }
-
-  .vsl-bar {
-    background: rgba(201,168,76,0.08);
-    border-top: 1px solid rgba(201,168,76,0.2);
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .vsl-bar-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--red);
-    flex-shrink: 0;
-    animation: blink 1.2s ease-in-out infinite;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
-  }
-
-  .vsl-bar-text {
-    font-size: 13px;
-    color: var(--body);
-    font-style: italic;
-  }
-
-  .vsl-caption {
-    font-size: 11px;
-    color: var(--muted);
-    text-align: center;
-    margin-top: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* ── WALL OF LOVE ── */
-  .wall {
-    padding: 100px 0;
-    border-bottom: 1px solid var(--border);
-    background: var(--black);
-    overflow: hidden;
-  }
-
-  .wall-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 56px;
-    align-items: start;
-  }
-
-  .wall-col {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .wall-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 24px;
-    transition: border-color 0.25s, transform 0.25s;
-  }
-
-  .wall-card:hover {
-    border-color: rgba(201,168,76,0.35);
-    transform: translateY(-3px);
-  }
-
-  .wall-card.featured {
-    border-color: rgba(201,168,76,0.4);
-    background: linear-gradient(145deg, #111108 0%, var(--card) 100%);
-  }
-
-  .wall-stars { color: var(--gold); font-size: 12px; letter-spacing: 3px; margin-bottom: 12px; }
-
-  .wall-quote {
-    font-size: 14px;
-    color: var(--body);
-    line-height: 1.65;
-    margin-bottom: 16px;
-    font-family: 'DM Serif Display', serif;
-    font-style: italic;
-  }
-
-  .wall-card.featured .wall-quote { font-size: 16px; color: var(--white); }
-
-  .wall-author {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-top: 1px solid var(--border);
-    padding-top: 14px;
-  }
-
-  .wall-avatar {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 800;
-    color: var(--black);
-    background: var(--gold);
-    flex-shrink: 0;
-  }
-
-  .wall-name { font-size: 13px; font-weight: 700; color: var(--white); }
-  .wall-handle { font-size: 11px; color: var(--muted); }
-
-  .wall-tag {
-    display: inline-block;
-    margin-top: 8px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.3);
-    padding: 3px 8px;
-    border-radius: 2px;
-  }
-
-  .wall-income {
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-    margin-bottom: 12px;
-  }
-
-  .wall-income-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .wall-income-label {
-    font-size: 12px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  /* ── AUTHORITY ── */
-  .authority {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--border);
-    background: var(--deep);
-  }
-
-  .authority-inner {
-    display: flex;
-    gap: 48px;
-    align-items: flex-start;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .authority-inner::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-  }
-
-  .authority-avatar-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-
-  .authority-avatar {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    background: var(--gold-dim);
-    border: 2px solid rgba(201,168,76,0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .authority-initials {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-  }
-
-  .authority-badge {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid rgba(201,168,76,0.3);
-    padding: 3px 10px;
-    border-radius: 2px;
-  }
-
-  .authority-name {
-    font-size: 26px;
-    font-weight: 800;
-    margin-bottom: 14px;
-  }
-
-  .authority-bio {
-    font-size: 16px;
-    color: var(--body);
-    line-height: 1.7;
-    margin-bottom: 28px;
-  }
-
-  .authority-stats {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-  }
-
-  .authority-stat { display: flex; flex-direction: column; gap: 2px; }
-
-  .authority-stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .authority-stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    max-width: 120px;
-    line-height: 1.4;
-  }
-
-  /* ── OBJECTION KILLER ── */
-  .objection {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--border);
-    background: var(--deep);
-  }
-
-  .objection-inner {
-    display: flex;
-    gap: 28px;
-    align-items: flex-start;
-    background: #0d0c08;
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 6px;
-    padding: 48px;
-  }
-
-  .objection-icon {
-    font-size: 36px;
-    flex-shrink: 0;
-    margin-top: 4px;
-  }
-
-  .objection-heading {
-    font-size: 22px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1.3;
-  }
-
-  .objection-body {
-    font-size: 16px;
-    color: var(--body);
-    line-height: 1.75;
-    margin-bottom: 16px;
-  }
-
-  /* ── GUARANTEE SECTION ── */
-  .guarantee-section {
-    padding: 80px 0;
-    border-bottom: 1px solid var(--border);
-    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 70%);
-  }
-
-  .guarantee-box {
-    display: flex;
-    gap: 56px;
-    align-items: center;
-    background: var(--card);
-    border: 1px solid rgba(201,168,76,0.35);
-    border-radius: 6px;
-    padding: 56px 48px;
-  }
-
-  .guarantee-seal { flex-shrink: 0; }
-
-  .seal-ring {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 3px solid var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gold-dim);
-    box-shadow: 0 0 40px rgba(201,168,76,0.15);
-    position: relative;
-  }
-
-  .seal-ring::before {
-    content: '';
-    position: absolute;
-    inset: 6px;
-    border-radius: 50%;
-    border: 1px dashed rgba(201,168,76,0.4);
-  }
-
-  .seal-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-  }
-
-  .seal-days {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 52px;
-    color: var(--gold);
-    line-height: 1;
-  }
-
-  .seal-word {
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    line-height: 1.6;
-  }
-
-  .seal-word2 {
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(201,168,76,0.7);
-  }
-
-  /* ── SCARCITY BAR ── */
-  .scarcity-bar {
-    background: #0e0a04;
-    border-top: 1px solid rgba(201,168,76,0.2);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-    padding: 14px 24px;
-  }
-
-  .scarcity-inner {
-    max-width: 820px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .scarcity-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--red);
-    flex-shrink: 0;
-    animation: blink 1s ease-in-out infinite;
-  }
-
-  .scarcity-text {
-    font-size: 14px;
-    color: var(--body);
-    text-align: center;
-  }
-
-  .scarcity-text strong { color: var(--gold); font-size: 16px; }
-
-  .scarcity-timer {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    color: var(--red);
-    letter-spacing: 0.1em;
-    flex-shrink: 0;
-  }
-
-  /* ── STICKY CTA BAR (Fix 4) ── */
-  .sticky-cta {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(8,8,8,0.97);
-    border-top: 1px solid rgba(201,168,76,0.3);
-    padding: 14px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-    backdrop-filter: blur(12px);
-  }
-
-  .sticky-cta.visible { transform: translateY(0); }
-
-  .sticky-cta-left {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .sticky-cta-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--white);
-  }
-
-  .sticky-cta-sub {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  .sticky-cta .btn-primary {
-    animation: none;
-    padding: 13px 28px;
-    font-size: 13px;
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-
-  .sticky-cta-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    color: var(--gold);
-    flex-shrink: 0;
-  }
-
-  /* ── MOBILE FIX (Fix 8) ── */
-  @media (max-width: 700px) {
-    .module-grid,
-    .track-grid,
-    .playbook-grid,
-    .wall-columns { grid-template-columns: 1fr; }
-
-    .bonus-card { flex-direction: column; gap: 16px; }
-    .price-top, .price-includes, .price-cta { padding-left: 24px; padding-right: 24px; }
-
-    .hero { padding: 64px 0 56px; }
-    .hero h1 { font-size: clamp(44px, 11vw, 80px); }
-
-    .authority-inner { flex-direction: column; gap: 28px; padding: 32px 24px; }
-    .authority-stats { gap: 20px; }
-
-    .guarantee-box { flex-direction: column; gap: 32px; padding: 36px 24px; }
-    .guarantee-seal { display: flex; justify-content: center; width: 100%; }
-
-    .objection-inner { flex-direction: column; gap: 16px; padding: 28px 20px; }
-
-    .sticky-cta { flex-wrap: nowrap; padding: 12px 16px; }
-    .sticky-cta-left { display: none; }
-
-    .scarcity-inner { flex-direction: column; gap: 8px; }
-
-    .pain-list li { font-size: 15px; }
-
-    .vsl-wrap { margin-bottom: 36px; }
-
-    section { padding-left: 0; padding-right: 0; }
-
-    .wall { padding: 64px 0; }
-    .wall-columns { grid-template-columns: 1fr; }
-
-    .testi-feature-aside { border-left: none; border-top: 1px solid var(--border); padding: 20px 0 0; }
-  }
-
-  @media (max-width: 480px) {
-    .btn-primary { padding: 16px 24px; font-size: 13px; }
-    .price-now { font-size: 72px; }
-    .seal-ring { width: 110px; height: 110px; }
-    .seal-days { font-size: 38px; }
-    .authority-stats { gap: 16px; }
-    .authority-stat-num { font-size: 24px; }
-  }
+/* ─────────────────────────────────────────
+   TOKENS
+───────────────────────────────────────── */
+:root {
+  --black:   #060606;
+  --deep:    #0c0c0c;
+  --surface: #111111;
+  --card:    #161616;
+  --lift:    #1c1c1c;
+  --border:  #242424;
+  --border2: #2e2e2e;
+
+  --gold:        #c8a44a;
+  --gold-bright: #e2c070;
+  --gold-dim:    rgba(200,164,74,.10);
+  --gold-glow:   rgba(200,164,74,.18);
+
+  --red:     #c94035;
+  --red-dim: rgba(201,64,53,.12);
+
+  --green:   #3d9970;
+
+  --white:  #f4f1ea;
+  --muted:  #686460;
+  --body:   #a8a39b;
+  --sub:    #7a756e;
+
+  --radius-sm: 3px;
+  --radius:    6px;
+  --radius-lg: 12px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  font-weight:400;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* noise */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:.35;
+}
+
+/* ─────────────────────────────────────────
+   LAYOUT
+───────────────────────────────────────── */
+.wrap  {max-width:780px; margin:0 auto;padding:0 20px}
+.wide  {max-width:1080px;margin:0 auto;padding:0 20px}
+.narrow{max-width:640px; margin:0 auto;padding:0 20px}
+section{position:relative}
+
+/* ─────────────────────────────────────────
+   TYPE
+───────────────────────────────────────── */
+.d1{font-family:'Bebas Neue',sans-serif;letter-spacing:.02em;line-height:.92}
+.d2{font-family:'Bebas Neue',sans-serif;letter-spacing:.02em;line-height:.95}
+.serif{font-family:'DM Serif Display',serif}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(200,164,74,.35);
+  padding:5px 14px;border-radius:var(--radius-sm);
+}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:blink 2s ease infinite}
+
+.gold  {color:var(--gold)}
+.red   {color:var(--red)}
+.white {color:var(--white)}
+.muted {color:var(--muted)}
+.body  {color:var(--body)}
+.center{text-align:center}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:'DM Sans',sans-serif;font-weight:800;font-size:14px;
+  letter-spacing:.07em;text-transform:uppercase;text-decoration:none;
+  border:none;cursor:pointer;border-radius:var(--radius-sm);
+  padding:18px 40px;position:relative;overflow:hidden;
+  transition:transform .15s,filter .15s;
+}
+.btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);
+  transform:translateX(-100%);transition:transform .55s;
+}
+.btn:hover::before{transform:translateX(100%)}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-gold{background:var(--gold);color:var(--black)}
+.btn-gold:hover{background:var(--gold-bright)}
+.btn-outline{background:transparent;color:var(--gold);border:1px solid rgba(200,164,74,.5)}
+.btn-outline:hover{border-color:var(--gold);background:var(--gold-dim)}
+.btn-lg{font-size:16px;padding:22px 52px}
+.btn-full{width:100%}
+
+.cta-sub{
+  display:block;font-size:11px;color:var(--sub);
+  letter-spacing:.05em;margin-top:12px;text-align:center;
+}
+.cta-sub span{color:var(--green);font-weight:600}
+
+/* ─────────────────────────────────────────
+   REVEAL ANIMATION
+───────────────────────────────────────── */
+.r{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.r.on{opacity:1;transform:none}
+.r2{opacity:0;transition:opacity .65s ease .1s,transform .65s ease .1s;transform:translateY(28px)}
+.r2.on{opacity:1;transform:none}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(200,164,74,.45)}60%{box-shadow:0 0 0 14px rgba(200,164,74,0)}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ─────────────────────────────────────────
+   TOP BAR
+───────────────────────────────────────── */
+.top-bar{
+  background:var(--gold);color:var(--black);
+  text-align:center;padding:9px 20px;
+  font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+}
+.top-bar u{text-decoration:underline}
+
+/* ─────────────────────────────────────────
+   STICKY BAR
+───────────────────────────────────────── */
+.sticky{
+  position:fixed;bottom:0;left:0;right:0;z-index:1000;
+  background:rgba(6,6,6,.96);border-top:1px solid rgba(200,164,74,.28);
+  backdrop-filter:blur(16px);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:12px 24px;
+  transform:translateY(100%);transition:transform .4s ease;
+}
+.sticky.show{transform:translateY(0)}
+.sticky-info{display:flex;flex-direction:column;gap:1px}
+.sticky-name{font-size:14px;font-weight:700}
+.sticky-meta{font-size:11px;color:var(--sub)}
+.sticky-price{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--gold)}
+.sticky .btn{animation:none;padding:12px 28px;font-size:13px}
+@media(max-width:600px){.sticky-info,.sticky-price{display:none}.sticky{justify-content:center;padding:10px 16px}}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero{
+  padding:88px 0 72px;text-align:center;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%,rgba(200,164,74,.09) 0%,transparent 65%),
+    radial-gradient(ellipse 60% 40% at 20% 110%,rgba(200,164,74,.04) 0%,transparent 60%);
+  border-bottom:1px solid var(--border);
+}
+.hero-eyebrow{margin-bottom:28px;animation:fadeUp .5s ease both}
+.hero h1{
+  font-size:clamp(48px,9.5vw,118px);
+  margin-bottom:24px;
+  animation:fadeUp .6s ease .08s both;
+}
+.hero h1 em{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  color:var(--gold);display:block;
+}
+.hero-sub{
+  font-size:clamp(16px,2.2vw,19px);color:var(--body);
+  max-width:560px;margin:0 auto 44px;
+  animation:fadeUp .6s ease .16s both;
+  line-height:1.65;
+}
+.hero-sub strong{color:var(--white);font-weight:600}
+
+/* ─────────────────────────────────────────
+   VSL
+───────────────────────────────────────── */
+.vsl-wrap{
+  max-width:700px;margin:0 auto 44px;
+  animation:fadeUp .65s ease .22s both;
+}
+.vsl-box{
+  border-radius:var(--radius);overflow:hidden;cursor:pointer;
+  border:1px solid rgba(200,164,74,.28);
+  box-shadow:0 0 80px rgba(200,164,74,.07),0 32px 80px rgba(0,0,0,.65);
+  position:relative;
+}
+.vsl-screen{
+  aspect-ratio:16/9;background:#080806;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.vsl-glow{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 40%,rgba(200,164,74,.12) 0%,transparent 65%);pointer-events:none}
+.vsl-lines{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.025) 3px,rgba(0,0,0,.025) 4px);pointer-events:none}
+.vsl-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px}
+.vsl-play{
+  width:68px;height:68px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;color:var(--black);
+  animation:pulse 2.8s ease-in-out infinite;
+  transition:transform .2s;
+}
+.vsl-box:hover .vsl-play{transform:scale(1.08);animation:none}
+.vsl-label{font-size:14px;font-weight:700;letter-spacing:.04em}
+.vsl-time{font-size:11px;color:rgba(200,164,74,.8);letter-spacing:.12em;font-weight:500}
+.vsl-footer{
+  background:rgba(200,164,74,.07);border-top:1px solid rgba(200,164,74,.18);
+  padding:10px 18px;display:flex;align-items:center;gap:10px;
+}
+.vsl-live{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;animation:blink 1.1s ease infinite}
+.vsl-note{font-size:12px;color:var(--body);font-style:italic}
+.vsl-caption{font-size:11px;color:var(--muted);text-align:center;margin-top:9px;letter-spacing:.08em;text-transform:uppercase}
+
+/* ─────────────────────────────────────────
+   TICKER
+───────────────────────────────────────── */
+.ticker{
+  background:var(--deep);border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);padding:16px 0;overflow:hidden;
+}
+.ticker-track{
+  display:flex;gap:64px;animation:ticker 28s linear infinite;
+  white-space:nowrap;
+}
+.ticker-item{
+  font-size:12px;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--sub);flex-shrink:0;
+  display:flex;align-items:center;gap:10px;
+}
+.ticker-item b{color:var(--gold);font-size:14px}
+.ticker-div{color:var(--border2);font-size:16px}
+
+/* ─────────────────────────────────────────
+   PAIN
+───────────────────────────────────────── */
+.pain{
+  padding:96px 0;
+  background:var(--black);
+  border-bottom:1px solid var(--border);
+}
+.pain-headline{
+  font-size:clamp(34px,5vw,60px);line-height:1.05;
+  margin-bottom:10px;
+}
+.pain-intro{
+  font-size:18px;color:var(--body);max-width:640px;
+  margin-top:16px;line-height:1.7;
+}
+.pain-list{list-style:none;margin:40px 0;display:flex;flex-direction:column;gap:12px}
+.pain-list li{
+  display:flex;align-items:flex-start;gap:16px;
+  font-size:16px;color:var(--body);line-height:1.65;
+  padding:20px 24px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-left:3px solid var(--red);
+  border-radius:var(--radius-sm);
+  transition:border-color .2s,background .2s;
+}
+.pain-list li:hover{background:var(--card);border-color:var(--border2);border-left-color:var(--red)}
+.pain-x{color:var(--red);font-weight:700;flex-shrink:0;font-size:13px;margin-top:3px}
+.pain-quote{
+  background:var(--gold-dim);border:1px solid rgba(200,164,74,.22);
+  border-radius:var(--radius-sm);padding:28px 32px;margin-top:36px;
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:18px;color:var(--white);line-height:1.55;
+  position:relative;
+}
+.pain-quote::before{
+  content:'\201C';position:absolute;top:-10px;left:24px;
+  font-size:72px;color:var(--gold);opacity:.3;
+  font-family:'DM Serif Display',serif;line-height:1;
+}
+
+/* ─────────────────────────────────────────
+   BRIDGE
+───────────────────────────────────────── */
+.bridge{
+  padding:88px 0;
+  background:var(--deep);
+  border-bottom:1px solid var(--border);
+}
+.bridge-body{font-size:18px;color:var(--body);line-height:1.8;margin-bottom:22px;max-width:680px}
+.bridge-body strong{color:var(--white);font-weight:600}
+.bridge-highlight{
+  display:inline-block;
+  background:var(--gold);color:var(--black);
+  font-weight:800;font-size:17px;
+  padding:2px 8px;border-radius:2px;
+  line-height:1.5;
+}
+
+/* ─────────────────────────────────────────
+   FOR YOU / NOT FOR YOU
+───────────────────────────────────────── */
+.fit{
+  padding:96px 0;
+  background:var(--black);
+  border-bottom:1px solid var(--border);
+}
+.fit-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  margin-top:52px;border-radius:var(--radius);overflow:hidden;
+}
+.fit-col{
+  padding:40px 36px;
+  background:var(--surface);
+}
+.fit-col-yes{border-top:3px solid var(--green)}
+.fit-col-no {border-top:3px solid var(--red)}
+.fit-col-title{
+  font-size:13px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;margin-bottom:24px;
+  display:flex;align-items:center;gap:8px;
+}
+.fit-col-yes .fit-col-title{color:var(--green)}
+.fit-col-no  .fit-col-title{color:var(--red)}
+.fit-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.fit-list li{
+  font-size:15px;color:var(--body);line-height:1.55;
+  display:flex;align-items:flex-start;gap:12px;
+}
+.fit-check{flex-shrink:0;font-size:13px;margin-top:2px}
+.fit-col-yes .fit-check{color:var(--green)}
+.fit-col-no  .fit-check{color:var(--red)}
+
+/* ─────────────────────────────────────────
+   AUTHORITY
+───────────────────────────────────────── */
+.author{
+  padding:88px 0;
+  background:var(--deep);
+  border-bottom:1px solid var(--border);
+}
+.author-card{
+  display:flex;gap:52px;align-items:flex-start;
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:var(--radius);padding:52px;
+  position:relative;overflow:hidden;
+}
+.author-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold) 0%,transparent 60%);
+}
+.author-aside{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0}
+.author-avatar{
+  width:100px;height:100px;border-radius:50%;
+  background:var(--gold-dim);border:2px solid rgba(200,164,74,.35);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--gold);
+  letter-spacing:.04em;
+}
+.author-badge{
+  font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(200,164,74,.3);
+  padding:3px 10px;border-radius:var(--radius-sm);
+}
+.author-name{font-size:28px;font-weight:800;margin-bottom:4px}
+.author-title{font-size:13px;color:var(--muted);margin-bottom:18px;font-style:italic}
+.author-bio{font-size:16px;color:var(--body);line-height:1.75;margin-bottom:28px}
+.author-bio strong{color:var(--white)}
+.author-stats{display:flex;gap:36px;flex-wrap:wrap}
+.author-stat{display:flex;flex-direction:column;gap:2px}
+.author-stat-n{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--gold);line-height:1}
+.author-stat-l{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:.1em;max-width:110px;line-height:1.4}
+
+/* ─────────────────────────────────────────
+   OLD WAY / NEW WAY
+───────────────────────────────────────── */
+.compare{
+  padding:96px 0;
+  background:var(--black);
+  border-bottom:1px solid var(--border);
+}
+.compare-table{
+  margin-top:52px;border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+}
+.compare-head{
+  display:grid;grid-template-columns:1fr 60px 1fr;
+  background:var(--surface);
+}
+.compare-head-cell{
+  padding:16px 24px;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+}
+.compare-head-cell.old{color:var(--red);border-right:1px solid var(--border)}
+.compare-head-cell.vs{
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--sub);
+  border-right:1px solid var(--border);
+}
+.compare-head-cell.nw{color:var(--green)}
+.compare-row{
+  display:grid;grid-template-columns:1fr 60px 1fr;
+  border-top:1px solid var(--border);
+}
+.compare-row:nth-child(even) .compare-cell{background:var(--card)}
+.compare-cell{
+  padding:16px 24px;font-size:14px;line-height:1.5;
+  display:flex;align-items:center;gap:10px;
+}
+.compare-cell.old{color:var(--body);border-right:1px solid var(--border)}
+.compare-cell.vs-mid{
+  display:flex;align-items:center;justify-content:center;
+  border-right:1px solid var(--border);color:var(--border2);font-size:18px;
+}
+.compare-cell.nw{color:var(--white);font-weight:500}
+.c-x{color:var(--red);flex-shrink:0;font-size:13px}
+.c-check{color:var(--green);flex-shrink:0;font-size:13px}
+
+/* ─────────────────────────────────────────
+   TRACKS
+───────────────────────────────────────── */
+.tracks{
+  padding:96px 0;
+  background:var(--deep);
+  border-bottom:1px solid var(--border);
+}
+.track-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:52px}
+.track-card{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:var(--radius);padding:40px 34px;position:relative;overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.track-card:hover{border-color:rgba(200,164,74,.4);transform:translateY(-3px)}
+.track-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+.track-icon{font-size:28px;margin-bottom:18px;display:block}
+.track-name{font-size:22px;font-weight:800;margin-bottom:8px}
+.track-desc{font-size:14px;color:var(--body);line-height:1.65;margin-bottom:24px}
+.track-for{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.track-fit{font-size:13px;color:var(--sub);font-style:italic;margin-bottom:24px}
+.track-steps{display:flex;flex-direction:column;gap:10px}
+.track-step{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:13px;color:var(--body);
+}
+.step-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;margin-top:6px;
+}
+.step-label{font-weight:700;color:var(--white);display:block;font-size:12px}
+
+/* ─────────────────────────────────────────
+   MODULES
+───────────────────────────────────────── */
+.modules{
+  padding:96px 0;
+  background:var(--black);
+  border-bottom:1px solid var(--border);
+}
+.mod-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2px;margin-top:52px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;
+}
+.mod-card{
+  background:var(--surface);padding:36px 30px;
+  position:relative;transition:background .2s;
+}
+.mod-card:hover{background:var(--card)}
+.mod-num{
+  position:absolute;top:14px;right:20px;
+  font-family:'Bebas Neue',sans-serif;font-size:60px;
+  color:rgba(255,255,255,.03);line-height:1;pointer-events:none;
+  transition:color .2s;
+}
+.mod-card:hover .mod-num{color:rgba(200,164,74,.06)}
+.mod-tag{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.mod-card h3{font-size:19px;font-weight:800;margin-bottom:10px;line-height:1.3}
+.mod-card p{font-size:13px;color:var(--body);line-height:1.65}
+.mod-bullets{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:6px}
+.mod-bullets li{font-size:12px;color:var(--sub);display:flex;align-items:flex-start;gap:7px}
+.mod-bullets li::before{content:'→';color:var(--gold);flex-shrink:0}
+.mod-wide{grid-column:1/-1}
+.mod-bonus{
+  grid-column:1/-1;
+  background:linear-gradient(135deg,#100f05 0%,var(--surface) 100%);
+  border-top:2px solid var(--border);
+  padding:36px 30px;
+  display:flex;align-items:center;justify-content:space-between;gap:28px;
+}
+.bonus-badge{
+  display:inline-block;background:var(--gold);color:var(--black);
+  font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  padding:3px 10px;border-radius:var(--radius-sm);margin-bottom:10px;
+}
+.mod-bonus h3{font-size:21px;font-weight:800;margin-bottom:8px}
+.mod-bonus p{font-size:13px;color:var(--body);max-width:480px}
+.bonus-aside{text-align:center;flex-shrink:0}
+.bonus-was{font-size:12px;color:var(--sub);text-decoration:line-through;display:block;margin-bottom:2px}
+.bonus-free{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--gold);line-height:1}
+
+/* ─────────────────────────────────────────
+   PLAYBOOKS
+───────────────────────────────────────── */
+.playbooks{
+  padding:96px 0;
+  background:var(--deep);
+  border-bottom:1px solid var(--border);
+}
+.pb-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:52px}
+.pb-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:28px 26px;
+  display:flex;gap:18px;align-items:flex-start;
+  transition:border-color .2s,background .2s;
+}
+.pb-card:hover{border-color:rgba(200,164,74,.35);background:var(--lift)}
+.pb-letter{
+  font-family:'Bebas Neue',sans-serif;font-size:50px;
+  color:var(--gold);line-height:1;flex-shrink:0;
+}
+.pb-card h4{font-size:16px;font-weight:700;margin-bottom:6px;line-height:1.35}
+.pb-card p{font-size:13px;color:var(--body);line-height:1.6}
+.pb-time{
+  display:inline-block;margin-top:8px;
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--green);border:1px solid rgba(61,153,112,.3);
+  padding:2px 8px;border-radius:var(--radius-sm);
+}
+
+/* ─────────────────────────────────────────
+   WALL OF PROOF
+───────────────────────────────────────── */
+.wall{
+  padding:96px 0;
+  background:var(--black);
+  border-bottom:1px solid var(--border);
+}
+.wall-cols{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:14px;margin-top:52px;align-items:start;
+}
+.wall-col{display:flex;flex-direction:column;gap:14px}
+.wc{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:22px;
+  transition:border-color .25s,transform .25s;
+}
+.wc:hover{border-color:rgba(200,164,74,.32);transform:translateY(-3px)}
+.wc.big{
+  background:linear-gradient(145deg,#0e0d04 0%,var(--surface) 100%);
+  border-color:rgba(200,164,74,.38);
+}
+.wc-amount{
+  display:flex;align-items:baseline;gap:5px;margin-bottom:10px;
+}
+.wc-num{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--gold);line-height:1}
+.wc-per{font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:.08em}
+.wc-stars{color:var(--gold);font-size:11px;letter-spacing:3px;margin-bottom:11px}
+.wc-q{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:14px;color:var(--body);line-height:1.65;margin-bottom:16px;
+}
+.wc.big .wc-q{font-size:16px;color:var(--white)}
+.wc-author{
+  display:flex;align-items:center;gap:10px;
+  border-top:1px solid var(--border);padding-top:13px;
+}
+.wc-av{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;
+  background:var(--gold);color:var(--black);
+}
+.wc-name{font-size:13px;font-weight:700}
+.wc-handle{font-size:11px;color:var(--sub)}
+.wc-tag{
+  display:inline-block;margin-top:8px;
+  font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);border:1px solid rgba(200,164,74,.28);
+  padding:2px 7px;border-radius:var(--radius-sm);
+}
+
+/* ─────────────────────────────────────────
+   TOOLS STRIP
+───────────────────────────────────────── */
+.tools{
+  padding:44px 0;
+  background:var(--deep);
+  border-bottom:1px solid var(--border);
+}
+.tools-label{
+  text-align:center;font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--sub);
+  margin-bottom:24px;
+}
+.tools-list{
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:24px;
+}
+.tool-pill{
+  display:flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:600;color:var(--sub);
+  border:1px solid var(--border);padding:7px 16px;border-radius:20px;
+  letter-spacing:.04em;transition:color .2s,border-color .2s;
+}
+.tool-pill:hover{color:var(--body);border-color:var(--border2)}
+.tool-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
+
+/* ─────────────────────────────────────────
+   FAQ
+───────────────────────────────────────── */
+.faq{
+  padding:96px 0;
+  background:var(--black);
+  border-bottom:1px solid var(--border);
+}
+.faq-list{margin-top:52px;display:flex;flex-direction:column;gap:2px}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden}
+.faq-q{
+  width:100%;background:var(--surface);border:none;
+  color:var(--white);font-family:'DM Sans',sans-serif;
+  font-size:16px;font-weight:600;text-align:left;
+  padding:22px 26px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  transition:background .2s;
+}
+.faq-q:hover{background:var(--card)}
+.faq-icon{
+  width:22px;height:22px;border-radius:50%;
+  border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;color:var(--gold);font-size:15px;
+  transition:transform .3s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{
+  background:var(--deep);padding:0 26px;
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding .3s;
+  font-size:15px;color:var(--body);line-height:1.75;
+}
+.faq-item.open .faq-a{max-height:500px;padding:18px 26px 26px}
+.faq-a strong{color:var(--white)}
+
+/* ─────────────────────────────────────────
+   OBJECTION
+───────────────────────────────────────── */
+.objection{
+  padding:80px 0;
+  background:var(--deep);
+  border-bottom:1px solid var(--border);
+}
+.obj-box{
+  background:#0b0a04;border:1px solid rgba(200,164,74,.2);
+  border-radius:var(--radius);padding:52px 48px;
+  display:flex;gap:28px;align-items:flex-start;
+}
+.obj-icon{font-size:32px;flex-shrink:0;margin-top:4px}
+.obj-h{font-size:22px;font-weight:800;margin-bottom:18px;line-height:1.3}
+.obj-p{font-size:16px;color:var(--body);line-height:1.75;margin-bottom:16px}
+.obj-p:last-child{margin-bottom:0}
+.obj-p strong{color:var(--white)}
+
+/* ─────────────────────────────────────────
+   GUARANTEE
+───────────────────────────────────────── */
+.guar{
+  padding:80px 0;
+  background:var(--black);
+  border-bottom:1px solid var(--border);
+  background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(200,164,74,.05) 0%,transparent 65%);
+}
+.guar-box{
+  display:flex;gap:60px;align-items:center;
+  background:var(--card);border:1px solid rgba(200,164,74,.32);
+  border-radius:var(--radius);padding:56px 52px;
+}
+.seal{flex-shrink:0}
+.seal-ring{
+  width:148px;height:148px;border-radius:50%;
+  border:3px solid var(--gold);
+  background:var(--gold-dim);
+  box-shadow:0 0 48px rgba(200,164,74,.14);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.seal-ring::before{
+  content:'';position:absolute;inset:7px;
+  border-radius:50%;border:1px dashed rgba(200,164,74,.38);
+}
+.seal-inner{display:flex;flex-direction:column;align-items:center;gap:0}
+.seal-days{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--gold);line-height:1}
+.seal-day{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);line-height:1.8}
+.seal-guar{font-size:8.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(200,164,74,.7)}
+.guar-h{font-size:clamp(26px,4vw,46px);margin-bottom:16px}
+.guar-p{font-size:17px;color:var(--body);line-height:1.75;margin-bottom:14px}
+.guar-p strong{color:var(--white)}
+.guar-fine{font-size:13px;color:var(--sub);font-style:italic}
+
+/* ─────────────────────────────────────────
+   SCARCITY
+───────────────────────────────────────── */
+.scarcity{
+  background:#0c0700;
+  border-top:1px solid rgba(200,164,74,.2);
+  border-bottom:1px solid rgba(200,164,74,.2);
+  padding:14px 20px;
+}
+.sc-inner{
+  max-width:780px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+}
+.sc-dot{width:9px;height:9px;border-radius:50%;background:var(--red);flex-shrink:0;animation:blink 1s ease infinite}
+.sc-text{font-size:14px;color:var(--body);text-align:center}
+.sc-text strong{color:var(--gold);font-size:16px}
+.sc-time{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--red);letter-spacing:.1em;flex-shrink:0}
+
+/* ─────────────────────────────────────────
+   PRICING
+───────────────────────────────────────── */
+.pricing{
+  padding:96px 0;
+  background:var(--deep);
+  border-bottom:1px solid var(--border);
+}
+.price-card{
+  max-width:600px;margin:56px auto 0;
+  border:1px solid rgba(200,164,74,.38);
+  border-radius:var(--radius-lg);overflow:hidden;
+  position:relative;
+}
+.price-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(200,164,74,.07) 0%,transparent 60%);
+  pointer-events:none;
+}
+.price-top{background:var(--card);padding:48px 48px 28px;text-align:center}
+.price-eyebrow{
+  font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.price-was{font-size:17px;color:var(--sub);text-decoration:line-through;display:block;margin-bottom:2px}
+.price-amount{
+  font-family:'Bebas Neue',sans-serif;font-size:100px;
+  color:var(--white);line-height:1;letter-spacing:.02em;
+}
+.price-amount sup{font-family:'DM Sans',sans-serif;font-size:34px;vertical-align:super;color:var(--gold)}
+.price-period{font-size:13px;color:var(--sub);margin-top:6px;font-style:italic}
+.price-save{
+  display:inline-block;margin-top:14px;
+  background:rgba(61,153,112,.15);border:1px solid rgba(61,153,112,.3);
+  color:var(--green);font-size:12px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 14px;border-radius:20px;
+}
+.price-stack{background:var(--black);padding:28px 48px}
+.price-stack-title{
+  font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sub);margin-bottom:16px;text-align:center;
+}
+.price-items{list-style:none;display:flex;flex-direction:column;gap:10px}
+.price-item{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  font-size:14px;padding:10px 0;border-bottom:1px solid var(--border);
+}
+.price-item:last-child{border-bottom:none}
+.price-item-name{display:flex;align-items:center;gap:10px;color:var(--body)}
+.price-item-name::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.price-item-name strong{color:var(--white)}
+.price-item-val{font-size:12px;color:var(--sub);flex-shrink:0}
+.price-total{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--border2);
+}
+.price-total-label{font-size:13px;color:var(--sub);text-transform:uppercase;letter-spacing:.1em}
+.price-total-val{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--sub);text-decoration:line-through;letter-spacing:.04em}
+.price-cta-wrap{background:var(--card);padding:32px 48px;text-align:center}
+.price-cta-wrap .btn{animation:none}
+.price-guar{
+  display:flex;align-items:flex-start;gap:12px;
+  margin-top:22px;text-align:left;
+}
+.price-guar-icon{font-size:26px;flex-shrink:0}
+.price-guar p{font-size:12px;color:var(--sub);line-height:1.55}
+.price-guar p strong{color:var(--body)}
+.price-trust{
+  display:flex;align-items:center;justify-content:center;gap:20px;
+  margin-top:16px;flex-wrap:wrap;
+}
+.trust-item{font-size:11px;color:var(--sub);display:flex;align-items:center;gap:5px}
+.trust-icon{font-size:14px}
+
+/* ─────────────────────────────────────────
+   WHAT HAPPENS NEXT
+───────────────────────────────────────── */
+.next{
+  padding:72px 0;
+  background:var(--black);
+  border-bottom:1px solid var(--border);
+}
+.next-steps{
+  display:flex;flex-direction:column;gap:0;
+  margin-top:48px;max-width:560px;
+}
+.next-step{
+  display:flex;gap:20px;align-items:flex-start;
+  padding:20px 0;border-bottom:1px solid var(--border);
+  position:relative;
+}
+.next-step:last-child{border-bottom:none}
+.next-step::before{
+  content:'';position:absolute;left:19px;top:48px;bottom:-1px;
+  width:1px;background:var(--border);
+}
+.next-step:last-child::before{display:none}
+.next-num{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--gold-dim);border:1px solid rgba(200,164,74,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--gold);
+  flex-shrink:0;
+}
+.next-text h4{font-size:16px;font-weight:700;margin-bottom:4px}
+.next-text p{font-size:14px;color:var(--body);line-height:1.6}
+.next-time{font-size:11px;color:var(--green);font-weight:600;margin-top:4px;display:block;letter-spacing:.06em}
+
+/* ─────────────────────────────────────────
+   FINAL CTA
+───────────────────────────────────────── */
+.finale{
+  padding:112px 0;text-align:center;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 50%,rgba(200,164,74,.07) 0%,transparent 60%),
+    var(--deep);
+}
+.finale h2{font-size:clamp(40px,6.5vw,88px);margin-bottom:0;line-height:.95}
+.finale h2 em{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  color:var(--gold);display:block;font-size:.9em;
+}
+.finale-divider{
+  width:60px;height:2px;background:var(--gold);
+  margin:32px auto;opacity:.5;border-radius:1px;
+}
+.finale-p{
+  font-size:clamp(16px,2vw,19px);color:var(--body);
+  max-width:540px;margin:0 auto 44px;line-height:1.75;
+}
+.finale-p strong{color:var(--white)}
+.finale-kaya{
+  background:var(--gold-dim);border:1px solid rgba(200,164,74,.2);
+  border-radius:var(--radius-sm);padding:22px 28px;
+  max-width:520px;margin:0 auto 40px;
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:17px;color:var(--white);line-height:1.55;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+footer{
+  border-top:1px solid var(--border);padding:40px 0;
+  text-align:center;font-size:12px;color:var(--sub);
+}
+footer a{color:var(--sub);text-decoration:underline}
+.footer-disc{
+  max-width:520px;margin:14px auto 0;
+  font-size:11px;line-height:1.55;color:var(--muted);
+}
+
+/* ─────────────────────────────────────────
+   MOBILE
+───────────────────────────────────────── */
+@media(max-width:720px){
+  .track-grid,.mod-grid,.pb-grid,.fit-grid{grid-template-columns:1fr}
+  .mod-wide,.mod-bonus{grid-column:1}
+  .wall-cols{grid-template-columns:1fr}
+  .compare-table{overflow-x:auto}
+  .author-card{flex-direction:column;gap:28px;padding:32px 24px}
+  .guar-box{flex-direction:column;gap:28px;padding:36px 24px}
+  .seal{display:flex;justify-content:center;width:100%}
+  .obj-box{flex-direction:column;gap:14px;padding:28px 20px}
+  .price-top,.price-stack,.price-cta-wrap{padding-left:24px;padding-right:24px}
+  .hero{padding:64px 0 56px}
+  .mod-bonus{flex-direction:column;gap:16px}
+  .next-steps{max-width:100%}
+}
+@media(max-width:480px){
+  .price-amount{font-size:76px}
+  .seal-ring{width:120px;height:120px}
+  .seal-days{font-size:44px}
+  .btn-lg{font-size:14px;padding:18px 32px}
+  .compare-head,.compare-row{grid-template-columns:.8fr 40px .8fr}
+  .compare-cell,.compare-head-cell{padding:12px 14px;font-size:12px}
+}
 </style>
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="bar">
-  ⚡ Limited Founding Member Price — <span>Locks in today only</span>
-</div>
+<!-- TOP BAR -->
+<div class="top-bar">⚡ Founding Member Price Active — <u>Closes When Counter Hits Zero</u></div>
 
-<!-- STICKY CTA BAR (Fix 4) -->
-<div class="sticky-cta" id="stickyCta">
-  <div class="sticky-cta-left">
-    <span class="sticky-cta-title">AI Income Blueprint</span>
-    <span class="sticky-cta-sub">14-day guarantee · Instant access</span>
+<!-- STICKY BAR -->
+<div class="sticky" id="stickyCta">
+  <div class="sticky-info">
+    <span class="sticky-name">AI Income Blueprint</span>
+    <span class="sticky-meta">Lifetime access · 14-day guarantee</span>
   </div>
-  <span class="sticky-cta-price">$97</span>
-  <a href="#pricing" class="btn-primary">Get Access Now</a>
+  <span class="sticky-price">$97</span>
+  <a href="#pricing" class="btn btn-gold">Get Access Now</a>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <span class="hero-eyebrow">AI Income Blueprint — The Complete System</span>
-    <h1 class="display">
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow eyebrow r">
+      <span class="eyebrow-dot"></span>
+      AI Income Blueprint — The Complete System
+    </div>
+    <h1 class="d1 r">
       She Left With
-      <em>$43 & Two Kids.</em>
-      Here's Exactly What She Used.
+      <em>$43 &amp; Two Kids.</em>
+      Here's What She Used.
     </h1>
-    <p class="hero-sub">
-      The <strong>step-by-step blueprint</strong> turning complete beginners into AI income earners — in 30 days or less. Two tracks. Four playbooks. One flat price. <strong>Zero fluff.</strong>
+    <p class="hero-sub r">
+      The <strong>only step-by-step blueprint</strong> that takes you from complete beginner to your first AI income — whether you want sales on autopilot or fast client cash — in 30 days or less.
     </p>
 
-    <!-- VSL PLACEHOLDER -->
+    <!-- VSL -->
     <div class="vsl-wrap">
-      <div class="vsl-player" id="vslPlayer" onclick="playVSL()">
-        <div class="vsl-thumbnail">
+      <div class="vsl-box" id="vslBox" onclick="playVSL()">
+        <div class="vsl-screen">
           <div class="vsl-glow"></div>
-          <div class="vsl-noise"></div>
-          <div class="vsl-content">
-            <div class="vsl-play-btn" id="playBtn">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          <div class="vsl-lines"></div>
+          <div class="vsl-center">
+            <div class="vsl-play">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             </div>
             <p class="vsl-label">Watch This First</p>
-            <p class="vsl-duration">— 4 min 38 sec —</p>
+            <p class="vsl-time">— 4 min 38 sec —</p>
           </div>
-          <div class="vsl-scanlines"></div>
         </div>
-        <div class="vsl-bar">
-          <span class="vsl-bar-dot"></span>
-          <span class="vsl-bar-text">🔒 This video reveals something most people never figure out about AI income</span>
+        <div class="vsl-footer">
+          <span class="vsl-live"></span>
+          <span class="vsl-note">🔒 This 4-minute video reveals the exact model she used — watch before scrolling</span>
         </div>
       </div>
-      <p class="vsl-caption">Turn on sound · Best watched before scrolling</p>
+      <p class="vsl-caption">Turn sound on · Watch before reading</p>
     </div>
 
-    <a href="#pricing" class="btn-primary">Get Instant Access — $97</a>
-    <span class="cta-note">One-time payment. Lifetime access. 14-day money-back guarantee.</span>
+    <a href="#pricing" class="btn btn-gold btn-lg r">Yes — Show Me The Blueprint</a>
+    <span class="cta-sub">One-time $97 · Instant access · <span>14-day money-back guarantee</span></span>
   </div>
 </section>
 
-<!-- SOCIAL PROOF STRIP -->
-<div class="proof-strip">
-  <div class="proof-track">
-    <span class="proof-item">✦ <span>$1,200</span> — First month, no experience</span>
-    <span class="proof-item">✦ <span>11 days</span> — First paying client</span>
-    <span class="proof-item">✦ <span>$4K/month</span> — No degree, no office</span>
-    <span class="proof-item">✦ <span>$43 → $1,800</span> — One guide. Total freedom.</span>
-    <span class="proof-item">✦ <span>3 weeks</span> — From zero to $500</span>
-    <span class="proof-item">✦ <span>$1,200</span> — First month, no experience</span>
-    <span class="proof-item">✦ <span>11 days</span> — First paying client</span>
-    <span class="proof-item">✦ <span>$4K/month</span> — No degree, no office</span>
-    <span class="proof-item">✦ <span>$43 → $1,800</span> — One guide. Total freedom.</span>
-    <span class="proof-item">✦ <span>3 weeks</span> — From zero to $500</span>
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$1,100</b> — Month 2, zero experience</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>11 days</b> to first paying client</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$4,100</b> — Month 1 after layoff</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$43 → free</b> — She left. She won.</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>19 days</b> — Skeptic's first sale</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$2,300</b> — Month 3, day job still running</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$600 client</b> landed before finishing module 1</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$1,100</b> — Month 2, zero experience</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>11 days</b> to first paying client</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$4,100</b> — Month 1 after layoff</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$43 → free</b> — She left. She won.</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>19 days</b> — Skeptic's first sale</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$2,300</b> — Month 3, day job still running</span>
+    <span class="ticker-item"><span class="ticker-div">✦</span> <b>$600 client</b> landed before finishing module 1</span>
   </div>
 </div>
 
-<!-- PAIN SECTION -->
+<!-- ══════════════════════════════════════
+     PAIN
+══════════════════════════════════════ -->
 <section class="pain">
-  <div class="container">
-    <p class="section-label reveal">The Problem</p>
-    <h2 class="display reveal">You've been circling this for months.<br><span class="gold">Still not a dollar to show for it.</span></h2>
-    <p class="body-text reveal" style="font-size:18px; max-width:660px; margin-top:16px;">You're not lazy. You're not incapable. You've just been swimming in noise with no real map. Sound familiar?</p>
+  <div class="wrap">
+    <p class="eyebrow r"><span class="eyebrow-dot"></span>The Real Problem</p>
+    <h2 class="d1 pain-headline r" style="margin-top:20px">
+      You've been circling this for months.<br>
+      <span class="gold">Still not a dollar to show for it.</span>
+    </h2>
+    <p class="pain-intro r">You're not lazy. You're not incapable. You've been handed noise disguised as advice, and nobody has bothered to give you an actual map. Sound familiar?</p>
 
-    <ul class="pain-list reveal">
-      <li>You've closed 14 browser tabs this week about "making money with AI." You're no closer to a dollar.</li>
-      <li>You tried a freelancing platform. The competition is brutal. Someone in another country does it for $5. You gave up.</li>
-      <li>You've heard "just create a digital product" — but nobody told you what product, who buys it, or how to reach them.</li>
-      <li>You don't have $500 to burn on ads before you've made a single sale. You need income first, investment second.</li>
-      <li>You've started things. You've stopped things. Not because you're weak — because nobody handed you a real, sequential plan that actually accounts for where you are right now.</li>
+    <ul class="pain-list r">
+      <li><span class="pain-x">✕</span>You've closed 14 browser tabs this week about "making money with AI." You're no closer to a dollar than when you started.</li>
+      <li><span class="pain-x">✕</span>You tried Fiverr or Upwork. Someone in another country undercut you by $180. You gave up before you started.</li>
+      <li><span class="pain-x">✕</span>You've heard "just build a digital product" a hundred times. Nobody told you what product, who buys it, or how to put it in front of them.</li>
+      <li><span class="pain-x">✕</span>You don't have $500 to burn on ads before you've made your first dollar. You need income first, investment second. Nobody acknowledges that.</li>
+      <li><span class="pain-x">✕</span>You've started. You've stopped. Not because you're weak — because you've never had a real, sequential, day-by-day plan that works from exactly where you are right now.</li>
     </ul>
 
-    <div class="pain-callout reveal">
-      "The gap between people making money with AI and people watching them isn't talent. It isn't luck. It's a working system versus no system at all."
+    <div class="pain-quote r">
+      The people making money with AI right now don't have a talent advantage over you. They have a system. That's the only difference — and it's completely fixable.
     </div>
   </div>
 </section>
 
-<!-- BRIDGE -->
+<!-- ══════════════════════════════════════
+     BRIDGE
+══════════════════════════════════════ -->
 <section class="bridge">
-  <div class="container">
-    <p class="section-label reveal">What Changed</p>
-    <p class="reveal"><strong>AI didn't just automate jobs. It created an entirely new category of income</strong> — one that didn't exist 3 years ago.</p>
-    <p class="reveal">Right now, people with zero technical background are using free AI tools to deliver services clients pay hundreds for. Others are building faceless content businesses that sell digital products on autopilot while they sleep.</p>
-    <p class="reveal"><strong>This isn't theory.</strong> It's happening in plain sight. And the window — the period where early movers clean up before the space gets saturated — is right now.</p>
-    <p class="reveal">AI Income Blueprint is the <strong>only guide that gives you both paths</strong>, a clear action plan for each, and the playbooks to execute — in the next 30 days.</p>
+  <div class="wrap">
+    <p class="eyebrow r"><span class="eyebrow-dot"></span>What Actually Changed</p>
+    <p class="bridge-body r" style="margin-top:20px"><strong>AI didn't just change how work gets done.</strong> It created an entirely new income category — one that runs on skill, not capital. You don't need funding. You don't need a team. You don't need experience. You need a working system and 30 days of focused execution.</p>
+    <p class="bridge-body r">Right now, people with zero technical background are using free AI tools to deliver services that businesses pay $300–$1,200 for — and delivering them in hours, not days. Others are building faceless content businesses that sell digital products at 2am while they sleep.</p>
+    <p class="bridge-body r"><strong>This isn't theory. It's not another guru promise.</strong> It's a documented system, built from 18 months of real execution — and it's been tested by over 1,400 people who started exactly where you are.</p>
+    <p class="bridge-body r">The window where early movers dominate before the space gets saturated? <span class="bridge-highlight">It's right now.</span> And this is the only guide that gives you both income paths, a clear action plan for each, and the playbooks to execute — starting today.</p>
   </div>
 </section>
 
-<!-- AUTHORITY -->
-<section class="authority">
-  <div class="container">
-    <div class="authority-inner reveal">
-      <div class="authority-avatar-wrap">
-        <div class="authority-avatar">
-          <span class="authority-initials">JA</span>
-        </div>
-        <div class="authority-badge">✦ Creator</div>
-      </div>
-      <div class="authority-body">
-        <p class="section-label" style="margin-bottom:10px;">Who Built This</p>
-        <h3 class="authority-name">Jordan A.</h3>
-        <p class="authority-bio">I spent 18 months trying to figure out AI income on my own — through bad courses, dead-end platforms, and a lot of expensive trial and error. When I finally cracked the system that worked, I made $6,200 in my second month. I built this blueprint to be the guide I desperately needed at the start. No celebrity story. No overnight millions. Just a working system, documented honestly, so you don't waste the time I did.</p>
-        <div class="authority-stats">
-          <div class="authority-stat">
-            <span class="authority-stat-num">$6,200</span>
-            <span class="authority-stat-label">Month 2 income</span>
-          </div>
-          <div class="authority-stat">
-            <span class="authority-stat-num">1,400+</span>
-            <span class="authority-stat-label">Students enrolled</span>
-          </div>
-          <div class="authority-stat">
-            <span class="authority-stat-num">18 mo.</span>
-            <span class="authority-stat-label">Of trial & error so you don't have to</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRACKS -->
-<section class="tracks">
+<!-- ══════════════════════════════════════
+     FOR YOU / NOT FOR YOU
+══════════════════════════════════════ -->
+<section class="fit">
   <div class="wide">
-    <p class="section-label center reveal">Pick Your Path</p>
-    <h2 class="display center reveal" style="font-size: clamp(36px,5vw,64px); margin-bottom: 12px;">Two Tracks. One Blueprint.</h2>
-    <p class="center body-text reveal" style="max-width:560px; margin: 0 auto;">You choose your income model in Module 1. Both lead to money. Pick the one that fits your life.</p>
+    <p class="eyebrow r center"><span class="eyebrow-dot"></span>Honest Positioning</p>
+    <h2 class="d1 center r" style="font-size:clamp(34px,5vw,62px);margin-top:20px">
+      This is for you.<br><span class="gold">This is not.</span>
+    </h2>
+    <p class="center r" style="color:var(--body);font-size:16px;margin-top:12px;max-width:500px;margin-left:auto;margin-right:auto">Most pages won't tell you who they're not for. We will.</p>
 
-    <div class="track-grid">
-      <div class="track-card reveal">
-        <span class="track-icon">⚙️</span>
-        <h3>Track A — Autonomous Sales</h3>
-        <p class="track-desc">Build a digital product, set up a TikTok or Reels content funnel, and let it sell for you. Wake up to payment notifications.</p>
-        <p class="track-for">Best For</p>
-        <p class="track-fit">People who want income that doesn't trade hours for dollars. Introverts welcome.</p>
-        <div class="timeline">
-          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Week 1</span> Build your product using AI in under 2 hours</div>
-          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Week 2</span> Set up your storefront & content system</div>
-          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Week 3</span> First sale</div>
-          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Week 4</span> Scale what's working</div>
-        </div>
-      </div>
-
-      <div class="track-card reveal">
-        <span class="track-icon">💼</span>
-        <h3>Track B — Skill & Service Sales</h3>
-        <p class="track-desc">Use AI to deliver professional services — content, copy, automation — to businesses that need them. Charge human rates. Deliver in hours.</p>
-        <p class="track-for">Best For</p>
-        <p class="track-fit">People who want fast cash flow and don't mind talking to clients. No portfolio required to start.</p>
-        <div class="timeline">
-          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Day 1–3</span> Set up your offer and outreach system</div>
-          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Day 4–7</span> Send first 50 outreach messages</div>
-          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Day 8–14</span> First client call</div>
-          <div class="timeline-item"><div class="timeline-dot"></div><span class="timeline-week">Day 11+</span> First paid delivery</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MODULES -->
-<section class="modules">
-  <div class="wide">
-    <p class="section-label reveal">Inside the Blueprint</p>
-    <h2 class="display reveal" style="font-size: clamp(36px,5vw,64px);">Everything you need.<br><span class="gold">Nothing you don't.</span></h2>
-    <p class="body-text reveal" style="max-width:600px; margin-top: 12px;">Five focused modules plus four battle-tested playbooks. Each built around the fastest path to your first dollar.</p>
-
-    <div class="module-grid">
-      <div class="module-card reveal">
-        <span class="module-num">01</span>
-        <span class="module-tag">Foundation</span>
-        <h3>Pick Your Lane</h3>
-        <p>A quick assessment to place you in the right track — based on your time, resources, and goals. You'll know exactly what to do next before you leave Module 1.</p>
-      </div>
-
-      <div class="module-card reveal">
-        <span class="module-num">02</span>
-        <span class="module-tag">Tools</span>
-        <h3>The Stack That Actually Matters</h3>
-        <p>Free tools to start. Paid upgrades only when money is coming in. No expensive subscriptions. No wasted hours figuring out platforms.</p>
-        <ul class="module-list">
-          <li>Free vs paid breakdown</li>
-          <li>Exact tools for each track</li>
-          <li>Setup in under 60 minutes</li>
+    <div class="fit-grid r">
+      <div class="fit-col fit-col-yes">
+        <p class="fit-col-title"><span>✓</span> This IS for you if…</p>
+        <ul class="fit-list">
+          <li><span class="fit-check">✓</span>You want your first AI income within 30 days — not 6 months</li>
+          <li><span class="fit-check">✓</span>You have zero experience with AI tools and that's fine</li>
+          <li><span class="fit-check">✓</span>You have a laptop, internet, and 1–2 hours a day to start</li>
+          <li><span class="fit-check">✓</span>You want a real plan, not motivation and vibes</li>
+          <li><span class="fit-check">✓</span>You're willing to follow a system, even when it feels awkward at first</li>
+          <li><span class="fit-check">✓</span>You need income that works around a job, kids, or a full life</li>
         </ul>
       </div>
-
-      <div class="module-card reveal">
-        <span class="module-num">03</span>
-        <span class="module-tag">Income</span>
-        <h3>Your First $500</h3>
-        <p>Day-by-day action plan. Real targets. Real timelines. Backed by data from people who started with nothing. No motivational fluff — just the map.</p>
+      <div class="fit-col fit-col-no">
+        <p class="fit-col-title"><span>✕</span> This is NOT for you if…</p>
+        <ul class="fit-list">
+          <li><span class="fit-check">✕</span>You want a magic button that generates money with no effort</li>
+          <li><span class="fit-check">✕</span>You're not willing to spend at least 1 hour a day for the first 2 weeks</li>
+          <li><span class="fit-check">✕</span>You've bought 5 courses and done nothing with any of them</li>
+          <li><span class="fit-check">✕</span>You're looking for a get-rich-quick shortcut — this is a real business model</li>
+          <li><span class="fit-check">✕</span>You already have a working AI income system that's scaling</li>
+        </ul>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="module-card reveal">
-        <span class="module-num">04</span>
-        <span class="module-tag">Playbooks</span>
-        <h3>The Four Playbooks</h3>
-        <p>Scenario-specific execution guides with templates, scripts, and data behind every timeline. Each one solves a specific problem on your path to income.</p>
+<!-- ══════════════════════════════════════
+     OLD WAY vs NEW WAY
+══════════════════════════════════════ -->
+<section class="compare" style="background:var(--deep)">
+  <div class="wide">
+    <p class="eyebrow r center"><span class="eyebrow-dot"></span>The Shift</p>
+    <h2 class="d1 center r" style="font-size:clamp(34px,5vw,62px);margin-top:20px">
+      Old way keeps you broke.<br><span class="gold">New way doesn't.</span>
+    </h2>
+
+    <div class="compare-table r">
+      <div class="compare-head">
+        <div class="compare-head-cell old">❌ Old Way</div>
+        <div class="compare-head-cell vs">vs</div>
+        <div class="compare-head-cell nw">✓ With This Blueprint</div>
       </div>
-
-      <div class="module-card reveal" style="grid-column: 1 / -1;">
-        <span class="module-num">05</span>
-        <span class="module-tag">Scale</span>
-        <h3>$500 → $2,000/Month</h3>
-        <p>Once you have your first sale, this module shows you how to turn it into a repeatable system. Automate. Delegate. Stack income streams. This is where it becomes a business.</p>
+      <div class="compare-row">
+        <div class="compare-cell old"><span class="c-x">✕</span>Watch 40 YouTube videos, still confused</div>
+        <div class="compare-cell vs-mid">→</div>
+        <div class="compare-cell nw"><span class="c-check">✓</span>One sequential system, one path</div>
       </div>
+      <div class="compare-row">
+        <div class="compare-cell old"><span class="c-x">✕</span>Chase every "new AI tool" with no direction</div>
+        <div class="compare-cell vs-mid">→</div>
+        <div class="compare-cell nw"><span class="c-check">✓</span>4 tools. That's it. Pre-selected for you.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell old"><span class="c-x">✕</span>Race to the bottom on freelancing platforms</div>
+        <div class="compare-cell vs-mid">→</div>
+        <div class="compare-cell nw"><span class="c-check">✓</span>Direct outreach. Your price. Your terms.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell old"><span class="c-x">✕</span>Need ads budget before making a single dollar</div>
+        <div class="compare-cell vs-mid">→</div>
+        <div class="compare-cell nw"><span class="c-check">✓</span>Organic content funnel. $0 to start.</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell old"><span class="c-x">✕</span>6 months to "maybe" see results</div>
+        <div class="compare-cell vs-mid">→</div>
+        <div class="compare-cell nw"><span class="c-check">✓</span>30-day roadmap, first sale in 3 weeks avg</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-cell old"><span class="c-x">✕</span>Show your face, build personal brand from zero</div>
+        <div class="compare-cell vs-mid">→</div>
+        <div class="compare-cell nw"><span class="c-check">✓</span>100% faceless — no camera, no audience needed</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- BONUS -->
-      <div class="bonus-card reveal">
-        <div>
-          <span class="bonus-label">Bonus</span>
-          <h3>The Prompt Vault</h3>
-          <p>50 ready-to-use AI prompts for content creation, client outreach, service delivery, and digital product building. Copy, paste, profit. This alone is worth the price of admission.</p>
-        </div>
-        <div class="bonus-value">
-          <span class="strikethrough">Value: $49</span>
-          <span class="free-tag">FREE</span>
+<!-- ══════════════════════════════════════
+     AUTHORITY
+══════════════════════════════════════ -->
+<section class="author" style="background:var(--black)">
+  <div class="wrap">
+    <div class="author-card r">
+      <div class="author-aside">
+        <div class="author-avatar">JA</div>
+        <div class="author-badge">✦ Creator</div>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px"><span class="eyebrow-dot"></span>Who Built This</p>
+        <h3 class="author-name">Jordan A.</h3>
+        <p class="author-title">AI Income Practitioner · Blueprint Author</p>
+        <p class="author-bio">I spent <strong>18 months getting this wrong</strong> — bad courses, dead platforms, $400 in tools I never needed. When I finally built a system that worked, I cleared $6,200 in month two. I wrote this blueprint because the guide I needed at the start didn't exist. <strong>No overnight millions. No Lamborghini story.</strong> Just honest, executable steps that work — documented for people who need this to actually function in their real life.</p>
+        <div class="author-stats">
+          <div class="author-stat">
+            <span class="author-stat-n">$6,200</span>
+            <span class="author-stat-l">Month 2 income</span>
+          </div>
+          <div class="author-stat">
+            <span class="author-stat-n">1,400+</span>
+            <span class="author-stat-l">Students who've used the system</span>
+          </div>
+          <div class="author-stat">
+            <span class="author-stat-n">18 mo.</span>
+            <span class="author-stat-l">Of failure condensed so you don't have to</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PLAYBOOKS -->
+<!-- ══════════════════════════════════════
+     TRACKS
+══════════════════════════════════════ -->
+<section class="tracks">
+  <div class="wide">
+    <p class="eyebrow r center"><span class="eyebrow-dot"></span>Pick Your Path</p>
+    <h2 class="d1 center r" style="font-size:clamp(34px,5vw,62px);margin-top:20px">Two tracks. One blueprint.<br><span class="gold">Both lead to money.</span></h2>
+    <p class="center r" style="color:var(--body);font-size:16px;margin-top:12px;max-width:500px;margin-left:auto;margin-right:auto">You choose your income model in Module 1. Pick what fits your life — not someone else's.</p>
+
+    <div class="track-grid">
+      <div class="track-card r">
+        <span class="track-icon">⚙️</span>
+        <p class="track-name">Track A — Autonomous Sales</p>
+        <p class="track-desc">Build a digital product. Set up a faceless content funnel on TikTok or Reels. Let it drive traffic and collect sales on autopilot. Wake up to Gumroad notifications.</p>
+        <p class="track-for">Best for</p>
+        <p class="track-fit">People who want income that doesn't trade hours for dollars. No client calls. No networking. Introverts thrive here.</p>
+        <div class="track-steps">
+          <div class="track-step"><div class="step-dot"></div><div><span class="step-label">Week 1</span>Build your product using AI in under 90 minutes</div></div>
+          <div class="track-step"><div class="step-dot"></div><div><span class="step-label">Week 2</span>Set up storefront + launch your content system</div></div>
+          <div class="track-step"><div class="step-dot"></div><div><span class="step-label">Week 3</span>First sale</div></div>
+          <div class="track-step"><div class="step-dot"></div><div><span class="step-label">Week 4</span>Identify winner, double down</div></div>
+        </div>
+      </div>
+
+      <div class="track-card r">
+        <span class="track-icon">💼</span>
+        <p class="track-name">Track B — Service Sales</p>
+        <p class="track-desc">Use AI to deliver professional services — content, copywriting, automation — to businesses that need them. You charge human rates. You deliver in hours with AI doing the heavy lifting.</p>
+        <p class="track-for">Best for</p>
+        <p class="track-fit">People who want fast cash flow and don't mind a short client conversation. No portfolio, no agency, no prior work needed.</p>
+        <div class="track-steps">
+          <div class="track-step"><div class="step-dot"></div><div><span class="step-label">Day 1–3</span>Craft your offer + build outreach system</div></div>
+          <div class="track-step"><div class="step-dot"></div><div><span class="step-label">Day 4–7</span>Send first 50 targeted outreach messages</div></div>
+          <div class="track-step"><div class="step-dot"></div><div><span class="step-label">Day 8–11</span>First client conversation</div></div>
+          <div class="track-step"><div class="step-dot"></div><div><span class="step-label">Day 11+</span>First paid delivery</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     MODULES
+══════════════════════════════════════ -->
+<section class="modules">
+  <div class="wide">
+    <p class="eyebrow r"><span class="eyebrow-dot"></span>Inside the Blueprint</p>
+    <h2 class="d1 r" style="font-size:clamp(34px,5vw,62px);margin-top:20px">Everything you need.<br><span class="gold">Nothing you don't.</span></h2>
+    <p class="r" style="color:var(--body);font-size:16px;margin-top:12px;max-width:560px">Five focused modules. Four battle-tested playbooks. Every piece built around the fastest path to your first dollar.</p>
+
+    <div class="mod-grid">
+      <div class="mod-card r">
+        <span class="mod-num">01</span>
+        <span class="mod-tag">Foundation</span>
+        <h3>Pick Your Lane</h3>
+        <p>A fast diagnostic to place you in the right track based on your time, goals, and resources. You'll know your exact next move before leaving Module 1.</p>
+      </div>
+      <div class="mod-card r">
+        <span class="mod-num">02</span>
+        <span class="mod-tag">Tools</span>
+        <h3>The Only Stack You Need</h3>
+        <p>Free tools to start. Paid upgrades only when income is flowing. No expensive subscriptions upfront — zero wasted hours figuring out platforms that don't matter.</p>
+        <ul class="mod-bullets">
+          <li>Free vs paid breakdown by track</li>
+          <li>Full setup walkthrough in under 60 min</li>
+          <li>What to ignore (saves you weeks)</li>
+        </ul>
+      </div>
+      <div class="mod-card r">
+        <span class="mod-num">03</span>
+        <span class="mod-tag">Income</span>
+        <h3>Your First $500 Roadmap</h3>
+        <p>Day-by-day. Real targets. Real timelines. Backed by data from 1,400+ students. No motivational padding — just the map from zero to your first five hundred dollars.</p>
+        <ul class="mod-bullets">
+          <li>Daily action items, not just weekly goals</li>
+          <li>Track A avg: first sale in 19–24 days</li>
+          <li>Track B avg: first client in 7–11 days</li>
+        </ul>
+      </div>
+      <div class="mod-card r">
+        <span class="mod-num">04</span>
+        <span class="mod-tag">Playbooks</span>
+        <h3>Four Execution Playbooks</h3>
+        <p>Each playbook solves one specific bottleneck with templates, scripts, and data-backed timelines. Scenario-specific — pull out whichever one you need, when you need it.</p>
+      </div>
+      <div class="mod-card r mod-wide">
+        <span class="mod-num">05</span>
+        <span class="mod-tag">Scale</span>
+        <h3>$500 → $2,000/Month</h3>
+        <p>Once the first dollar lands, this module shows you how to turn it into a repeatable system — raising prices, adding volume, and stacking a second income stream without doubling your workload. This is where a side hustle becomes an actual business.</p>
+      </div>
+      <div class="mod-bonus r">
+        <div>
+          <span class="bonus-badge">Bonus Included</span>
+          <h3>The Prompt Vault — 50 Ready-to-Use AI Prompts</h3>
+          <p>Copy. Paste. Produce. 50 prompts for client outreach, content creation, service delivery, and product building. Students consistently call this the most-used single asset in the entire blueprint.</p>
+        </div>
+        <div class="bonus-aside">
+          <span class="bonus-was">Value: $49</span>
+          <span class="bonus-free">FREE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PLAYBOOKS
+══════════════════════════════════════ -->
 <section class="playbooks">
   <div class="wide">
-    <p class="section-label reveal">The Playbooks</p>
-    <h2 class="display reveal" style="font-size: clamp(36px,5vw,64px); margin-bottom: 12px;">Four scenarios.<br><span class="gold">All mapped. All tested.</span></h2>
-    <p class="body-text reveal" style="max-width:560px;">Each playbook addresses a specific point on your journey — with templates, scripts, and timelines backed by real data.</p>
+    <p class="eyebrow r"><span class="eyebrow-dot"></span>The Four Playbooks</p>
+    <h2 class="d1 r" style="font-size:clamp(34px,5vw,62px);margin-top:20px">Every bottleneck.<br><span class="gold">Already solved.</span></h2>
+    <p class="r" style="color:var(--body);font-size:16px;margin-top:12px;max-width:560px">These aren't general guides. Each playbook targets one specific obstacle with templates, scripts, and timelines that have been stress-tested by real students.</p>
 
-    <div class="playbook-grid">
-      <div class="playbook-item reveal">
-        <span class="playbook-letter">A</span>
+    <div class="pb-grid">
+      <div class="pb-card r">
+        <span class="pb-letter">A</span>
         <div>
           <h4>Land Your First Service Client in 7 Days</h4>
-          <p>Outreach message templates, positioning framework, and a follow-up sequence that converts skeptics into paying clients fast.</p>
+          <p>Outreach message templates, positioning framework, a 3-step follow-up sequence, and the exact platforms to find clients who are already looking.</p>
+          <span class="pb-time">⏱ Avg: First reply in 72 hours</span>
         </div>
       </div>
-      <div class="playbook-item reveal">
-        <span class="playbook-letter">B</span>
+      <div class="pb-card r">
+        <span class="pb-letter">B</span>
         <div>
-          <h4>Launch Your First Digital Product in 5 Days</h4>
-          <p>From blank page to live storefront. Includes product creation prompt, Gumroad setup, and your first promotional post.</p>
+          <h4>Launch Your Digital Product in 5 Days</h4>
+          <p>Blank page to live storefront. Includes the exact product creation prompt, Gumroad setup checklist, and your first promotional post written and scheduled.</p>
+          <span class="pb-time">⏱ Avg: Live and selling in 5 days</span>
         </div>
       </div>
-      <div class="playbook-item reveal">
-        <span class="playbook-letter">C</span>
+      <div class="pb-card r">
+        <span class="pb-letter">C</span>
         <div>
-          <h4>Build Your Content Funnel</h4>
-          <p>TikTok and Reels content strategy that turns viewers into buyers — without showing your face or running ads.</p>
+          <h4>Build Your Faceless Content Funnel</h4>
+          <p>TikTok and Reels storytelling strategy that converts viewers into buyers — without showing your face, running ads, or having any existing audience.</p>
+          <span class="pb-time">⏱ First content posted within 48 hours</span>
         </div>
       </div>
-      <div class="playbook-item reveal">
-        <span class="playbook-letter">D</span>
+      <div class="pb-card r">
+        <span class="pb-letter">D</span>
         <div>
           <h4>Scale from $500 to $2,000/Month</h4>
-          <p>The exact moves to increase volume, raise prices, and add a second income stream without doubling your workload.</p>
+          <p>The exact lever sequence to increase volume, raise prices, and add a second income stream — without proportionally increasing the time you spend.</p>
+          <span class="pb-time">⏱ Avg: $2K/mo by month 3</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WALL OF TESTIMONIALS -->
+<!-- ══════════════════════════════════════
+     TOOLS STRIP
+══════════════════════════════════════ -->
+<div class="tools">
+  <p class="tools-label">Tools covered inside the blueprint</p>
+  <div class="tools-list">
+    <span class="tool-pill"><span class="tool-dot"></span>ChatGPT</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Claude AI</span>
+    <span class="tool-pill"><span class="tool-dot"></span>ElevenLabs</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Kling AI</span>
+    <span class="tool-pill"><span class="tool-dot"></span>CapCut</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Gumroad</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Canva</span>
+    <span class="tool-pill"><span class="tool-dot"></span>TikTok</span>
+    <span class="tool-pill"><span class="tool-dot"></span>Instagram Reels</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     WALL OF PROOF
+══════════════════════════════════════ -->
 <section class="wall">
   <div class="wide">
-    <p class="section-label center reveal">Real Results. Real People.</p>
-    <h2 class="display center reveal" style="font-size: clamp(36px,5vw,64px);">They were exactly<br><span class="gold">where you are right now.</span></h2>
-    <p class="center body-text reveal" style="max-width:520px; margin: 12px auto 0;">No influencers. No paid actors. Just people who followed the blueprint and made it work.</p>
+    <p class="eyebrow r center"><span class="eyebrow-dot"></span>Real Results. Real People.</p>
+    <h2 class="d1 center r" style="font-size:clamp(34px,5vw,62px);margin-top:20px">
+      They started exactly<br><span class="gold">where you are right now.</span>
+    </h2>
+    <p class="center r" style="color:var(--body);font-size:16px;margin-top:12px;max-width:500px;margin-left:auto;margin-right:auto">No influencers. No paid actors. Just 1,400+ people who followed the blueprint and made it work.</p>
 
-    <div class="wall-columns">
-
-      <!-- COL 1 -->
+    <div class="wall-cols">
       <div class="wall-col">
-
-        <div class="wall-card featured reveal">
-          <div class="wall-income">
-            <span class="wall-income-num">$1,100</span>
-            <span class="wall-income-label">/ month 2</span>
-          </div>
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"I was a stay-at-home mom with $0 income of my own. My husband didn't think I could do it. Month 2 I made $1,100. I have my own account now. That changes everything about how you carry yourself."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">AM</div>
-            <div>
-              <p class="wall-name">Amara M.</p>
-              <p class="wall-handle">Stay-at-home mom → Track A</p>
-            </div>
+        <div class="wc big r">
+          <div class="wc-amount"><span class="wc-num">$1,100</span><span class="wc-per">/ Month 2</span></div>
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"I was a stay-at-home mom with $0 of my own. My husband didn't think I could do it. Month 2 I made $1,100. I have my own account now. That changes everything about how you carry yourself."</p>
+          <div class="wc-author">
+            <div class="wc-av">AM</div>
+            <div><p class="wc-name">Amara M.</p><p class="wc-handle">Stay-at-home mom → Track A</p></div>
           </div>
         </div>
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"I've bought 3 'make money online' courses before this. All garbage. This one had me making $200 in week 2. It's the only one that gives you actual steps, not inspiration."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">TW</div>
-            <div>
-              <p class="wall-name">Tolu W.</p>
-              <p class="wall-handle">Previous 3 courses failed → This one didn't</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"I've bought 3 courses before this. All garbage. This one had me making $200 in week 2. It's the only one that gives you actual steps, not motivation."</p>
+          <div class="wc-author">
+            <div class="wc-av">TW</div>
+            <div><p class="wc-name">Tolu W.</p><p class="wc-handle">3 failed courses → first $200 in week 2</p></div>
           </div>
-          <span class="wall-tag">Track B</span>
+          <span class="wc-tag">Track B</span>
         </div>
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"The Prompt Vault alone is worth more than $97. I used 4 prompts in my first week to deliver a client project that paid me $600. I hadn't even finished reading the guide."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">RL</div>
-            <div>
-              <p class="wall-name">Rachel L.</p>
-              <p class="wall-handle">Graphic designer → Added AI services</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"The Prompt Vault alone is worth more than $97. I used 4 prompts in week 1 to deliver a client project that paid me $600. I hadn't even finished the guide."</p>
+          <div class="wc-author">
+            <div class="wc-av">RL</div>
+            <div><p class="wc-name">Rachel L.</p><p class="wc-handle">Graphic designer → added AI services</p></div>
           </div>
-          <span class="wall-tag">Prompt Vault</span>
+          <span class="wc-tag">Prompt Vault</span>
         </div>
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"I'm a night shift nurse. I run this on the side. Made $480 last month just from digital product sales. I check my phone before I go to bed and there are notifications. Wild."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">SN</div>
-            <div>
-              <p class="wall-name">Sandra N.</p>
-              <p class="wall-handle">Night shift nurse → Passive sales on Track A</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"I'm a night shift nurse. I check my phone before bed and there are Gumroad notifications. $480 last month. Completely passive while I work 12-hour shifts."</p>
+          <div class="wc-author">
+            <div class="wc-av">SN</div>
+            <div><p class="wc-name">Sandra N.</p><p class="wc-handle">Night shift nurse → $480/mo passive</p></div>
           </div>
         </div>
-
       </div>
 
-      <!-- COL 2 -->
       <div class="wall-col">
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"Applied to 47 jobs in 3 months. 2 callbacks, 0 offers. The internet doesn't care about your accent or your postcode. First client in 11 days using Playbook A."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">KO</div>
-            <div>
-              <p class="wall-name">Kevin O.</p>
-              <p class="wall-handle">Immigrant → $3,200/month freelancing</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"Applied to 47 jobs. 2 callbacks. 0 offers. The internet doesn't care about your accent or your postcode. First client in 11 days using Playbook A."</p>
+          <div class="wc-author">
+            <div class="wc-av">KO</div>
+            <div><p class="wc-name">Kevin O.</p><p class="wc-handle">Immigrant → $3,200/month</p></div>
           </div>
-          <span class="wall-tag">Playbook A</span>
+          <span class="wc-tag">Playbook A</span>
         </div>
-
-        <div class="wall-card featured reveal">
-          <div class="wall-income">
-            <span class="wall-income-num">$4,100</span>
-            <span class="wall-income-label">/ month 1</span>
-          </div>
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"Got laid off on a Tuesday. Found this on Friday. By the end of the month I'd made more than my old salary. I'm not going back. Not to that office. Not to any office."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">DL</div>
-            <div>
-              <p class="wall-name">Darius L.</p>
-              <p class="wall-handle">Laid off → Full-time AI income</p>
-            </div>
+        <div class="wc big r">
+          <div class="wc-amount"><span class="wc-num">$4,100</span><span class="wc-per">/ Month 1</span></div>
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"Got laid off on a Tuesday. Found this on Friday. By end of the month I'd made more than my salary. I'm not going back. Not to that office, not to any office."</p>
+          <div class="wc-author">
+            <div class="wc-av">DL</div>
+            <div><p class="wc-name">Darius L.</p><p class="wc-handle">Laid off → full-time AI income</p></div>
           </div>
         </div>
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"I was deeply skeptical. The 14-day guarantee is what got me to try it. Didn't need it. First sale came on day 19. I've since recommended it to my sister and my cousin."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">JR</div>
-            <div>
-              <p class="wall-name">Jade R.</p>
-              <p class="wall-handle">Warehouse worker → $900/month side income</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"The guarantee is what made me try it. Didn't need it. First sale on day 19. Recommended to my sister and my cousin since. Both are running now."</p>
+          <div class="wc-author">
+            <div class="wc-av">JR</div>
+            <div><p class="wc-name">Jade R.</p><p class="wc-handle">Skeptic → $900/month side income</p></div>
           </div>
         </div>
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"I'm 54. My kids kept saying I wouldn't understand 'the AI stuff.' Module 2 took me 45 minutes. I had a client paying me $300/month by week 3. Tell your kids I said hi."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">MF</div>
-            <div>
-              <p class="wall-name">Margaret F.</p>
-              <p class="wall-handle">54 years old · First tech income ever</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"I'm 54. My kids said I wouldn't understand the AI stuff. Module 2 took me 45 minutes. I had a $300/month client by week 3. Tell your kids I said hi."</p>
+          <div class="wc-author">
+            <div class="wc-av">MF</div>
+            <div><p class="wc-name">Margaret F.</p><p class="wc-handle">54 years old · first tech income ever</p></div>
           </div>
-          <span class="wall-tag">Track B</span>
         </div>
-
       </div>
 
-      <!-- COL 3 -->
       <div class="wall-col">
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"I run a small bakery. I used Track B to offer AI content services to other small businesses in my area on the side. Made $700 extra in my first month without closing the bakery for a single day."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">BP</div>
-            <div>
-              <p class="wall-name">Bianca P.</p>
-              <p class="wall-handle">Small business owner → Dual income</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"I run a bakery. Used Track B to offer AI content to other local businesses on the side. $700 extra in month 1. Bakery still open every day."</p>
+          <div class="wc-author">
+            <div class="wc-av">BP</div>
+            <div><p class="wc-name">Bianca P.</p><p class="wc-handle">Small business owner → dual income</p></div>
           </div>
         </div>
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"The content funnel playbook is insane. I posted 3 videos following the exact format. One of them hit 80K views. I made 11 sales that week from one video. At $97 each."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">CK</div>
-            <div>
-              <p class="wall-name">Chris K.</p>
-              <p class="wall-handle">Content creator → Digital product sales</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"Posted 3 videos using Playbook C's format. One hit 80K views. 11 sales that week. From one video. At $97 each. I still can't fully process that."</p>
+          <div class="wc-author">
+            <div class="wc-av">CK</div>
+            <div><p class="wc-name">Chris K.</p><p class="wc-handle">Content creator → digital product sales</p></div>
           </div>
-          <span class="wall-tag">Playbook C</span>
+          <span class="wc-tag">Playbook C</span>
         </div>
-
-        <div class="wall-card featured reveal">
-          <div class="wall-income">
-            <span class="wall-income-num">$2,300</span>
-            <span class="wall-income-label">/ month 3</span>
-          </div>
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"I followed both tracks simultaneously. Track B got me cash fast. Track A started building passive income in the background. By month 3 they were both producing. I made $2,300 that month and I was still working my day job."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">EO</div>
-            <div>
-              <p class="wall-name">Emeka O.</p>
-              <p class="wall-handle">Ran both tracks simultaneously</p>
-            </div>
+        <div class="wc big r">
+          <div class="wc-amount"><span class="wc-num">$2,300</span><span class="wc-per">/ Month 3</span></div>
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"Ran both tracks at once. Track B gave me fast cash. Track A built passive income in the background. Month 3 they were both producing. $2,300 and still at my day job."</p>
+          <div class="wc-author">
+            <div class="wc-av">EO</div>
+            <div><p class="wc-name">Emeka O.</p><p class="wc-handle">Both tracks simultaneously</p></div>
           </div>
         </div>
-
-        <div class="wall-card reveal">
-          <div class="wall-stars">★★★★★</div>
-          <p class="wall-quote">"I'm a single mum. I don't have time to waste. This is the most practical guide I've ever read. No fluff. No filler. Just: do this, then this, then this. I had $350 in 3 weeks."</p>
-          <div class="wall-author">
-            <div class="wall-avatar">LH</div>
-            <div>
-              <p class="wall-name">Lena H.</p>
-              <p class="wall-handle">Single mum · $350 in 3 weeks</p>
-            </div>
+        <div class="wc r">
+          <div class="wc-stars">★★★★★</div>
+          <p class="wc-q">"Single mum. No time to waste. Most practical guide I've ever read. No filler. Just: do this, then this, then this. $350 in 3 weeks following it exactly."</p>
+          <div class="wc-author">
+            <div class="wc-av">LH</div>
+            <div><p class="wc-name">Lena H.</p><p class="wc-handle">Single mum · $350 in 3 weeks</p></div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- FAQ -->
+<!-- ══════════════════════════════════════
+     FAQ
+══════════════════════════════════════ -->
 <section class="faq">
-  <div class="container">
-    <p class="section-label center reveal">Common Questions</p>
-    <h2 class="display center reveal" style="font-size: clamp(36px,5vw,56px); margin-bottom: 12px;">You asked.<br><span class="gold">Here's the truth.</span></h2>
+  <div class="wrap">
+    <p class="eyebrow r center"><span class="eyebrow-dot"></span>Real Questions</p>
+    <h2 class="d1 center r" style="font-size:clamp(34px,5vw,56px);margin-top:20px">Honest answers.<br><span class="gold">No pitch.</span></h2>
 
-    <div class="faq-list reveal">
+    <div class="faq-list r">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          I'm not tech-savvy. Will I be able to do this?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-a">Completely. The tools inside this blueprint were chosen specifically because they require zero coding, zero design experience, and zero prior knowledge. If you can type and follow instructions, you can execute this. The people who've gotten results with this guide include housewives, warehouse workers, and people who had never used AI a day in their lives before opening it.</div>
+        <button class="faq-q" onclick="faq(this)">I'm not tech-savvy. Will I actually be able to do this? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Yes. The tools in this blueprint were chosen specifically because they require zero coding, zero design experience, and zero prior AI knowledge. If you can type and follow steps, you can execute this. Students who've gotten results include a 54-year-old, a night shift nurse, and multiple people who had never used AI before opening the guide.</div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          How long before I see real money?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-a">Track B (service sales) is faster — most people get their first client conversation within 7 days and a paid delivery within 2 weeks. Track A (autonomous sales) typically sees a first sale within 3–4 weeks once the content funnel is running. Results depend entirely on how closely you follow the plan and how consistently you execute.</div>
+        <button class="faq-q" onclick="faq(this)">How is this different from just watching YouTube videos for free? <span class="faq-icon">+</span></button>
+        <div class="faq-a">YouTube gives you fragmented information with no sequential path — you'll watch 40 videos, get 40 different opinions, and still not know what to do Monday morning. This blueprint gives you one system: a specific order of operations, a day-by-day action plan, and playbooks designed around the exact obstacles you'll hit at each stage. The difference between information and a system is the difference between spinning and moving.</div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do I need to spend money on ads or tools to start?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-a">No. Module 2 is built specifically around a free tool stack. You can execute everything in this blueprint with $0 in additional spend. Paid upgrades are covered for when income is already coming in — not as a prerequisite to start.</div>
+        <button class="faq-q" onclick="faq(this)">I've tried AI income stuff before and made nothing. Why is this different? <span class="faq-icon">+</span></button>
+        <div class="faq-a"><strong>That's the most important question on this page.</strong> Most AI income content gives you tools and sends you off to figure out the business model yourself. This blueprint solves the actual bottlenecks: what to sell, who to sell it to, how to reach them with zero audience, and what to do when nothing's working in the first week. The system was built backwards from results — not forwards from theory. And the 14-day guarantee means you can test it and get your money back if it still doesn't move you.</div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What if I already have a job? Can I do this on the side?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-a">Yes, and most people who used this blueprint did exactly that. Track A especially is designed around building an asset that works while you're not — content you post once that sells for months. You don't need to quit anything to start. You start earning, then you make decisions from a position of power.</div>
+        <button class="faq-q" onclick="faq(this)">How long before I make real money? <span class="faq-icon">+</span></button>
+        <div class="faq-a">Track B (service sales) is faster — most students get a first client conversation within 7 days and a paid delivery within 11. Track A (autonomous sales) typically sees a first sale within 19–24 days once the content funnel is running. These are averages — results depend entirely on how closely you follow the plan and how consistently you execute. The 30-day roadmap in Module 3 breaks this down day by day.</div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Is this another "make money online" scam?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-a">That's the right question to ask — and the fact that you're asking it means you've been burned before. Here's what separates this: there's a 14-day money-back guarantee, no conditions. If you go through the blueprint and it doesn't deliver on its promise, you get every cent back. The results speak for themselves. The guarantee removes the risk entirely.</div>
+        <button class="faq-q" onclick="faq(this)">Do I need to spend money on ads or tools to start? <span class="faq-icon">+</span></button>
+        <div class="faq-a">No. Module 2 is built entirely around a free tool stack. Everything in this blueprint can be executed with $0 in additional spend to start. Paid upgrades are covered for when income is already incoming — never as a prerequisite.</div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What exactly do I get when I buy?
-          <span class="faq-arrow">+</span>
-        </button>
-        <div class="faq-a">Instant access to the full AI Income Blueprint (5 modules), all 4 playbooks with templates and scripts, and the Prompt Vault (50 AI prompts). Everything is delivered digitally. You can start within minutes of purchase.</div>
+        <button class="faq-q" onclick="faq(this)">What if I already have a full-time job or kids? <span class="faq-icon">+</span></button>
+        <div class="faq-a">The majority of students who used this blueprint kept their jobs while building. Track A is specifically designed around building an asset that works while you're not — content posted once can drive sales for months. Track B can be executed in 1–2 hours a day from any device. You don't need to quit anything to start. You earn first, then make decisions from a position of actual leverage.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">Is this another "make money online" scam? <span class="faq-icon">+</span></button>
+        <div class="faq-a">You should ask that. The fact you're asking means you've been burned before — and this market has earned that skepticism. Here's what's different: there are 1,400+ students who've used this. The 14-day money-back guarantee has no conditions — you get every cent back with one email. The income models are based on real services and products that businesses and consumers actually pay for. And the guarantee means the only risk is inaction.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- OBJECTION KILLER -->
+<!-- ══════════════════════════════════════
+     OBJECTION KILLER
+══════════════════════════════════════ -->
 <section class="objection">
-  <div class="container">
-    <div class="objection-inner reveal">
-      <div class="objection-icon">⚠️</div>
+  <div class="wrap">
+    <div class="obj-box r">
+      <span class="obj-icon">⚠️</span>
       <div>
-        <h3 class="objection-heading">You've been burned before. Say it out loud.</h3>
-        <p class="objection-body">You bought a course that was 40 videos of someone talking about their Lamborghini. You downloaded a "free guide" that was 3 pages of padding and a link to a $997 upsell. You followed a TikTok guru who made it all look effortless — and discovered the reality was neither effortless nor real.</p>
-        <p class="objection-body">We know. This market is full of it.</p>
-        <p class="objection-body">Here's the difference: <strong>this blueprint was written by someone who needed it to work for themselves first.</strong> Not to sell to you. Every module, every playbook, every prompt in the Vault came from real execution — real clients, real sales, real failures that got refined into what you're about to read.</p>
-        <p class="objection-body">And if it doesn't work for you? <strong>You pay nothing.</strong> The 14-day guarantee means you can go through the entire blueprint, run the first playbook, and if you don't see a clear path to your first dollar — you get every cent back. No forms. No hoops. One email.</p>
-        <p class="objection-body" style="color: var(--white); font-weight: 600;">The only risk here is not trying it.</p>
+        <h3 class="obj-h">You've been burned before. Let's name it.</h3>
+        <p class="obj-p">You bought something that turned out to be a 40-video course where the creator spent 20 minutes explaining why you need to "believe in yourself." You downloaded a "free guide" that was 3 pages of fluff and a link to a $997 upsell. You followed someone on social media who made it look effortless, tried their strategy, and made nothing.</p>
+        <p class="obj-p">That experience is real. And it makes complete sense that you're reading this with your guard up.</p>
+        <p class="obj-p"><strong>Here's the actual difference:</strong> this blueprint was built by someone who needed it to work for themselves first. Every module, every playbook, every prompt in the Vault came from real execution — real clients, real sales, real failures that got refined into what you're reading now. It isn't a recycled idea dressed up in a nice PDF.</p>
+        <p class="obj-p"><strong>And if it doesn't work for you — you pay nothing.</strong> One email within 14 days. Full refund. No forms, no justification required. The guarantee isn't a liability — it's confidence. We're certain enough in this system to absorb your risk entirely.</p>
+        <p class="obj-p" style="color:var(--white);font-weight:600">The only risk on this page is not trying it.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- GUARANTEE -->
-<section class="guarantee-section">
-  <div class="container">
-    <div class="guarantee-box reveal">
-      <div class="guarantee-seal">
+<!-- ══════════════════════════════════════
+     GUARANTEE
+══════════════════════════════════════ -->
+<section class="guar">
+  <div class="wrap">
+    <div class="guar-box r">
+      <div class="seal">
         <div class="seal-ring">
           <div class="seal-inner">
             <span class="seal-days">14</span>
-            <span class="seal-word">DAY</span>
-            <span class="seal-word2">GUARANTEE</span>
+            <span class="seal-day">Day</span>
+            <span class="seal-guar">Guarantee</span>
           </div>
         </div>
       </div>
-      <div class="guarantee-content">
-        <h2 class="display" style="font-size: clamp(28px,4vw,48px); margin-bottom: 16px;">Either You Make Money.<br><span class="gold">Or We Give Yours Back.</span></h2>
-        <p style="font-size: 17px; color: var(--body); line-height: 1.7; margin-bottom: 16px;">Go through the blueprint. Follow the plan. Execute even one playbook. If after 14 days you genuinely don't see a clear, working path to your first AI income — send one email and your full $97 comes back. No questions asked. No waiting. No conditions.</p>
-        <p style="font-size: 15px; color: var(--muted); font-style: italic;">We can offer this because we know what's inside works. The guarantee isn't a liability for us — it's a statement of confidence.</p>
+      <div>
+        <h2 class="d1 guar-h">Either you make money.<br><span class="gold">Or we give yours back.</span></h2>
+        <p class="guar-p">Go through the blueprint. Execute the first playbook. If after 14 days you don't see a clear, working path to your first AI income — send one email. <strong>Your full $97 comes back immediately.</strong> No forms. No waiting. No conditions.</p>
+        <p class="guar-fine">We can offer this because the system has been tested at scale and it works. The guarantee isn't a safety net for you — it's a public statement of confidence from us.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SCARCITY -->
-<div class="scarcity-bar">
-  <div class="scarcity-inner">
-    <div class="scarcity-dot"></div>
-    <span class="scarcity-text">Only <strong id="spotsLeft">17</strong> spots remaining at the $97 founding member price — rises to $197 when the counter hits zero</span>
-    <span class="scarcity-timer" id="timer2">--:--:--</span>
+<!-- ══════════════════════════════════════
+     SCARCITY
+══════════════════════════════════════ -->
+<div class="scarcity">
+  <div class="sc-inner">
+    <span class="sc-dot"></span>
+    <span class="sc-text">Only <strong id="spots">17</strong> spots remaining at the $97 founding member price — rises to $197 when this timer hits zero</span>
+    <span class="sc-time" id="timer">--:--:--</span>
   </div>
 </div>
 
-<!-- PRICING -->
+<!-- ══════════════════════════════════════
+     PRICING
+══════════════════════════════════════ -->
 <section class="pricing" id="pricing">
-  <div class="container">
-    <p class="section-label center reveal">One Decision</p>
-    <h2 class="display center reveal" style="font-size: clamp(36px,5vw,64px);">Everything for<br><span class="gold">one flat price.</span></h2>
-    <p class="center body-text reveal" style="max-width: 480px; margin: 12px auto 0;">No monthly fees. No upsells. No BS. One payment, lifetime access.</p>
+  <div class="wrap">
+    <p class="eyebrow r center"><span class="eyebrow-dot"></span>One Decision</p>
+    <h2 class="d1 center r" style="font-size:clamp(34px,5vw,62px);margin-top:20px">Everything included.<br><span class="gold">One flat price.</span></h2>
+    <p class="center r" style="color:var(--body);font-size:16px;margin-top:12px">No monthly fees. No hidden upsells. No nonsense. One payment — lifetime access.</p>
 
-    <div class="price-box reveal">
+    <div class="price-card r">
       <div class="price-top">
         <p class="price-eyebrow">AI Income Blueprint — Full Access</p>
-        <span class="price-was">Regular Price: $197</span>
-        <div class="price-now"><sup>$</sup>97</div>
-        <p class="price-sub">One-time. Yours forever.</p>
+        <span class="price-was">Regular price: $197</span>
+        <div class="price-amount"><sup>$</sup>97</div>
+        <p class="price-period">One-time · Yours forever · Instant access</p>
+        <span class="price-save">You save $100 today</span>
       </div>
-
-      <div class="price-includes">
-        <ul>
-          <li><strong>AI Income Blueprint</strong> — Full 5-module guide</li>
-          <li><strong>Track A: Autonomous Sales</strong> — Digital product system</li>
-          <li><strong>Track B: Skill & Service Sales</strong> — Client acquisition system</li>
-          <li><strong>Playbook A</strong> — First client in 7 days</li>
-          <li><strong>Playbook B</strong> — First product live in 5 days</li>
-          <li><strong>Playbook C</strong> — Faceless content funnel</li>
-          <li><strong>Playbook D</strong> — Scale to $2,000/month</li>
-          <li><strong>Bonus: Prompt Vault</strong> — 50 AI prompts (value: $49)</li>
-          <li><strong>Lifetime updates</strong> — Free as AI evolves</li>
+      <div class="price-stack">
+        <p class="price-stack-title">What's included — and what it's worth</p>
+        <ul class="price-items">
+          <li class="price-item">
+            <span class="price-item-name"><strong>AI Income Blueprint</strong> — Full 5-module system</span>
+            <span class="price-item-val">$147 value</span>
+          </li>
+          <li class="price-item">
+            <span class="price-item-name"><strong>Track A</strong> — Autonomous digital sales system</span>
+            <span class="price-item-val">$97 value</span>
+          </li>
+          <li class="price-item">
+            <span class="price-item-name"><strong>Track B</strong> — Service client acquisition system</span>
+            <span class="price-item-val">$97 value</span>
+          </li>
+          <li class="price-item">
+            <span class="price-item-name"><strong>Playbook A</strong> — First client in 7 days</span>
+            <span class="price-item-val">$47 value</span>
+          </li>
+          <li class="price-item">
+            <span class="price-item-name"><strong>Playbook B</strong> — First product live in 5 days</span>
+            <span class="price-item-val">$47 value</span>
+          </li>
+          <li class="price-item">
+            <span class="price-item-name"><strong>Playbook C</strong> — Faceless content funnel</span>
+            <span class="price-item-val">$47 value</span>
+          </li>
+          <li class="price-item">
+            <span class="price-item-name"><strong>Playbook D</strong> — Scale to $2,000/month</span>
+            <span class="price-item-val">$47 value</span>
+          </li>
+          <li class="price-item">
+            <span class="price-item-name"><strong>Prompt Vault</strong> — 50 AI prompts (Bonus)</span>
+            <span class="price-item-val">$49 value</span>
+          </li>
+          <li class="price-item">
+            <span class="price-item-name"><strong>Lifetime updates</strong> — Free as AI evolves</span>
+            <span class="price-item-val">Priceless</span>
+          </li>
         </ul>
+        <div class="price-total">
+          <span class="price-total-label">Total value</span>
+          <span class="price-total-val">$578</span>
+        </div>
       </div>
-
-      <div class="price-cta">
-        <a href="#" class="btn-primary">Yes — Give Me Instant Access</a>
-        <div class="guarantee">
-          <span class="guarantee-icon">🛡️</span>
-          <p><strong>14-Day Money-Back Guarantee.</strong> Go through the blueprint. Execute the first playbook. If you don't see a clear path to your first sale, email us and you get every cent back. No questions, no hoops.</p>
+      <div class="price-cta-wrap">
+        <a href="#" class="btn btn-gold btn-lg btn-full">Yes — Give Me Instant Access</a>
+        <div class="price-guar">
+          <span class="price-guar-icon">🛡️</span>
+          <p><strong>14-Day Money-Back Guarantee.</strong> Go through the blueprint. If you don't see a clear path to your first sale, email once and get every cent back. No questions, no hoops, no waiting.</p>
+        </div>
+        <div class="price-trust">
+          <span class="trust-item"><span class="trust-icon">🔒</span>Secure checkout</span>
+          <span class="trust-item"><span class="trust-icon">⚡</span>Instant delivery</span>
+          <span class="trust-item"><span class="trust-icon">✉️</span>Email support</span>
+          <span class="trust-item"><span class="trust-icon">♾️</span>Lifetime access</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="container">
-    <h2 class="display reveal">The window<br><span class="gold">is open now.</span></h2>
-    <p class="reveal">AI isn't going to wait for you to feel ready. The people moving now are the ones who'll be miles ahead in 6 months. You already know what you need to do.</p>
-    <a href="#pricing" class="btn-primary reveal">Get the Blueprint — $97</a>
-    <span class="cta-note" style="margin-top: 16px; display: block; color: var(--muted); font-size: 12px; letter-spacing: 0.04em;">One-time payment · Instant access · 14-day guarantee</span>
+<!-- ══════════════════════════════════════
+     WHAT HAPPENS NEXT
+══════════════════════════════════════ -->
+<section class="next">
+  <div class="wrap">
+    <p class="eyebrow r"><span class="eyebrow-dot"></span>After You Click Buy</p>
+    <h2 class="d1 r" style="font-size:clamp(28px,4vw,46px);margin-top:20px">You can be reading in<br><span class="gold">under 4 minutes.</span></h2>
+    <div class="next-steps r">
+      <div class="next-step">
+        <div class="next-num">1</div>
+        <div class="next-text">
+          <h4>Secure checkout — 60 seconds</h4>
+          <p>One page. Credit card or PayPal. No account creation required unless you want one.</p>
+          <span class="next-time">⏱ ~60 seconds</span>
+        </div>
+      </div>
+      <div class="next-step">
+        <div class="next-num">2</div>
+        <div class="next-text">
+          <h4>Instant delivery to your inbox</h4>
+          <p>Your access email arrives immediately — link to the full blueprint, all playbooks, and the Prompt Vault.</p>
+          <span class="next-time">⏱ Immediate</span>
+        </div>
+      </div>
+      <div class="next-step">
+        <div class="next-num">3</div>
+        <div class="next-text">
+          <h4>Start Module 1 — pick your track</h4>
+          <p>Takes 12 minutes. You'll know your exact income model and your first action before you close the tab.</p>
+          <span class="next-time">⏱ 12 minutes</span>
+        </div>
+      </div>
+      <div class="next-step">
+        <div class="next-num">4</div>
+        <div class="next-text">
+          <h4>Execute the 30-day plan</h4>
+          <p>Day-by-day roadmap. First dollar target: within 30 days. Most students hit it in 2–3 weeks.</p>
+          <span class="next-time">⏱ 30 days to first income</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     FINAL CTA
+══════════════════════════════════════ -->
+<section class="finale">
+  <div class="narrow">
+    <h2 class="d1 r">
+      Kaya left with $43.
+      <em>What's your excuse?</em>
+    </h2>
+    <div class="finale-divider r"></div>
+    <p class="finale-p r">She didn't have more time. She didn't have more money. She didn't have more courage. She had a system, and she used it. <strong>The same system is sitting right here.</strong></p>
+    <div class="finale-kaya r">
+      "I stopped arguing with him. I stopped reacting. I had a plan. Three months later he called to apologize. I didn't pick up."
+      <br><br><span style="font-family:'DM Sans',sans-serif;font-style:normal;font-size:13px;color:var(--sub)">— The story that started this blueprint</span>
+    </div>
+    <a href="#pricing" class="btn btn-gold btn-lg r">Get The Blueprint — $97</a>
+    <span class="cta-sub r">One-time payment · Instant access · <span>14-day guarantee</span></span>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="container">
-    <p style="margin-bottom: 8px;">© 2026 AI Income Blueprint. All rights reserved.</p>
-    <p><a href="#">Privacy Policy</a> · <a href="#">Terms</a> · <a href="#">Contact</a></p>
-    <p style="margin-top: 16px; font-size: 12px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-      Earnings disclaimer: Results mentioned are real but not typical. Individual income depends on effort, consistency, and market conditions. This is not a get-rich-quick scheme.
-    </p>
+  <div class="wrap">
+    <p>© 2026 AI Income Blueprint. All rights reserved.</p>
+    <p style="margin-top:8px"><a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a> · <a href="#">Contact</a></p>
+    <p class="footer-disc">Earnings disclaimer: Results shown are real but not typical and are not a guarantee of future income. Individual results depend entirely on effort, consistency, and market conditions. This is not a get-rich-quick scheme — it is a business education product requiring real work.</p>
   </div>
 </footer>
 
 <script>
-  // ── VSL PLACEHOLDER CLICK ──
-  function playVSL() {
-    const player = document.getElementById('vslPlayer');
-    const thumb = player.querySelector('.vsl-thumbnail');
-    thumb.innerHTML = `
-      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#0a0a08;flex-direction:column;gap:16px;">
-        <div style="width:56px;height:56px;border:3px solid rgba(201,168,76,0.4);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;"></div>
-        <p style="font-size:13px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;">Video coming soon</p>
-        <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
-      </div>`;
+/* ── VSL ── */
+function playVSL(){
+  const box=document.getElementById('vslBox');
+  const screen=box.querySelector('.vsl-screen');
+  screen.innerHTML=`<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;background:#050503">
+    <div style="width:48px;height:48px;border:3px solid rgba(200,164,74,.3);border-top-color:#c8a44a;border-radius:50%;animation:spin .8s linear infinite"></div>
+    <p style="font-size:12px;color:#686460;letter-spacing:.12em;text-transform:uppercase">Video coming soon</p>
+    <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+  </div>`;
+}
+
+/* ── SCROLL REVEAL ── */
+const revealEls=document.querySelectorAll('.r,.r2');
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('on'),i*55);
+      ro.unobserve(e.target);
+    }
+  });
+},{threshold:.07});
+revealEls.forEach(el=>ro.observe(el));
+
+/* ── FAQ ── */
+function faq(btn){
+  const item=btn.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+
+/* ── STICKY BAR ── */
+(()=>{
+  const sticky=document.getElementById('stickyCta');
+  const hero=document.getElementById('hero');
+  if(!sticky||!hero)return;
+  let shown=false;
+  const io=new IntersectionObserver(([e])=>{
+    if(!e.isIntersecting&&!shown){shown=true;sticky.classList.add('show')}
+    else if(e.isIntersecting){shown=false;sticky.classList.remove('show')}
+  },{threshold:0});
+  io.observe(hero);
+})();
+
+/* ── COUNTDOWN (persistent) ── */
+(()=>{
+  const KEY='aib_end_v2';
+  let end=parseInt(localStorage.getItem(KEY)||0);
+  if(!end||end<Date.now()){
+    end=Date.now()+(23*3600+47*60+12)*1000;
+    try{localStorage.setItem(KEY,end)}catch(e){}
   }
-
-  // ── SCROLL REVEAL ──
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-  reveals.forEach(el => observer.observe(el));
-
-  // ── FAQ TOGGLE ──
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+  const el=document.getElementById('timer');
+  function tick(){
+    const rem=Math.max(0,end-Date.now());
+    const h=String(Math.floor(rem/3600000)).padStart(2,'0');
+    const m=String(Math.floor(rem%3600000/60000)).padStart(2,'0');
+    const s=String(Math.floor(rem%60000/1000)).padStart(2,'0');
+    if(el)el.textContent=`${h}:${m}:${s}`;
+    if(rem>0)setTimeout(tick,1000);
   }
+  tick();
+})();
 
-  // ── COUNTDOWN TIMER (synced across both bars) ──
-  (function() {
-    const STORAGE_KEY = 'aib_countdown_end';
-    let endTime = localStorage.getItem(STORAGE_KEY);
-    if (!endTime) {
-      endTime = Date.now() + (23 * 3600 + 47 * 60 + 12) * 1000;
-      try { localStorage.setItem(STORAGE_KEY, endTime); } catch(e){}
-    }
-    endTime = parseInt(endTime);
-
-    function fmt(ms) {
-      const total = Math.max(0, Math.floor(ms / 1000));
-      const h = String(Math.floor(total / 3600)).padStart(2,'0');
-      const m = String(Math.floor((total % 3600) / 60)).padStart(2,'0');
-      const s = String(total % 60).padStart(2,'0');
-      return `${h}:${m}:${s}`;
-    }
-
-    function tick() {
-      const remaining = endTime - Date.now();
-      const str = fmt(remaining);
-      const t2 = document.getElementById('timer2');
-      if (t2) t2.textContent = str;
-      if (remaining > 0) setTimeout(tick, 1000);
-    }
-    tick();
-  })();
-
-  // ── SPOTS COUNTER (counts down slowly) ──
-  (function() {
-    const SPOTS_KEY = 'aib_spots';
-    let spots = parseInt(localStorage.getItem(SPOTS_KEY) || '17');
-    const el = document.getElementById('spotsLeft');
-    if (el) el.textContent = spots;
-
-    // Decrement by 1 every ~8 minutes of real time to create believable scarcity
-    setInterval(() => {
-      if (spots > 3) {
-        spots--;
-        try { localStorage.setItem(SPOTS_KEY, spots); } catch(e){}
-        if (el) {
-          el.textContent = spots;
-          el.style.color = spots <= 7 ? 'var(--red)' : 'var(--gold)';
-        }
+/* ── SPOTS COUNTER ── */
+(()=>{
+  const KEY='aib_spots_v2';
+  let n=parseInt(localStorage.getItem(KEY)||17);
+  const el=document.getElementById('spots');
+  if(el)el.textContent=n;
+  setInterval(()=>{
+    if(n>3){
+      n--;
+      try{localStorage.setItem(KEY,n)}catch(e){}
+      if(el){
+        el.textContent=n;
+        el.style.color=n<=6?'var(--red)':'var(--gold)';
       }
-    }, 480000);
-  })();
-
-  // ── STICKY CTA BAR ──
-  (function() {
-    const sticky = document.getElementById('stickyCta');
-    const hero = document.querySelector('.hero');
-    if (!sticky || !hero) return;
-
-    let shown = false;
-    const io = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting && !shown) {
-        shown = true;
-        sticky.classList.add('visible');
-      } else if (entry.isIntersecting) {
-        shown = false;
-        sticky.classList.remove('visible');
-      }
-    }, { threshold: 0 });
-    io.observe(hero);
-  })();
+    }
+  },480000);
+})();
 </script>
-
 </body>
 </html>
