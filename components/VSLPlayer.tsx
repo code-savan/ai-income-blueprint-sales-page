@@ -1,9 +1,23 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function HeroVSL() {
   const [playing, setPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const vid = videoRef.current
+    if (!vid) return
+    if (playing) {
+      vid.play().catch(() => {})
+    } else {
+      vid.pause()
+    }
+  }, [playing])
+
+  const VSL_URL = 'https://d8j0ntlcm91z4.cloudfront.net/user_3F6NuQ25OFHTqLKUwjR9KKmBRi4/hf_20260804_115410_a02fdcb2-9596-42ff-abdb-d7e00b4b1d5e.mp4'
+  const POSTER_URL = 'https://cdn.higgsfield.ai/marketing_studio_avatar/8c8e0717-70c1-46a5-b67f-4581637ff1fc.webp'
 
   return (
     <div className="hero-media">
@@ -11,44 +25,39 @@ export default function HeroVSL() {
         <button
           className={`hero-vsl-screen${playing ? ' is-playing' : ''}`}
           type="button"
-          aria-label={playing ? 'Pause video placeholder' : 'Play video placeholder'}
+          aria-label={playing ? 'Pause video' : 'Play video'}
           onClick={() => setPlaying((value) => !value)}
         >
           <div className="hero-vsl-glow" />
           <div className="vsl-lines" />
-          {playing ? (
-            <div className="hero-vsl-placeholder">
-              <span className="vsl-status">Preview placeholder</span>
-              <p className="vsl-placeholder-title">VSL slot is ready</p>
-              <p className="vsl-placeholder-copy">
-                Drop the final video embed or file here when it is ready. Controls, sizing, and
-                interaction state are already wired.
-              </p>
-            </div>
-          ) : (
-            <div className="hero-vsl-center">
+          
+          <video
+            ref={videoRef}
+            id="vslVideo"
+            preload="metadata"
+            playsInline
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', zIndex: 1 }}
+            poster={POSTER_URL}
+          >
+            <source src={VSL_URL} type="video/mp4" />
+          </video>
+
+          {!playing && (
+            <div className="hero-vsl-center" style={{ zIndex: 2 }}>
               <div className="hero-vsl-play">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M8 5v14l11-7z" />
                 </svg>
               </div>
               <p className="hero-vsl-label">Watch This First</p>
-              <p className="hero-vsl-time">4 min 38 sec</p>
+              <p className="hero-vsl-time">2 min 26 sec</p>
             </div>
           )}
-          <div className="vsl-controlbar" aria-hidden="true">
-            <span className="vsl-control-icon">{playing ? 'Pause' : 'Play'}</span>
-            <span className="vsl-progress">
-              <span className="vsl-progress-fill" />
-            </span>
-            <span className="vsl-duration">4:38</span>
-          </div>
         </button>
         <div className="hero-vsl-footer">
           <span className="hero-vsl-live" />
-          <span className="hero-vsl-note">4-minute VSL placeholder — final video can be added here</span>
+          <span className="hero-vsl-note">Zara shares her AI income story</span>
         </div>
-        <p className="hero-vsl-caption">Click to test player state</p>
       </div>
     </div>
   )

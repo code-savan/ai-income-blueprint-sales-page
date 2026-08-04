@@ -640,18 +640,37 @@ function PlaybooksSection() {
 }
 
 function ToolsStrip() {
-  const tools = ['ChatGPT', 'Claude AI', 'ElevenLabs', 'Kling AI', 'CapCut', 'Gumroad', 'Canva', 'TikTok', 'Instagram Reels']
+  const tools = [
+    { name: 'ChatGPT', url: 'https://cdn.simpleicons.org/openai/7C3AED' },
+    { name: 'Claude AI', url: 'https://cdn.simpleicons.org/claude/7C3AED' },
+    { name: 'ElevenLabs', url: 'https://cdn.simpleicons.org/elevenlabs/7C3AED' },
+    { name: 'Kling AI', url: 'https://cdn.simpleicons.org/kling/7C3AED' },
+    { name: 'CapCut', url: 'https://cdn.simpleicons.org/capcut/7C3AED' },
+    { name: 'Gumroad', url: 'https://cdn.simpleicons.org/gumroad/7C3AED' },
+    { name: 'Canva', url: 'https://cdn.simpleicons.org/canva/7C3AED' },
+    { name: 'TikTok', url: 'https://cdn.simpleicons.org/tiktok/7C3AED' },
+    { name: 'Instagram', url: 'https://cdn.simpleicons.org/instagram/7C3AED' },
+  ]
 
   return (
     <div className="tools">
       <p className="tools-label">Tools covered inside the blueprint</p>
-      <div className="tools-list">
-        {tools.map((t, i) => (
-          <span className="tool-pill" key={i}>
-            <span className="tool-dot" />
-            {t}
-          </span>
-        ))}
+      <div className="tools-marquee">
+        <div className="tools-track">
+          {[...tools, ...tools].map((t, i) => (
+            <div className="tool-logo-wrapper" key={i}>
+              <img
+                className="tool-logo-img"
+                src={t.url}
+                alt={t.name}
+                width={32}
+                height={32}
+                loading="lazy"
+              />
+              <span className="tool-logo-name">{t.name}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )
