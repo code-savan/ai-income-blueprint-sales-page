@@ -1,35 +1,10 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import './globals.css'
 
-const dmSans = localFont({
-  src: [
-    { path: '../public/fonts/DMSans-Regular.ttf', weight: '400', style: 'normal' },
-    { path: '../public/fonts/DMSans-Medium.ttf', weight: '500', style: 'normal' },
-    { path: '../public/fonts/DMSans-Bold.ttf', weight: '700', style: 'normal' },
-    { path: '../public/fonts/DMSans-ExtraBold.ttf', weight: '800', style: 'normal' },
-    { path: '../public/fonts/DMSans-Italic.ttf', weight: '400', style: 'italic' },
-  ],
-  variable: '--font-dm-sans',
-})
-
-const bebasNeue = localFont({
-  src: '../public/fonts/BebasNeue-Regular.ttf',
-  variable: '--font-bebas',
-})
-
-const dmSerif = localFont({
-  src: [
-    { path: '../public/fonts/DMSerifDisplay-Regular.ttf', weight: '400', style: 'normal' },
-    { path: '../public/fonts/DMSerifDisplay-Italic.ttf', weight: '400', style: 'italic' },
-  ],
-  variable: '--font-dm-serif',
-})
-
 export const metadata: Metadata = {
-  title: 'AI Income Blueprint — She Left With $43. Here\'s What She Used.',
+  title: 'AI Income Blueprint — She Left With $43 & Two Kids. Here\'s What She Used.',
   description:
-    'The only step-by-step blueprint that takes you from complete beginner to your first AI income — whether you want sales on autopilot or fast client cash — in 30 days or less.',
+    'The step-by-step blueprint from $43 to your first AI income — whether you want sales on autopilot or fast client cash — in 30 days or less.',
   keywords: [
     'AI income',
     'make money with AI',
@@ -51,9 +26,9 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'AI Income Blueprint',
     locale: 'en_US',
-    title: 'AI Income Blueprint — She Left With $43. Here\'s What She Used.',
+    title: 'AI Income Blueprint — She Left With $43 & Two Kids. Here\'s What She Used.',
     description:
-      'Choose a track, set up the tool stack, and follow the 30-day action plan with included playbooks and prompts. Start making money with free AI tools.',
+      'The step-by-step blueprint from $43 to your first AI income. Two tracks, four playbooks, and a 30-day action plan. Start making money with free AI tools.',
     url: 'https://sales.instantleadlabs.com',
     images: [
       {
@@ -76,7 +51,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable} ${bebasNeue.variable} ${dmSerif.variable}`}>
+      <body>
         <div id="stickyCtaRoot" />
         {children}
         <script dangerouslySetInnerHTML={{
