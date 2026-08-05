@@ -57,7 +57,6 @@ export default function Home() {
       <PricingSection />
       <FaqSection />
       <FinalCtaSection />
-      <ScarcityBar />
       <FooterSection />
     </>
   )
@@ -132,15 +131,15 @@ function Hero() {
         <Reveal delay={0.4} className="hero__proof">
           <span className="hero__proof-item">
             <span className="hero__proof-icon"><BoltIcon size={16} /></span>
-            <strong>2 tracks</strong> — service cash flow or digital product sales
+            <strong>Two Income Tracks</strong> — pick digital products or service sales
           </span>
           <span className="hero__proof-item">
             <span className="hero__proof-icon"><CalendarIcon size={16} /></span>
-            <strong>30 days</strong> of specific daily actions
+            <strong>30-Day Roadmap</strong> — day-by-day actions to your first dollar
           </span>
           <span className="hero__proof-item">
             <span className="hero__proof-icon"><FreeIcon size={16} /></span>
-            <strong>$0</strong> extra tools required to start
+            <strong>Zero Startup Cost</strong> — start with free AI tools, no subscriptions
           </span>
         </Reveal>
       </div>
