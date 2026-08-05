@@ -1,32 +1,30 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import ScrollReveal from '@/components/ScrollReveal'
+import { useEffect } from 'react'
+import Reveal from '@/components/Reveal'
 import HeroVSL from '@/components/VSLPlayer'
 import StickyBar from '@/components/StickyBar'
 import FaqAccordion from '@/components/FaqAccordion'
 import CountdownTimer from '@/components/CountdownTimer'
+import {
+  CheckIcon,
+  StarIcon,
+  StarsRow,
+  ArrowRight,
+  BoltIcon,
+  CalendarIcon,
+  FreeIcon,
+  ShieldIcon,
+  LockIcon,
+  MailIcon,
+  InfinityIcon,
+  ClockIcon,
+  GearIcon,
+  BriefcaseIcon,
+  PlusIcon,
+} from '@/components/Icons'
 
 const CHECKOUT_URL = process.env.NEXT_PUBLIC_CHECKOUT_URL || '#pricing'
-
-/* ─── INTERSECTION OBSERVER FOR REVEAL ─── */
-function useRevealObserver() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
-    )
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-}
 
 /* ─── NAV SCROLL STATE ─── */
 function useNavScroll() {
@@ -41,7 +39,6 @@ function useNavScroll() {
 }
 
 export default function Home() {
-  useRevealObserver()
   useNavScroll()
 
   return (
@@ -83,7 +80,7 @@ function Nav() {
           </nav>
           <a className="btn btn--dark" href={CHECKOUT_URL}>
             Get The Blueprint
-            <span className="btn__arrow">→</span>
+            <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
           </a>
         </div>
       </div>
@@ -98,73 +95,73 @@ function Hero() {
   return (
     <section className="hero section" id="hero">
       <div className="container hero__inner">
-        <div className="reveal" style={{ '--reveal-delay': '0s' } as React.CSSProperties}>
+        <Reveal delay={0}>
           <a className="hero-announce" href="#content-library">
             <span className="hero-announce__badge">NEW</span>
             <span>Join 1,400+ students already using the Blueprint</span>
           </a>
-        </div>
+        </Reveal>
 
-        <div className="reveal" style={{ '--reveal-delay': '0.08s' } as React.CSSProperties}>
+        <Reveal delay={0.08}>
           <HeroVSL />
-        </div>
+        </Reveal>
 
-        <div className="reveal" style={{ '--reveal-delay': '0.16s' } as React.CSSProperties}>
+        <Reveal delay={0.16}>
           <h1 className="h1 hero__title">
-            She Left With $43 &amp; Two Kids.<br />
+            She Left With $43 & Two Kids.<br />
             Here&rsquo;s What She Used.
           </h1>
-        </div>
+        </Reveal>
 
-        <div className="reveal" style={{ '--reveal-delay': '0.24s' } as React.CSSProperties}>
+        <Reveal delay={0.24}>
           <p className="hero__sub">
             Your first AI income path. <strong>Mapped day by day.</strong> A practical 5-module system for beginners — pick one of two tracks, set up the free tool stack, then follow the included prompts, scripts, and playbooks toward your first sale or client.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="hero__action reveal" style={{ '--reveal-delay': '0.32s' } as React.CSSProperties}>
+        <Reveal delay={0.32} className="hero__action">
           <a href={CHECKOUT_URL} className="btn btn--primary" style={{ paddingInline: 32, height: 52, fontSize: 16 }}>
             Get The Blueprint — $97
-            <span className="btn__arrow">→</span>
+            <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
           </a>
           <span style={{ fontSize: 13, color: 'var(--muted)', marginTop: 4 }}>
             One-time $97 · Instant access · <strong style={{ color: 'var(--ink-soft)' }}>14-day money-back guarantee</strong>
           </span>
-        </div>
+        </Reveal>
 
-        <div className="hero__proof reveal" style={{ '--reveal-delay': '0.4s' } as React.CSSProperties}>
+        <Reveal delay={0.4} className="hero__proof">
           <span className="hero__proof-item">
-            <span className="hero__proof-icon">⚡</span>
+            <span className="hero__proof-icon"><BoltIcon size={16} /></span>
             <strong>2 tracks</strong> — service cash flow or digital product sales
           </span>
           <span className="hero__proof-item">
-            <span className="hero__proof-icon">📅</span>
+            <span className="hero__proof-icon"><CalendarIcon size={16} /></span>
             <strong>30 days</strong> of specific daily actions
           </span>
           <span className="hero__proof-item">
-            <span className="hero__proof-icon">🆓</span>
+            <span className="hero__proof-icon"><FreeIcon size={16} /></span>
             <strong>$0</strong> extra tools required to start
           </span>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
 }
 
 /* ═══════════════════════════════════════════
-   LOGO WALL
+   LOGO WALL — Real company SVGs from /public/tool-logos
 ═══════════════════════════════════════════ */
 function Logowall() {
   const logos = [
-    { name: 'ChatGPT', icon: '🤖' },
-    { name: 'Claude', icon: '🧠' },
-    { name: 'ElevenLabs', icon: '🎙️' },
-    { name: 'CapCut', icon: '✂️' },
-    { name: 'Gumroad', icon: '🛒' },
-    { name: 'Canva', icon: '🎨' },
-    { name: 'TikTok', icon: '📱' },
-    { name: 'Instagram', icon: '📸' },
-    { name: 'Kling AI', icon: '🎬' },
+    { name: 'ChatGPT', src: '/tool-logos/chatgpt.svg' },
+    { name: 'Claude', src: '/tool-logos/claude.svg' },
+    { name: 'ElevenLabs', src: '/tool-logos/elevenlabs.svg' },
+    { name: 'CapCut', src: '/tool-logos/capcut.svg' },
+    { name: 'Gumroad', src: '/tool-logos/gumroad.svg' },
+    { name: 'Canva', src: '/tool-logos/canva.svg' },
+    { name: 'TikTok', src: '/tool-logos/tiktok.svg' },
+    { name: 'Instagram', src: '/tool-logos/instagram.svg' },
+    { name: 'Kling AI', src: '/tool-logos/kling.svg' },
   ]
 
   const items = [...logos, ...logos]
@@ -174,7 +171,7 @@ function Logowall() {
       <div className="logowall__track">
         {items.map((t, i) => (
           <div className="logowall__item" key={i}>
-            <span style={{ fontSize: 22 }}>{t.icon}</span>
+            <img src={t.src} alt={t.name} width="28" height="28" />
             <span>{t.name}</span>
           </div>
         ))}
@@ -191,37 +188,50 @@ function Spotlight() {
     <section className="spotlight section">
       <div className="container spotlight__grid">
         <div className="spotlight__copy">
-          <div className="eyebrow reveal">SPOTLIGHT</div>
-          <h2 className="h2 reveal">
-            She left with $43 &amp; two kids.<br />
-            <span style={{ color: 'var(--purple)' }}>Made $1,100 Month 2.</span>
-          </h2>
-          <p className="reveal">
-            Kaya was a stay-at-home mom with $0 of her own. She didn&rsquo;t have a camera,
-            a following, or technical skills. She had the Blueprint, a laptop, and about 90
-            minutes a day. Month 2: $1,100. No face, no ads, no previous experience.
-          </p>
-          <a className="btn btn--primary reveal" href={CHECKOUT_URL}>
-            Get The Blueprint
-            <span className="btn__arrow">→</span>
-          </a>
-          <figure className="reveal">
-            <blockquote>
-              &ldquo;I was a stay-at-home mom with $0 of my own. My husband didn&rsquo;t think
-              I could do it. Month 2 I made $1,100. I have my own account now. That changes
-              everything about how you carry yourself.&rdquo;
-            </blockquote>
-            <figcaption><strong>Kaya M.</strong> ★★★★★</figcaption>
-          </figure>
+          <Reveal>
+            <div className="eyebrow">SPOTLIGHT</div>
+          </Reveal>
+          <Reveal>
+            <h2 className="h2">
+              She left with $43 & two kids.<br />
+              <span style={{ color: 'var(--purple)' }}>Made $1,100 Month 2.</span>
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p>
+              Kaya was a stay-at-home mom with $0 of her own. She didn&rsquo;t have a camera,
+              a following, or technical skills. She had the Blueprint, a laptop, and about 90
+              minutes a day. Month 2: $1,100. No face, no ads, no previous experience.
+            </p>
+          </Reveal>
+          <Reveal>
+            <a className="btn btn--primary" href={CHECKOUT_URL}>
+              Get The Blueprint
+              <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
+            </a>
+          </Reveal>
+          <Reveal>
+            <figure>
+              <blockquote>
+                &ldquo;I was a stay-at-home mom with $0 of my own. My husband didn&rsquo;t think
+                I could do it. Month 2 I made $1,100. I have my own account now. That changes
+                everything about how you carry yourself.&rdquo;
+              </blockquote>
+              <figcaption>
+                <strong>Kaya M.</strong>
+                <StarsRow count={5} size={14} />
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
-        <div className="spotlight__media reveal">
+        <Reveal className="spotlight__media">
           <div className="dot-grid spotlight__dots" />
           <div className="spotlight__phone">
             <video autoPlay muted loop playsInline poster="">
               <source src="https://media.aftermark.ai/usefastlane/video/ugc-girl-walking.mp4" type="video/mp4" />
             </video>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -246,37 +256,39 @@ function ContentLibrary() {
     <section className="library section" id="content-library">
       <div className="container">
         <div className="library__head">
-          <div className="eyebrow reveal">CONTENT LIBRARY</div>
-          <h2 className="h2 reveal">300+ UGC Prompts for All Types of Products — For Free</h2>
-          <p className="reveal">
-            Every prompt you need to create viral UGC content for any product or niche. Copy,
-            paste, and generate. No experience needed.
-          </p>
+          <Reveal><div className="eyebrow">CONTENT LIBRARY</div></Reveal>
+          <Reveal><h2 className="h2">300+ UGC Prompts for All Types of Products — For Free</h2></Reveal>
+          <Reveal>
+            <p>
+              Every prompt you need to create viral UGC content for any product or niche. Copy,
+              paste, and generate. No experience needed.
+            </p>
+          </Reveal>
         </div>
 
         <div className="library-grid">
           {videos.map((v, i) => (
-            <div
-              className="video-card reveal"
-              key={i}
-              style={{ '--reveal-delay': `${i * 0.06}s` } as React.CSSProperties}
-            >
-              <video autoPlay muted loop playsInline preload="none">
-                <source src={v.url} type="video/mp4" />
-              </video>
-              <div className="video-card__head">
-                <span className="video-card__name">{v.label}</span>
+            <Reveal key={i} delay={i * 0.06}>
+              <div className="video-card">
+                <video autoPlay muted loop playsInline preload="none">
+                  <source src={v.url} type="video/mp4" />
+                </video>
+                <div className="video-card__head">
+                  <span className="video-card__name">{v.label}</span>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: 40 }}>
-          <a className="btn btn--primary reveal" href={CHECKOUT_URL}>
-            Get All 300+ Prompts
-            <span className="btn__arrow">→</span>
-          </a>
-        </div>
+        <Reveal>
+          <div style={{ textAlign: 'center', marginTop: 40 }}>
+            <a className="btn btn--primary" href={CHECKOUT_URL}>
+              Get All 300+ Prompts
+              <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -296,48 +308,33 @@ function HowItWorks() {
   return (
     <section className="how section" id="how-it-works">
       <div className="container">
-        <h2 className="h2 how__title reveal">How it works</h2>
+        <Reveal><h2 className="h2 how__title">How it works</h2></Reveal>
 
         <div className="how__grid">
           <div className="how__steps">
             {steps.map((s, i) => (
-              <div
-                className="reveal"
-                key={i}
-                style={{ '--reveal-delay': `${i * 0.1}s` } as React.CSSProperties}
-              >
+              <Reveal key={i} delay={i * 0.1}>
                 <div className="how-step">
                   <span className="how-step__num">{s.num}</span>
                   <h3 className="how-step__title">{s.title}</h3>
                   <p>{s.desc}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
-          <div
-            className="reveal"
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 20,
-              alignItems: 'center',
-              position: 'sticky',
-              top: 100,
-            }}
-          >
-            <div
-              className="spotlight__phone"
-              style={{ width: 280, transform: 'scale(0.95)' }}
-            >
-              <video autoPlay muted loop playsInline>
-                <source src="https://media.aftermark.ai/usefastlane/video/ioKhMdGULeCQLxLfWMbkuumROk.mp4" type="video/mp4" />
-              </video>
+          <Reveal delay={0.2}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20, alignItems: 'center', position: 'sticky', top: 100 }}>
+              <div className="spotlight__phone" style={{ width: 280, transform: 'scale(0.95)' }}>
+                <video autoPlay muted loop playsInline>
+                  <source src="https://media.aftermark.ai/usefastlane/video/ioKhMdGULeCQLxLfWMbkuumROk.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <p style={{ fontSize: 13, color: 'var(--muted)', textAlign: 'center', maxWidth: 260 }}>
+                Real UGC generated from Blueprint prompts
+              </p>
             </div>
-            <p style={{ fontSize: 13, color: 'var(--muted)', textAlign: 'center', maxWidth: 260 }}>
-              Real UGC generated from Blueprint prompts
-            </p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -350,7 +347,7 @@ function HowItWorks() {
 function Tracks() {
   const tracks = [
     {
-      icon: '⚙️',
+      icon: <GearIcon size={28} />,
       name: 'Track A — Autonomous Sales',
       desc: 'Build a digital product. Set up a faceless content funnel on TikTok or Reels. Let it drive traffic and collect sales on autopilot. Wake up to Gumroad notifications.',
       fit: 'People who want income that doesn\'t trade hours for dollars. No client calls. No networking. Introverts thrive here.',
@@ -362,7 +359,7 @@ function Tracks() {
       ],
     },
     {
-      icon: '💼',
+      icon: <BriefcaseIcon size={28} />,
       name: 'Track B — Service Sales',
       desc: 'Use AI to deliver professional services — content, copywriting, automation — to businesses that need them. Charge human rates. Deliver in hours with AI.',
       fit: 'People who want fast cash flow and don\'t mind a short client conversation. No portfolio, no agency, no prior work needed.',
@@ -379,40 +376,42 @@ function Tracks() {
     <section className="tracks section" id="tracks">
       <div className="container">
         <div className="tracks__head">
-          <div className="eyebrow reveal">PICK YOUR PATH</div>
-          <h2 className="h2 reveal">
-            Two tracks. One blueprint.<br />
-            <span style={{ color: 'var(--purple)' }}>Both lead to money.</span>
-          </h2>
-          <p className="reveal" style={{ color: 'var(--body)', fontSize: 16, marginTop: 14 }}>
-            You choose your income model in Module 1. Pick what fits your life — not someone else&rsquo;s.
-          </p>
+          <Reveal><div className="eyebrow">PICK YOUR PATH</div></Reveal>
+          <Reveal>
+            <h2 className="h2">
+              Two tracks. One blueprint.<br />
+              <span style={{ color: 'var(--purple)' }}>Both lead to money.</span>
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p style={{ color: 'var(--body)', fontSize: 16, marginTop: 14 }}>
+              You choose your income model in Module 1. Pick what fits your life — not someone else&rsquo;s.
+            </p>
+          </Reveal>
         </div>
 
         <div className="track-grid">
           {tracks.map((track, i) => (
-            <div
-              className="track-card reveal"
-              key={i}
-              style={{ '--reveal-delay': `${i * 0.12}s` } as React.CSSProperties}
-            >
-              <span className="track-icon">{track.icon}</span>
-              <p className="track-name">{track.name}</p>
-              <p className="track-desc">{track.desc}</p>
-              <p className="track-for">Best for</p>
-              <p className="track-fit">{track.fit}</p>
-              <div className="track-steps">
-                {track.steps.map((s, j) => (
-                  <div className="track-step" key={j}>
-                    <div className="step-dot" />
-                    <div>
-                      <span className="step-label">{s.label}</span>
-                      {s.text}
+            <Reveal key={i} delay={i * 0.12}>
+              <div className="track-card">
+                <span className="track-icon">{track.icon}</span>
+                <p className="track-name">{track.name}</p>
+                <p className="track-desc">{track.desc}</p>
+                <p className="track-for">Best for</p>
+                <p className="track-fit">{track.fit}</p>
+                <div className="track-steps">
+                  {track.steps.map((s, j) => (
+                    <div className="track-step" key={j}>
+                      <div className="step-dot" />
+                      <div>
+                        <span className="step-label">{s.label}</span>
+                        {s.text}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -436,23 +435,23 @@ function Modules() {
     <section className="modules section" id="modules">
       <div className="container">
         <div className="modules__head">
-          <div className="eyebrow reveal">INSIDE THE BLUEPRINT</div>
-          <h2 className="h2 reveal">
-            Everything you need.<br />
-            <span style={{ color: 'var(--purple-soft)' }}>Nothing you don&rsquo;t.</span>
-          </h2>
-          <p className="reveal" style={{ fontSize: 16, marginTop: 14 }}>
-            Five focused modules. Four battle-tested playbooks. Every piece built around the fastest path to your first dollar.
-          </p>
+          <Reveal><div className="eyebrow">INSIDE THE BLUEPRINT</div></Reveal>
+          <Reveal>
+            <h2 className="h2">
+              Everything you need.<br />
+              <span style={{ color: 'var(--purple-soft)' }}>Nothing you don&rsquo;t.</span>
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p style={{ fontSize: 16, marginTop: 14 }}>
+              Five focused modules. Four battle-tested playbooks. Every piece built around the fastest path to your first dollar.
+            </p>
+          </Reveal>
         </div>
 
         <div className="mod-grid">
           {modules.map((mod, i) => (
-            <div
-              className={`mod-card${mod.wide ? ' mod-wide' : ''} reveal`}
-              key={i}
-              style={{ '--reveal-delay': `${i * 0.08}s` } as React.CSSProperties}
-            >
+            <Reveal key={i} delay={i * 0.08} className={`mod-card${mod.wide ? ' mod-wide' : ''}`}>
               <span className="mod-num">{mod.num}</span>
               <span className="mod-tag">{mod.tag}</span>
               <h3>{mod.title}</h3>
@@ -460,14 +459,17 @@ function Modules() {
               {mod.bullets && (
                 <ul className="mod-bullets">
                   {mod.bullets.map((b, j) => (
-                    <li key={j}>{b}</li>
+                    <li key={j}>
+                      <span className="check-svg"><CheckIcon size={14} color="var(--purple-soft)" /></span>
+                      {b}
+                    </li>
                   ))}
                 </ul>
               )}
-            </div>
+            </Reveal>
           ))}
 
-          <div className="mod-bonus reveal">
+          <Reveal className="mod-bonus" delay={0.3}>
             <div>
               <span className="bonus-badge">Bonus Included</span>
               <h3>The Prompt Vault — 50 Ready-to-Use AI Prompts</h3>
@@ -481,7 +483,7 @@ function Modules() {
               <span className="bonus-was">Value: $49</span>
               <span className="bonus-free">FREE</span>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -503,30 +505,35 @@ function Playbooks() {
     <section className="playbooks section" id="playbooks">
       <div className="container">
         <div className="playbooks__head">
-          <div className="eyebrow reveal">THE FOUR PLAYBOOKS</div>
-          <h2 className="h2 reveal">
-            Every bottleneck.<br />
-            <span style={{ color: 'var(--purple)' }}>Already solved.</span>
-          </h2>
-          <p className="reveal">
-            These aren&rsquo;t general guides. Each playbook targets one specific obstacle with templates, scripts, and timelines that have been stress-tested by real students.
-          </p>
+          <Reveal><div className="eyebrow">THE FOUR PLAYBOOKS</div></Reveal>
+          <Reveal>
+            <h2 className="h2">
+              Every bottleneck.<br />
+              <span style={{ color: 'var(--purple)' }}>Already solved.</span>
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p>
+              These aren&rsquo;t general guides. Each playbook targets one specific obstacle with templates, scripts, and timelines that have been stress-tested by real students.
+            </p>
+          </Reveal>
         </div>
 
         <div className="pb-grid">
           {playbooks.map((pb, i) => (
-            <div
-              className="pb-card reveal"
-              key={i}
-              style={{ '--reveal-delay': `${i * 0.1}s` } as React.CSSProperties}
-            >
-              <span className="pb-letter">{pb.letter}</span>
-              <div>
-                <h4>{pb.title}</h4>
-                <p>{pb.desc}</p>
-                <span className="pb-time">⏱ Avg: {pb.time}</span>
+            <Reveal key={i} delay={i * 0.1}>
+              <div className="pb-card">
+                <span className="pb-letter">{pb.letter}</span>
+                <div>
+                  <h4>{pb.title}</h4>
+                  <p>{pb.desc}</p>
+                  <span className="pb-time">
+                    <ClockIcon size={12} color="#12805c" />
+                    Avg: {pb.time}
+                  </span>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -543,7 +550,7 @@ function WallOfProof() {
     name: string,
     handle: string,
     q: string,
-    stars = '★★★★★',
+    starsCount = 5,
     extra?: { num?: string; per?: string; tag?: string; big?: boolean }
   ) => (
     <div className={`wc${extra?.big ? ' big' : ''}`} key={av + name} style={{ width: '100%' }}>
@@ -553,7 +560,7 @@ function WallOfProof() {
           <span className="wc-per">{extra.per}</span>
         </div>
       )}
-      <div className="wc-stars">{stars}</div>
+      <div className="wc-stars"><StarsRow count={starsCount} size={14} /></div>
       <p className="wc-q">{q}</p>
       <div className="wc-author">
         <div className="wc-av">{av}</div>
@@ -567,72 +574,58 @@ function WallOfProof() {
   )
 
   const col1 = [
-    testimonial('AM', 'Amara M.', 'Stay-at-home mom → Track A', '"I was a stay-at-home mom with $0 of my own. My husband didn\'t think I could do it. Month 2 I made $1,100. I have my own account now. That changes everything about how you carry yourself."', '★★★★★', { num: '$1,100', per: '/ Month 2', big: true }),
-    testimonial('TW', 'Tolu W.', '3 failed courses → first $200 in week 2', '"I\'ve bought 3 courses before this. All garbage. This one had me making $200 in week 2. It\'s the only one that gives you actual steps, not motivation."', '★★★★★', { tag: 'Track B' }),
-    testimonial('RL', 'Rachel L.', 'Graphic designer → added AI services', '"The Prompt Vault alone is worth more than $97. I used 4 prompts in week 1 to deliver a client project that paid me $600. I hadn\'t even finished the guide."', '★★★★★', { tag: 'Prompt Vault' }),
-    testimonial('SN', 'Sandra N.', 'Night shift nurse → $480/mo passive', '"I\'m a night shift nurse. I check my phone before bed and there are Gumroad notifications. $480 last month. Completely passive while I work 12-hour shifts."'),
+    testimonial('AM', 'Amara M.', 'Stay-at-home mom → Track A', '"I was a stay-at-home mom with $0 of my own. My husband didn\'t think I could do it. Month 2 I made $1,100. I have my own account now. That changes everything about how you carry yourself."', 5, { num: '$1,100', per: '/ Month 2', big: true }),
+    testimonial('TW', 'Tolu W.', '3 failed courses → first $200 in week 2', '"I\'ve bought 3 courses before this. All garbage. This one had me making $200 in week 2. It\'s the only one that gives you actual steps, not motivation."', 5, { tag: 'Track B' }),
+    testimonial('RL', 'Rachel L.', 'Graphic designer → added AI services', '"The Prompt Vault alone is worth more than $97. I used 4 prompts in week 1 to deliver a client project that paid me $600. I hadn\'t even finished the guide."', 5, { tag: 'Prompt Vault' }),
+    testimonial('SN', 'Sandra N.', 'Night shift nurse → $480/mo passive', '"I\'m a night shift nurse. I check my phone before bed and there are Gumroad notifications. $480 last month. Completely passive while I work 12-hour shifts."', 5),
   ]
 
   const col2 = [
-    testimonial('KO', 'Kevin O.', 'Immigrant → $3,200/month', '"Applied to 47 jobs. 2 callbacks. 0 offers. The internet doesn\'t care about your accent or your postcode. First client in 11 days using Playbook A."', '★★★★★', { tag: 'Playbook A' }),
-    testimonial('DL', 'Darius L.', 'Laid off → full-time AI income', '"Got laid off on a Tuesday. Found this on Friday. By end of the month I\'d made more than my salary. I\'m not going back. Not to that office, not to any office."', '★★★★★', { num: '$4,100', per: '/ Month 1', big: true }),
-    testimonial('JR', 'Jade R.', 'Skeptic → $900/month side income', '"The guarantee is what made me try it. Didn\'t need it. First sale on day 19. Recommended to my sister and my cousin since. Both are running now."'),
-    testimonial('MF', 'Margaret F.', '54 years old · first tech income ever', '"I\'m 54. My kids said I wouldn\'t understand the AI stuff. Module 2 took me 45 minutes. I had a $300/month client by week 3. Tell your kids I said hi."'),
+    testimonial('KO', 'Kevin O.', 'Immigrant → $3,200/month', '"Applied to 47 jobs. 2 callbacks. 0 offers. The internet doesn\'t care about your accent or your postcode. First client in 11 days using Playbook A."', 5, { tag: 'Playbook A' }),
+    testimonial('DL', 'Darius L.', 'Laid off → full-time AI income', '"Got laid off on a Tuesday. Found this on Friday. By end of the month I\'d made more than my salary. I\'m not going back. Not to that office, not to any office."', 5, { num: '$4,100', per: '/ Month 1', big: true }),
+    testimonial('JR', 'Jade R.', 'Skeptic → $900/month side income', '"The guarantee is what made me try it. Didn\'t need it. First sale on day 19. Recommended to my sister and my cousin since. Both are running now."', 5),
+    testimonial('MF', 'Margaret F.', '54 years old · first tech income ever', '"I\'m 54. My kids said I wouldn\'t understand the AI stuff. Module 2 took me 45 minutes. I had a $300/month client by week 3. Tell your kids I said hi."', 5),
   ]
 
   const col3 = [
-    testimonial('BP', 'Bianca P.', 'Small business owner → dual income', '"I run a bakery. Used Track B to offer AI content to other local businesses on the side. $700 extra in month 1. Bakery still open every day."'),
-    testimonial('CK', 'Chris K.', 'Content creator → digital product sales', '"Posted 3 videos using Playbook C\'s format. One hit 80K views. 11 sales that week. From one video. At $97 each. I still can\'t fully process that."', '★★★★★', { tag: 'Playbook C' }),
-    testimonial('EO', 'Emeka O.', 'Both tracks simultaneously', '"Ran both tracks at once. Track B gave me fast cash. Track A built passive income in the background. Month 3 they were both producing. $2,300 and still at my day job."', '★★★★★', { num: '$2,300', per: '/ Month 3', big: true }),
-    testimonial('LH', 'Lena H.', 'Single mum · $350 in 3 weeks', '"Single mum. No time to waste. Most practical guide I\'ve ever read. No filler. Just: do this, then this, then this. $350 in 3 weeks following it exactly."'),
+    testimonial('BP', 'Bianca P.', 'Small business owner → dual income', '"I run a bakery. Used Track B to offer AI content to other local businesses on the side. $700 extra in month 1. Bakery still open every day."', 5),
+    testimonial('CK', 'Chris K.', 'Content creator → digital product sales', '"Posted 3 videos using Playbook C\'s format. One hit 80K views. 11 sales that week. From one video. At $97 each. I still can\'t fully process that."', 5, { tag: 'Playbook C' }),
+    testimonial('EO', 'Emeka O.', 'Both tracks simultaneously', '"Ran both tracks at once. Track B gave me fast cash. Track A built passive income in the background. Month 3 they were both producing. $2,300 and still at my day job."', 5, { num: '$2,300', per: '/ Month 3', big: true }),
+    testimonial('LH', 'Lena H.', 'Single mum · $350 in 3 weeks', '"Single mum. No time to waste. Most practical guide I\'ve ever read. No filler. Just: do this, then this, then this. $350 in 3 weeks following it exactly."', 5),
   ]
 
   return (
     <section className="wall section" id="testimonials">
       <div className="container">
         <div className="wall__head">
-          <div className="eyebrow reveal">REAL RESULTS. REAL PEOPLE.</div>
-          <h2 className="h2 reveal">
-            They started exactly<br />
-            <span style={{ color: 'var(--purple-soft)' }}>where you are right now.</span>
-          </h2>
-          <p className="reveal">
-            No influencers. No paid actors. Just 1,400+ people who followed the blueprint and made it work.
-          </p>
+          <Reveal><div className="eyebrow">REAL RESULTS. REAL PEOPLE.</div></Reveal>
+          <Reveal>
+            <h2 className="h2">
+              They started exactly<br />
+              <span style={{ color: 'var(--purple-soft)' }}>where you are right now.</span>
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p>
+              No influencers. No paid actors. Just 1,400+ people who followed the blueprint and made it work.
+            </p>
+          </Reveal>
         </div>
 
         <div className="wall-cols">
           <div className="wall-col">
             {col1.map((t, i) => (
-              <div
-                className="reveal"
-                key={i}
-                style={{ '--reveal-delay': `${i * 0.08}s` } as React.CSSProperties}
-              >
-                {t}
-              </div>
+              <Reveal key={i} delay={i * 0.08}>{t}</Reveal>
             ))}
           </div>
           <div className="wall-col">
             {col2.map((t, i) => (
-              <div
-                className="reveal"
-                key={i}
-                style={{ '--reveal-delay': `${i * 0.08}s` } as React.CSSProperties}
-              >
-                {t}
-              </div>
+              <Reveal key={i} delay={i * 0.08}>{t}</Reveal>
             ))}
           </div>
           <div className="wall-col">
             {col3.map((t, i) => (
-              <div
-                className="reveal"
-                key={i}
-                style={{ '--reveal-delay': `${i * 0.08}s` } as React.CSSProperties}
-              >
-                {t}
-              </div>
+              <Reveal key={i} delay={i * 0.08}>{t}</Reveal>
             ))}
           </div>
         </div>
@@ -661,17 +654,21 @@ function PricingSection() {
     <section className="pricing section" id="pricing">
       <div className="container">
         <div className="pricing__head">
-          <div className="eyebrow reveal">ONE DECISION</div>
-          <h2 className="h2 reveal">
-            Everything included.<br />
-            <span style={{ color: 'var(--purple)' }}>One flat price.</span>
-          </h2>
-          <p className="reveal">
-            No monthly fees. No hidden upsells. No nonsense. One payment — lifetime access.
-          </p>
+          <Reveal><div className="eyebrow">ONE DECISION</div></Reveal>
+          <Reveal>
+            <h2 className="h2">
+              Everything included.<br />
+              <span style={{ color: 'var(--purple)' }}>One flat price.</span>
+            </h2>
+          </Reveal>
+          <Reveal>
+            <p>
+              No monthly fees. No hidden upsells. No nonsense. One payment — lifetime access.
+            </p>
+          </Reveal>
         </div>
 
-        <div className="reveal">
+        <Reveal>
           <div className="price-card">
             <div className="price-top">
               <p className="price-eyebrow">AI Income Blueprint — Full Access</p>
@@ -689,6 +686,7 @@ function PricingSection() {
                 {items.map((item, i) => (
                   <li className="price-item" key={i}>
                     <span className="price-item-name">
+                      <span className="check-svg"><CheckIcon size={14} color="var(--purple-soft)" /></span>
                       <strong>{item.name.split(' — ')[0]}</strong>
                       {item.name.includes(' — ') && <> — {item.name.split(' — ').slice(1).join(' — ')}</>}
                     </span>
@@ -705,10 +703,10 @@ function PricingSection() {
             <div className="price-cta-wrap">
               <a href={CHECKOUT_URL} className="btn btn--primary" style={{ paddingInline: 36, fontSize: 16, height: 54 }}>
                 Yes — Give Me Instant Access
-                <span className="btn__arrow">→</span>
+                <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
               </a>
               <div className="price-guar">
-                <span className="price-guar-icon">🛡️</span>
+                <span className="price-guar-icon"><ShieldIcon size={24} /></span>
                 <p>
                   <strong>14-Day Money-Back Guarantee.</strong> Go through the blueprint. If you
                   don&rsquo;t see a clear path to your first sale, email once and get every cent
@@ -716,14 +714,14 @@ function PricingSection() {
                 </p>
               </div>
               <div className="price-trust">
-                <span className="trust-item"><span className="trust-icon">🔒</span>Secure checkout</span>
-                <span className="trust-item"><span className="trust-icon">⚡</span>Instant delivery</span>
-                <span className="trust-item"><span className="trust-icon">✉️</span>Email support</span>
-                <span className="trust-item"><span className="trust-icon">♾️</span>Lifetime access</span>
+                <span className="trust-item"><span className="trust-icon"><LockIcon size={14} /></span>Secure checkout</span>
+                <span className="trust-item"><span className="trust-icon"><BoltIcon size={14} /></span>Instant delivery</span>
+                <span className="trust-item"><span className="trust-icon"><MailIcon size={14} /></span>Email support</span>
+                <span className="trust-item"><span className="trust-icon"><InfinityIcon size={14} /></span>Lifetime access</span>
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -737,15 +735,17 @@ function FaqSection() {
     <section className="faq section" id="faq">
       <div className="container">
         <div className="faq__head">
-          <div className="eyebrow reveal">REAL QUESTIONS</div>
-          <h2 className="h2 reveal">
-            Honest answers.<br />
-            <span style={{ color: 'var(--purple-soft)' }}>No pitch.</span>
-          </h2>
+          <Reveal><div className="eyebrow">REAL QUESTIONS</div></Reveal>
+          <Reveal>
+            <h2 className="h2">
+              Honest answers.<br />
+              <span style={{ color: 'var(--purple-soft)' }}>No pitch.</span>
+            </h2>
+          </Reveal>
         </div>
-        <div className="reveal">
+        <Reveal>
           <FaqAccordion />
-        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -758,40 +758,40 @@ function FinalCtaSection() {
   return (
     <section className="finale section" id="cta">
       <div className="container" style={{ maxWidth: 700 }}>
-        <div className="reveal">
+        <Reveal>
           <h2>
             You do not need another idea.
             <em>You need a sequence.</em>
           </h2>
-        </div>
-        <div className="reveal">
+        </Reveal>
+        <Reveal>
           <div className="finale-divider" />
-        </div>
-        <div className="reveal">
+        </Reveal>
+        <Reveal>
           <p className="finale-p">
             Kaya started with $43 and two kids. She followed the system. Month 2: $1,100.
             <strong> Start with the blueprint, keep it if it makes the next step obvious.</strong>
           </p>
-        </div>
-        <div className="reveal">
+        </Reveal>
+        <Reveal>
           <div className="finale-story">
             Inside: the track picker, the 30-day action map, four execution playbooks, and the
             50-prompt vault for product creation, outreach, content, and delivery.
           </div>
-        </div>
-        <div className="finale-action reveal">
+        </Reveal>
+        <Reveal className="finale-action">
           <a
             href={CHECKOUT_URL}
             className="btn btn--primary"
             style={{ paddingInline: 36, fontSize: 17, height: 56 }}
           >
             Get The Blueprint — $97
-            <span className="btn__arrow">→</span>
+            <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
           </a>
           <span style={{ fontSize: 13, color: 'var(--muted)' }}>
             One-time payment · Instant access · <strong style={{ color: 'var(--ink-soft)' }}>14-day guarantee</strong>
           </span>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -820,7 +820,7 @@ function ScarcityBar() {
 function FooterSection() {
   return (
     <footer className="footer">
-      <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.02em' }}>
+      <p style={{ fontSize: 16, fontWeight: 600, letterSpacing: '-0.02em', fontFamily: 'var(--font-display)' }}>
         AI Income <span style={{ color: 'var(--purple)' }}>Blueprint</span>
       </p>
       <div className="footer__links">

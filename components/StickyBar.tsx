@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { ArrowRight } from '@/components/Icons'
 
 export default function StickyBar() {
   const [show, setShow] = useState(false)
@@ -26,8 +27,9 @@ export default function StickyBar() {
         <span className="sticky-meta">Lifetime access · 14-day guarantee</span>
       </div>
       <span className="sticky-price">$97</span>
-      <a href="#pricing" className="btn btn-gold">
+      <a href="#pricing" className="btn btn--primary">
         Get Access Now
+        <ArrowRight size={14} color="#fff" />
       </a>
     </div>
   )

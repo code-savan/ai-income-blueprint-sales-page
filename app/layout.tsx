@@ -1,5 +1,15 @@
 import type { Metadata } from 'next'
+import '@fontsource/poppins/300.css'
+import '@fontsource/poppins/400.css'
+import '@fontsource/poppins/500.css'
+import '@fontsource/poppins/600.css'
+import '@fontsource/poppins/700.css'
+import '@fontsource/sora/400.css'
+import '@fontsource/sora/500.css'
+import '@fontsource/sora/600.css'
+import '@fontsource/sora/700.css'
 import './globals.css'
+import SmoothScroll from '@/components/SmoothScroll'
 
 export const metadata: Metadata = {
   title: 'AI Income Blueprint — She Left With $43 & Two Kids. Here\'s What She Used.',
@@ -52,8 +62,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body>
-        <div id="stickyCtaRoot" />
-        {children}
+        <SmoothScroll>
+          <div id="stickyCtaRoot" />
+          {children}
+        </SmoothScroll>
         <script dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

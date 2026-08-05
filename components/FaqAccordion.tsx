@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { PlusIcon } from '@/components/Icons'
 
 const faqs = [
   {
@@ -42,7 +43,7 @@ export default function FaqAccordion() {
         <div key={i} className={`faq-item${openIdx === i ? ' open' : ''}`}>
           <button className="faq-q" onClick={() => setOpenIdx(openIdx === i ? null : i)}>
             {faq.q}
-            <span className="faq-icon">+</span>
+            <span className="faq-icon"><PlusIcon size={15} color="var(--purple)" /></span>
           </button>
           <div className="faq-a">{faq.a}</div>
         </div>
