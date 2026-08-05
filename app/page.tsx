@@ -75,7 +75,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <StickyBar />
+      <StickyBar hidden={modalOpen} />
       <Hero />
       <Logowall />
       <Spotlight />

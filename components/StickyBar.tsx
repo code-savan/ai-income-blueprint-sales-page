@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowRight } from '@/components/Icons'
 
-export default function StickyBar() {
+export default function StickyBar({ hidden = false }: { hidden?: boolean }) {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function StickyBar() {
   }, [])
 
   return (
-    <div className={`sticky${show ? ' show' : ''}`}>
+    <div className={`sticky${show ? ' show' : ''}${hidden ? ' hidden' : ''}`}>
       <div className="sticky-info">
         <span className="sticky-name">AI Income Blueprint</span>
         <span className="sticky-meta">Lifetime access · 14-day guarantee</span>
