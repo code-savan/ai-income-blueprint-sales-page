@@ -24,7 +24,6 @@ import {
   BriefcaseIcon,
   PlusIcon,
 } from '@/components/Icons'
-import { SideGuideProvider, SideGuideTrigger } from '@/components/SideGuide'
 
 const LeadModal = dynamic(() => import('@/components/LeadModal'), { ssr: false })
 
@@ -76,7 +75,6 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <SideGuideProvider>
         <StickyBar hidden={modalOpen} />
         <Hero />
         <Logowall />
@@ -93,7 +91,6 @@ export default function Home() {
         <FinalCtaSection />
         <FooterSection />
         <LeadModal isOpen={modalOpen} onClose={() => setModalOpen(false)} source={modalSource} />
-      </SideGuideProvider>
     </>
   )
 }
@@ -129,7 +126,6 @@ function Nav() {
 function Hero() {
   return (
     <section className="hero section" id="hero">
-      <SideGuideTrigger section="hero" />
       <div className="container hero__inner">
         <Reveal delay={0}>
           <a className="hero-announce" href="#content-library">
@@ -266,7 +262,6 @@ function Spotlight() {
 
   return (
     <section className="spotlight section" ref={sectionRef}>
-      <SideGuideTrigger section="spotlight" />
       <div className="container spotlight__grid">
         <div className="spotlight__copy">
           <Reveal>
@@ -360,7 +355,6 @@ function ContentLibrary() {
 
   return (
     <section className="library section" id="content-library">
-      <SideGuideTrigger section="content-library" />
       <div className="container">
         <div className="library__head">
           <Reveal><div className="eyebrow">CONTENT LIBRARY</div></Reveal>
@@ -414,7 +408,6 @@ function HowItWorks() {
 
   return (
     <section className="how section" id="how-it-works">
-      <SideGuideTrigger section="how-it-works" />
       <div className="container">
         <Reveal><h2 className="h2 how__title">How it works</h2></Reveal>
 
@@ -482,7 +475,6 @@ function Tracks() {
 
   return (
     <section className="tracks section" id="tracks">
-      <SideGuideTrigger section="tracks" />
       <div className="container">
         <div className="tracks__head">
           <Reveal><div className="eyebrow">PICK YOUR PATH</div></Reveal>
@@ -542,7 +534,6 @@ function Modules() {
 
   return (
     <section className="modules section" id="modules">
-      <SideGuideTrigger section="modules" />
       <div className="container">
         <div className="modules__head">
           <Reveal><div className="eyebrow">INSIDE THE BLUEPRINT</div></Reveal>
@@ -606,30 +597,24 @@ function Modules() {
 function PeekInside() {
   const screens = [
     {
-      label: 'Track Comparison Table',
-      caption: 'Pick your path in 12 minutes — side-by-side breakdown of timelines, tools, and income targets for both tracks.',
-      img: '/peek/track-comparison.png',
+      label: 'Track Comparison + Diagnostic',
+      caption: 'A real screenshot from the Blueprint showing the actual track comparison table and decision logic buyers get inside.',
+      img: '/peek/track-comparison-real.png',
     },
     {
       label: '30-Day Action Roadmap',
-      caption: 'Day-by-day actions mapped out. No guessing. Just open it and follow the next step.',
-      img: '/peek/roadmap.png',
+      caption: 'The real roadmap section from inside the course — structured, sequenced, and built to tell buyers exactly what to do next.',
+      img: '/peek/roadmap-real.png',
     },
     {
       label: 'Prompt Vault',
-      caption: '300 copy-paste prompts across 10 categories — client outreach, UGC scripts, landing pages, and more.',
-      img: '/peek/prompt-vault.png',
-    },
-    {
-      label: 'Diagnostic Quiz',
-      caption: 'Answer 4 questions, get a personalized track recommendation and your first playbook to start with.',
-      img: '/peek/diagnostic-quiz.png',
+      caption: 'The actual Prompt Vault section from the Blueprint — not a mockup, a real screenshot of the product itself.',
+      img: '/peek/prompt-vault-real.png',
     },
   ]
 
   return (
     <section className="peek section" id="peek-inside">
-      <SideGuideTrigger section="peek-inside" />
       <div className="container">
         <div className="peek__head">
           <Reveal><div className="eyebrow">PEEK INSIDE</div></Reveal>
@@ -689,7 +674,6 @@ function Playbooks() {
 
   return (
     <section className="playbooks section" id="playbooks">
-      <SideGuideTrigger section="playbooks" />
       <div className="container">
         <div className="playbooks__head">
           <Reveal><div className="eyebrow">THE FOUR PLAYBOOKS</div></Reveal>
@@ -783,7 +767,6 @@ function WallOfProof() {
 
   return (
     <section className="wall section" id="testimonials">
-      <SideGuideTrigger section="testimonials" />
       <div className="container">
         <div className="wall__head">
           <Reveal><div className="eyebrow">REAL RESULTS. REAL PEOPLE.</div></Reveal>
@@ -840,7 +823,6 @@ function PricingSection() {
 
   return (
     <section className="pricing section" id="pricing">
-      <SideGuideTrigger section="pricing" />
       <div className="container">
         <div className="pricing__head">
           <Reveal><div className="eyebrow">ONE DECISION</div></Reveal>
@@ -922,7 +904,6 @@ function PricingSection() {
 function FaqSection() {
   return (
     <section className="faq section" id="faq">
-      <SideGuideTrigger section="faq" />
       <div className="container">
         <div className="faq__head">
           <Reveal><div className="eyebrow">REAL QUESTIONS</div></Reveal>
@@ -947,7 +928,6 @@ function FaqSection() {
 function FinalCtaSection() {
   return (
     <section className="finale section" id="cta">
-      <SideGuideTrigger section="cta" />
       <div className="container" style={{ maxWidth: 700 }}>
         <Reveal>
           <h2>
