@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
+import dynamic from 'next/dynamic'
 import Reveal from '@/components/Reveal'
 import HeroVSL from '@/components/VSLPlayer'
 import StickyBar from '@/components/StickyBar'
@@ -24,7 +25,23 @@ import {
   PlusIcon,
 } from '@/components/Icons'
 
+const LeadModal = dynamic(() => import('@/components/LeadModal'), { ssr: false })
+
 const CHECKOUT_URL = process.env.NEXT_PUBLIC_CHECKOUT_URL || '#pricing'
+const PAYSTACK_LINK = process.env.NEXT_PUBLIC_PAYSTACK_LINK || 'https://paystack.com/pay/ai-income-blueprint'
+
+/* ─── MODAL STATE — shared across all CTAs ─── */
+const LeadModalContext = { open: false, listeners: [] as ((v: boolean) => void)[] }
+function useLeadModal() {
+  const [isOpen, setIsOpen] = useState(false)
+  useEffect(() => {
+    LeadModalContext.listeners.push(setIsOpen)
+    return () => {
+      LeadModalContext.listeners = LeadModalContext.listeners.filter(l => l !== setIsOpen)
+    }
+  }, [])
+  return { isOpen, openModal: () => { LeadModalContext.open = true; LeadModalContext.listeners.forEach(l => l(true)) }, closeModal: () => { LeadModalContext.open = false; LeadModalContext.listeners.forEach(l => l(false)) } }
+}
 
 /* ─── NAV SCROLL STATE ─── */
 function useNavScroll() {
@@ -38,8 +55,22 @@ function useNavScroll() {
   }, [])
 }
 
+
+/* ─── OPEN MODAL FROM ANY CTA ─── */
+function openModal() {
+  window.dispatchEvent(new Event('open-lead-modal'))
+}
+
 export default function Home() {
   useNavScroll()
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalSource, setModalSource] = useState('cta')
+
+  useEffect(() => {
+    const handler = () => { setModalOpen(true); setModalSource('cta') }
+    window.addEventListener('open-lead-modal', handler)
+    return () => window.removeEventListener('open-lead-modal', handler)
+  }, [])
 
   return (
     <>
@@ -58,6 +89,7 @@ export default function Home() {
       <FaqSection />
       <FinalCtaSection />
       <FooterSection />
+      <LeadModal isOpen={modalOpen} onClose={() => setModalOpen(false)} source={modalSource} />
     </>
   )
 }
@@ -77,7 +109,7 @@ function Nav() {
             <a href="#pricing">Pricing</a>
             <a href="#faq">FAQ</a>
           </nav>
-          <a className="btn btn--dark" href={CHECKOUT_URL}>
+          <a className="btn btn--dark" href="#lead" onClick={(e) => { e.preventDefault(); openModal() }}>
             Get The Blueprint
             <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
           </a>
@@ -119,7 +151,7 @@ function Hero() {
         </Reveal>
 
         <Reveal delay={0.32} className="hero__action">
-          <a href={CHECKOUT_URL} className="btn btn--primary" style={{ paddingInline: 32, height: 52, fontSize: 16 }}>
+          <a href="#lead" onClick={(e) => { e.preventDefault(); openModal() }} className="btn btn--primary" style={{ paddingInline: 32, height: 52, fontSize: 16 }}>
             Get The Blueprint — $97
             <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
           </a>
@@ -161,6 +193,7 @@ function Logowall() {
     { name: 'TikTok', src: '/tool-logos/tiktok.svg' },
     { name: 'Instagram', src: '/tool-logos/instagram.svg' },
     { name: 'Kling AI', src: '/tool-logos/kling.svg' },
+    { name: 'Google Flow', src: '/tool-logos/google.svg' },
   ]
 
   const items = [...logos, ...logos]
@@ -182,9 +215,52 @@ function Logowall() {
 /* ═══════════════════════════════════════════
    SPOTLIGHT — Kaya's $43 → $1,100 Story
 ═══════════════════════════════════════════ */
+const SPOTLIGHT_VIDEO = 'https://d8j0ntlcm91z4.cloudfront.net/user_3F6NuQ25OFHTqLKUwjR9KKmBRi4/hf_20260804_115410_a02fdcb2-9596-42ff-abdb-d7e00b4b1d5e.mp4'
+const SPOTLIGHT_POSTER = 'https://cdn.higgsfield.ai/marketing_studio_avatar/8c8e0717-70c1-46a5-b67f-4581637ff1fc.webp'
+
 function Spotlight() {
+  const [muted, setMuted] = useState(true)
+  const [visible, setVisible] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  // Scroll-triggered autoplay via IntersectionObserver
+  useEffect(() => {
+    const el = sectionRef.current
+    const vid = videoRef.current
+    if (!el || !vid) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          vid.play().catch(() => {})
+        } else {
+          setVisible(false)
+          // Don't pause — let it keep playing if user already watching
+        }
+      },
+      { threshold: 0.4 }
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Keep playing when visibility changes (mute toggle shouldn't pause)
+  const handleMuteToggle = useCallback(() => {
+    const vid = videoRef.current
+    if (!vid) return
+    vid.muted = !vid.muted
+    setMuted(vid.muted)
+    // If unmuting and paused, play
+    if (!vid.muted && vid.paused) {
+      vid.play().catch(() => {})
+    }
+  }, [])
+
   return (
-    <section className="spotlight section">
+    <section className="spotlight section" ref={sectionRef}>
       <div className="container spotlight__grid">
         <div className="spotlight__copy">
           <Reveal>
@@ -204,7 +280,7 @@ function Spotlight() {
             </p>
           </Reveal>
           <Reveal>
-            <a className="btn btn--primary" href={CHECKOUT_URL}>
+            <a className="btn btn--primary" href="#lead" onClick={(e) => { e.preventDefault(); openModal() }}>
               Get The Blueprint
               <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
             </a>
@@ -226,9 +302,34 @@ function Spotlight() {
         <Reveal className="spotlight__media">
           <div className="dot-grid spotlight__dots" />
           <div className="spotlight__phone">
-            <video autoPlay muted loop playsInline poster="">
-              <source src="https://media.aftermark.ai/usefastlane/video/ugc-girl-walking.mp4" type="video/mp4" />
+            <video
+              ref={videoRef}
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster={SPOTLIGHT_POSTER}
+            >
+              <source src={SPOTLIGHT_VIDEO} type="video/mp4" />
             </video>
+
+            {/* Unmute button — centered overlay, appears when section is in view */}
+            {visible && muted && (
+              <button
+                className="spotlight__unmute"
+                type="button"
+                onClick={handleMuteToggle}
+                aria-label="Unmute video"
+              >
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                  <line x1="23" y1="1" x2="1" y2="23" />
+                </svg>
+                <span>Tap to Unmute</span>
+              </button>
+            )}
           </div>
         </Reveal>
       </div>
@@ -282,7 +383,7 @@ function ContentLibrary() {
 
         <Reveal>
           <div style={{ textAlign: 'center', marginTop: 40 }}>
-            <a className="btn btn--primary" href={CHECKOUT_URL}>
+            <a className="btn btn--primary" href="#lead" onClick={(e) => { e.preventDefault(); openModal() }}>
               Get All 300+ Prompts
               <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
             </a>
@@ -700,7 +801,7 @@ function PricingSection() {
             </div>
 
             <div className="price-cta-wrap">
-              <a href={CHECKOUT_URL} className="btn btn--primary" style={{ paddingInline: 36, fontSize: 16, height: 54 }}>
+              <a href="#lead" onClick={(e) => { e.preventDefault(); openModal() }} className="btn btn--primary" style={{ paddingInline: 36, fontSize: 16, height: 54 }}>
                 Yes — Give Me Instant Access
                 <span className="btn__arrow"><ArrowRight size={14} color="#fff" /></span>
               </a>
@@ -780,7 +881,7 @@ function FinalCtaSection() {
         </Reveal>
         <Reveal className="finale-action">
           <a
-            href={CHECKOUT_URL}
+            href="#lead" onClick={(e) => { e.preventDefault(); openModal() }}
             className="btn btn--primary"
             style={{ paddingInline: 36, fontSize: 17, height: 56 }}
           >

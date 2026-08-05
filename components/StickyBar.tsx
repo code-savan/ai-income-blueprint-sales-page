@@ -27,7 +27,7 @@ export default function StickyBar() {
         <span className="sticky-meta">Lifetime access · 14-day guarantee</span>
       </div>
       <span className="sticky-price">$97</span>
-      <a href="#pricing" className="btn btn--primary">
+      <a href="#lead" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-lead-modal')) }} className="btn btn--primary">
         Get Access Now
         <ArrowRight size={14} color="#fff" />
       </a>
