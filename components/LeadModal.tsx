@@ -3,12 +3,33 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
 
 const APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_APPS_SCRIPT_URL || ''
-const PAYSTACK_LINK = process.env.NEXT_PUBLIC_PAYSTACK_LINK || 'https://paystack.com/pay/ai-income-blueprint'
+const PAYSTACK_PUBLIC_KEY = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
+const PRICE_AMOUNT = Number(process.env.NEXT_PUBLIC_PRICE_AMOUNT || 97)
+const CURRENCY = process.env.NEXT_PUBLIC_CURRENCY || 'USD'
 
 type LeadModalProps = {
   isOpen: boolean
   onClose: () => void
   source?: string
+}
+
+declare global {
+  interface Window {
+    PaystackPop: {
+      setup: (config: PaystackConfig) => { openIframe: () => void }
+    }
+  }
+}
+
+type PaystackConfig = {
+  key: string
+  email: string
+  amount: number
+  currency: string
+  ref?: string
+  metadata?: Record<string, unknown>
+  callback?: (response: { reference: string }) => void
+  onClose?: () => void
 }
 
 export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModalProps) {
@@ -20,6 +41,16 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
   const [mounted, setMounted] = useState(false)
   const overlayRef = useRef<HTMLDivElement>(null)
   const nameInput = useRef<HTMLInputElement>(null)
+
+  // Load Paystack Inline.js once
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !window.PaystackPop) {
+      const script = document.createElement('script')
+      script.src = 'https://js.paystack.co/v1/inline.js'
+      script.async = true
+      document.head.appendChild(script)
+    }
+  }, [])
 
   useEffect(() => {
     if (isOpen) {
@@ -54,31 +85,56 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
       setError('Please enter a valid email address.')
       return
     }
+    if (!PAYSTACK_PUBLIC_KEY) {
+      setError('Checkout is not configured yet. Please try again later.')
+      return
+    }
 
     setSubmitting(true)
 
     try {
-      // Save lead to Google Sheet via Apps Script
+      // 1. Save lead to Google Sheet via Apps Script (fire and forget)
       if (APPS_SCRIPT_URL) {
-        await fetch(APPS_SCRIPT_URL, {
+        fetch(APPS_SCRIPT_URL, {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name: name.trim(), email: email.trim(), source }),
-        })
+        }).catch(() => {})
       }
 
-      // Redirect to Paystack checkout
-      const paystackUrl = new URL(PAYSTACK_LINK)
-      paystackUrl.searchParams.set('email', email.trim())
-      paystackUrl.searchParams.set('name', name.trim())
-      window.location.href = paystackUrl.toString()
+      // 2. Generate a unique reference
+      const ref = 'AIB-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8).toUpperCase()
+
+      // 3. Open Paystack Inline checkout
+      const handler = window.PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY,
+        email: email.trim(),
+        amount: Math.round(PRICE_AMOUNT * 100), // Paystack expects minor units (kobo/cents)
+        currency: CURRENCY,
+        ref,
+        metadata: { custom_fields: [{ display_name: 'Name', variable_name: 'name', value: name.trim() }] },
+        callback: (response) => {
+          // Payment successful — notify the sheet
+          if (APPS_SCRIPT_URL) {
+            fetch(APPS_SCRIPT_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name: name.trim(), email: email.trim(), source, reference: response.reference, status: 'paid' }),
+            }).catch(() => {})
+          }
+          setSubmitting(false)
+          onClose()
+        },
+        onClose: () => {
+          setSubmitting(false)
+        },
+      })
+      handler.openIframe()
     } catch (err) {
-      // Even if sheet save fails, still redirect to Paystack
-      const paystackUrl = new URL(PAYSTACK_LINK)
-      paystackUrl.searchParams.set('email', email.trim())
-      paystackUrl.searchParams.set('name', name.trim())
-      window.location.href = paystackUrl.toString()
+      setSubmitting(false)
+      setError('Something went wrong opening checkout. Please try again.')
     }
   }
 
@@ -134,11 +190,11 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
             {error && <p className="lead-modal__error">{error}</p>}
 
             <button type="submit" className="btn btn--primary" disabled={submitting} style={{ width: '100%', height: 52, fontSize: 16 }}>
-              {submitting ? 'Processing…' : 'Continue to Checkout →'}
+              {submitting ? 'Opening Checkout…' : `Continue to Checkout — $${PRICE_AMOUNT}`}
             </button>
 
             <p className="lead-modal__footnote">
-              Secure checkout via <strong>Paystack</strong>. Your info is safe.
+              Secure payment via <strong>Paystack</strong> · Cards, bank transfer &amp; USSD
             </p>
           </form>
         </div>
