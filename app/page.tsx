@@ -157,7 +157,7 @@ function ContentLibrary(){
                 <div className="ugc-cover ugc-cover--back1"/>
                 <div className="ugc-cover ugc-cover--back2"/>
                 <div className="ugc-cover ugc-cover--main" style={{padding:0,overflow:'hidden',background:'#0f0f1a'}}>
-                  <img src="/ugc-pack-cover.png" alt="300+ UGC Prompts Pack Cover" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/>
+                  <img src="/ugc-pack-cover.webp" alt="300+ UGC Prompts Pack Cover" width="600" height="900" loading="lazy" decoding="async" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/>
                   <div className="ugc-cover__shine"/>
                 </div>
                 <div className="ugc-float ugc-float--1">300+ Prompts</div>
@@ -167,7 +167,7 @@ function ContentLibrary(){
           </div>
         </Reveal>
         <div className="library__head" style={{marginTop:56}}><Reveal><div className="eyebrow">CONTENT LIBRARY</div></Reveal><Reveal><p>Every prompt you need to create viral UGC content for any product or niche — preview the styles inside the pack:</p></Reveal><Reveal><p style={{fontSize:13,marginTop:12,lineHeight:1.6}}><a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} style={{color:'var(--purple)',fontWeight:600,textDecoration:'underline',textUnderlineOffset:3}}>These 8 are real examples</a> <span style={{color:'var(--muted)'}}>— the exact kind of videos you’ll generate when you use the <a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} style={{color:'var(--purple)',fontWeight:600,textDecoration:'underline',textUnderlineOffset:3}}>300+ prompt vault</a> on our free platform stack (ChatGPT + Kling / CapCut). → Get the full vault free</span></p></Reveal></div>
-        <div className="library-grid">{videos.map((v,i)=><Reveal key={i} delay={i*0.06}><a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} className="video-card" style={{cursor:'pointer',display:'block'}} title="Generated with the 300+ prompt vault — click to get the vault free"><video autoPlay muted loop playsInline preload="none"><source src={v.url} type="video/mp4"/></video><div className="video-card__head"><span className="video-card__name">{v.label}</span></div><span style={{position:'absolute',top:10,right:10,zIndex:3,background:'rgba(124,58,237,0.92)',color:'#fff',fontSize:10,fontWeight:700,letterSpacing:'0.06em',padding:'3px 8px',borderRadius:999}}>VAULT EXAMPLE</span></a></Reveal>)}</div>
+        <div className="library-grid">{videos.map((v,i)=><Reveal key={i} delay={i*0.06}><a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} className="video-card" style={{cursor:'pointer',display:'block'}} title="Generated with the 300+ prompt vault — click to get the vault free"><video autoPlay muted loop playsInline preload="metadata" poster=""><source src={v.url} type="video/mp4"/></video><div className="video-card__head"><span className="video-card__name">{v.label}</span></div><span style={{position:'absolute',top:10,right:10,zIndex:3,background:'rgba(124,58,237,0.92)',color:'#fff',fontSize:10,fontWeight:700,letterSpacing:'0.06em',padding:'3px 8px',borderRadius:999}}>VAULT EXAMPLE</span></a></Reveal>)}</div>
         <Reveal><div style={{textAlign:'center',marginTop:32,marginBottom:40}}><a className="btn btn--primary" href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}}>Get All 300+ Prompts — Free<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a></div></Reveal>
       </div>
     </section>
@@ -182,7 +182,7 @@ function HowItWorks(){
         <Reveal><h2 className="h2 how__title">How it works</h2></Reveal>
         <div className="how__grid">
           <div className="how__steps">{steps.map((s,i)=><Reveal key={i} delay={i*0.1}><div className="how-step"><span className="how-step__num">{s.num}</span><h3 className="how-step__title">{s.title}</h3><p>{s.desc}</p></div></Reveal>)}</div>
-          <Reveal delay={0.2}><div style={{display:'flex',flexDirection:'column',gap:20,alignItems:'center',position:'sticky',top:100}}><div className="spotlight__phone" style={{width:280,transform:'scale(0.95)'}}><video autoPlay muted loop playsInline><source src="https://media.aftermark.ai/usefastlane/video/ioKhMdGULeCQLxLfWMbkuumROk.mp4" type="video/mp4"/></video></div><p style={{fontSize:13,color:'var(--muted)',textAlign:'center',maxWidth:260}}>Real UGC generated from Blueprint prompts</p></div></Reveal>
+          <Reveal delay={0.2}><div style={{display:'flex',flexDirection:'column',gap:20,alignItems:'center',position:'sticky',top:100}}><div className="spotlight__phone" style={{width:280,transform:'scale(0.95)'}}><video autoPlay muted loop playsInline preload="metadata"><source src="https://media.aftermark.ai/usefastlane/video/ioKhMdGULeCQLxLfWMbkuumROk.mp4" type="video/mp4"/></video></div><p style={{fontSize:13,color:'var(--muted)',textAlign:'center',maxWidth:260}}>Real UGC generated from Blueprint prompts</p></div></Reveal>
         </div>
       </div>
     </section>
@@ -217,9 +217,9 @@ function Modules(){
 
 function PeekInside(){
   const screens=[
-    {label:'Foundation — Pick Your Lane',caption:'Track comparison & diagnostic — choose your income path in 12 minutes.',img:'/peek/foundation.png'},
-    {label:'Execution Roadmap — 30-Day Plan',caption:'Day-by-day action map from zero to your first $500.',img:'/peek/exec.png'},
-    {label:'Prompt Vault — 50 Ready-to-Use Prompts',caption:'Copy, paste, generate — for outreach, content & delivery.',img:'/peek/vault.png'},
+    {label:'Foundation — Pick Your Lane',caption:'Track comparison & diagnostic — choose your income path in 12 minutes.',img:'/peek/foundation.webp'},
+    {label:'Execution Roadmap — 30-Day Plan',caption:'Day-by-day action map from zero to your first $500.',img:'/peek/exec.webp'},
+    {label:'Prompt Vault — 50 Ready-to-Use Prompts',caption:'Copy, paste, generate — for outreach, content & delivery.',img:'/peek/vault.webp'},
   ]
   const wrapRef=useRef<HTMLDivElement>(null)
   const isDown=useRef(false); const startX=useRef(0); const scrollLeft=useRef(0)
@@ -237,7 +237,7 @@ function PeekInside(){
           {screens.map((s,i)=>(
             <div key={i} className="peek-slide">
               <div className="peek-slide__imgWrap">
-                <img src={s.img} alt={s.label} loading="lazy" draggable={false}/>
+                <img src={s.img} alt={s.label} width="640" height="360" loading="lazy" decoding="async" draggable={false}/>
                 <span className="peek-slide__badge">{s.label}</span>
               </div>
               <div className="peek-slide__body"><p className="peek-slide__caption">{s.caption}</p></div>

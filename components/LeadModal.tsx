@@ -25,8 +25,12 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
         requestAnimationFrame(() => setVisible(true))
       })
       setTimeout(() => nameInput.current?.focus(), 300)
+      const prev = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => { document.body.style.overflow = prev }
     } else {
       setVisible(false)
+      document.body.style.overflow = ''
       const t = setTimeout(() => setMounted(false), 350)
       return () => clearTimeout(t)
     }
@@ -70,9 +74,9 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
 
       // Redirect to Paystack hosted payment page
       window.location.href = data.authorization_url
-    } catch (err) {
+    } catch (err: any) {
       setSubmitting(false)
-      setError('Something went wrong starting checkout. Please try again.')
+      setError(err?.message || 'Something went wrong starting checkout. Please try again.')
     }
   }
 
