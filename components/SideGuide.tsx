@@ -98,7 +98,7 @@ export const GUIDE_CONTENT: Record<string, GuideSection> = {
     title: 'Pricing & Guarantee',
     items: [
       { icon: '💰', title: 'One-time payment', body: '$97 — not monthly, not annual. You get lifetime access including all future updates. The regular price is $197 after the founding member window.' },
-      { icon: '🛡', title: '14-day guarantee', body: 'If you go through the blueprint and don\'t see a clear path to your first dollar, email once and get every cent back. No questions, no hoops.' },
+      { icon: '🛡', title: '30-day guarantee', body: 'Go through the entire blueprint. If you do not see a clear, actionable path to your first sale, email us once and get every cent back. No questions. No hoops. No waiting.' },
       { icon: '📦', title: 'What you get immediately', body: 'Full 5-module system + 4 playbooks + Prompt Vault. All downloadable. Instant access after payment. No wait, no onboarding calls, no upsells.' },
     ],
   },

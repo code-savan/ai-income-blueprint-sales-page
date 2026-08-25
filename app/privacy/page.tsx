@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { ArrowRight } from '@/components/Icons'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — AI Income Blueprint',
-  description: 'How AI Income Blueprint collects, uses, and protects your data.',
+  title: 'Privacy Policy — zerotopaidwithai',
+  description: 'How zerotopaidwithai collects, uses, and protects your data.',
 }
 
 export default function PrivacyPage() {
@@ -13,14 +13,14 @@ export default function PrivacyPage() {
       <div className="legal__container">
         <Link href="/" className="legal__back">
           <ArrowRight size={14} color="currentColor" style={{ transform: 'rotate(180deg)' }} />
-          Back to AI Income Blueprint
+          Back to zerotopaidwithai
         </Link>
         
         <h1>Privacy Policy</h1>
         <p className="last-updated">Last updated: August 5, 2026</p>
 
         <p>
-          This Privacy Policy explains how <strong>AI Income Blueprint</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;)
+          This Privacy Policy explains how <strong>zerotopaidwithai</strong> (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;)
           collects, uses, and protects your personal information when you visit our website or
           purchase our products.
         </p>
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
         <p>We collect the following types of information:</p>
         <ul>
           <li><strong>Contact information:</strong> Name and email address when you sign up for our newsletter or contact us.</li>
-          <li><strong>Payment information:</strong> Processed securely through our third-party payment providers (Gumroad, Stripe). We do not store your credit card details.</li>
+          <li><strong>Payment information:</strong> Processed securely through Paystack. We do not store your credit card details.</li>
           <li><strong>Usage data:</strong> IP address, browser type, pages visited, and time spent on our site via cookies and analytics tools.</li>
         </ul>
 
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
         <h2>4. Third-Party Services</h2>
         <p>We use the following third-party services that may collect your data:</p>
         <ul>
-          <li><strong>Gumroad / Stripe</strong> — payment processing</li>
+          <li><strong>Paystack</strong> — payment processing</li>
           <li><strong>Google Analytics</strong> — website analytics</li>
           <li><strong>Meta (Facebook) Pixel</strong> — conversion tracking for advertising</li>
           <li><strong>Email provider</strong> — transactional and marketing emails</li>
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
           <li>Object to or restrict our processing of your data.</li>
         </ul>
         <p>
-          To exercise any of these rights, email us at <a href="mailto:support@aiincomeblueprint.com">support@aiincomeblueprint.com</a>.
+          To exercise any of these rights, email us at <a href="mailto:support@zerotopaidwithai.com">support@zerotopaidwithai.com</a>.
         </p>
 
         <h2>7. Data Security</h2>
@@ -103,7 +103,7 @@ export default function PrivacyPage() {
         <h2>10. Contact</h2>
         <p>
           If you have any questions about this Privacy Policy, please contact us at{' '}
-          <a href="mailto:support@aiincomeblueprint.com">support@aiincomeblueprint.com</a>.
+          <a href="mailto:support@zerotopaidwithai.com">support@zerotopaidwithai.com</a>.
         </p>
       </div>
     </main>

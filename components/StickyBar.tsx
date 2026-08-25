@@ -23,8 +23,8 @@ export default function StickyBar({ hidden = false }: { hidden?: boolean }) {
   return (
     <div className={`sticky${show ? ' show' : ''}${hidden ? ' hidden' : ''}`}>
       <div className="sticky-info">
-        <span className="sticky-name">AI Income Blueprint</span>
-        <span className="sticky-meta">Lifetime access · 14-day guarantee</span>
+        <span className="sticky-name">zerotopaidwithai</span>
+        <span className="sticky-meta">Lifetime access · 30-day guarantee</span>
       </div>
       <span className="sticky-price">$97</span>
       <a href="#lead" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new Event('open-lead-modal')) }} className="btn btn--primary">

@@ -12,50 +12,38 @@ import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
 
 export const metadata: Metadata = {
-  title: 'AI Income Blueprint — She Left With $43 & Two Kids. Here\'s What She Used.',
-  description:
-    'The step-by-step blueprint from $43 to your first AI income — whether you want sales on autopilot or fast client cash — in 30 days or less.',
-  keywords: [
-    'AI income',
-    'make money with AI',
-    'AI side hustle',
-    'digital product',
-    'AI freelance',
-    'passive income AI',
-    'AI business blueprint',
-    'faceless content',
-  ],
+  title: 'zerotopaidwithai — From Zero to Paid with AI | 30-Day System to Your First $500',
+  description: 'Go from zero to your first $500 online in 30 days with zerotopaidwithai. A step-by-step system using free AI tools — pick autonomous sales or client work, follow the daily roadmap, get paid. 1,400+ students. $0 to start. $97 one-time.',
+  keywords: ['zerotopaidwithai','zero to paid with AI','make money with AI','AI income system','AI side hustle','earn with AI','AI freelance system','UGC prompts AI','free AI tools income','30 day AI system'],
+  applicationName: 'zerotopaidwithai',
+  authors: [{ name: 'zerotopaidwithai' }],
+  creator: 'zerotopaidwithai',
+  publisher: 'zerotopaidwithai',
   robots: { index: true, follow: true },
-  metadataBase: new URL('https://sales.instantleadlabs.com'),
+  metadataBase: new URL('https://zerotopaidwithai.com'),
   icons: {
     icon: [
-      { url: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'%3E%3Crect width=\'32\' height=\'32\' rx=\'6\' fill=\'%237C3AED\'/%3E%3Ctext x=\'16\' y=\'22\' font-size=\'18\' font-family=\'sans-serif\' fill=\'%23fff\' text-anchor=\'middle\' font-weight=\'bold\'%3EA%3C/text%3E%3C/svg%3E' },
+      { url: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'%3E%3Crect width=\'32\' height=\'32\' rx=\'6\' fill=\'%237C3AED\'/%3E%3Ctext x=\'16\' y=\'22\' font-size=\'18\' font-family=\'sans-serif\' fill=\'%23fff\' text-anchor=\'middle\' font-weight=\'bold\'%3EZ%3C/text%3E%3C/svg%3E' },
     ],
   },
   openGraph: {
     type: 'website',
-    siteName: 'AI Income Blueprint',
+    siteName: 'zerotopaidwithai',
     locale: 'en_US',
-    title: 'AI Income Blueprint — She Left With $43 & Two Kids. Here\'s What She Used.',
-    description:
-      'The step-by-step blueprint from $43 to your first AI income. Two tracks, four playbooks, and a 30-day action plan. Start making money with free AI tools.',
-    url: 'https://sales.instantleadlabs.com',
-    images: [
-      {
-        url: 'https://d8j0ntlcm91z4.cloudfront.net/user_3F6NuQ25OFHTqLKUwjR9KKmBRi4/hf_20260804_122239_e8bbde6a-563e-4b0a-8624-20e51980c20e.png',
-        width: 1200,
-        height: 630,
-        alt: 'AI Income Blueprint',
-      },
-    ],
+    title: 'zerotopaidwithai — From Zero to Paid with AI',
+    description: 'A 30-day step-by-step system to your first $500 online using free AI tools. 1,400+ students, $0 to start, $97 one-time.',
+    url: 'https://zerotopaidwithai.com',
+    images: [{ url: 'https://zerotopaidwithai.com/banner.png', width: 2880, height: 1618, alt: 'zerotopaidwithai — From Zero to Paid with AI' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Income Blueprint — She Left With $43. Here\'s What She Used.',
-    description:
-      'A beginner-focused AI income blueprint with two tracks, four playbooks, and a 30-day action plan. Start with free AI tools.',
-    images: ['https://d8j0ntlcm91z4.cloudfront.net/user_3F6NuQ25OFHTqLKUwjR9KKmBRi4/hf_20260804_122239_e8bbde6a-563e-4b0a-8624-20e51980c20e.png'],
+    site: '@zerotopaidwithai',
+    title: 'zerotopaidwithai — From Zero to Paid with AI',
+    description: '30-day system to your first $500 online with free AI tools. Follow the sequence. Get paid.',
+    images: ['https://zerotopaidwithai.com/banner.png'],
   },
+  alternates: { canonical: 'https://zerotopaidwithai.com' },
+  category: 'education',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -66,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div id="stickyCtaRoot" />
           {children}
         </SmoothScroll>
+        <script defer data-domain="zerotopaidwithai.com" src="https://plausible.io/js/script.js" />
         <script dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
