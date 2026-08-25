@@ -54,7 +54,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div id="stickyCtaRoot" />
           {children}
         </SmoothScroll>
-        <script defer data-domain="zerotopaidwithai.com" src="https://plausible.io/js/script.js" />
+        <script async src="https://plausible.io/js/pa-BhrrAhdJ8z0xNRVvoH8QB.js"></script>
+        <script dangerouslySetInnerHTML={{ __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}}; plausible.init()` }} />
         <script dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
