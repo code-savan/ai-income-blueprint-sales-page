@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/admin/', '/dashboard/', '/login/', '/signup/'],
       },
     ],
-    sitemap: 'https://zerotopaidwithai.com/sitemap.xml',
+    sitemap: 'https://www.zerotopaidwithai.com/sitemap.xml',
   }
 }

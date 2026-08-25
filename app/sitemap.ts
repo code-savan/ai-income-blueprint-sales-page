@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const BASE = 'https://zerotopaidwithai.com'
+const BASE = 'https://www.zerotopaidwithai.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

@@ -15,6 +15,14 @@ const nextConfig = {
         source: '/banner.webp',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
+      {
+        source: '/300-ai-prompts-vault.pdf',
+        headers: [
+          { key: 'Content-Disposition', value: 'attachment; filename="300-ai-prompts-vault.pdf"' },
+          { key: 'Content-Type', value: 'application/pdf' },
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
     ]
   },
 }

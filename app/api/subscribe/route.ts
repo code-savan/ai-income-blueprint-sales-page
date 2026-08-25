@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { addBrevoContact } from '@/lib/brevo'
+import { sendLeadMagnetEmail } from '@/lib/resend'
 
 export async function POST(req: NextRequest) {
   try {
@@ -16,8 +17,8 @@ export async function POST(req: NextRequest) {
       await addBrevoContact({ email: email.trim().toLowerCase(), firstName, listIds: [parseInt(listId, 10)] })
     } catch (e: any) {
       console.error('Brevo subscribe error:', e.message)
-      return NextResponse.json({ success: true })
     }
+    try { await sendLeadMagnetEmail(email.trim().toLowerCase(), firstName) } catch {}
     return NextResponse.json({ success: true })
   } catch (e: any) {
     return NextResponse.json({ success: false, error: 'Internal error' }, { status: 500 })

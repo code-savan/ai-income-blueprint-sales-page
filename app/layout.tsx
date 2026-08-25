@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   creator: 'zerotopaidwithai',
   publisher: 'zerotopaidwithai',
   robots: { index: true, follow: true },
-  metadataBase: new URL('https://zerotopaidwithai.com'),
+  metadataBase: new URL('https://www.zerotopaidwithai.com'),
   icons: {
     icon: [
       { url: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\'%3E%3Crect width=\'32\' height=\'32\' rx=\'6\' fill=\'%237C3AED\'/%3E%3Ctext x=\'16\' y=\'22\' font-size=\'18\' font-family=\'sans-serif\' fill=\'%23fff\' text-anchor=\'middle\' font-weight=\'bold\'%3EZ%3C/text%3E%3C/svg%3E' },
@@ -27,17 +27,17 @@ export const metadata: Metadata = {
     locale: 'en_US',
     title: 'zerotopaidwithai — From Zero to Paid with AI',
     description: 'A 30-day step-by-step system to your first $500 online using free AI tools. 1,400+ students, $0 to start, $97 one-time.',
-    url: 'https://zerotopaidwithai.com',
-    images: [{ url: 'https://zerotopaidwithai.com/banner.webp', width: 1200, height: 675, alt: 'zerotopaidwithai — From Zero to Paid with AI' }],
+    url: 'https://www.zerotopaidwithai.com',
+    images: [{ url: 'https://www.zerotopaidwithai.com/banner.webp', width: 1200, height: 675, alt: 'zerotopaidwithai — From Zero to Paid with AI' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@zerotopaidwithai',
     title: 'zerotopaidwithai — From Zero to Paid with AI',
     description: '30-day system to your first $500 online with free AI tools. Follow the sequence. Get paid.',
-    images: ['https://zerotopaidwithai.com/banner.webp'],
+    images: ['https://www.zerotopaidwithai.com/banner.webp'],
   },
-  alternates: { canonical: 'https://zerotopaidwithai.com' },
+  alternates: { canonical: 'https://www.zerotopaidwithai.com' },
   category: 'education',
 }
 
