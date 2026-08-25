@@ -20,9 +20,9 @@ export async function sendPurchaseEmail(to: string, name?: string) {
         <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1F1E1C;line-height:1.6">
           <h2 style="font-size:22px;margin:0 0 12px">You Are In. Welcome — ${name ? name : 'there'}!</h2>
           <p>Your payment is confirmed. Your access to <strong>zerotopaidwithai</strong> is ready.</p>
-          <p><strong>What’s inside:</strong> 5-module system, 4 playbooks, 50-prompt vault, 30-day roadmap.</p>
+          <p><strong>What's inside:</strong> 5-module system, 4 playbooks, 50-prompt vault, 30-day roadmap.</p>
           <a href="https://www.zerotopaidwithai.com/thank-you?type=purchase" style="display:inline-block;background:#7C3AED;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;margin:16px 0">Access the Blueprint</a>
-          <p style="font-size:13px;color:#8F8A86">If you don’t see this email, check spam. Need help? Reply to <a href="mailto:${support}">${support}</a>.</p>
+          <p style="font-size:13px;color:#8F8A86">If you don't see this email, check spam. Need help? Reply to <a href="mailto:${support}">${support}</a>.</p>
           <hr style="border:none;border-top:1px solid #eee;margin:20px 0"/>
           <p style="font-size:12px;color:#8F8A86">30-Day Money-Back Guarantee — email us once and get every cent back.</p>
         </div>
@@ -32,7 +32,7 @@ export async function sendPurchaseEmail(to: string, name?: string) {
       from,
       to: support,
       subject: `New purchase: ${to}`,
-      html: `<p>New purchase from ${name || to} &lt;${to}&gt; — zerotopaidwithai $97.</p><p>Check Brevo Buyers list and Paystack dashboard.</p>`,
+      html: `<p>New purchase from ${name || to} <${to}> — zerotopaidwithai $97.</p><p>Check Brevo Buyers list and Paystack dashboard.</p>`,
     })
   } catch (e) { console.error('[resend] purchase email failed', e) }
 }
@@ -41,7 +41,7 @@ export async function sendLeadMagnetEmail(to: string, firstName?: string) {
   const resend = getResend()
   if (!resend) return
   const from = process.env.RESEND_FROM_EMAIL || 'zerotopaidwithai <support@zerotopaidwithai.com>'
-  const pdfUrl = 'https://www.zerotopaidwithai.com/300-ai-prompts-vault.pdf'
+  const downloadUrl = 'https://www.zerotopaidwithai.com/api/download-pdf'
   try {
     await resend.emails.send({
       from,
@@ -51,12 +51,12 @@ export async function sendLeadMagnetEmail(to: string, firstName?: string) {
         <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1F1E1C;line-height:1.6">
           <h2>Your 300+ UGC Prompts are here${firstName ? ', ' + firstName : ''}!</h2>
           <p>Copy, paste, generate — for any product or niche.</p>
-          <a href="${pdfUrl}" style="display:inline-block;background:#7C3AED;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;margin:12px 0">Download PDF — 300 Prompts</a>
-          <p style="font-size:13px;color:#8F8A86">PDF • 77 pages • Click the button to download directly. If it doesn’t open, copy this link: <a href="${pdfUrl}" style="color:#7C3AED">${pdfUrl}</a><br/>You’re also enrolled in the 7-day email series — Day 1 arrives today.</p>
+          <a href="${downloadUrl}" style="display:inline-block;background:#7C3AED;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;margin:12px 0">Download PDF — 300 Prompts</a>
+          <p style="font-size:13px;color:#8F8A86">PDF • 77 pages • Click the button to download directly. If it doesn't open on mobile, copy this link: <a href="${downloadUrl}" style="color:#7C3AED">${downloadUrl}</a><br/>You're also enrolled in the 7-day email series — Day 1 arrives today.</p>
           <p style="font-size:11px;color:#8F8A86;margin-top:16px">No longer want these? <a href="https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}" style="color:#8F8A86;text-decoration:underline">Unsubscribe</a></p>
         </div>
       `,
-      text: `Your 300+ UGC Prompts are here${firstName ? ', ' + firstName : ''}!\n\nDownload: ${pdfUrl}\n\nCopy, paste, generate — for any product or niche. PDF • 77 pages.\n\nYou’re also enrolled in the 7-day series — Day 1 arrives today.`,
+      text: `Your 300+ UGC Prompts are here${firstName ? ', ' + firstName : ''}!\n\nDownload: ${downloadUrl}\n\nCopy, paste, generate — for any product or niche. PDF • 77 pages.\n\nYou're also enrolled in the 7-day series — Day 1 arrives today.`,
       headers: {
         'List-Unsubscribe': `<mailto:unsubscribe@zerotopaidwithai.com?subject=unsubscribe>, <https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}>`,
         'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
