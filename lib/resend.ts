@@ -42,30 +42,25 @@ export async function sendLeadMagnetEmail(to: string, firstName?: string) {
   if (!resend) return
   const from = process.env.RESEND_FROM_EMAIL || 'zerotopaidwithai <support@zerotopaidwithai.com>'
   const pdfUrl = 'https://www.zerotopaidwithai.com/300-ai-prompts-vault.pdf'
-  let attachments: any[] | undefined
-  try {
-    const fs = await import('fs')
-    const path = await import('path')
-    const pdfPath = path.join(process.cwd(), 'public', '300-ai-prompts-vault.pdf')
-    if (fs.existsSync(pdfPath)) {
-      const buf = fs.readFileSync(pdfPath)
-      attachments = [{ filename: '300-ai-prompts-vault.pdf', content: buf }]
-    }
-  } catch {}
   try {
     await resend.emails.send({
       from,
       to,
-      subject: 'Your 300+ UGC Prompts — Download Inside (PDF Attached)',
+      subject: 'Your 300+ UGC Prompts — Download Inside',
       html: `
         <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1F1E1C;line-height:1.6">
           <h2>Your 300+ UGC Prompts are here${firstName ? ', ' + firstName : ''}!</h2>
-          <p>Copy, paste, generate — for any product or niche. Your PDF is attached and also available via the button below.</p>
+          <p>Copy, paste, generate — for any product or niche.</p>
           <a href="${pdfUrl}" style="display:inline-block;background:#7C3AED;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;margin:12px 0">Download PDF — 300 Prompts</a>
-          <p style="font-size:13px;color:#8F8A86">Attached: <strong>300-ai-prompts-vault.pdf</strong> (77 pages). If you don’t see it, click the button or check spam. You’re also enrolled in the 7-day email series — Day 1 arrives today.</p>
+          <p style="font-size:13px;color:#8F8A86">PDF • 77 pages • Click the button to download directly. If it doesn’t open, copy this link: <a href="${pdfUrl}" style="color:#7C3AED">${pdfUrl}</a><br/>You’re also enrolled in the 7-day email series — Day 1 arrives today.</p>
+          <p style="font-size:11px;color:#8F8A86;margin-top:16px">No longer want these? <a href="https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}" style="color:#8F8A86;text-decoration:underline">Unsubscribe</a></p>
         </div>
       `,
-      attachments,
+      text: `Your 300+ UGC Prompts are here${firstName ? ', ' + firstName : ''}!\n\nDownload: ${pdfUrl}\n\nCopy, paste, generate — for any product or niche. PDF • 77 pages.\n\nYou’re also enrolled in the 7-day series — Day 1 arrives today.`,
+      headers: {
+        'List-Unsubscribe': `<mailto:unsubscribe@zerotopaidwithai.com?subject=unsubscribe>, <https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}>`,
+        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+      },
     })
   } catch (e) { console.error('[resend] lead magnet email failed', e) }
 }
