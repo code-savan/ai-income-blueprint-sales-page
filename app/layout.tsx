@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
-import { Poppins, Sora } from 'next/font/google'
+import '@fontsource/poppins/400.css'
+import '@fontsource/poppins/500.css'
+import '@fontsource/poppins/600.css'
+import '@fontsource/poppins/700.css'
+import '@fontsource/sora/400.css'
+import '@fontsource/sora/600.css'
+import '@fontsource/sora/700.css'
 import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
-
-const poppins = Poppins({ subsets: ['latin'], weight: ['400','500','600','700'], display: 'swap', variable: '--font-body' })
-const sora = Sora({ subsets: ['latin'], weight: ['400','600','700'], display: 'swap', variable: '--font-display' })
 
 export const metadata: Metadata = {
   title: 'zerotopaidwithai — From Zero to Paid with AI | 30-Day System to Your First $500',
@@ -43,7 +46,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${sora.variable}`}>
+    <html lang="en">
       <body>
         <SmoothScroll>
           <div id="stickyCtaRoot" />
@@ -51,7 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </SmoothScroll>
         <script async src="https://plausible.io/js/pa-BhrrAhdJ8z0xNRVvoH8QB.js"></script>
         <script dangerouslySetInnerHTML={{ __html: `window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}}; plausible.init()` }} />
-        {/* Placeholder tracking pixels removed — add real IDs when ready */}
       </body>
     </html>
   )
