@@ -46,17 +46,26 @@ export async function sendLeadMagnetEmail(to: string, firstName?: string) {
     await resend.emails.send({
       from,
       to,
-      subject: 'Your 300+ UGC Prompts — Download Inside',
+      subject: 'The 300 AI Income Prompts vault is ready for you',
       html: `
-        <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1F1E1C;line-height:1.6">
-          <h2>Your 300+ UGC Prompts are here${firstName ? ', ' + firstName : ''}!</h2>
-          <p>Copy, paste, generate — for any product or niche.</p>
-          <a href="${downloadUrl}" style="display:inline-block;background:#7C3AED;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;margin:12px 0">Download PDF — 300 Prompts</a>
-          <p style="font-size:13px;color:#8F8A86">PDF • 77 pages • Click the button to download directly. If it doesn't open on mobile, copy this link: <a href="${downloadUrl}" style="color:#7C3AED">${downloadUrl}</a><br/>You're also enrolled in the 7-day email series — Day 1 arrives today.</p>
-          <p style="font-size:11px;color:#8F8A86;margin-top:16px">No longer want these? <a href="https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}" style="color:#8F8A86;text-decoration:underline">Unsubscribe</a></p>
+        <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1F1E1C;line-height:1.7;font-size:15px">
+          <p style="margin:0 0 16px">Hey,</p>
+          <p style="margin:0 0 16px">The 300 AI Income Prompts vault is ready for you.</p>
+          <p style="margin:0 0 20px"><a href="${downloadUrl}" style="display:inline-block;background:#7C3AED;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px">Download the PDF here</a></p>
+          <p style="margin:0 0 8px">Here's what you're getting:</p>
+          <ul style="margin:0 0 16px;padding-left:20px;color:#1F1E1C">
+            <li style="margin-bottom:6px">10 prompt categories (content creation, freelancing, product ideas, sales copy, email marketing, social media, business strategy, automation, research, and personal finance)</li>
+            <li style="margin-bottom:6px">30 battle-tested prompts per category</li>
+            <li style="margin-bottom:6px">Each prompt includes a usage hint so you know exactly when and how to deploy it</li>
+          </ul>
+          <p style="margin:0 0 16px">This is the same prompt library I use to generate income with AI — pulled from the full AI Income Blueprint system.</p>
+          <p style="margin:0 0 16px">Over the next few days, I'm going to send you a few things that will rewire how you think about making money. They're short. They're free. And the first one hits your inbox tomorrow.</p>
+          <p style="margin:0 0 16px">Watch for it.</p>
+          <p style="margin:24px 0 0;line-height:1.6">— Partick Jane<br/>Zero to Paid with AI<br/><a href="https://www.zerotopaidwithai.com" style="color:#7C3AED;text-decoration:none">https://www.zerotopaidwithai.com</a></p>
+          <p style="font-size:11px;color:#8F8A86;margin-top:24px;border-top:1px solid #eee;padding-top:16px">No longer want these? <a href="https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}" style="color:#8F8A86;text-decoration:underline">Unsubscribe</a></p>
         </div>
       `,
-      text: `Your 300+ UGC Prompts are here${firstName ? ', ' + firstName : ''}!\n\nDownload: ${downloadUrl}\n\nCopy, paste, generate — for any product or niche. PDF • 77 pages.\n\nYou're also enrolled in the 7-day series — Day 1 arrives today.`,
+      text: `Hey,\n\nThe 300 AI Income Prompts vault is ready for you.\n\nDownload the PDF here: ${downloadUrl}\n\nHere's what you're getting:\n\n• 10 prompt categories (content creation, freelancing, product ideas, sales copy, email marketing, social media, business strategy, automation, research, and personal finance)\n• 30 battle-tested prompts per category\n• Each prompt includes a usage hint so you know exactly when and how to deploy it\n\nThis is the same prompt library I use to generate income with AI — pulled from the full AI Income Blueprint system.\n\nOver the next few days, I'm going to send you a few things that will rewire how you think about making money. They're short. They're free. And the first one hits your inbox tomorrow.\n\nWatch for it.\n\n— Partick Jane\nZero to Paid with AI\nhttps://www.zerotopaidwithai.com`,
       headers: {
         'List-Unsubscribe': `<mailto:unsubscribe@zerotopaidwithai.com?subject=unsubscribe>, <https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}>`,
         'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
