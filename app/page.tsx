@@ -275,7 +275,6 @@ function WallOfProofNew(){
             <Reveal><TestimonialCard variant="punchy" quote="I applied to 47 jobs. 2 callbacks. 0 offers. First client in 11 days." name="Kevin O."/></Reveal>
             <Reveal><TestimonialCard variant="punchy" quote="I made my first $40 on day 22. It does not sound like much, but it changed how I see myself. I am not stuck anymore." name="Jamie T."/></Reveal>
           </div>
-          <Reveal><TestimonialCard variant="video" quote="Got laid off on a Tuesday. Found this on Friday. By end of the month I’d made more than my salary. I’m not going back. Not to that office, not to any office." name="Darius L." handle="Laid off → full-time AI income" amount="$4,100" per="/ Month 1" thumbnail="https://cdn.higgsfield.ai/marketing_studio_avatar/8c8e0717-70c1-46a5-b67f-4581637ff1fc.webp"/></Reveal>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
             <Reveal><TestimonialCard variant="story" quote="I’ve bought 3 courses before this. All garbage. This one had me making $200 in week 2. It’s the only one that gives you actual steps, not motivation." name="Tolu W." handle="3 failed courses → first $200 in week 2" tag="Track B"/></Reveal>
             <Reveal><TestimonialCard variant="story" quote="I made $240 in my second week — small but proof it works. Then $900 the next month." name="Sofia R." handle="Student → $240 week 2" tag="Modest win"/></Reveal>
