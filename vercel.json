@@ -2,6 +2,12 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/.well-known/apple-developer-merchantid-domain-association",
+      "destination": "https://whop.com/.well-known/apple-platform-integrator/apple-developer-merchantid-domain-association"
+    }
+  ],
   "headers": [
     {
       "source": "/.well-known/apple-developer-merchantid-domain-association",
