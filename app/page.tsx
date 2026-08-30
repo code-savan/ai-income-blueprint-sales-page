@@ -271,16 +271,16 @@ function WallOfProofNew(){
         <div className="wall__head"><Reveal><div className="eyebrow">REAL RESULTS. REAL PEOPLE.</div></Reveal><Reveal><h2 className="h2">They started exactly<br/><span style={{color:'var(--purple-soft)'}}>where you are right now.</span></h2></Reveal><Reveal><p>No influencers. No paid actors. Just 1,400+ people who followed the blueprint and made it work.</p></Reveal></div>
         <div className="testimonial-masonry" style={{gridTemplateColumns:'1fr', gap:16}}>
           <Reveal><TestimonialCard variant="story" quote="I was a stay-at-home mom with $0 of my own. My husband didn’t think I could do it. Month 2 I made $1,100. I have my own account now. That changes everything about how you carry yourself." name="Amara M." handle="Stay-at-home mom → Track A" amount="$1,100" per="/ Month 2"/></Reveal>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+          <div className="testi-row" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
             <Reveal><TestimonialCard variant="punchy" quote="I applied to 47 jobs. 2 callbacks. 0 offers. First client in 11 days." name="Kevin O."/></Reveal>
             <Reveal><TestimonialCard variant="punchy" quote="I made my first $40 on day 22. It does not sound like much, but it changed how I see myself. I am not stuck anymore." name="Jamie T."/></Reveal>
           </div>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+          <div className="testi-row" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
             <Reveal><TestimonialCard variant="story" quote="I’ve bought 3 courses before this. All garbage. This one had me making $200 in week 2. It’s the only one that gives you actual steps, not motivation." name="Tolu W." handle="3 failed courses → first $200 in week 2" tag="Track B"/></Reveal>
             <Reveal><TestimonialCard variant="story" quote="I made $240 in my second week — small but proof it works. Then $900 the next month." name="Sofia R." handle="Student → $240 week 2" tag="Modest win"/></Reveal>
           </div>
           <Reveal><TestimonialCard variant="story" quote="Ran both tracks at once. Track B gave me fast cash. Track A built passive income in the background. Month 3 they were both producing. $2,300 and still at my day job." name="Emeka O." handle="Both tracks simultaneously" amount="$2,300" per="/ Month 3"/></Reveal>
-          <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
+          <div className="testi-row" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:16}}>
             <Reveal><TestimonialCard variant="story" quote="The Prompt Vault alone is worth more than $97. I used 4 prompts in week 1 to deliver a client project that paid me $600. I hadn’t even finished the guide." name="Rachel L." handle="Graphic designer → added AI services" tag="Prompt Vault"/></Reveal>
             <Reveal><TestimonialCard variant="story" quote="Single mum. No time to waste. Most practical guide I’ve ever read. No filler. Just: do this, then this, then this. $350 in 3 weeks following it exactly." name="Lena H." handle="Single mum · $350 in 3 weeks"/></Reveal>
           </div>
