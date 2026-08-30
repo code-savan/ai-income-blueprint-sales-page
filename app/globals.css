@@ -1682,7 +1682,9 @@ button{cursor:pointer;font-family:inherit}
   .lead-modal--checkout .lead-modal__header p{font-size:12px;line-height:1.4}
   .lead-modal--checkout .lead-modal__close{top:10px;right:10px;width:32px;height:32px}
   .lead-modal--checkout .lead-modal__footnote{font-size:11px;margin-top:8px;line-height:1.4}
-  .whop-checkout-wrap{max-height:none !important;min-height:420px}
+  .whop-checkout-wrap{max-height:none !important;min-height:520px;height:100% !important}
+  .lead-modal--checkout .whop-checkout-wrap{height:72vh !important;min-height:520px}
+  .lead-modal--checkout{height:94vh !important;max-height:94vh !important}
 }
 @media (max-width: 380px){
   .lead-modal--checkout .lead-modal__inner{padding:14px 12px 12px}
