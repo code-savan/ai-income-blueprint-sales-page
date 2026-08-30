@@ -4,7 +4,7 @@ import { WhopCheckoutEmbed } from '@whop/checkout/react'
 export default function WhopCheckout({ sessionId, planId, email, onComplete, onClose }: { sessionId?: string | null; planId?: string; email?: string; onComplete?: (planId: string, receiptId?: string) => void; onClose?: () => void }) {
   const props: any = sessionId ? { sessionId } : { planId: planId || 'plan_9jNDrHbo6pkzm' }
   return (
-    <div style={{ width: '100%', maxHeight: '80vh', overflow: 'auto', borderRadius: 12 }}>
+    <div className="whop-checkout-wrap" style={{ width: '100%', maxHeight: '68vh', overflow: 'auto', borderRadius: 12, WebkitOverflowScrolling: 'touch' as any }}>
       <WhopCheckoutEmbed
         {...props}
         theme="light"

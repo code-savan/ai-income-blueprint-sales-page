@@ -67,7 +67,7 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
   return (
     <>
       <div ref={overlayRef} className={`lead-overlay ${visible ? 'show' : ''}`} onClick={(e) => { if (e.target === overlayRef.current) onClose() }} />
-      <div className={`lead-modal ${visible ? 'show' : ''}`} style={checkout ? { maxWidth: 560, width: '95vw' } : undefined}>
+      <div className={`lead-modal ${visible ? 'show' : ''} ${checkout ? 'lead-modal--checkout' : ''}`} style={checkout ? { maxWidth: 560, width: '95vw' } : undefined}>
         <div className="lead-modal__inner" style={checkout ? { maxWidth: 560 } : undefined}>
           <button className="lead-modal__close" onClick={onClose} aria-label="Close">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>

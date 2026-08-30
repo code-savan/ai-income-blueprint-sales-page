@@ -1641,6 +1641,18 @@ button{cursor:pointer;font-family:inherit}
   }
   .lead-modal__close{top:14px;right:14px}
   .lead-modal__header h2{font-size:24px}
+  .lead-modal--checkout{height:92vh;max-height:92vh}
+  .lead-modal--checkout .lead-modal__inner{padding:16px 14px 14px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  .lead-modal--checkout .lead-modal__header{margin-bottom:10px}
+  .lead-modal--checkout .lead-modal__header h2{font-size:18px;margin-bottom:4px}
+  .lead-modal--checkout .lead-modal__header p{font-size:12px;line-height:1.4}
+  .lead-modal--checkout .lead-modal__close{top:10px;right:10px;width:32px;height:32px}
+  .lead-modal--checkout .lead-modal__footnote{font-size:11px;margin-top:8px;line-height:1.4}
+  .whop-checkout-wrap{max-height:none !important;min-height:420px}
+}
+@media (max-width: 380px){
+  .lead-modal--checkout .lead-modal__inner{padding:14px 12px 12px}
+  .lead-modal--checkout .lead-modal__header h2{font-size:17px}
 }
 
 /* ─── NEW COMPONENTS — lead magnet, urgency, testimonials (purple theme) ─── */
