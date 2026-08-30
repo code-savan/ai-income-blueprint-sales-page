@@ -8,6 +8,12 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/(.*)',
+        headers: [
+          { key: 'Content-Security-Policy', value: "frame-src 'self' https://*.whop.com https://whop.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.whop.com https://whop.com https://t.whop.tw https://js.whop.com https://plausible.io; connect-src 'self' https://*.whop.com https://whop.com https://t.whop.tw https://plausible.io;" },
+        ],
+      },
+      {
         source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|woff2)',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
       },
