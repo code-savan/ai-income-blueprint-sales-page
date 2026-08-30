@@ -1675,16 +1675,15 @@ button{cursor:pointer;font-family:inherit}
   }
   .lead-modal__close{top:14px;right:14px}
   .lead-modal__header h2{font-size:24px}
-  .lead-modal--checkout{height:92vh !important;max-height:92vh !important;width:100% !important;max-width:100% !important;left:0 !important;right:0 !important;border-radius:16px 16px 0 0 !important}
-  .lead-modal--checkout .lead-modal__inner{padding:16px 14px 14px !important;max-width:100% !important;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px)) !important}
-  .lead-modal--checkout .lead-modal__header{margin-bottom:10px}
-  .lead-modal--checkout .lead-modal__header h2{font-size:18px;margin-bottom:4px}
-  .lead-modal--checkout .lead-modal__header p{font-size:12px;line-height:1.4}
+  .lead-modal--checkout{height:95vh !important;max-height:95vh !important;width:100% !important;max-width:100% !important;left:0 !important;right:0 !important;border-radius:16px 16px 0 0 !important}
+  .lead-modal--checkout .lead-modal__inner{padding:14px 14px calc(14px + env(safe-area-inset-bottom,0px)) !important;max-width:100% !important;display:flex !important;flex-direction:column !important;height:100% !important;overflow:hidden !important}
+  .lead-modal--checkout .lead-modal__header{margin-bottom:8px;flex-shrink:0}
+  .lead-modal--checkout .lead-modal__header h2{font-size:17px;margin-bottom:3px}
+  .lead-modal--checkout .lead-modal__header p{font-size:11.5px;line-height:1.35}
   .lead-modal--checkout .lead-modal__close{top:10px;right:10px;width:32px;height:32px}
-  .lead-modal--checkout .lead-modal__footnote{font-size:11px;margin-top:8px;line-height:1.4}
+  .lead-modal--checkout .lead-modal__footnote{font-size:10.5px;margin-top:8px;line-height:1.3;flex-shrink:0}
   .whop-checkout-wrap{max-height:none !important;min-height:520px;height:100% !important}
-  .lead-modal--checkout .whop-checkout-wrap{height:72vh !important;min-height:520px}
-  .lead-modal--checkout{height:94vh !important;max-height:94vh !important}
+  .lead-modal--checkout .whop-checkout-wrap{flex:1 !important;height:auto !important;min-height:0 !important;overflow:auto !important;-webkit-overflow-scrolling:touch}
 }
 @media (max-width: 380px){
   .lead-modal--checkout .lead-modal__inner{padding:14px 12px 12px}
