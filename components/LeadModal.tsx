@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import dynamic from 'next/dynamic'
-import { ShieldIcon, LockIcon, CheckIcon } from '@/components/Icons'
 
 const WhopCheckout = dynamic(() => import('./WhopCheckout'), { ssr: false })
 
@@ -68,28 +67,16 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
   return (
     <>
       <div ref={overlayRef} className={`lead-overlay ${visible ? 'show' : ''}`} onClick={(e) => { if (e.target === overlayRef.current) onClose() }} />
-      <div className={`lead-modal ${visible ? 'show' : ''} ${checkout ? 'lead-modal--checkout' : 'lead-modal--form'}`} style={checkout ? { maxWidth: 560, width: '95vw' } : undefined}>
+      <div className={`lead-modal ${visible ? 'show' : ''} ${checkout ? 'lead-modal--checkout' : ''}`} style={checkout ? { maxWidth: 560, width: '95vw' } : undefined}>
         <div className="lead-modal__inner" style={checkout ? { maxWidth: 560 } : undefined}>
           <button className="lead-modal__close" onClick={onClose} aria-label="Close">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
           </button>
           {!checkout ? (
             <>
-              <div className="lm-badge"><span className="lm-badge__dot" /> Secure checkout via Whop · 30-day guarantee</div>
-              <div className="lead-modal__header" style={{ marginBottom: 16 }}>
-                <h2>Unlock Full Access</h2>
-                <p>Join 1,400+ students — enter your details to open Apple Pay, Card, GPay & 100+ methods.</p>
-              </div>
-              <div className="lm-summary">
-                <div className="lm-summary__left">
-                  <span className="lm-summary__name">zerotopaidwithai — Full Access</span>
-                  <span className="lm-summary__meta">5 modules · 4 playbooks · Prompt Vault · Lifetime updates</span>
-                </div>
-                <div className="lm-summary__right">
-                  <span className="lm-summary__was">$197</span>
-                  <span className="lm-summary__price">$97</span>
-                  <span className="lm-summary__once">one-time</span>
-                </div>
+              <div className="lead-modal__header">
+                <h2>You&rsquo;re One Step Away</h2>
+                <p>Enter your details and we&rsquo;ll open secure checkout.</p>
               </div>
               <form onSubmit={handleSubmit} className="lead-modal__form">
                 <div className="lead-modal__field">
@@ -97,33 +84,24 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
                   <input ref={nameInput} id="lead-name" type="text" placeholder="e.g. John Doe" value={name} onChange={(e) => setName(e.target.value)} required autoComplete="name" />
                 </div>
                 <div className="lead-modal__field">
-                  <label htmlFor="lead-email">Email Address <span style={{ fontWeight: 400, color: 'var(--muted)' }}>(receipt + access)</span></label>
+                  <label htmlFor="lead-email">Email Address</label>
                   <input id="lead-email" type="email" placeholder="e.g. john@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
                 </div>
                 {error && <p className="lead-modal__error">{error}</p>}
-                <button type="submit" className="btn btn--primary lm-submit" disabled={submitting}>
-                  {submitting ? 'Opening Secure Checkout…' : 'Continue to Secure Checkout →'}
+                <button type="submit" className="btn btn--primary" disabled={submitting} style={{ width: '100%', height: 52, fontSize: 16 }}>
+                  {submitting ? 'Opening Checkout…' : 'Continue to Checkout →'}
                 </button>
-                <div className="lm-benefits">
-                  <span><CheckIcon size={12} color="#16a34a" /> Instant access</span>
-                  <span><CheckIcon size={12} color="#16a34a" /> Lifetime updates</span>
-                  <span><CheckIcon size={12} color="#16a34a" /> 30-day refund</span>
-                </div>
+                <p className="lead-modal__footnote">Secure payment via <strong>Whop</strong> · 100+ methods · instant access</p>
               </form>
-              <div className="lm-trust">
-                <span className="lm-trust__item"><LockIcon size={12} /> SSL encrypted</span>
-                <span className="lm-trust__item"><ShieldIcon size={12} color="#16a34a" /> Whop protected</span>
-                <span className="lm-trust__item">✓ 1,400+ students</span>
-              </div>
             </>
           ) : (
             <>
-              <div className="lead-modal__header" style={{ marginBottom: 10 }}>
-                <h2 style={{ fontSize: 20 }}>Complete Your Payment</h2>
-                <p>Secure checkout powered by Whop — you’re almost done, {name.split(' ')[0]}.</p>
+              <div className="lead-modal__header">
+                <h2>Complete Your Payment</h2>
+                <p>Secure checkout powered by Whop — you&rsquo;re almost done, {name.split(' ')[0]}.</p>
               </div>
               <WhopCheckout sessionId={checkout.sessionId} planId={checkout.planId} email={email} onComplete={() => { window.location.href = '/thank-you?type=purchase' }} />
-              <p className="lead-modal__footnote" style={{ marginTop: 10 }}>After payment you’ll be redirected automatically. Need help? <a href="mailto:support@zerotopaidwithai.com">support@zerotopaidwithai.com</a></p>
+              <p className="lead-modal__footnote" style={{ marginTop: 12 }}>After payment you&rsquo;ll be redirected automatically. Need help? <a href="mailto:support@zerotopaidwithai.com">support@zerotopaidwithai.com</a></p>
             </>
           )}
         </div>
