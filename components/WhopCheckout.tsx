@@ -1,12 +1,12 @@
 'use client'
 import { WhopCheckoutEmbed } from '@whop/checkout/react'
 
-export default function WhopCheckout({ sessionId, planId, email, onComplete, onClose }: { sessionId: string; planId?: string; email?: string; onComplete?: (planId: string, receiptId?: string) => void; onClose?: () => void }) {
+export default function WhopCheckout({ sessionId, planId, email, onComplete, onClose }: { sessionId?: string | null; planId?: string; email?: string; onComplete?: (planId: string, receiptId?: string) => void; onClose?: () => void }) {
+  const props: any = sessionId ? { sessionId } : { planId: planId || 'plan_9jNDrHbo6pkzm' }
   return (
     <div style={{ width: '100%', maxHeight: '80vh', overflow: 'auto', borderRadius: 12 }}>
-      {/* @ts-ignore Whop types require exactly one of planId/sessionId — we provide sessionId */}
       <WhopCheckoutEmbed
-        sessionId={sessionId}
+        {...props}
         theme="light"
         prefill={email ? { email } as any : undefined}
         themeOptions={{ accentColor: '#7C3AED', borderRadius: 10, buttonText: 'Pay $97 — Get Instant Access' }}

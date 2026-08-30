@@ -15,26 +15,39 @@ export async function POST(req: NextRequest) {
     const cleanEmail = email.trim().toLowerCase()
     const cleanName = name.trim()
 
-    const result = await whop.checkoutConfigurations.create({
-      account_id: WHOP_COMPANY_ID,
-      plan_id: WHOP_PLAN_ID,
-      metadata: {
-        order_id: orderId,
-        customer_name: cleanName,
-        customer_email: cleanEmail,
-        source: source || 'checkout',
-      },
-      redirect_url: `${siteUrl.replace(/\/$/, '')}/thank-you?type=purchase&order_id=${orderId}`,
-    })
-
-    const data = (result as any).data ?? result
-
-    return NextResponse.json({
-      sessionId: data.id,
-      planId: data.plan?.id || WHOP_PLAN_ID,
-      orderId,
-      checkoutUrl: `https://whop.com/checkout/${data.plan?.id || WHOP_PLAN_ID}?session=${data.id}`,
-    })
+    try {
+      const result = await whop.checkoutConfigurations.create({
+        account_id: WHOP_COMPANY_ID,
+        plan_id: WHOP_PLAN_ID,
+        metadata: {
+          order_id: orderId,
+          customer_name: cleanName,
+          customer_email: cleanEmail,
+          source: source || 'checkout',
+        },
+        redirect_url: `${siteUrl.replace(/\/$/, '')}/thank-you?type=purchase&order_id=${orderId}`,
+      })
+      const data = (result as any).data ?? result
+      return NextResponse.json({
+        sessionId: data.id,
+        planId: data.plan?.id || WHOP_PLAN_ID,
+        orderId,
+        checkoutUrl: `https://whop.com/checkout/${data.plan?.id || WHOP_PLAN_ID}?session=${data.id}`,
+      })
+    } catch (e: any) {
+      const msg = e?.message || JSON.stringify(e?.body || e)
+      if (msg.includes('checkout_configuration') || msg.includes('forbidden') || e?.statusCode === 403) {
+        console.warn('[whop checkout] missing scope, falling back to planId embed:', msg)
+        return NextResponse.json({
+          planId: WHOP_PLAN_ID,
+          sessionId: null,
+          orderId,
+          checkoutUrl: `https://whop.com/checkout/${WHOP_PLAN_ID}`,
+          fallback: true,
+        })
+      }
+      throw e
+    }
   } catch (e: any) {
     console.error('[whop checkout] error', e?.message || e, e?.body || '')
     return NextResponse.json({ error: e?.message || 'Checkout failed' }, { status: 500 })

@@ -13,7 +13,7 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
   const [error, setError] = useState('')
   const [visible, setVisible] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const [checkout, setCheckout] = useState<{ sessionId: string; planId: string } | null>(null)
+  const [checkout, setCheckout] = useState<{ sessionId: string | null; planId: string } | null>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const nameInput = useRef<HTMLInputElement>(null)
 
