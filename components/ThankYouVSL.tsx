@@ -8,7 +8,7 @@ export default function ThankYouVSL() {
       <div className="ty-vsl-ratio">
         {!playing ? (
           <button type="button" onClick={() => setPlaying(true)} aria-label="Play video" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0, padding: 0, cursor: 'pointer', background: 'transparent', display: 'block' }}>
-            <img src="https://pub-855fb210496f45fa86233cee4863af77.r2.dev/thankyou-vsl-thumbnail.png" alt="VSL thumbnail" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} crossOrigin="anonymous" />
+            <img src="https://pub-855fb210496f45fa86233cee4863af77.r2.dev/thankyou-vsl-thumbnail.png" alt="VSL thumbnail" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <span style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12, background: 'linear-gradient(180deg,rgba(11,16,32,0.08) 0%,rgba(11,16,32,0.38) 100%)' }}>
               <span className="ty-vsl-play"><svg width={28} height={28} viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
               <span className="ty-vsl-label">Watch This Next</span>
