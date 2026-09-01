@@ -15,12 +15,13 @@ export default function ThankYouVSL() {
           style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: 16, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)', background: '#000', cursor: 'pointer', padding: 0, display: 'block', boxShadow: '0 24px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(124,58,237,0.15)' }}
         >
           <img
-            src="/thankyou-vsl-thumbnail.png"
+            src="https://pub-855fb210496f45fa86233cee4863af77.r2.dev/thankyou-vsl-thumbnail.png"
             alt="Video thumbnail"
             width={1280}
             height={720}
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             loading="eager"
+            crossOrigin="anonymous"
           />
           <span
             style={{
@@ -42,10 +43,10 @@ export default function ThankYouVSL() {
             autoPlay
             playsInline
             preload="metadata"
-            poster="/thankyou-vsl-thumbnail.png"
+            poster="https://pub-855fb210496f45fa86233cee4863af77.r2.dev/thankyou-vsl-thumbnail.png"
             style={{ width: '100%', height: '100%', display: 'block', background: '#000' }}
           >
-            <source src="/thankyou-vsl-roughcut.mp4" type="video/mp4" />
+            <source src="https://pub-855fb210496f45fa86233cee4863af77.r2.dev/thankyou-vsl-roughcut.mp4" type="video/mp4" />
           </video>
         </div>
       )}
