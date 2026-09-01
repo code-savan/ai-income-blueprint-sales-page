@@ -1,83 +1,74 @@
 import Link from 'next/link'
 import ThankYouVSL from '@/components/ThankYouVSL'
+import TyResendBtn from '@/components/TyResendBtn'
 
-export default function ThankYouPage({ searchParams }: { searchParams: { type?: string } }){
-  const type=searchParams?.type
-  const isLead=type==='lead-magnet'
-  const isPurchase=type==='purchase'
+export default function ThankYouPage({ searchParams }: { searchParams: { type?: string } }) {
+  const type = searchParams?.type
+  const isLead = type === 'lead-magnet'
+  const isPurchase = type === 'purchase'
   if (isLead) {
     return (
-      <main className="ty">
-        <div className="ty__left">
-          <div className="ty__leftFrame">
-            <Link href="/" className="ty__logo">zerotopaidwithai</Link>
+      <div className="ty-page">
+        <nav className="ty-nav">
+          <Link href="/" className="ty-nav__brand">zerotopaidwithai</Link>
+        </nav>
+        <main className="ty-main">
+          <div className="ty-success">
+            <span className="ty-success__icon">
+              <svg width={16} height={16} viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </span>
+            You&apos;re in — check your inbox
+          </div>
+          <div className="ty-heading">
+            <h1>Your <span>300+ AI Prompts</span> Are on the Way</h1>
+          </div>
+          <p className="ty-sub">We just sent the download link to your email. While you wait, watch this short video — it shows you exactly how to use these prompts to start making money this week.</p>
+          <div className="ty-vsl-wrap">
             <ThankYouVSL />
-            <div className="ty__leftCaption">
-              <div className="ty__badge"><span/> Vault sent — check email</div>
-              <h1>Don&apos;t open the PDF until you watch this</h1>
-              <p className="ty__sub">65 seconds — how to turn one prompt from the vault into your first AI video today.</p>
-              <p className="ty__hint">1280×720 · 1:06 · Sound on</p>
+          </div>
+          <div className="ty-cta-card">
+            <h2>Didn&apos;t get the email?</h2>
+            <p>Check your spam or promotions folder. If it&apos;s not there, click below and we&apos;ll resend it instantly.</p>
+            <TyResendBtn />
+            <div className="ty-cta-bullets">
+              <span><svg width={12} height={12} viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#16a34a" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /></svg> PDF · 77 pages</span>
+              <span><svg width={12} height={12} viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#16a34a" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /></svg> Instant download</span>
+              <span><svg width={12} height={12} viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#16a34a" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /></svg> Free forever</span>
             </div>
           </div>
-        </div>
-        <div className="ty__right">
-          <div className="ty__rightInner">
-            <div className="ty__card ty__card--download">
-              <div className="ty__coverWrap">
-                <img src="/ugc-pack-cover.webp" alt="300 prompts cover" width={220} height={328} />
-              </div>
-              <div className="ty__coverBody">
-                <h3>300 AI Prompts Vault</h3>
-                <p>PDF • 77 pages • 1.0MB • 10 categories</p>
-                <ul>
-                  <li>30 prompts per category with usage hints</li>
-                  <li>Copy → Paste → Generate in seconds</li>
-                  <li>Same library used inside the Blueprint</li>
-                </ul>
-                <a href="/api/download-pdf" className="btn btn--primary" style={{width:'100%',justifyContent:'center',marginTop:14}}>Download PDF Now ↧</a>
-              </div>
-            </div>
-
-            <div className="ty__card ty__card--steps">
-              <h3>Do this in the next 10 minutes</h3>
-              <div className="ty__steps">
-                <div className="ty__step"><em>1</em><div><strong>Save the PDF to your phone</strong><span>So you can copy prompts to ChatGPT / Kling anywhere</span></div></div>
-                <div className="ty__step"><em>2</em><div><strong>Generate 3 videos today</strong><span>Pick 1 category → copy 1 prompt → create in CapCut / Kling</span></div></div>
-                <div className="ty__step"><em>3</em><div><strong>Open Day 1 email tomorrow</strong><span>It rewires how you think about making money with AI</span></div></div>
-              </div>
-              <div className="ty__ctaRow">
-                <Link href="/#pricing" className="btn btn--primary" style={{width:'100%',justifyContent:'center'}}>See the Full Blueprint — $97 →</Link>
-                <Link href="/" className="btn btn--ghost" style={{width:'100%',justifyContent:'center'}}>Back to Homepage</Link>
-              </div>
-            </div>
-
-            <div className="ty__trust">
-              <span>30-day guarantee</span><span aria-hidden="true">·</span><span>Lifetime access</span><span aria-hidden="true">·</span><span>1,400+ students</span>
+          <div className="ty-next">
+            <p className="ty-next__label">While you wait — 3 things to do right now</p>
+            <div className="ty-next__grid">
+              <div className="ty-next__step"><div className="ty-next__num">1</div><div><h3>Open the PDF</h3><p>Find the email, download the 77-page vault, and skim the table of contents.</p></div></div>
+              <div className="ty-next__step"><div className="ty-next__num">2</div><div><h3>Pick One Niche</h3><p>Choose a product type that fits you — fitness, beauty, tech, food, or lifestyle.</p></div></div>
+              <div className="ty-next__step"><div className="ty-next__num">3</div><div><h3>Generate Your First Video</h3><p>Copy a prompt, paste it into ChatGPT or Claude, and create your first UGC video today.</p></div></div>
             </div>
           </div>
-        </div>
-      </main>
+          <div className="ty-email-notice">
+            <p>We&apos;ll also send you a <strong>7-day email series</strong> with daily action steps to go from zero to your first $500 online using AI. No spam. Unsubscribe anytime.</p>
+          </div>
+        </main>
+      </div>
     )
   }
-
   return (
     <main className="thankyou thankyou--new">
       <div className="thankyou__shell">
         {isPurchase ? (
           <>
-            <div className="thankyou__badge"><span className="thankyou__dot"/> Payment confirmed</div>
+            <div className="thankyou__badge"><span className="thankyou__dot" /> Payment confirmed</div>
             <div className="thankyou__iconWrap thankyou__iconWrap--purchase"><span className="thankyou__check">✓</span></div>
             <h1>You Are In. Welcome.</h1>
-            <p className="thankyou__sub">Check your email for access instructions. If nothing in 10 minutes, check spam — then email <a href="mailto:support@zerotopaidwithai.com" style={{color:'var(--purple)',fontWeight:600}}>support@zerotopaidwithai.com</a>.</p>
-            <Link href="/" className="btn btn--primary" style={{marginTop:16, width:'100%',justifyContent:'center'}}>Access the Blueprint</Link>
-            <p className="thankyou__note">The 30-day roadmap starts now. Open Day 1 when you’re ready.</p>
+            <p className="thankyou__sub">Check your email for access instructions. If nothing in 10 minutes, check spam — then email <a href="mailto:support@zerotopaidwithai.com" style={{ color: 'var(--purple)', fontWeight: 600 }}>support@zerotopaidwithai.com</a>.</p>
+            <Link href="/" className="btn btn--primary" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>Access the Blueprint</Link>
+            <p className="thankyou__note">The 30-day roadmap starts now. Open Day 1 when you&apos;re ready.</p>
           </>
         ) : (
           <>
             <div className="thankyou__iconWrap"><span className="thankyou__check">✓</span></div>
             <h1>Thank You!</h1>
             <p className="thankyou__sub">Check your email for next steps.</p>
-            <Link href="/" className="btn btn--primary" style={{marginTop:16, width:'100%',justifyContent:'center'}}>Go to Homepage</Link>
+            <Link href="/" className="btn btn--primary" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>Go to Homepage</Link>
           </>
         )}
       </div>
