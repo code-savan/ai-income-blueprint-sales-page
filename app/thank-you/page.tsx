@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ThankYouVSL from '@/components/ThankYouVSL'
 
 export default function ThankYouPage({ searchParams }: { searchParams: { type?: string } }){
   const type=searchParams?.type
@@ -13,12 +14,8 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             <div className="ty__badge"><span/> Vault sent — check email</div>
             <h1>Don’t open the PDF until you watch this</h1>
             <p className="ty__sub">65 seconds — how to turn one prompt from the vault into your first AI video today.</p>
-            <div className="ty__vsl">
-              <video controls playsInline preload="metadata" poster="/thankyou-vsl-thumbnail.png" crossOrigin="anonymous">
-                <source src="/thankyou-vsl-roughcut.mp4" type="video/mp4" />
-              </video>
-            </div>
-            <p className="ty__hint">Tap play · 1280×720 · Sound on</p>
+            <ThankYouVSL />
+            <p className="ty__hint">1280×720 · 65s · Sound on</p>
           </div>
         </div>
 
