@@ -7,24 +7,26 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
   const isPurchase=type==='purchase'
   if (isLead) {
     return (
-      <main className="ty ty--split">
+      <main className="ty">
         <div className="ty__left">
-          <div className="ty__leftInner">
+          <div className="ty__leftFrame">
             <Link href="/" className="ty__logo">zerotopaidwithai</Link>
-            <div className="ty__badge"><span/> Vault sent — check email</div>
-            <h1>Don’t open the PDF until you watch this</h1>
-            <p className="ty__sub">65 seconds — how to turn one prompt from the vault into your first AI video today.</p>
             <ThankYouVSL />
-            <p className="ty__hint">1280×720 · 1:06 · Sound on · Tap play</p>
+            <div className="ty__leftCaption">
+              <div className="ty__badge"><span/> Vault sent — check email</div>
+              <h1>Don&apos;t open the PDF until you watch this</h1>
+              <p className="ty__sub">65 seconds — how to turn one prompt from the vault into your first AI video today.</p>
+              <p className="ty__hint">1280×720 · 1:06 · Sound on</p>
+            </div>
           </div>
         </div>
         <div className="ty__right">
           <div className="ty__rightInner">
             <div className="ty__card ty__card--download">
-              <div className="ty__cover">
+              <div className="ty__coverWrap">
                 <img src="/ugc-pack-cover.webp" alt="300 prompts cover" width={220} height={328} />
               </div>
-              <div>
+              <div className="ty__coverBody">
                 <h3>300 AI Prompts Vault</h3>
                 <p>PDF • 77 pages • 1.0MB • 10 categories</p>
                 <ul>
@@ -33,16 +35,15 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
                   <li>Same library used inside the Blueprint</li>
                 </ul>
                 <a href="/api/download-pdf" className="btn btn--primary" style={{width:'100%',justifyContent:'center',marginTop:14}}>Download PDF Now ↧</a>
-                <span className="ty__small">Also emailed from support@zerotopaidwithai.com · 7-day series starts tomorrow</span>
               </div>
             </div>
 
             <div className="ty__card ty__card--steps">
               <h3>Do this in the next 10 minutes</h3>
               <div className="ty__steps">
-                <div><em>1</em><div><strong>Save the PDF to your phone</strong><span>So you can copy prompts to ChatGPT / Kling anywhere</span></div></div>
-                <div><em>2</em><div><strong>Generate 3 videos today</strong><span>Pick 1 category → copy 1 prompt → create in CapCut / Kling</span></div></div>
-                <div><em>3</em><div><strong>Open Day 1 email tomorrow</strong><span>It rewires how you think about making money with AI</span></div></div>
+                <div className="ty__step"><em>1</em><div><strong>Save the PDF to your phone</strong><span>So you can copy prompts to ChatGPT / Kling anywhere</span></div></div>
+                <div className="ty__step"><em>2</em><div><strong>Generate 3 videos today</strong><span>Pick 1 category → copy 1 prompt → create in CapCut / Kling</span></div></div>
+                <div className="ty__step"><em>3</em><div><strong>Open Day 1 email tomorrow</strong><span>It rewires how you think about making money with AI</span></div></div>
               </div>
               <div className="ty__ctaRow">
                 <Link href="/#pricing" className="btn btn--primary" style={{width:'100%',justifyContent:'center'}}>See the Full Blueprint — $97 →</Link>
@@ -50,7 +51,9 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
               </div>
             </div>
 
-            <p className="ty__footerNote">30-day guarantee · Lifetime access · 1,400+ students · support@zerotopaidwithai.com</p>
+            <div className="ty__trust">
+              <span>30-day guarantee</span><span aria-hidden="true">·</span><span>Lifetime access</span><span aria-hidden="true">·</span><span>1,400+ students</span>
+            </div>
           </div>
         </div>
       </main>
