@@ -17,7 +17,7 @@ export default function ThankYouVSL() {
           </button>
         ) : (
           <video controls autoPlay playsInline preload="metadata" poster="https://pub-855fb210496f45fa86233cee4863af77.r2.dev/thankyou-vsl-thumbnail.png" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', display: 'block', background: '#0b1020' }}>
-            <source src="https://pub-855fb210496f45fa86233cee4863af77.r2.dev/thankyou-vsl-roughcut.mp4" type="video/mp4" />
+            <source src="https://pub-855fb210496f45fa86233cee4863af77.r2.dev/1788279131409010.mp4" type="video/mp4" />
           </video>
         )}
       </div>
