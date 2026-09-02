@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import ThankYouVSL from '@/components/ThankYouVSL'
-import TyResendBtn from '@/components/TyResendBtn'
 
 export default function ThankYouPage({ searchParams }: { searchParams: { type?: string } }) {
   const type = searchParams?.type
@@ -27,9 +26,12 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             <ThankYouVSL />
           </div>
           <div className="ty-cta-card">
-            <h2>Didn&apos;t get the email?</h2>
-            <p>Check your spam or promotions folder. If it&apos;s not there, click below and we&apos;ll resend it instantly.</p>
-            <TyResendBtn />
+            <h2>Download Your Vault Now</h2>
+            <p>Tap below — PDF downloads instantly on phone or desktop. Also sent to your inbox.</p>
+            <a href="/api/download-pdf" download="300-ai-prompts-vault.pdf" className="btn btn--primary" style={{ width: '100%', height: 52 }}>
+              <span>Download PDF — Free</span>
+              <span className="btn__arrow"><svg width={14} height={14} viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="#fff" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+            </a>
             <div className="ty-cta-bullets">
               <span><svg width={12} height={12} viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#16a34a" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /></svg> PDF · 77 pages</span>
               <span><svg width={12} height={12} viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#16a34a" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /></svg> Instant download</span>
