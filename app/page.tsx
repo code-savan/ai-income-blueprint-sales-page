@@ -68,7 +68,7 @@ function Hero(){
         <Reveal delay={0.16}>
           <h1 className="h1 hero__title">From Zero to Your First $500 Online. Mapped Day by Day.</h1>
         </Reveal>
-        <Reveal delay={0.20}><p className="kaya-story">“She left with $43 and two kids. Month 2: $1,100. No face, no ads, no experience.”</p></Reveal>
+        <Reveal delay={0.20}><p className="kaya-story">“Kaya left with $43 and two kids. Month 2: $1,100. No face, no ads, no experience.”</p></Reveal>
         <Reveal delay={0.24}>
           <p className="hero__sub">A 5-module system using free AI tools. Pick autonomous digital sales or fast client cash. <strong>30-day roadmap. $0 startup cost. 1,400+ students.</strong></p>
           <p style={{fontSize:13,color:'var(--muted)',marginTop:8}}>By <strong style={{color:'var(--ink)'}}>zerotopaidwithai</strong> — 1,400+ students</p>
