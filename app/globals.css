@@ -435,6 +435,7 @@ button{cursor:pointer;font-family:inherit}
   height:420px;
   width:100%;
 }
+.hero-vsl-box--fit{height:auto;aspect-ratio:16/9}
 .hero-vsl-screen{
   width:100%;height:100%;
   display:flex;align-items:center;justify-content:center;
@@ -442,6 +443,7 @@ button{cursor:pointer;font-family:inherit}
   border:0;color:inherit;cursor:pointer;font-family:inherit;padding:0;text-align:center;
   background:#0b1020;
 }
+.hero-vsl-screen--fit{height:auto;aspect-ratio:inherit;min-height:320px}
 .hero-vsl-glow{
   position:absolute;inset:0;
   background:radial-gradient(ellipse 65% 55% at 50% 40%,rgba(124,58,237,0.20) 0%,transparent 62%);
