@@ -77,7 +77,7 @@ export default function HeroVSL() {
               </span>
             </span>
             <span style={{ position: 'absolute', bottom: 14, left: 14, display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.12)', color: '#fff', fontSize: 11, fontWeight: 600, padding: '6px 10px', borderRadius: 999 }}>
-              <span style={{ width: 6, height: 6, borderRadius: 999, background: '#22c55e', boxShadow: '0 0 8px rgba(34,197,94,0.6)' }} /> Zara shares her AI income story
+              <span style={{ width: 6, height: 6, borderRadius: 999, background: '#22c55e', boxShadow: '0 0 8px rgba(34,197,94,0.6)' }} /> is this worth it $$$?
             </span>
           </button>
         ) : (
