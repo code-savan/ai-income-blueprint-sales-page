@@ -6,7 +6,7 @@ function getDeadline(){ return new Date(process.env.NEXT_PUBLIC_PRICE_DEADLINE |
 
 export default function StickyBar({ hidden = false }: { hidden?: boolean }) {
   const [show, setShow] = useState(false)
-  const [now, setNow] = useState(Date.now())
+  const [now, setNow] = useState<number | null>(null)
   useEffect(() => {
     const hero = document.getElementById('hero')
     if (!hero) return
@@ -14,9 +14,9 @@ export default function StickyBar({ hidden = false }: { hidden?: boolean }) {
     io.observe(hero)
     return () => io.disconnect()
   }, [])
-  useEffect(() => { const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id) }, [])
+  useEffect(() => { setNow(Date.now()); const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id) }, [])
   const deadline = getDeadline()
-  const diff = Math.max(0, deadline.getTime() - now)
+  const diff = Math.max(0, deadline.getTime() - (now ?? deadline.getTime()))
   const days = Math.floor(diff / 86400000)
   const hours = Math.floor((diff % 86400000) / 3600000)
   const mins = Math.floor((diff % 3600000) / 60000)
