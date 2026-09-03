@@ -64,7 +64,7 @@ function Hero(){
     <section className="hero section" id="hero">
       <div className="container hero__inner">
         <Reveal delay={0}><a className="hero-announce" href="#content-library"><span className="hero-announce__badge">NEW</span><span>Join 1,400+ students already using the Blueprint</span></a></Reveal>
-        <Reveal delay={0.08}><HeroVSL/></Reveal>
+        <Reveal delay={0.08} className="hero-media"><HeroVSL/></Reveal>
         <Reveal delay={0.16}>
           <h1 className="h1 hero__title">From Zero to Your First $500 Online. Mapped Day by Day.</h1>
         </Reveal>
