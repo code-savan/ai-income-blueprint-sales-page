@@ -97,7 +97,7 @@ function Logowall(){
 }
 
 const SPOTLIGHT_VIDEO='https://d8j0ntlcm91z4.cloudfront.net/user_3F6NuQ25OFHTqLKUwjR9KKmBRi4/hf_20260906_133815_8dcf6286-cb17-44cc-b976-fd94ce247e45.mp4'
-const SPOTLIGHT_POSTER='https://cdn.higgsfield.ai/marketing_studio_avatar/8c8e0717-70c1-46a5-b67f-4581637ff1fc.webp'
+const SPOTLIGHT_POSTER='/spotlight-poster.jpg'
 function Spotlight(){
   const [muted,setMuted]=useState(true)
   const [visible,setVisible]=useState(false)
