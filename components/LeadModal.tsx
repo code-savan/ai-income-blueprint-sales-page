@@ -100,7 +100,7 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
                 <h2>Complete Your Payment</h2>
                 <p>Secure checkout powered by Whop, you&rsquo;re almost done, {name.split(' ')[0]}.</p>
               </div>
-              <WhopCheckout sessionId={checkout.sessionId} planId={checkout.planId} email={email} onComplete={() => { window.location.href = '/thank-you?type=purchase' }} />
+              <WhopCheckout sessionId={checkout.sessionId} planId={checkout.planId} email={email} onComplete={() => { window.location.href = `/thank-you?type=purchase&email=${encodeURIComponent(email.trim().toLowerCase())}` }} />
               <p className="lead-modal__footnote" style={{ marginTop: 12 }}>After payment you&rsquo;ll be redirected automatically. Need help? <a href="mailto:support@zerotopaidwithai.com">support@zerotopaidwithai.com</a></p>
             </>
           )}

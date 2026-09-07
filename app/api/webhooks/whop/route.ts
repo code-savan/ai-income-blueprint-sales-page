@@ -6,6 +6,22 @@ export async function POST(req: NextRequest) {
   try {
     const raw = await req.text()
     const headers = Object.fromEntries(req.headers.entries())
+
+    const webhookSecret = process.env.WHOP_WEBHOOK_SECRET
+    if (webhookSecret) {
+      const sig = headers['x-whop-signature'] || ''
+      const { createHmac, timingSafeEqual } = await import('crypto')
+      const expected = createHmac('sha256', webhookSecret).update(raw).digest('hex')
+      const a = Buffer.from(sig, 'utf8')
+      const b = Buffer.from(expected, 'utf8')
+      if (a.length !== b.length || !timingSafeEqual(a, b)) {
+        console.warn('[whop webhook] invalid signature')
+        return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
+      }
+    } else {
+      console.warn('[whop webhook] WHOP_WEBHOOK_SECRET not set, skipping signature check')
+    }
+
     let payload: any
     try { payload = JSON.parse(raw) } catch { payload = {} }
 
@@ -49,6 +65,13 @@ export async function POST(req: NextRequest) {
               body: JSON.stringify({ email: cleanEmail, firstName: cleanName || '', timestamp: new Date().toISOString(), source: 'whop-purchase', order_id: metadata.order_id || data.id }),
             })
           }
+        } catch {}
+        try {
+          await fetch('https://app.zerotopaidwithai.com/api/sync-user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-Forward-Secret': process.env.FORWARD_SECRET || '' },
+            body: JSON.stringify({ email: cleanEmail, whop_receipt_id: data.id || metadata.order_id || null }),
+          }).catch(() => {})
         } catch {}
       }
     }

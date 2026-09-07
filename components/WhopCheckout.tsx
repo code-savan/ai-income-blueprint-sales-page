@@ -10,12 +10,12 @@ export default function WhopCheckout({ sessionId, planId, email, onComplete, onC
         theme="light"
         prefill={email ? { email } as any : undefined}
         themeOptions={{ accentColor: '#7C3AED', borderRadius: 10, buttonText: 'Pay $97 for Instant Access' }}
-        returnUrl="https://www.zerotopaidwithai.com/thank-you?type=purchase"
+        returnUrl={email ? `https://www.zerotopaidwithai.com/thank-you?type=purchase&email=${encodeURIComponent(email)}` : 'https://www.zerotopaidwithai.com/thank-you?type=purchase'}
         onComplete={(a: any, b: any) => {
           const pid = typeof a === 'string' ? a : (a?.planId || planId || '')
           const receipt = typeof b === 'string' ? b : undefined
           onComplete?.(pid, receipt)
-          window.location.href = '/thank-you?type=purchase'
+          window.location.href = email ? `/thank-you?type=purchase&email=${encodeURIComponent(email)}` : '/thank-you?type=purchase'
         }}
       />
     </div>
