@@ -10,8 +10,8 @@ import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
 
 export const metadata: Metadata = {
-  title: 'zerotopaidwithai — From Zero to Paid with AI | 30-Day System to Your First $500',
-  description: 'Go from zero to your first $500 online in 30 days with zerotopaidwithai. A step-by-step system using free AI tools — pick autonomous sales or client work, follow the daily roadmap, get paid. 1,400+ students. $0 to start. $97 one-time.',
+  title: 'zerotopaidwithai: From Zero to Paid with AI | 30-Day System to Your First $500',
+  description: 'Go from zero to your first $500 online in 30 days with zerotopaidwithai. A step-by-step system using free AI tools. Pick autonomous sales or client work, follow the daily roadmap, get paid. 1,400+ students. $0 to start. $97 one-time.',
   keywords: ['zerotopaidwithai','zero to paid with AI','make money with AI','AI income system','AI side hustle','earn with AI','AI freelance system','UGC prompts AI','free AI tools income','30 day AI system'],
   applicationName: 'zerotopaidwithai',
   authors: [{ name: 'zerotopaidwithai' }],
@@ -28,15 +28,15 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'zerotopaidwithai',
     locale: 'en_US',
-    title: 'zerotopaidwithai — From Zero to Paid with AI',
+    title: 'zerotopaidwithai: From Zero to Paid with AI',
     description: 'A 30-day step-by-step system to your first $500 online using free AI tools. 1,400+ students, $0 to start, $97 one-time.',
     url: 'https://www.zerotopaidwithai.com',
-    images: [{ url: 'https://www.zerotopaidwithai.com/banner.webp', width: 1200, height: 675, alt: 'zerotopaidwithai — From Zero to Paid with AI' }],
+    images: [{ url: 'https://www.zerotopaidwithai.com/banner.webp', width: 1200, height: 675, alt: 'zerotopaidwithai: From Zero to Paid with AI' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@zerotopaidwithai',
-    title: 'zerotopaidwithai — From Zero to Paid with AI',
+    title: 'zerotopaidwithai: From Zero to Paid with AI',
     description: '30-day system to your first $500 online with free AI tools. Follow the sequence. Get paid.',
     images: ['https://www.zerotopaidwithai.com/banner.webp'],
   },

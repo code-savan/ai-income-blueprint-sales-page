@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight } from '@/components/Icons'
 
 export const metadata: Metadata = {
-  title: 'Terms of Use — zerotopaidwithai',
+  title: 'Terms of Use: zerotopaidwithai',
   description: 'The terms and conditions for using zerotopaidwithai.',
 }
 
@@ -44,8 +44,8 @@ export default function TermsPage() {
 
         <h2>3. Intellectual Property</h2>
         <p>
-          All content within the zerotopaidwithai — including text, graphics, prompts, videos,
-          playbooks, and code — is the intellectual property of zerotopaidwithai and is
+          All content within zerotopaidwithai, including text, graphics, prompts, videos,
+          playbooks, and code, is the intellectual property of zerotopaidwithai and is
           protected by copyright laws. Unauthorized use is prohibited.
         </p>
 

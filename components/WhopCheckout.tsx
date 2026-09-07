@@ -9,7 +9,7 @@ export default function WhopCheckout({ sessionId, planId, email, onComplete, onC
         {...props}
         theme="light"
         prefill={email ? { email } as any : undefined}
-        themeOptions={{ accentColor: '#7C3AED', borderRadius: 10, buttonText: 'Pay $97 — Get Instant Access' }}
+        themeOptions={{ accentColor: '#7C3AED', borderRadius: 10, buttonText: 'Pay $97 for Instant Access' }}
         returnUrl="https://www.zerotopaidwithai.com/thank-you?type=purchase"
         onComplete={(a: any, b: any) => {
           const pid = typeof a === 'string' ? a : (a?.planId || planId || '')

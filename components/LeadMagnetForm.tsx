@@ -37,7 +37,7 @@ export default function LeadMagnetForm({ compact=false, source='lead-magnet' }: 
         </div>
       </div>
       <button type="submit" disabled={loading} className="btn btn--primary lmf-submit">
-        {loading ? 'Sending…' : 'Get Instant Access — Free'}
+        {loading ? 'Sending…' : 'Get Instant Access: Free'}
         {!loading && <span className="btn__arrow" style={{ background:'rgba(255,255,255,0.22)' }}><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>}
       </button>
       {error && <p className="lmf-error">{error}</p>}

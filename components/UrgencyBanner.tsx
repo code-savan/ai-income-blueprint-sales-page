@@ -18,13 +18,13 @@ export default function UrgencyBanner(){
   const secs=Math.floor((diff%60000)/1000)
   const dateStr=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'Africa/Lagos'}).format(deadline)
 
-  if(!mounted) return <div className="urgency-bold" aria-hidden><div className="urgency-bold__inner"><span className="urgency-bold__text">Founding Member Pricing ends {dateStr} — Price increases to $147.</span></div></div>
+  if(!mounted) return <div className="urgency-bold" aria-hidden><div className="urgency-bold__inner"><span className="urgency-bold__text">Founding Member Pricing ends {dateStr}. Price increases to $147.</span></div></div>
   if(expired){
     return (
       <div className="urgency-bold urgency-bold--expired">
         <div className="urgency-bold__inner">
           <span className="urgency-bold__pulse"/>
-          <span className="urgency-bold__text">Founding Member pricing has ended — Regular price: <strong>$147</strong></span>
+          <span className="urgency-bold__text">Founding Member pricing has ended. Regular price: <strong>$147</strong></span>
         </div>
       </div>
     )
@@ -33,8 +33,8 @@ export default function UrgencyBanner(){
     <div className="urgency-bold" role="timer" aria-live="polite">
       <div className="urgency-bold__inner">
         <div className="urgency-bold__left">
-          <div className="urgency-bold__kicker"><span className="urgency-bold__pulse"/><span>FOUNDING MEMBER PRICING — ENDS SOON</span></div>
-          <p className="urgency-bold__headline">Founding Member Pricing ends <strong>{dateStr}</strong> — Price increases to <strong>$147.</strong></p>
+          <div className="urgency-bold__kicker"><span className="urgency-bold__pulse"/><span>FOUNDING MEMBER PRICING: ENDS SOON</span></div>
+          <p className="urgency-bold__headline">Founding Member Pricing ends <strong>{dateStr}</strong>. Price increases to <strong>$147.</strong></p>
           <p className="urgency-bold__sub"><span className="urgency-bold__daysLeft">{days} day{days!==1?'s':''} left</span> · Lock in $97 before it’s gone</p>
         </div>
         <div className="urgency-bold__timer" aria-label={`${days} days ${hours} hours ${mins} minutes ${secs} seconds remaining`}>

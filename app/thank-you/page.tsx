@@ -16,20 +16,20 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             <span className="ty-success__icon">
               <svg width={16} height={16} viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" /></svg>
             </span>
-            You&apos;re in — check your inbox
+            You&apos;re in, check your inbox
           </div>
           <div className="ty-heading">
             <h1>Your <span>300+ AI Prompts</span> Are on the Way</h1>
           </div>
-          <p className="ty-sub">We just sent the download link to your email. While you wait, watch this short video — it shows you exactly how to use these prompts to start making money this week.</p>
+          <p className="ty-sub">We just sent the download link to your email. While you wait, watch this short video. It shows you exactly how to use these prompts to start making money this week.</p>
           <div className="ty-vsl-wrap">
             <ThankYouVSL />
           </div>
           <div className="ty-cta-card">
             <h2>Download Your Vault Now</h2>
-            <p>Tap below — PDF downloads instantly on phone or desktop. Also sent to your inbox.</p>
+            <p>Tap below. PDF downloads instantly on phone or desktop. Also sent to your inbox.</p>
             <a href="/api/download-pdf" download="300-ai-prompts-vault.pdf" className="btn btn--primary" style={{ width: '100%', height: 52 }}>
-              <span>Download PDF — Free</span>
+              <span>Download PDF: Free</span>
               <span className="btn__arrow"><svg width={14} height={14} viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="#fff" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" /></svg></span>
             </a>
             <div className="ty-cta-bullets">
@@ -39,10 +39,10 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             </div>
           </div>
           <div className="ty-next">
-            <p className="ty-next__label">While you wait — 3 things to do right now</p>
+            <p className="ty-next__label">While you wait: 3 things to do right now</p>
             <div className="ty-next__grid">
               <div className="ty-next__step"><div className="ty-next__num">1</div><div><h3>Open the PDF</h3><p>Find the email, download the 77-page vault, and skim the table of contents.</p></div></div>
-              <div className="ty-next__step"><div className="ty-next__num">2</div><div><h3>Pick One Niche</h3><p>Choose a product type that fits you — fitness, beauty, tech, food, or lifestyle.</p></div></div>
+              <div className="ty-next__step"><div className="ty-next__num">2</div><div><h3>Pick One Niche</h3><p>Choose a product type that fits you: fitness, beauty, tech, food, or lifestyle.</p></div></div>
               <div className="ty-next__step"><div className="ty-next__num">3</div><div><h3>Generate Your First Video</h3><p>Copy a prompt, paste it into ChatGPT or Claude, and create your first UGC video today.</p></div></div>
             </div>
           </div>
@@ -61,7 +61,7 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             <div className="thankyou__badge"><span className="thankyou__dot" /> Payment confirmed</div>
             <div className="thankyou__iconWrap thankyou__iconWrap--purchase"><span className="thankyou__check">✓</span></div>
             <h1>You Are In. Welcome.</h1>
-            <p className="thankyou__sub">Check your email for access instructions. If nothing in 10 minutes, check spam — then email <a href="mailto:support@zerotopaidwithai.com" style={{ color: 'var(--purple)', fontWeight: 600 }}>support@zerotopaidwithai.com</a>.</p>
+            <p className="thankyou__sub">Check your email for access instructions. If nothing in 10 minutes, check spam, then email <a href="mailto:support@zerotopaidwithai.com" style={{ color: 'var(--purple)', fontWeight: 600 }}>support@zerotopaidwithai.com</a>.</p>
             <Link href="/" className="btn btn--primary" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>Access the Blueprint</Link>
             <p className="thankyou__note">The 30-day roadmap starts now. Open Day 1 when you&apos;re ready.</p>
           </>

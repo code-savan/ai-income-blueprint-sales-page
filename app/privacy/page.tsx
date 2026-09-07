@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight } from '@/components/Icons'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — zerotopaidwithai',
+  title: 'Privacy Policy: zerotopaidwithai',
   description: 'How zerotopaidwithai collects, uses, and protects your data.',
 }
 
@@ -52,10 +52,10 @@ export default function PrivacyPage() {
         <h2>4. Third-Party Services</h2>
         <p>We use the following third-party services that may collect your data:</p>
         <ul>
-          <li><strong>Paystack</strong> — payment processing</li>
-          <li><strong>Google Analytics</strong> — website analytics</li>
-          <li><strong>Meta (Facebook) Pixel</strong> — conversion tracking for advertising</li>
-          <li><strong>Email provider</strong> — transactional and marketing emails</li>
+          <li><strong>Paystack</strong>: payment processing</li>
+          <li><strong>Google Analytics</strong>: website analytics</li>
+          <li><strong>Meta (Facebook) Pixel</strong>: conversion tracking for advertising</li>
+          <li><strong>Email provider</strong>: transactional and marketing emails</li>
         </ul>
         <p>
           Each of these services has its own privacy policy. We encourage you to review them.
