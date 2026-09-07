@@ -122,8 +122,11 @@ function Spotlight(){
         <Reveal className="spotlight__media">
           <div className="dot-grid spotlight__dots"/>
           <div className="spotlight__phone">
-            <video ref={videoRef} muted loop playsInline preload="auto" poster={SPOTLIGHT_POSTER}><source src={SPOTLIGHT_VIDEO} type="video/mp4"/></video>
-            {visible && muted && <button className="spotlight__unmute" type="button" onClick={handleMuteToggle} aria-label="Unmute video"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><line x1="23" y1="1" x2="1" y2="23"/></svg><span>Tap to Unmute</span></button>}
+            <video ref={videoRef} muted loop playsInline preload="auto" poster={SPOTLIGHT_POSTER} onClick={handleMuteToggle} style={{ cursor: 'pointer' }}><source src={SPOTLIGHT_VIDEO} type="video/mp4"/></video>
+            {visible && (muted
+              ? <button className="spotlight__unmute" type="button" onClick={handleMuteToggle} aria-label="Unmute video"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><line x1="23" y1="1" x2="1" y2="23"/></svg><span>Tap to Unmute</span></button>
+              : <button className="spotlight__mute" type="button" onClick={handleMuteToggle} aria-label="Mute video"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><span>Tap to Mute</span></button>
+            )}
           </div>
         </Reveal>
       </div>
