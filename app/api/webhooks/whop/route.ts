@@ -7,24 +7,48 @@ export async function POST(req: NextRequest) {
     const raw = await req.text()
     const headers = Object.fromEntries(req.headers.entries())
 
-    const webhookSecret = process.env.WHOP_WEBHOOK_SECRET
+    const webhookSecret = (process.env.WHOP_WEBHOOK_SECRET || '').trim()
     if (webhookSecret) {
       const wid = headers['webhook-id'] || ''
       const ts = headers['webhook-timestamp'] || ''
       const sigHeader = headers['webhook-signature'] || ''
+      const svId = headers['svix-id'] || ''
+      const svTs = headers['svix-timestamp'] || ''
+      const svSig = headers['svix-signature'] || ''
       const { createHmac, timingSafeEqual } = await import('crypto')
-      const key = Buffer.from(webhookSecret.replace(/^whsec_/, ''), 'base64')
-      const expected = createHmac('sha256', key).update(`${wid}.${ts}.${raw}`, 'utf8').digest('base64')
-      const sigs = sigHeader.split(' ').map((s: string) => s.replace(/^v1,/, ''))
-      const a = Buffer.from(expected, 'utf8')
-      const ok = sigs.some((s: string) => {
-        const b = Buffer.from(s, 'utf8')
+      const noPrefix = webhookSecret.replace(/^whsec_/, '')
+      const keys: Array<{ label: string; buf: Buffer }> = [
+        { label: 'b64', buf: Buffer.from(noPrefix, 'base64') },
+        { label: 'raw', buf: Buffer.from(webhookSecret, 'utf8') },
+        { label: 'raw-noprefix', buf: Buffer.from(noPrefix, 'utf8') },
+      ]
+      const contents = [
+        `${wid}.${ts}.${raw}`,
+        ...(svId && svTs ? [`${svId}.${svTs}.${raw}`] : []),
+        raw,
+      ]
+      const strip = (s: string) => s.replace(/^v1,/, '')
+      const sigs = [...sigHeader.split(' '), ...svSig.split(' ')].map(strip).filter(Boolean)
+      const eq = (x: string, y: string) => {
+        const a = Buffer.from(x, 'utf8')
+        const b = Buffer.from(y, 'utf8')
         return a.length === b.length && timingSafeEqual(a, b)
-      })
+      }
+      let ok = false
+      let hit = ''
+      for (const k of keys) {
+        for (let ci = 0; ci < contents.length && !ok; ci++) {
+          const hex = createHmac('sha256', k.buf).update(contents[ci], 'utf8').digest('hex')
+          const b64 = createHmac('sha256', k.buf).update(contents[ci], 'utf8').digest('base64')
+          for (const s of sigs) {
+            if (eq(s, hex) || eq(s, b64)) { ok = true; hit = `${k.label}/content${ci}`; break }
+          }
+        }
+      }
       console.warn('[whop webhook] sig debug', JSON.stringify({
+        ok, hit, secretLen: webhookSecret.length, hasPrefix: webhookSecret.startsWith('whsec_'),
         hasId: !!wid, hasTs: !!ts, hasSig: !!sigHeader,
-        sigPrefix: sigHeader.slice(0, 3), rawLen: raw.length,
-        altHeaders: ['svix-id', 'svix-timestamp', 'svix-signature', 'x-whop-signature'].filter((h) => headers[h]),
+        altHeaders: ['svix-id', 'svix-timestamp', 'svix-signature', 'x-whop-signature'].filter((h) => headers[h]).join(','),
       }))
       if (!ok) {
         console.warn('[whop webhook] invalid signature')
