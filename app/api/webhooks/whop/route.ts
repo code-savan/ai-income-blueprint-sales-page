@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { addBrevoContact, tagBrevoBuyer } from '@/lib/brevo'
-import { sendPurchaseEmail } from '@/lib/resend'
+import { addBrevoContact, tagBrevoBuyer, removeBrevoBuyer } from '@/lib/brevo'
+import { sendPurchaseEmail, sendOwnerAlert } from '@/lib/resend'
 
 export async function POST(req: NextRequest) {
   try {
@@ -92,6 +92,68 @@ export async function POST(req: NextRequest) {
           console.warn('[whop webhook] blueprint sync status', syncRes ? syncRes.status : 'fetch-failed')
         } catch {}
       }
+    }
+
+    const REFUND_EVENTS = ['refund.created', 'refund.updated', 'membership.deactivated']
+    if (REFUND_EVENTS.includes(eventType)) {
+      let rEmail: string | null = email
+      if (!rEmail) {
+        const pay = (data as any).payment || {}
+        rEmail = pay.email || pay?.user?.email || (data as any).user?.email || (data as any).member?.email || null
+      }
+      if (!rEmail) {
+        const pid = (data as any).payment_id || (data as any).payment?.id
+        if (pid) {
+          try {
+            const { getWhopClient } = await import('@/lib/whop')
+            const whop = getWhopClient()
+            const p = await (whop as any).payments?.retrieve?.({ payment_id: pid })
+            rEmail = (p as any)?.data?.user?.email || (p as any)?.user?.email || (p as any)?.data?.email || rEmail
+          } catch {}
+        }
+      }
+      const receipt = (data as any).payment_id || (data as any).payment?.id || (data as any).id || metadata.order_id || null
+      if (rEmail) {
+        const clean = String(rEmail).trim().toLowerCase()
+        try { await removeBrevoBuyer({ email: clean }).catch(() => {}) } catch {}
+        let revokeStatus = 'skipped'
+        try {
+          const r = await fetch('https://app.zerotopaidwithai.com/api/revoke-user', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-Forward-Secret': process.env.FORWARD_SECRET || '' },
+            body: JSON.stringify({ email: clean, whop_receipt_id: receipt }),
+          }).catch(() => null)
+          revokeStatus = r ? String(r.status) : 'fetch-failed'
+        } catch {}
+        console.warn('[whop webhook] refund revoked', JSON.stringify({ email: clean, receipt, revokeStatus }))
+        try {
+          await sendOwnerAlert(
+            `Refund processed: access revoked for ${clean}`,
+            `<p>Refund event <strong>${eventType}</strong> for ${clean} (${receipt || 'no receipt id'}).</p><p>Removed from Brevo Buyers. Blueprint revoke status: ${revokeStatus}.</p><p>Check Whop dashboard for details.</p>`
+          )
+        } catch {}
+        try {
+          const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL
+          if (webhookUrl) {
+            await fetch(webhookUrl, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: clean, firstName: '', timestamp: new Date().toISOString(), source: 'whop-refund', order_id: receipt }),
+            })
+          }
+        } catch {}
+      } else {
+        console.warn('[whop webhook] refund event without resolvable email', eventType)
+      }
+    }
+
+    if (['dispute.created', 'dispute.updated'].includes(eventType)) {
+      try {
+        await sendOwnerAlert(
+          `Dispute ${eventType === 'dispute.created' ? 'opened' : 'updated'}: ${email || 'unknown buyer'}`,
+          `<p>Event <strong>${eventType}</strong> for ${email || 'unknown email'}. Access NOT auto-revoked. Respond in Whop Dispute Fighter before the deadline.</p>`
+        )
+      } catch {}
     }
 
     return NextResponse.json({ received: true, type: eventType })

@@ -25,6 +25,24 @@ export async function addBrevoContact(opts: {
   return data
 }
 
+export async function removeBrevoBuyer(opts: {
+  email: string
+}) {
+  const apiKey = process.env.BREVO_API_KEY
+  if (!apiKey) throw new Error('BREVO_API_KEY not configured')
+  const buyersListId = process.env.BREVO_BUYERS_LIST_ID
+  if (!buyersListId) return
+  const res = await fetch(`${BREVO_API_URL}/contacts/lists/${buyersListId}/contacts/remove`, {
+    method: 'PUT',
+    headers: { 'api-key': apiKey, 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify({ emails: [opts.email] }),
+  })
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}))
+    throw new Error(data.message || `Brevo remove error ${res.status}`)
+  }
+}
+
 export async function tagBrevoBuyer(opts: {
   email: string
   amount?: number

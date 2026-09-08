@@ -38,6 +38,15 @@ export async function sendPurchaseEmail(to: string, name?: string) {
   } catch (e) { console.error('[resend] purchase email failed', e) }
 }
 
+export async function sendOwnerAlert(subject: string, html: string) {
+  const resend = getResend()
+  if (!resend) { console.warn('[resend] no API key'); return }
+  const from = process.env.RESEND_FROM_EMAIL || 'zerotopaidwithai <support@zerotopaidwithai.com>'
+  try {
+    await resend.emails.send({ from, to: 'eric.marvelboy@gmail.com', subject, html })
+  } catch (e) { console.error('[resend] owner alert failed', e) }
+}
+
 export async function sendLeadMagnetEmail(to: string, firstName?: string) {
   const resend = getResend()
   if (!resend) return
