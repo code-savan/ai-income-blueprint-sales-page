@@ -62,7 +62,7 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             <div className="thankyou__iconWrap thankyou__iconWrap--purchase"><span className="thankyou__check">✓</span></div>
             <h1>You Are In. Welcome.</h1>
             <p className="thankyou__sub">Check your email for access instructions. If nothing in 10 minutes, check spam, then email <a href="mailto:support@zerotopaidwithai.com" style={{ color: 'var(--purple)', fontWeight: 600 }}>support@zerotopaidwithai.com</a>.</p>
-            <Link href="/" className="btn btn--primary" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>Access the Blueprint</Link>
+            <Link href="https://app.zerotopaidwithai.com/login.html" className="btn btn--primary" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>Access the Blueprint</Link>
             <p className="thankyou__note">The 30-day roadmap starts now. Open Day 1 when you&apos;re ready.</p>
           </>
         ) : (

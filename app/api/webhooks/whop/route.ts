@@ -83,11 +83,13 @@ export async function POST(req: NextRequest) {
           }
         } catch {}
         try {
-          await fetch('https://app.zerotopaidwithai.com/api/sync-user', {
+          console.warn('[whop webhook] forward debug', JSON.stringify({ hasForwardSecret: !!process.env.FORWARD_SECRET }))
+          const syncRes = await fetch('https://app.zerotopaidwithai.com/api/sync-user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'X-Forward-Secret': process.env.FORWARD_SECRET || '' },
             body: JSON.stringify({ email: cleanEmail, whop_receipt_id: data.id || metadata.order_id || null }),
-          }).catch(() => {})
+          }).catch(() => null)
+          console.warn('[whop webhook] blueprint sync status', syncRes ? syncRes.status : 'fetch-failed')
         } catch {}
       }
     }
