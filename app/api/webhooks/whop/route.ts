@@ -16,40 +16,20 @@ export async function POST(req: NextRequest) {
       const svTs = headers['svix-timestamp'] || ''
       const svSig = headers['svix-signature'] || ''
       const { createHmac, timingSafeEqual } = await import('crypto')
-      const noPrefix = webhookSecret.replace(/^whsec_/, '')
-      const keys: Array<{ label: string; buf: Buffer }> = [
-        { label: 'b64', buf: Buffer.from(noPrefix, 'base64') },
-        { label: 'raw', buf: Buffer.from(webhookSecret, 'utf8') },
-        { label: 'raw-noprefix', buf: Buffer.from(noPrefix, 'utf8') },
-      ]
-      const contents = [
-        `${wid}.${ts}.${raw}`,
-        ...(svId && svTs ? [`${svId}.${svTs}.${raw}`] : []),
-        raw,
-      ]
       const strip = (s: string) => s.replace(/^v1,/, '')
       const sigs = [...sigHeader.split(' '), ...svSig.split(' ')].map(strip).filter(Boolean)
+      const key = Buffer.from(webhookSecret, 'utf8')
+      const content = `${wid || svId}.${ts || svTs}.${raw}`
+      const expected = {
+        hex: createHmac('sha256', key).update(content, 'utf8').digest('hex'),
+        b64: createHmac('sha256', key).update(content, 'utf8').digest('base64'),
+      }
       const eq = (x: string, y: string) => {
         const a = Buffer.from(x, 'utf8')
         const b = Buffer.from(y, 'utf8')
         return a.length === b.length && timingSafeEqual(a, b)
       }
-      let ok = false
-      let hit = ''
-      for (const k of keys) {
-        for (let ci = 0; ci < contents.length && !ok; ci++) {
-          const hex = createHmac('sha256', k.buf).update(contents[ci], 'utf8').digest('hex')
-          const b64 = createHmac('sha256', k.buf).update(contents[ci], 'utf8').digest('base64')
-          for (const s of sigs) {
-            if (eq(s, hex) || eq(s, b64)) { ok = true; hit = `${k.label}/content${ci}`; break }
-          }
-        }
-      }
-      console.warn('[whop webhook] sig debug', JSON.stringify({
-        ok, hit, secretLen: webhookSecret.length, hasPrefix: webhookSecret.startsWith('whsec_'),
-        hasId: !!wid, hasTs: !!ts, hasSig: !!sigHeader,
-        altHeaders: ['svix-id', 'svix-timestamp', 'svix-signature', 'x-whop-signature'].filter((h) => headers[h]).join(','),
-      }))
+      const ok = sigs.some((s: string) => eq(s, expected.hex) || eq(s, expected.b64))
       if (!ok) {
         console.warn('[whop webhook] invalid signature')
         return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
