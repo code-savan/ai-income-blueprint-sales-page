@@ -19,10 +19,11 @@ export async function sendPurchaseEmail(to: string, name?: string) {
       html: `
         <div style="font-family:Inter,Arial,sans-serif;max-width:560px;margin:0 auto;color:#1F1E1C;line-height:1.6">
           <h2 style="font-size:22px;margin:0 0 12px">You Are In. Welcome — ${name ? name : 'there'}!</h2>
-          <p>Your payment is confirmed. Your access to <strong>zerotopaidwithai</strong> is ready.</p>
-          <p><strong>What's inside:</strong> 5-module system, 4 playbooks, 50-prompt vault, 30-day roadmap.</p>
-          <a href="https://app.zerotopaidwithai.com/login.html" style="display:inline-block;background:#7C3AED;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;margin:16px 0">Access the Blueprint</a>
-          <p style="font-size:13px;color:#8F8A86">Need help? Reply to <a href="mailto:${support}">${support}</a>.</p>
+          <p>Your payment is confirmed. Here is exactly what happens next.</p>
+          <p><strong>1. Watch for a second email.</strong> In the next few minutes you will receive your Blueprint login email from <strong>noreply@zerotopaidwithai.com</strong> with your personal login link (valid 24 hours). Can't find it? Check spam and promotions first, then reply to this email.</p>
+          <p><strong>2. Set your password and open Day 1.</strong> Your login link takes you straight into the Blueprint. Start with Module 1. It places you on the right income track in about 12 minutes, then follow the day by day roadmap from there.</p>
+          <p><strong>What's inside:</strong> 5-module system, 4 execution playbooks, 50-prompt vault, 30-day roadmap, lifetime updates.</p>
+          <p style="font-size:13px;color:#8F8A86">Questions at any point? Just reply to this email or write to <a href="mailto:${support}">${support}</a>.</p>
           <hr style="border:none;border-top:1px solid #eee;margin:20px 0"/>
           <p style="font-size:12px;color:#8F8A86">30-Day Money-Back Guarantee — email us once and get every cent back.</p>
         </div>
