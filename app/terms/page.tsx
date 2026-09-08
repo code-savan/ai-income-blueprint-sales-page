@@ -51,7 +51,7 @@ export default function TermsPage() {
 
         <h2>4. Refund Policy</h2>
         <p>
-          We offer a <strong>30-day money-back guarantee</strong>. Go through the entire blueprint. If you do not see a clear, actionable path to your first sale, email us once and get every cent back. No questions. No hoops. No waiting. Contact us at <a href="mailto:support@zerotopaidwithai.com">support@zerotopaidwithai.com</a> within 30 days of purchase.
+          We offer a <strong>30-day money-back guarantee</strong>. Complete the blueprint and work the roadmap. If you still do not see a clear, actionable path to your first sale, email us at <a href="mailto:support@zerotopaidwithai.com">support@zerotopaidwithai.com</a> within 30 days of purchase with your completed checklist, and get every cent back.
         </p>
 
         <h2>5. Earnings Disclaimer</h2>

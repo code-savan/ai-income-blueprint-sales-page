@@ -25,7 +25,7 @@ export async function sendPurchaseEmail(to: string, name?: string) {
           <p><strong>What's inside:</strong> 5-module system, 4 execution playbooks, 50-prompt vault, 30-day roadmap, lifetime updates.</p>
           <p style="font-size:13px;color:#8F8A86">Questions at any point? Just reply to this email or write to <a href="mailto:${support}">${support}</a>.</p>
           <hr style="border:none;border-top:1px solid #eee;margin:20px 0"/>
-          <p style="font-size:12px;color:#8F8A86">30-Day Money-Back Guarantee — email us once and get every cent back.</p>
+          <p style="font-size:12px;color:#8F8A86">30-Day Money-Back Guarantee: complete the blueprint, and if it doesn't move you, email us your finished checklist within 30 days and get every cent back.</p>
         </div>
       `,
     })

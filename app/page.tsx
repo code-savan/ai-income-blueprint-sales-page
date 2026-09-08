@@ -331,7 +331,7 @@ function PricingSection(){
             <div className="price-cta-wrap">
               <a href="#lead" onClick={e=>{e.preventDefault(); openModal()}} className="btn btn--primary" style={{paddingInline:36,fontSize:16,height:48}}>Yes: Give Me Instant Access<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a>
               <GuaranteeSeal/>
-              <div className="price-guar"><span className="price-guar-icon"><ShieldIcon size={24} color="#4D9364"/></span><p><strong>30-Day Money-Back Guarantee.</strong> Go through the entire blueprint. If you do not see a clear, actionable path to your first sale, email us once and get every cent back. No questions. No hoops. No waiting.</p></div>
+              <div className="price-guar"><span className="price-guar-icon"><ShieldIcon size={24} color="#4D9364"/></span><p><strong>30-Day Money-Back Guarantee.</strong> Complete the blueprint and work the 30-day roadmap. If you still do not see a clear, actionable path to your first sale, email us your finished checklist within 30 days of purchase and get every cent back.</p></div>
               <div className="price-trust"><span className="trust-item"><span className="trust-icon"><LockIcon size={14}/></span>Secure checkout</span><span className="trust-item"><span className="trust-icon"><BoltIcon size={14} color="#8F8A86"/></span>Instant delivery</span><span className="trust-item"><span className="trust-icon"><MailIcon size={14}/></span>Email support</span><span className="trust-item"><span className="trust-icon"><InfinityIcon size={14}/></span>Lifetime access</span></div>
             </div>
           </div>

@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: 'Is this another "make money online" scam?',
-    a: 'You should ask that. The fact you\'re asking means you\'ve been burned before, and this market has earned that skepticism. Here\'s what\'s different: there are 1,400+ students who\'ve used this. The 30-day money-back guarantee has no conditions. You get every cent back with one email. The income models are based on real services and products that businesses and consumers actually pay for. And the guarantee means the only risk is inaction.',
+    a: 'You should ask that. The fact you\'re asking means you\'ve been burned before, and this market has earned that skepticism. Here\'s what\'s different: there are 1,400+ students who\'ve used this. The 30-day money-back guarantee is straightforward: complete the blueprint, and if it still doesn't move you, you get every cent back with one email. The income models are based on real services and products that businesses and consumers actually pay for. And the guarantee means the only risk is inaction.',
   },
 ]
 
