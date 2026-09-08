@@ -9,12 +9,19 @@ export async function POST(req: NextRequest) {
 
     const webhookSecret = process.env.WHOP_WEBHOOK_SECRET
     if (webhookSecret) {
-      const sig = headers['x-whop-signature'] || ''
+      const wid = headers['webhook-id'] || ''
+      const ts = headers['webhook-timestamp'] || ''
+      const sigHeader = headers['webhook-signature'] || ''
       const { createHmac, timingSafeEqual } = await import('crypto')
-      const expected = createHmac('sha256', webhookSecret).update(raw).digest('hex')
-      const a = Buffer.from(sig, 'utf8')
-      const b = Buffer.from(expected, 'utf8')
-      if (a.length !== b.length || !timingSafeEqual(a, b)) {
+      const key = Buffer.from(webhookSecret.replace(/^whsec_/, ''), 'base64')
+      const expected = createHmac('sha256', key).update(`${wid}.${ts}.${raw}`, 'utf8').digest('base64')
+      const sigs = sigHeader.split(' ').map((s: string) => s.replace(/^v1,/, ''))
+      const a = Buffer.from(expected, 'utf8')
+      const ok = sigs.some((s: string) => {
+        const b = Buffer.from(s, 'utf8')
+        return a.length === b.length && timingSafeEqual(a, b)
+      })
+      if (!ok) {
         console.warn('[whop webhook] invalid signature')
         return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
       }
