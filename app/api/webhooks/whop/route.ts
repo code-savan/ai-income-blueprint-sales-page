@@ -21,6 +21,11 @@ export async function POST(req: NextRequest) {
         const b = Buffer.from(s, 'utf8')
         return a.length === b.length && timingSafeEqual(a, b)
       })
+      console.warn('[whop webhook] sig debug', JSON.stringify({
+        hasId: !!wid, hasTs: !!ts, hasSig: !!sigHeader,
+        sigPrefix: sigHeader.slice(0, 3), rawLen: raw.length,
+        altHeaders: ['svix-id', 'svix-timestamp', 'svix-signature', 'x-whop-signature'].filter((h) => headers[h]),
+      }))
       if (!ok) {
         console.warn('[whop webhook] invalid signature')
         return NextResponse.json({ error: 'Invalid signature' }, { status: 401 })
