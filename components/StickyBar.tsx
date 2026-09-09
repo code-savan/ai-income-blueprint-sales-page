@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 import { ArrowRight } from '@/components/Icons'
 
-function getDeadline(){ return new Date(process.env.NEXT_PUBLIC_PRICE_DEADLINE || '2026-09-08T23:59:59Z') }
+function getDeadline(){ return new Date(process.env.NEXT_PUBLIC_PRICE_DEADLINE || '2026-09-18T23:59:59Z') }
 
 export default function StickyBar({ hidden = false }: { hidden?: boolean }) {
   const [show, setShow] = useState(false)
