@@ -13,7 +13,7 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
   const [error, setError] = useState('')
   const [visible, setVisible] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const [checkout, setCheckout] = useState<{ sessionId: string | null; planId: string } | null>(null)
+  const [checkout, setCheckout] = useState<{ sessionId: string | null; planId: string; checkoutUrl: string } | null>(null)
   const overlayRef = useRef<HTMLDivElement>(null)
   const nameInput = useRef<HTMLInputElement>(null)
 
@@ -54,7 +54,12 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
       })
       const data = await res.json()
       if (!res.ok || (!data.sessionId && !data.planId)) throw new Error(data.error || 'Checkout failed')
-      setCheckout({ sessionId: data.sessionId, planId: data.planId })
+      if (!data.checkoutUrl) throw new Error('Secure checkout link unavailable')
+      if (data.fallback || !data.sessionId) {
+        window.location.assign(data.checkoutUrl)
+        return
+      }
+      setCheckout({ sessionId: data.sessionId, planId: data.planId, checkoutUrl: data.checkoutUrl })
       setSubmitting(false)
     } catch (err: any) {
       setSubmitting(false)
@@ -101,6 +106,7 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
                 <p>Secure checkout powered by Whop, you&rsquo;re almost done, {name.split(' ')[0]}.</p>
               </div>
               <WhopCheckout sessionId={checkout.sessionId} planId={checkout.planId} email={email} onComplete={() => { window.location.href = `/thank-you?type=purchase&email=${encodeURIComponent(email.trim().toLowerCase())}` }} />
+              <a className="btn btn--dark" href={checkout.checkoutUrl} target="_blank" rel="noopener noreferrer" style={{ width: '100%', marginTop: 12, textAlign: 'center' }}>Checkout not loading? Open Whop directly →</a>
               <p className="lead-modal__footnote" style={{ marginTop: 12 }}>After payment you&rsquo;ll be redirected automatically. Need help? <a href="mailto:support@zerotopaidwithai.com">support@zerotopaidwithai.com</a></p>
             </>
           )}
