@@ -6,7 +6,7 @@ import { PlusIcon } from '@/components/Icons'
 const faqs = [
   {
     q: "I'm not tech-savvy. Will I actually be able to do this?",
-    a: 'Yes. The tools in this blueprint were chosen specifically because they require zero coding, zero design experience, and zero prior AI knowledge. If you can type and follow steps, you can execute this. Students who\'ve gotten results include a 54-year-old, a night shift nurse, and multiple people who had never used AI before opening the guide.',
+    a: 'Yes. The tools were chosen for beginners and the roadmap explains what to do in order. You need basic internet access, the ability to follow written steps, and time to complete the work.',
   },
   {
     q: 'How is this different from just watching YouTube videos for free?',
@@ -14,11 +14,11 @@ const faqs = [
   },
   {
     q: "I've tried AI income stuff before and made nothing. Why is this different?",
-    a: "That's the most important question on this page. Most AI income content gives you tools and sends you off to figure out the business model yourself. This blueprint solves the actual bottlenecks: what to sell, who to sell it to, how to reach them with zero audience, and what to do when nothing's working in the first week. The system was built backwards from results, not forwards from theory. And the 30-day guarantee means you can test it and get your money back if it still doesn't move you.",
+    a: "Most AI income content gives you tools and leaves the business model unclear. This Blueprint connects the tool to an offer, a buyer, a sample, outreach, delivery, and a daily execution sequence. The guarantee terms let you work through the roadmap and decide from the completed experience.",
   },
   {
     q: 'How long before I make real money?',
-    a: 'Track B (service sales) is faster: most students get a first client conversation within 7 days and a paid delivery within 11. Track A (autonomous sales) typically sees a first sale within 19–24 days once the content funnel is running. These are averages, results depend entirely on how closely you follow the plan and how consistently you execute. The 30-day roadmap in Module 3 breaks this down day by day.',
+    a: 'There is no guaranteed earning date. Service sales often provide faster feedback because you contact potential buyers directly. Digital products usually need more content and testing. The 30-day roadmap gives you daily actions for either track.',
   },
   {
     q: 'Do I need to spend money on ads or tools to start?',
@@ -26,11 +26,11 @@ const faqs = [
   },
   {
     q: 'What if I already have a full-time job or kids?',
-    a: 'The majority of students who used this blueprint kept their jobs while building. Track A is specifically designed around building an asset that works while you\'re not: content posted once can drive sales for months. Track B can be executed in 1–2 hours a day from any device. You don\'t need to quit anything to start. You earn first, then make decisions from a position of actual leverage.',
+    a: 'Yes. Choose the track that fits your available time. The roadmap separates the work into small actions, so you do not need to quit your job or complete everything at once.',
   },
   {
     q: 'Is this another "make money online" scam?',
-    a: 'You should ask that. The fact you\'re asking means you\'ve been burned before, and this market has earned that skepticism. Here\'s what\'s different: there are 1,400+ students who\'ve used this. The 30-day money-back guarantee is straightforward: complete the blueprint, and if it still doesn\'t move you, you get every cent back with one email. The income models are based on real services and products that businesses and consumers actually pay for. And the guarantee means the only risk is inaction.',
+    a: 'You should be skeptical of income promises. This page shows the real product screens, exact modules, price, and refund conditions. The Blueprint teaches service and digital-product models, but it does not guarantee income. Your result depends on the offer, market, execution, and follow-up.',
   },
 ]
 
