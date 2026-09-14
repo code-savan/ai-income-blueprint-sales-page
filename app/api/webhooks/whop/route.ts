@@ -64,14 +64,37 @@ export async function POST(req: NextRequest) {
       if (email) {
         const cleanEmail = String(email).trim().toLowerCase()
         const cleanName = name ? String(name).trim() : undefined
+
+        const receipt = (data as any).payment_id || (data as any).payment?.id || data.id || metadata.order_id || null
+        console.warn('[whop webhook] forwarding paid access', JSON.stringify({ eventType, hasForwardSecret: !!process.env.FORWARD_SECRET, hasReceipt: !!receipt }))
+        const syncRes = await fetch('https://app.zerotopaidwithai.com/api/sync-user', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'X-Forward-Secret': process.env.FORWARD_SECRET || '' },
+          body: JSON.stringify({ email: cleanEmail, whop_receipt_id: receipt }),
+        })
+        const syncBody = await syncRes.text()
+        if (!syncRes.ok) {
+          console.error('[whop webhook] blueprint sync failed', syncRes.status, syncBody)
+          throw new Error(`Blueprint access sync failed with status ${syncRes.status}`)
+        }
+
+        const followUpFailures: string[] = []
         try {
           const buyersListId = process.env.BREVO_BUYERS_LIST_ID
           if (buyersListId) {
-            await addBrevoContact({ email: cleanEmail, firstName: cleanName, listIds: [parseInt(buyersListId, 10)] }).catch(()=>{})
+            await addBrevoContact({ email: cleanEmail, firstName: cleanName, listIds: [parseInt(buyersListId, 10)] })
           }
-          await tagBrevoBuyer({ email: cleanEmail, amount: 97, productName: 'zerotopaidwithai Full Access' }).catch(()=>{})
-        } catch (e: any) { console.error('[whop webhook] brevo error', e.message) }
-        try { await sendPurchaseEmail(cleanEmail, cleanName) } catch {}
+          await tagBrevoBuyer({ email: cleanEmail, amount: 97, productName: 'zerotopaidwithai Full Access' })
+        } catch (e: any) {
+          followUpFailures.push(`Brevo: ${e.message}`)
+          console.error('[whop webhook] brevo error', e.message)
+        }
+        try {
+          await sendPurchaseEmail(cleanEmail, cleanName)
+        } catch (e: any) {
+          followUpFailures.push(`Purchase email: ${e.message}`)
+          console.error('[whop webhook] purchase email error', e.message)
+        }
         try {
           const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL
           if (webhookUrl) {
@@ -81,16 +104,17 @@ export async function POST(req: NextRequest) {
               body: JSON.stringify({ email: cleanEmail, firstName: cleanName || '', timestamp: new Date().toISOString(), source: 'whop-purchase', order_id: metadata.order_id || data.id }),
             })
           }
-        } catch {}
-        try {
-          console.warn('[whop webhook] forward debug', JSON.stringify({ hasForwardSecret: !!process.env.FORWARD_SECRET }))
-          const syncRes = await fetch('https://app.zerotopaidwithai.com/api/sync-user', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-Forward-Secret': process.env.FORWARD_SECRET || '' },
-            body: JSON.stringify({ email: cleanEmail, whop_receipt_id: data.id || metadata.order_id || null }),
-          }).catch(() => null)
-          console.warn('[whop webhook] blueprint sync status', syncRes ? syncRes.status : 'fetch-failed')
-        } catch {}
+        } catch (e: any) {
+          followUpFailures.push(`Analytics log: ${e.message}`)
+        }
+        if (followUpFailures.length) {
+          try {
+            await sendOwnerAlert(
+              `Purchase follow-up needs attention: ${cleanEmail}`,
+              `<p>Blueprint access was created, but these follow-up tasks failed:</p><p>${followUpFailures.join('<br>')}</p>`
+            )
+          } catch {}
+        }
       }
     }
 

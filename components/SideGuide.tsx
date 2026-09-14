@@ -33,7 +33,7 @@ export const GUIDE_CONTENT: Record<string, GuideSection> = {
   hero: {
     title: 'About This Page',
     items: [
-      { icon: '▶', title: 'How the VSL works', body: 'Press play on the video to hear the full story. The VSL breaks down who this is for, what you get, and why $43 matters. No skip, no pitch — just the story.' },
+      { icon: '▶', title: 'How the VSL works', body: 'Press play to hear who the Blueprint is for, what it contains, and how the two income tracks work.' },
       { icon: '🎯', title: 'What to look for', body: 'Pay attention to the section headers. Each one answers a specific question you probably have. If you want the short version: scroll through, read the bold text, then decide.' },
       { icon: '⚡', title: 'Quick start', body: 'See something you like? Hit "Get The Blueprint" anywhere on this page. Or scroll through the full walkthrough to see exactly what\'s inside.' },
     ],
@@ -41,15 +41,15 @@ export const GUIDE_CONTENT: Record<string, GuideSection> = {
   spotlight: {
     title: 'Reading the Story',
     items: [
-      { icon: '📱', title: 'The video', body: 'Tap the phone screen to unmute. It auto-plays when you scroll to it. Shows Kaya\'s story — the real person behind the headline.' },
-      { icon: '💬', title: 'The testimonial', body: 'Below the copy you\'ll find a verified quote from Kaya herself. This isn\'t staged — it\'s an actual student result.' },
-      { icon: '🔍', title: 'Why this matters', body: 'Kaya started with $43. No savings, no tech background, no audience. If that sounds familiar, this section is for you.' },
+      { icon: '📱', title: 'The video', body: 'Tap the phone screen to unmute. It shows an example of short-form content produced from a structured brief.' },
+      { icon: '💬', title: 'The workflow', body: 'The copy beside the video explains how to move from a prompt to an edited, usable piece of content.' },
+      { icon: '🔍', title: 'Why this matters', body: 'The Blueprint connects AI output to a finished business deliverable instead of stopping at the first draft.' },
     ],
   },
   'content-library': {
     title: 'Content Library Guide',
     items: [
-      { icon: '🎬', title: 'What you\'re seeing', body: 'Real UGC videos generated using the prompts in the blueprint. Each one was created by a student following the system — no actors, no studio.' },
+      { icon: '🎬', title: 'What you\'re seeing', body: 'UGC-style examples showing the types of content briefs covered by the prompt vault.' },
       { icon: '📋', title: 'How to use the prompts', body: 'Inside the blueprint: copy a prompt, paste into your AI tool, tweak for your product, generate. The library shows you what\'s possible before you buy.' },
       { icon: '💡', title: 'Pro tip', body: 'Look at the variety — fitness, beauty, fashion, app promos. The prompts work across niches. That\'s the point: one system, any product.' },
     ],
@@ -59,7 +59,7 @@ export const GUIDE_CONTENT: Record<string, GuideSection> = {
     items: [
       { icon: '📖', title: 'Read top to bottom', body: 'The four steps build on each other. Start at 01 and work through — each step prepares you for the next. Skipping ahead works too, but the foundation is in step 1.' },
       { icon: '🔄', title: 'It\'s not linear', body: 'Once you\'re inside the blueprint, you can jump between tracks. The diagnostic in Module 1 tells you where to start.' },
-      { icon: '⏱', title: 'Timeline note', body: 'Most students hit their first dollar in 30 days. Track B (services) is faster — some students land a client in 7-11 days.' },
+      { icon: '⏱', title: 'Timeline note', body: 'The roadmap covers 30 days. Your earning timeline depends on your offer, market, execution, and follow-up.' },
     ],
   },
   tracks: {
@@ -67,14 +67,14 @@ export const GUIDE_CONTENT: Record<string, GuideSection> = {
     items: [
       { icon: '🛤', title: 'Track A — Autonomous Sales', body: 'Build once, sell forever. Best if you want passive-style income without client calls. You create a digital product, set up content, and let it run.' },
       { icon: '💼', title: 'Track B — Service Sales', body: 'Fast cash, client conversations. Best if you want money in weeks and don\'t mind short calls. Use AI to deliver services at human rates.' },
-      { icon: '🤔', title: 'Can\'t decide?', body: 'The diagnostic in Module 1 takes 12 minutes and places you in the right track. Many students run both eventually — Track B for cash, Track A for long-term.' },
+      { icon: '🤔', title: 'Can\'t decide?', body: 'The diagnostic in Module 1 helps you choose a starting track. Track B focuses on service cash flow. Track A focuses on digital products.' },
     ],
   },
   modules: {
     title: 'Inside the Blueprint',
     items: [
       { icon: '🧩', title: '5 modules, one path', body: 'Foundation → Tools → First $500 → Playbooks → Scale. Each module has video training, written guides, and downloadable templates.' },
-      { icon: '🎁', title: 'The Prompt Vault bonus', body: '50 ready-to-use AI prompts included free. Students call this the most-used asset. Copy, paste, produce. Valued at $49 — yours included.' },
+      { icon: '🎁', title: 'The Prompt Vault bonus', body: '50 ready-to-use AI prompts are included for outreach, content, product creation, and service delivery.' },
       { icon: '📐', title: 'How to consume', body: 'Go at your own pace. Some finish in a weekend. Others spread it over two weeks. The 30-day roadmap in Module 3 gives you daily action items.' },
     ],
   },
@@ -82,16 +82,16 @@ export const GUIDE_CONTENT: Record<string, GuideSection> = {
     title: 'Playbook Usage',
     items: [
       { icon: '📘', title: 'When to use each', body: 'Pull a playbook when you hit its specific bottleneck. Don\'t read all four at once — use Playbook A when you need a client, Playbook B when you\'re launching a product.' },
-      { icon: '⏳', title: 'Timelines are real', body: 'These aren\'t aspirational. Playbook A averages a first reply in 72 hours. Playbook B has you live in 5 days. Students validated these timelines.' },
+      { icon: '⏳', title: 'Use action targets', body: 'Each playbook gives you a short sequence and a concrete next action. Results still depend on the market response.' },
       { icon: '🔄', title: 'They stack', body: 'Playbook D (Scale) assumes you\'ve done one of A or B first. The playbooks are ordered by dependency — run them in sequence for best results.' },
     ],
   },
   testimonials: {
-    title: 'Reading Results',
+    title: 'Reading Product Proof',
     items: [
-      { icon: '👤', title: 'Real students, real numbers', body: 'Every testimonial is from a verified blueprint student. Initials are used for privacy. Dollar amounts are self-reported and verified.' },
-      { icon: '⚠️', title: 'Results disclaimer', body: 'Results shown are real but not typical. Individual results depend on effort, consistency, and market conditions. This is a business education product, not a get-rich-quick scheme.' },
-      { icon: '📊', title: 'What to watch for', body: 'Note the timeframes — some students saw results in week 2, others in month 2. Track B tends to be faster. The common thread: everyone followed the system.' },
+      { icon: '👤', title: 'Real product screens', body: 'This section focuses on what exists inside the platform and the tasks each tool helps you complete.' },
+      { icon: '⚠️', title: 'No income guarantee', body: 'Individual results depend on effort, consistency, offer quality, market demand, and follow-up.' },
+      { icon: '📊', title: 'What to inspect', body: 'Review the roadmap, templates, trackers, and prompt vault before deciding whether the system fits you.' },
     ],
   },
   pricing: {
@@ -105,7 +105,7 @@ export const GUIDE_CONTENT: Record<string, GuideSection> = {
   faq: {
     title: 'FAQ Guide',
     items: [
-      { icon: '❓', title: 'How to use this section', body: 'Click any question to expand the answer. We\'ve covered the most common questions. If you don\'t see yours, email support at support@aiincomeblueprint.com.' },
+      { icon: '❓', title: 'How to use this section', body: 'Click any question to expand the answer. If you do not see yours, email support@zerotopaidwithai.com.' },
       { icon: '🔍', title: 'Still unsure?', body: 'The FAQ covers refunds, who this is for, tech requirements, and time commitments. If you\'re on the fence, start with "Who is this NOT for?"' },
     ],
   },
@@ -113,7 +113,7 @@ export const GUIDE_CONTENT: Record<string, GuideSection> = {
     title: 'What Happens Next',
     items: [
       { icon: '🔐', title: 'After purchase', body: 'You get instant access to the full blueprint. A welcome email with login details arrives within minutes. Everything is downloadable — no subscription needed.' },
-      { icon: '📧', title: 'Support', body: 'Email support@aiincomeblueprint.com with any questions. Response within 24 hours, usually faster.' },
+      { icon: '📧', title: 'Support', body: 'Email support@zerotopaidwithai.com with any questions.' },
       { icon: '🔄', title: 'Updates', body: 'The blueprint updates as AI tools evolve. You get all updates for free — no additional charge, ever.' },
     ],
   },

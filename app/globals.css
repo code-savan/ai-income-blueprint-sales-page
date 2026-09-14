@@ -2190,6 +2190,8 @@ button{cursor:pointer;font-family:inherit}
   height:100%;
   object-fit:cover;
   display:block;
+  transform:scale(1.12);
+  transform-origin:center top;
 }
 .peek-slide__badge{
   position:absolute;
@@ -2335,3 +2337,5 @@ button{cursor:pointer;font-family:inherit}
 .ty-email-notice strong{color:var(--ink-soft)}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(24px);filter:blur(6px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 @media(max-width:600px){.ty-main{padding:28px 16px 60px}.ty-heading h1{font-size:24px}.ty-sub{font-size:14px}.ty-cta-card{padding:24px 20px}.ty-cta-card h2{font-size:19px}.ty-next__grid{grid-template-columns:1fr;gap:10px}.ty-next__step{display:flex;align-items:center;gap:14px;text-align:left;padding:16px}.ty-next__num{margin:0;flex-shrink:0}}
+.product-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media(max-width:700px){.product-proof-grid{grid-template-columns:1fr}}

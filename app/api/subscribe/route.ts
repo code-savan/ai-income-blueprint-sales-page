@@ -11,16 +11,22 @@ export async function POST(req: NextRequest) {
     const cleanEmail = email.trim().toLowerCase()
     const cleanName = (firstName || '').trim()
     const listId = process.env.BREVO_LEAD_MAGNET_LIST_ID
-    if (!listId) {
-      console.error('BREVO_LEAD_MAGNET_LIST_ID missing')
-      return NextResponse.json({ success: true })
+    if (!listId || Number.isNaN(parseInt(listId, 10))) {
+      console.error('BREVO_LEAD_MAGNET_LIST_ID missing or invalid')
+      return NextResponse.json({ success: false, error: 'Free vault delivery is temporarily unavailable. Please try again shortly.' }, { status: 503 })
     }
-    try {
-      await addBrevoContact({ email: cleanEmail, firstName: cleanName, listIds: [parseInt(listId, 10)] })
-    } catch (e: any) {
-      console.error('Brevo subscribe error:', e.message)
+
+    const delivery = await Promise.allSettled([
+      addBrevoContact({ email: cleanEmail, firstName: cleanName, listIds: [parseInt(listId, 10)] }),
+      sendLeadMagnetEmail(cleanEmail, cleanName),
+    ])
+    const failures = delivery.filter((result) => result.status === 'rejected')
+    if (failures.length) {
+      failures.forEach((result) => {
+        if (result.status === 'rejected') console.error('Lead delivery error:', result.reason)
+      })
+      return NextResponse.json({ success: false, error: 'We could not deliver the free vault. Please try again shortly.' }, { status: 502 })
     }
-    try { await sendLeadMagnetEmail(cleanEmail, cleanName) } catch {}
     try {
       const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL
       if (webhookUrl) {
