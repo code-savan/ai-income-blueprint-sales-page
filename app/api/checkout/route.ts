@@ -7,13 +7,23 @@ export async function POST(req: NextRequest) {
     if (!name || !email) return NextResponse.json({ error: 'Name and email required' }, { status: 400 })
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ error: 'Valid email required' }, { status: 400 })
 
-    const whop = getWhopClient()
-    if (!whop) return NextResponse.json({ error: 'Payment system not configured' }, { status: 500 })
-
     const orderId = 'ZTPW-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6).toUpperCase()
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.zerotopaidwithai.com'
     const cleanEmail = email.trim().toLowerCase()
     const cleanName = name.trim()
+    const directCheckoutUrl = `https://whop.com/checkout/${WHOP_PLAN_ID}`
+    const whop = getWhopClient()
+
+    if (!whop) {
+      console.warn('[whop checkout] API client unavailable, using direct checkout')
+      return NextResponse.json({
+        planId: WHOP_PLAN_ID,
+        sessionId: null,
+        orderId,
+        checkoutUrl: directCheckoutUrl,
+        fallback: true,
+      })
+    }
 
     try {
       const result = await whop.checkoutConfigurations.create({
@@ -36,17 +46,14 @@ export async function POST(req: NextRequest) {
       })
     } catch (e: any) {
       const msg = e?.message || JSON.stringify(e?.body || e)
-      if (msg.includes('checkout_configuration') || msg.includes('forbidden') || e?.statusCode === 403) {
-        console.warn('[whop checkout] missing scope, falling back to planId embed:', msg)
-        return NextResponse.json({
-          planId: WHOP_PLAN_ID,
-          sessionId: null,
-          orderId,
-          checkoutUrl: `https://whop.com/checkout/${WHOP_PLAN_ID}`,
-          fallback: true,
-        })
-      }
-      throw e
+      console.warn('[whop checkout] inline checkout unavailable, using direct checkout:', msg)
+      return NextResponse.json({
+        planId: WHOP_PLAN_ID,
+        sessionId: null,
+        orderId,
+        checkoutUrl: directCheckoutUrl,
+        fallback: true,
+      })
     }
   } catch (e: any) {
     console.error('[whop checkout] error', e?.message || e, e?.body || '')
