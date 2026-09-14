@@ -2190,6 +2190,8 @@ button{cursor:pointer;font-family:inherit}
   height:100%;
   object-fit:cover;
   display:block;
+  transform:scale(1.12);
+  transform-origin:center top;
 }
 .peek-slide__badge{
   position:absolute;
