@@ -194,7 +194,7 @@ function HowItWorks(){
         <Reveal><h2 className="h2 how__title">How it works</h2></Reveal>
         <div className="how__grid">
           <div className="how__steps">{steps.map((s,i)=><Reveal key={i} delay={i*0.1}><div className="how-step"><span className="how-step__num">{s.num}</span><h3 className="how-step__title">{s.title}</h3><p>{s.desc}</p></div></Reveal>)}</div>
-          <Reveal delay={0.2}><figure className="how-product-shot"><a href="#peek-inside"><Image src="/peek/2026-10/next-task.webp" alt="The Blueprint sidebar, saved service offer and next unfinished task" width={1348} height={926} sizes="(max-width: 820px) 92vw, 520px"/></a><figcaption>Your offer stays visible. The next task opens its matching guide.</figcaption></figure></Reveal>
+          <Reveal delay={0.2}><figure className="how-product-shot"><a href="#peek-inside"><Image src="/peek/2026-10/next-task.webp" alt="The Blueprint sidebar, saved service offer and next unfinished task" width={1348} height={926} quality={90} sizes="(max-width: 820px) 92vw, 520px"/></a><figcaption>Your offer stays visible. The next task opens its matching guide.</figcaption></figure></Reveal>
         </div>
       </div>
     </section>
@@ -262,7 +262,7 @@ function PeekInside(){
           {screens.map((s,i)=>(
             <div key={i} className="peek-slide">
               <div className="peek-slide__imgWrap">
-                <a href={s.img} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size screenshot: ${s.label}`} onClick={e=>{if(dragged.current)e.preventDefault()}}><Image src={s.img} alt={s.label} width={1348} height={926} sizes="(max-width: 700px) 84vw, 580px" draggable={false}/></a>
+                <a href={s.img} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size screenshot: ${s.label}`} onClick={e=>{if(dragged.current)e.preventDefault()}}><Image src={s.img} alt={s.label} width={1348} height={926} quality={90} sizes="(max-width: 700px) 84vw, 580px" draggable={false}/></a>
                               </div>
               <div className="peek-slide__body"><span className="peek-slide__badge">{s.label}</span><p className="peek-slide__caption">{s.caption}</p></div>
             </div>
