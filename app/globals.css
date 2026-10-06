@@ -2339,3 +2339,26 @@ button{cursor:pointer;font-family:inherit}
 @media(max-width:600px){.ty-main{padding:28px 16px 60px}.ty-heading h1{font-size:24px}.ty-sub{font-size:14px}.ty-cta-card{padding:24px 20px}.ty-cta-card h2{font-size:19px}.ty-next__grid{grid-template-columns:1fr;gap:10px}.ty-next__step{display:flex;align-items:center;gap:14px;text-align:left;padding:16px}.ty-next__num{margin:0;flex-shrink:0}}
 .product-proof-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 @media(max-width:700px){.product-proof-grid{grid-template-columns:1fr}}
+
+/* October 2026 content refresh: retain the existing theme and geometry. */
+.how-product-shot{margin:0;position:sticky;top:100px}
+.how-product-shot a{display:block;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow-md)}
+.how-product-shot img{display:block;width:100%;height:auto}
+.how-product-shot figcaption{font-size:13px;color:var(--body);line-height:1.6;margin:14px 0}
+.peek-slide__imgWrap{aspect-ratio:1348/928;background:#faf9f6}
+.peek-slide__imgWrap a{display:block;width:100%;height:100%;cursor:zoom-in}
+.peek-slide__imgWrap img{object-fit:contain;transform:none}
+.peek-slide__badge{position:static;display:inline-flex;margin:12px 14px;font-size:10px;box-shadow:none}
+.peek-controls{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:24px 0}
+.peek-controls .btn{min-height:44px;font-size:13px}
+.product-preview-link{font-weight:600;color:var(--purple);text-decoration:underline;text-underline-offset:4px}
+.price-current{text-decoration:none;color:var(--body)}
+.price-item-val{font-size:12px}
+.faq-a[hidden]{display:none}
+.peek-track-wrap{scrollbar-width:thin;scrollbar-color:var(--purple-soft) var(--bg-warm-2);scroll-snap-type:x proximity}
+.peek-track-wrap::-webkit-scrollbar{display:block;height:8px}
+.peek-track-wrap::-webkit-scrollbar-track{background:var(--bg-warm-2)}
+.peek-track-wrap::-webkit-scrollbar-thumb{background:var(--purple-soft);border-radius:8px}
+:focus-visible{outline:3px solid var(--purple);outline-offset:5px}
+@media(max-width:820px){.how-product-shot{position:static;max-width:580px;margin:0 auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation:none!important;transition:none!important}.logowall__track{animation:none!important}}

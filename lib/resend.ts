@@ -20,8 +20,8 @@ export async function sendPurchaseEmail(to: string, name?: string) {
           <h2 style="font-size:22px;margin:0 0 12px">You Are In. Welcome — ${name ? name : 'there'}!</h2>
           <p>Your payment is confirmed. Here is exactly what happens next.</p>
           <p><strong>1. Watch for a second email.</strong> In the next few minutes you will receive your Blueprint login email from <strong>noreply@zerotopaidwithai.com</strong> with your personal login link (valid 24 hours). Can't find it? Check spam and promotions first, then reply to this email.</p>
-          <p><strong>2. Set your password and open Day 1.</strong> Your login link takes you straight into the Blueprint. Start with Module 1. It places you on the right income track in about 12 minutes, then follow the day by day roadmap from there.</p>
-          <p><strong>What's inside:</strong> 5-module system, 4 execution playbooks, 50-prompt vault, 30-day roadmap, lifetime updates.</p>
+          <p><strong>2. Set your password and open Start here.</strong> Answer the six-question track quiz, choose an offer, then open My next steps. Each task links to its matching guide.</p>
+          <p><strong>What's inside:</strong> 10 playbooks, 10 service choices, 10 product ideas, 50 action prompts, worked examples, free and optional paid tool paths, saved tasks and trackers, lifetime updates.</p>
           <p style="font-size:13px;color:#8F8A86">Questions at any point? Just reply to this email or write to <a href="mailto:${support}">${support}</a>.</p>
           <hr style="border:none;border-top:1px solid #eee;margin:20px 0"/>
           <p style="font-size:12px;color:#8F8A86">30-Day Money-Back Guarantee: complete the blueprint, and if it doesn't move you, email us your finished checklist within 30 days and get every cent back.</p>
@@ -64,18 +64,18 @@ export async function sendLeadMagnetEmail(to: string, firstName?: string) {
           <p style="margin:0 0 20px"><a href="${downloadUrl}" style="display:inline-block;background:#7C3AED;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px">Download the PDF here</a></p>
           <p style="margin:0 0 8px">Here's what you're getting:</p>
           <ul style="margin:0 0 16px;padding-left:20px;color:#1F1E1C">
-            <li style="margin-bottom:6px">10 prompt categories (content creation, freelancing, product ideas, sales copy, email marketing, social media, business strategy, automation, research, and personal finance)</li>
+            <li style="margin-bottom:6px">10 prompt categories (client outreach, content creation, product development, service delivery, UGC videos, TikTok/Reels, email/SMS, copywriting, landing pages, and scaling/systems)</li>
             <li style="margin-bottom:6px">30 structured prompts per category</li>
             <li style="margin-bottom:6px">Each prompt includes a usage hint so you know exactly when and how to deploy it</li>
           </ul>
-          <p style="margin:0 0 16px">This is the same prompt library I use to generate income with AI — pulled from the full AI Income Blueprint system.</p>
+          <p style="margin:0 0 16px">This is a reference library for planning and checking AI-assisted work. Pick the category matching your next task.</p>
           <p style="margin:0 0 16px">Over the next few days, I'm going to send you a few things that will rewire how you think about making money. They're short. They're free. And the first one hits your inbox tomorrow.</p>
           <p style="margin:0 0 16px">Watch for it.</p>
           <p style="margin:24px 0 0;line-height:1.6">Zero to Paid with AI<br/><a href="https://www.zerotopaidwithai.com" style="color:#7C3AED;text-decoration:none">https://www.zerotopaidwithai.com</a></p>
           <p style="font-size:11px;color:#8F8A86;margin-top:24px;border-top:1px solid #eee;padding-top:16px">No longer want these? <a href="https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}" style="color:#8F8A86;text-decoration:underline">Unsubscribe</a></p>
         </div>
       `,
-      text: `Hey,\n\nThe 300 AI Income Prompts vault is ready for you.\n\nDownload the PDF here: ${downloadUrl}\n\nHere's what you're getting:\n\n• 10 prompt categories (content creation, freelancing, product ideas, sales copy, email marketing, social media, business strategy, automation, research, and personal finance)\n• 30 structured prompts per category\n• Each prompt includes a usage hint so you know when and how to use it\n\nThe vault comes from the full Zero to Paid with AI Blueprint system.\n\nOver the next few days, we will send short action steps for turning the prompts into useful work.\n\nWatch for the first one tomorrow.\n\nZero to Paid with AI\nhttps://www.zerotopaidwithai.com`,
+      text: `Hey,\n\nThe 300 AI Income Prompts vault is ready for you.\n\nDownload the PDF here: ${downloadUrl}\n\nHere's what you're getting:\n\n• 10 prompt categories (client outreach, content creation, product development, service delivery, UGC videos, TikTok/Reels, email/SMS, copywriting, landing pages, and scaling/systems)\n• 30 structured prompts per category\n• Each prompt includes a usage hint so you know when and how to use it\n\nThe vault comes from the full Zero to Paid with AI Blueprint system.\n\nOver the next few days, we will send short action steps for turning the prompts into useful work.\n\nWatch for the first one tomorrow.\n\nZero to Paid with AI\nhttps://www.zerotopaidwithai.com`,
       headers: {
         'List-Unsubscribe': `<mailto:unsubscribe@zerotopaidwithai.com?subject=unsubscribe>, <https://www.zerotopaidwithai.com/unsubscribe?email=${encodeURIComponent(to)}>`,
         'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',

@@ -6,7 +6,8 @@ import HeroVSL from '@/components/VSLPlayer'
 import StickyBar from '@/components/StickyBar'
 import FaqAccordion from '@/components/FaqAccordion'
 import LeadMagnetForm from '@/components/LeadMagnetForm'
-import UrgencyBanner from '@/components/UrgencyBanner'
+import Image from 'next/image'
+import LoopPreview from '@/components/LoopPreview'
 import GuaranteeSeal from '@/components/GuaranteeSeal'
 import { CheckIcon, ArrowRight, BoltIcon, CalendarIcon, FreeIcon, ShieldIcon, LockIcon, MailIcon, InfinityIcon, ClockIcon, GearIcon, BriefcaseIcon } from '@/components/Icons'
 
@@ -21,7 +22,7 @@ export default function BlueprintPage(){
   useEffect(()=>{ const h=()=>{setModalOpen(true); setModalSource('cta')}; window.addEventListener('open-lead-modal',h); return()=>window.removeEventListener('open-lead-modal',h)},[])
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Product","name":"zerotopaidwithai","description":"A 30-day execution roadmap for building an AI-assisted service or digital product using a free-first tool stack.","brand":{"@type":"Brand","name":"zerotopaidwithai"},"offers":{"@type":"Offer","price":"97","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://zerotopaidwithai.com/"}})}}/>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Product","name":"zerotopaidwithai","description":"A practical AI-assisted service or product guide with ten playbooks, ten service choices, ten product ideas, worked examples, 50 action prompts and saved tasks.","brand":{"@type":"Brand","name":"zerotopaidwithai"},"offers":{"@type":"Offer","price":"97","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://zerotopaidwithai.com/"}})}}/>
       <Nav/>
       <StickyBar hidden={modalOpen}/>
       <Hero/>
@@ -62,25 +63,25 @@ function Hero(){
   return (
     <section className="hero section" id="hero">
       <div className="container hero__inner">
-        <Reveal delay={0}><a className="hero-announce" href="#content-library"><span className="hero-announce__badge">NEW</span><span>Start with free tools and one clear income track</span></a></Reveal>
-        <Reveal delay={0.08} className="hero-media"><HeroVSL/></Reveal>
-        <Reveal delay={0.16}>
-          <h1 className="h1 hero__title">From Zero to Your First $500 Online. Mapped Day by Day.</h1>
+        <Reveal eager delay={0}><a className="hero-announce" href="#peek-inside"><span className="hero-announce__badge">UPDATED</span><span>10 playbooks. 20 starting ideas. One next task.</span></a></Reveal>
+        <Reveal eager delay={0.08} className="hero-media"><HeroVSL/></Reveal>
+        <Reveal eager delay={0.16}>
+          <h1 className="h1 hero__title">Choose One AI-Assisted Offer. Follow the Steps to Sell It.</h1>
         </Reveal>
-        <Reveal delay={0.20}><p className="kaya-story">Pick one path. Build one useful offer. Follow the next action.</p></Reveal>
-        <Reveal delay={0.24}>
-          <p className="hero__sub">A 5-module system using free AI tools. Pick digital product sales or client services. <strong>30-day roadmap. No paid tools required to begin.</strong></p>
+        <Reveal eager delay={0.20}><p className="kaya-story">Pick one path. Build one useful offer. Follow the next action.</p></Reveal>
+        <Reveal eager delay={0.24}>
+          <p className="hero__sub">Choose a service or product track. Pick from ten services or ten product ideas, then follow written steps to research, make, check and show your work. <strong>Ten playbooks. Fifty action prompts. Free-tool starting paths.</strong></p>
           <p style={{fontSize:13,color:'var(--muted)',marginTop:8}}>By <strong style={{color:'var(--ink)'}}>zerotopaidwithai</strong>, built for practical execution</p>
         </Reveal>
-        <Reveal delay={0.32} className="hero__action">
+        <Reveal eager delay={0.32} className="hero__action">
           <a href="#lead" onClick={e=>{e.preventDefault(); openModal()}} className="btn btn--primary" style={{paddingInline:32,height:48,fontSize:16}}>Get The Blueprint: $97<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a>
           <span style={{fontSize:13,color:'var(--muted)',marginTop:4}}>One-time $97 · Instant access · <strong style={{color:'var(--ink-soft)'}}>30-Day Money-Back Guarantee</strong></span>
           <GuaranteeSeal/>
         </Reveal>
-        <Reveal delay={0.4} className="hero__proof">
+        <Reveal eager delay={0.4} className="hero__proof">
           <span className="hero__proof-item"><span className="hero__proof-icon"><BoltIcon size={16} color="#7C3AED"/></span><strong>Two Income Tracks</strong>: pick digital products or service sales</span>
-          <span className="hero__proof-item"><span className="hero__proof-icon"><CalendarIcon size={16} color="#7C3AED"/></span><strong>30-Day Roadmap</strong>: day-by-day actions</span>
-          <span className="hero__proof-item"><span className="hero__proof-icon"><FreeIcon size={16} color="#7C3AED"/></span><strong>Zero Startup Cost</strong>: free AI tools</span>
+          <span className="hero__proof-item"><span className="hero__proof-icon"><CalendarIcon size={16} color="#7C3AED"/></span><strong>One Next Task</strong>: linked to the matching guide</span>
+          <span className="hero__proof-item"><span className="hero__proof-icon"><FreeIcon size={16} color="#7C3AED"/></span><strong>Free-First Tools</strong>: optional paid upgrades explained</span>
         </Reveal>
       </div>
     </section>
@@ -88,10 +89,10 @@ function Hero(){
 }
 
 function Logowall(){
-  const logos=[{name:'ChatGPT',src:'/tool-logos/chatgpt.svg'},{name:'Claude',src:'/tool-logos/claude.svg'},{name:'ElevenLabs',src:'/tool-logos/elevenlabs.svg'},{name:'CapCut',src:'/tool-logos/capcut.svg'},{name:'Gumroad',src:'/tool-logos/gumroad.svg'},{name:'Canva',src:'/tool-logos/canva.svg'},{name:'TikTok',src:'/tool-logos/tiktok.svg'},{name:'Instagram',src:'/tool-logos/instagram.svg'},{name:'Kling AI',src:'/tool-logos/kling.svg'},{name:'Google Flow',src:'/tool-logos/google.svg'}]
+  const logos=[{name:'ChatGPT',src:'/tool-logos/chatgpt.svg'},{name:'Claude',src:'/tool-logos/claude.svg'},{name:'Manus',src:'/tool-logos/manus.png'},{name:'CapCut',src:'/tool-logos/capcut.svg'},{name:'Gumroad',src:'/tool-logos/gumroad.svg'},{name:'Canva',src:'/tool-logos/canva.svg'},{name:'TikTok',src:'/tool-logos/tiktok.svg'},{name:'Instagram',src:'/tool-logos/instagram.svg'},{name:'Z.ai / GLM',src:'/tool-logos/zai.png'},{name:'Google Flow',src:'/tool-logos/google.svg'}]
   const items=[...logos,...logos]
   return (
-    <div className="logowall"><div className="logowall__label">Tools covered inside the blueprint</div><div className="logowall__track">{items.map((t,i)=><div className="logowall__item" key={i}><img src={t.src} alt={t.name} width={28} height={28}/><span>{t.name}</span></div>)}</div></div>
+    <div className="logowall"><div className="logowall__label">Tools and platforms used in the guides</div><div className="logowall__track">{items.map((t,i)=><div className="logowall__item" key={i}><Image src={t.src} alt={t.name} width={28} height={28} sizes="28px"/><span>{t.name}</span></div>)}</div></div>
   )
 }
 
@@ -100,13 +101,15 @@ const SPOTLIGHT_POSTER='/spotlight-poster.jpg'
 function Spotlight(){
   const [muted,setMuted]=useState(true)
   const [visible,setVisible]=useState(false)
+  const [loaded,setLoaded]=useState(false)
   const videoRef=useRef<HTMLVideoElement>(null)
   const sectionRef=useRef<HTMLElement>(null)
   useEffect(()=>{
     const el=sectionRef.current; const vid=videoRef.current; if(!el||!vid) return
-    const observer=new IntersectionObserver(([entry])=>{ if(entry.isIntersecting){setVisible(true); vid.play().catch(()=>{})} else setVisible(false)},{threshold:0.4})
+    const observer=new IntersectionObserver(([entry])=>{ if(entry.isIntersecting){setLoaded(true); setVisible(true)} else {vid.pause(); setVisible(false)}},{threshold:0.4})
     observer.observe(el); return()=>observer.disconnect()
   },[])
+  useEffect(()=>{ const vid=videoRef.current; if(visible && vid && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) vid.play().catch(()=>{}) },[visible])
   const handleMuteToggle=useCallback(()=>{ const vid=videoRef.current; if(!vid) return; vid.muted=!vid.muted; setMuted(vid.muted); if(!vid.muted && vid.paused) vid.play().catch(()=>{})},[])
   return (
     <section className="spotlight section" ref={sectionRef}>
@@ -114,14 +117,14 @@ function Spotlight(){
         <div className="spotlight__copy">
           <Reveal><div className="eyebrow">SEE THE WORKFLOW</div></Reveal>
           <Reveal><h2 className="h2">From a clear prompt<br/><span style={{color:'var(--purple)'}}>to usable content.</span></h2></Reveal>
-          <Reveal><p>This is an example of the output the content workflow helps you plan. Start with a product brief, choose an angle, generate a first draft, then edit it into something a business would use.</p></Reveal>
+          <Reveal><p>The content guides help you plan a script, choose footage, edit a first version and check its claims. This AI-generated clip shows one visual format. Product demonstrations use real item footage.</p></Reveal>
           <Reveal><a className="btn btn--primary" href="#lead" onClick={e=>{e.preventDefault(); openModal()}}>Get The Blueprint<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a></Reveal>
           <Reveal><figure><blockquote>Start with a clear brief. Build the first version. Check every claim. Package the finished result.</blockquote><figcaption><strong>The Blueprint workflow</strong></figcaption></figure></Reveal>
         </div>
         <Reveal className="spotlight__media">
           <div className="dot-grid spotlight__dots"/>
           <div className="spotlight__phone">
-            <video ref={videoRef} muted loop playsInline preload="auto" poster={SPOTLIGHT_POSTER} onClick={handleMuteToggle} style={{ cursor: 'pointer' }}><source src={SPOTLIGHT_VIDEO} type="video/mp4"/></video>
+            <video ref={videoRef} muted loop playsInline preload="none" poster={SPOTLIGHT_POSTER} onClick={handleMuteToggle} style={{ cursor: 'pointer' }} src={loaded ? SPOTLIGHT_VIDEO : undefined}/>
             {visible && (muted
               ? <button className="spotlight__unmute" type="button" onClick={handleMuteToggle} aria-label="Unmute video"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><line x1="23" y1="1" x2="1" y2="23"/></svg><span>Tap to Unmute</span></button>
               : <button className="spotlight__mute" type="button" onClick={handleMuteToggle} aria-label="Mute video"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg><span>Tap to Mute</span></button>
@@ -141,13 +144,13 @@ function ContentLibrary(){
         <Reveal>
           <div className="ugc-banner">
             <div className="ugc-banner__content">
-              <div className="ugc-banner__badge"><span className="ugc-banner__dot"/><span>FREE RESOURCE: MOST REQUESTED</span></div>
-              <h2 className="ugc-banner__title">300+ AI-powered <span>UGC prompts</span></h2>
-              <p className="ugc-banner__sub">For any product or niche. Copy, paste, generate. No experience needed. Fitness, beauty, fashion, tech, food, lifestyle, organized and ready to use.</p>
+              <div className="ugc-banner__badge"><span className="ugc-banner__dot"/><span>FREE RESOURCE: 300 REFERENCE PROMPTS</span></div>
+              <h2 className="ugc-banner__title">300 AI prompts. <span>Organized by task.</span></h2>
+              <p className="ugc-banner__sub">A 77-page reference PDF for outreach, content, product ideas, delivery, copy and more. Pick a task, replace the brackets and review the result.</p>
               <ul className="ugc-banner__bullets">
-                <li><CheckIcon size={14} color="#7C3AED"/> ChatGPT + Claude + ElevenLabs compatible</li>
-                <li><CheckIcon size={14} color="#7C3AED"/> Organized by product type & niche</li>
-                <li><CheckIcon size={14} color="#7C3AED"/> Copy → Paste → Generate in seconds</li>
+                <li><CheckIcon size={14} color="#7C3AED"/> Writing prompts for ChatGPT, Claude or Gemini</li>
+                <li><CheckIcon size={14} color="#7C3AED"/> 10 categories, 30 prompts per category</li>
+                <li><CheckIcon size={14} color="#7C3AED"/> Includes outreach, UGC, copy and landing pages</li>
               </ul>
               <div className="ugc-banner__actions">
                 <a className="btn btn--primary" href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}}>Get Instant Access: Free<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a>
@@ -159,32 +162,37 @@ function ContentLibrary(){
                 <div className="ugc-cover ugc-cover--back1"/>
                 <div className="ugc-cover ugc-cover--back2"/>
                 <div className="ugc-cover ugc-cover--main" style={{padding:0,overflow:'hidden',background:'#0f0f1a'}}>
-                  <img src="/ugc-pack-cover.webp" alt="300+ UGC Prompts Pack Cover" width="600" height="900" loading="lazy" decoding="async" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/>
+                  <Image src="/peek/2026-10/free-vault-cover.webp" alt="Cover of the free 300 AI prompts reference PDF" width={636} height={900} sizes="(max-width: 600px) 64vw, 240px" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/>
                   <div className="ugc-cover__shine"/>
                 </div>
-                <div className="ugc-float ugc-float--1">300+ Prompts</div>
+                <div className="ugc-float ugc-float--1">300 Prompts</div>
                 <div className="ugc-float ugc-float--2">FREE DOWNLOAD</div>
               </div>
             </div>
           </div>
         </Reveal>
-        <div className="library__head" style={{marginTop:56}}><Reveal><div className="eyebrow">CONTENT LIBRARY</div></Reveal><Reveal><p>Prompts for planning short-form UGC across common product categories. Preview the styles inside the pack:</p></Reveal><Reveal><p style={{fontSize:13,marginTop:12,lineHeight:1.6}}><a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} style={{color:'var(--purple)',fontWeight:600,textDecoration:'underline',textUnderlineOffset:3}}>These 8 are example formats</a> <span style={{color:'var(--muted)'}}>, showing the types of briefs covered by the <a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} style={{color:'var(--purple)',fontWeight:600,textDecoration:'underline',textUnderlineOffset:3}}>300+ prompt vault</a>. Get the full vault free.</span></p></Reveal></div>
-        <div className="library-grid">{videos.map((v,i)=><Reveal key={i} delay={i*0.06}><a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} className="video-card" style={{cursor:'pointer',display:'block'}} title="Generated with the 300+ prompt vault. Click to get the vault free"><video autoPlay muted loop playsInline preload="metadata" poster=""><source src={v.url} type="video/mp4"/></video><div className="video-card__head"><span className="video-card__name">{v.label}</span></div><span style={{position:'absolute',top:10,right:10,zIndex:3,background:'rgba(124,58,237,0.92)',color:'#fff',fontSize:10,fontWeight:700,letterSpacing:'0.06em',padding:'3px 8px',borderRadius:999}}>VAULT EXAMPLE</span></a></Reveal>)}</div>
-        <Reveal><div style={{textAlign:'center',marginTop:32,marginBottom:40}}><a className="btn btn--primary" href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}}>Get All 300+ Prompts: Free<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a></div></Reveal>
+        <div className="library__head" style={{marginTop:56}}><Reveal><div className="eyebrow">CONTENT LIBRARY</div></Reveal><Reveal><p>UGC is one category in the free reference PDF. These clips illustrate possible video formats, not buyer results or included production services:</p></Reveal><Reveal><p style={{fontSize:13,marginTop:12,lineHeight:1.6}}><a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} style={{color:'var(--purple)',fontWeight:600,textDecoration:'underline',textUnderlineOffset:3}}>These 8 are example formats</a> <span style={{color:'var(--muted)'}}>, for planning product and content videos. Explore the <a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} style={{color:'var(--purple)',fontWeight:600,textDecoration:'underline',textUnderlineOffset:3}}>300-prompt reference vault</a>. Get the full vault free.</span></p></Reveal></div>
+        <div className="library-grid">{videos.map((v,i)=><Reveal key={i} delay={i*0.06}><a href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}} className="video-card" style={{cursor:'pointer',display:'block'}} title="Illustrative AI video format. Open the free prompt vault"><LoopPreview src={v.url} label={v.label} poster={`/peek/2026-10/demo-${i+1}.webp`}/><div className="video-card__head"><span className="video-card__name">{v.label}</span></div><span style={{position:'absolute',top:10,right:10,zIndex:3,background:'rgba(124,58,237,0.92)',color:'#fff',fontSize:10,fontWeight:700,letterSpacing:'0.06em',padding:'3px 8px',borderRadius:999}}>AI VIDEO FORMAT</span></a></Reveal>)}</div>
+        <Reveal><div style={{textAlign:'center',marginTop:32,marginBottom:40}}><a className="btn btn--primary" href="#lead-magnet" onClick={e=>{e.preventDefault(); document.getElementById('lead-magnet')?.scrollIntoView({behavior:'smooth'})}}>Get All 300 Prompts: Free<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a></div></Reveal>
       </div>
     </section>
   )
 }
 
 function HowItWorks(){
-  const steps=[{num:'01',title:'Learn the System',desc:'Watch the core training modules. Learn the exact AI tools and prompts used to generate income. No fluff, just what works.'},{num:'02',title:'Pick Your Track',desc:'Choose between Track A (autonomous digital product sales) or Track B (fast client cash flow). The diagnostic takes 12 minutes.'},{num:'03',title:'Execute the System',desc:'Follow the day-by-day action plan with included playbooks, prompt vault, and execution templates. Your first dollar target: within 30 days.'},{num:'04',title:'Scale Your Income',desc:'Once the first dollar lands, follow the scale playbook to go from $500 to $2,000/month without doubling your workload.'}]
+  const steps=[
+    {num:'01',title:'Get your track',desc:'Answer six questions. Get a suggested service or product track and save your choice.'},
+    {num:'02',title:'Choose one offer',desc:'Inspect ten services or ten product ideas. Use the three-question interview, or choose your own offer without filling a form.'},
+    {num:'03',title:'Make the first useful output',desc:'Open My next steps. Follow the matching guide, use its prompt and compare your work with the relevant example.'},
+    {num:'04',title:'Show it, then improve it',desc:'Research suitable buyers, show checked work and record their response. Use your task list and trackers to decide the next action.'},
+  ]
   return (
     <section className="how section" id="how-it-works">
       <div className="container">
         <Reveal><h2 className="h2 how__title">How it works</h2></Reveal>
         <div className="how__grid">
           <div className="how__steps">{steps.map((s,i)=><Reveal key={i} delay={i*0.1}><div className="how-step"><span className="how-step__num">{s.num}</span><h3 className="how-step__title">{s.title}</h3><p>{s.desc}</p></div></Reveal>)}</div>
-          <Reveal delay={0.2}><div style={{display:'flex',flexDirection:'column',gap:20,alignItems:'center',position:'sticky',top:100}}><div className="spotlight__phone" style={{width:280,transform:'scale(0.95)'}}><video autoPlay muted loop playsInline preload="metadata"><source src="https://media.aftermark.ai/usefastlane/video/ioKhMdGULeCQLxLfWMbkuumROk.mp4" type="video/mp4"/></video></div><p style={{fontSize:13,color:'var(--muted)',textAlign:'center',maxWidth:260}}>Real UGC generated from Blueprint prompts</p></div></Reveal>
+          <Reveal delay={0.2}><figure className="how-product-shot"><a href="#peek-inside"><Image src="/peek/2026-10/next-task.webp" alt="The Blueprint sidebar, saved service offer and next unfinished task" width={1348} height={928} sizes="(max-width: 820px) 92vw, 520px"/></a><figcaption>Your offer stays visible. The next task opens its matching guide.</figcaption></figure></Reveal>
         </div>
       </div>
     </section>
@@ -192,11 +200,14 @@ function HowItWorks(){
 }
 
 function Tracks(){
-  const tracks=[{icon:<GearIcon size={28} color="#7C3AED"/>,name:'Track A: Autonomous Sales',desc:'Build a digital product. Set up a faceless content funnel on TikTok or Reels. Let it drive traffic and collect sales on autopilot. Wake up to Gumroad notifications.',fit:'People who want income that doesn’t trade hours for dollars. No client calls. No networking. Introverts thrive here.',steps:[{label:'Week 1',text:'Build your product using AI in under 90 minutes'},{label:'Week 2',text:'Set up storefront + launch your content system'},{label:'Week 3',text:'First sale'},{label:'Week 4',text:'Identify winner, double down'}]},{icon:<BriefcaseIcon size={28} color="#7C3AED"/>,name:'Track B: Service Sales',desc:'Use AI to deliver professional services like content, copywriting, and automation to businesses that need them. Charge human rates. Deliver in hours with AI.',fit:'People who want fast cash flow and don’t mind a short client conversation. No portfolio, no agency, no prior work needed.',steps:[{label:'Day 1–3',text:'Craft your offer + build outreach system'},{label:'Day 4–7',text:'Send first 50 targeted outreach messages'},{label:'Day 8–11',text:'First client conversation'},{label:'Day 11+',text:'First paid delivery'}]}]
+  const tracks=[
+    {icon:<GearIcon size={28} color="#7C3AED"/>,name:'Track A: Product Sales',desc:'Build a small download, or explore a physical-product affiliate niche after checking eligibility. Seven digital ideas and three affiliate niches give you a starting point.',fit:'People who want to make reusable files or demonstrate a real item, and are willing to test the idea with likely buyers.',steps:[{label:'Choose',text:'Compare ideas, tradeoffs and research notes'},{label:'Make',text:'Build the first task and test the instructions'},{label:'Show',text:'Set up delivery and demonstrate the product'},{label:'Improve',text:'Track questions, costs and paid orders'}]},
+    {icon:<BriefcaseIcon size={28} color="#7C3AED"/>,name:'Track B: Service Sales',desc:'Choose from ten services, including websites, copy, design, video editing and research. Learn what to deliver, make a checked sample and find suitable clients.',fit:'People who want to work with clients and are willing to practise delivery, ask questions and agree a clear price and deadline.',steps:[{label:'Choose',text:'Pick a small service and define the files'},{label:'Make',text:'Build a sample using the service recipe'},{label:'Research',text:'Use Instagram, Groups, LinkedIn, Maps or permitted enquiries'},{label:'Deliver',text:'Agree the work, check it and hand it over'}]},
+  ]
   return (
     <section className="tracks section" id="tracks">
       <div className="container">
-        <div className="tracks__head"><Reveal><div className="eyebrow">PICK YOUR PATH</div></Reveal><Reveal><h2 className="h2">Two tracks. One blueprint.<br/><span style={{color:'var(--purple)'}}>Both lead to money.</span></h2></Reveal><Reveal><p style={{color:'var(--body)',fontSize:16,marginTop:14}}>You choose your income model in Module 1. Pick what fits your life, not someone else’s.</p></Reveal></div>
+        <div className="tracks__head"><Reveal><div className="eyebrow">PICK YOUR PATH</div></Reveal><Reveal><h2 className="h2">Two tracks. One blueprint.<br/><span style={{color:'var(--purple)'}}>Choose the work you want to try.</span></h2></Reveal><Reveal><p style={{color:'var(--body)',fontSize:16,marginTop:14}}>Start with the quiz, then choose an offer. Change your offer later, or retake the track quiz after confirming the work reset.</p></Reveal></div>
         <div className="track-grid">{tracks.map((track,i)=><Reveal key={i} delay={i*0.12}><div className="track-card"><span className="track-icon">{track.icon}</span><p className="track-name">{track.name}</p><p className="track-desc">{track.desc}</p><p className="track-for">Best for</p><p className="track-fit">{track.fit}</p><div className="track-steps">{track.steps.map((s,j)=><div className="track-step" key={j}><div className="step-dot"/><div><span className="step-label">{s.label}</span>{s.text}</div></div>)}</div></div></Reveal>)}</div>
       </div>
     </section>
@@ -204,13 +215,19 @@ function Tracks(){
 }
 
 function Modules(){
-  const modules=[{num:'01',tag:'Foundation',title:'Pick Your Lane',desc:'A fast diagnostic to place you in the right track based on your time, goals, and resources. You’ll know your exact next move before leaving Module 1.'},{num:'02',tag:'Tools',title:'The Only Stack You Need',desc:'Free tools to start. Paid upgrades only when income is flowing. No expensive subscriptions upfront, zero wasted hours figuring out platforms that don’t matter.',bullets:['Free vs paid breakdown by track','Full setup walkthrough in under 60 min','What to ignore (saves you weeks)']},{num:'03',tag:'Income',title:'Your First $500 Roadmap',desc:'Day-by-day actions built around the target of earning your first five hundred dollars. No motivational padding, only the work to complete next.',bullets:['Daily action items, not vague weekly goals','A product launch sequence','A service outreach sequence']},{num:'04',tag:'Playbooks',title:'Four Execution Playbooks',desc:'Each playbook targets one bottleneck with templates, scripts, and clear actions. Pull out the one you need when you need it.'},{num:'05',tag:'Scale',title:'Build a Repeatable System',desc:'Once the first dollar lands, this module covers raising prices, increasing useful volume, and adding a second income stream without doubling your workload.',wide:true}]
+  const modules=[
+    {num:'01',tag:'Start',title:'A Track and Offer Picker',desc:'Six quiz questions help you choose a starting track. A separate three-question interview suggests offers to inspect. Your chosen offer stays visible.'},
+    {num:'02',tag:'Choices',title:'Ten Services. Ten Product Ideas.',desc:'See the buyer, exact output, practice time, pros and cons. Product ideas explain their research and what still needs testing.',bullets:['Websites, copy, design, editing and more','Seven digital ideas and three affiliate niches','Choose your own offer without text entry']},
+    {num:'03',tag:'Action',title:'A Clear Next Task',desc:'Your saved task list leads to the matching guide chapter. Work through one action, use the prompt and check the output.',bullets:['Exact actions and quality checks','Examples for the work you chose','Notes and completion saved to your account']},
+    {num:'04',tag:'Guides',title:'Ten Connected Playbooks',desc:'Research clients, make a service or product, record demonstrations, create carousels and handle follow-up. Each guide has free and optional paid tool paths.'},
+    {num:'05',tag:'Examples & tools',title:'See the Work. Keep Track of Yours.',desc:'Inspect filled service files, product worksheets, a static website starter and a complete freelancer workbook. Compare tool limits and record outreach, content and collected revenue.',wide:true},
+  ]
   return (
     <section className="modules section" id="modules">
       <div className="container">
-        <div className="modules__head"><Reveal><div className="eyebrow">INSIDE THE BLUEPRINT</div></Reveal><Reveal><h2 className="h2">Everything you need.<br/><span style={{color:'var(--purple-soft)'}}>Nothing you don’t.</span></h2></Reveal><Reveal><p style={{fontSize:16,marginTop:14}}>Five focused modules. Four execution playbooks. Every piece connects to a clear next action.</p></Reveal></div>
+        <div className="modules__head"><Reveal><div className="eyebrow">INSIDE THE BLUEPRINT</div></Reveal><Reveal><h2 className="h2">Everything you need.<br/><span style={{color:'var(--purple-soft)'}}>Nothing you don’t.</span></h2></Reveal><Reveal><p style={{fontSize:16,marginTop:14}}>A written, interactive blueprint. Choose your offer and use the guide for the task in front of you.</p></Reveal></div>
         <div className="mod-grid">{modules.map((mod:any,i:number)=><Reveal key={i} delay={i*0.08} className={`mod-card${mod.wide?' mod-wide':''}`}><span className="mod-num">{mod.num}</span><span className="mod-tag">{mod.tag}</span><h3>{mod.title}</h3><p>{mod.desc}</p>{mod.bullets && <ul className="mod-bullets">{mod.bullets.map((b:string,j:number)=><li key={j}><span className="check-svg"><CheckIcon size={14} color="#A78BFA"/></span>{b}</li>)}</ul>}</Reveal>)}
-          <Reveal className="mod-bonus" delay={0.3}><div><span className="bonus-badge">Bonus Included</span><h3>The Prompt Vault: 50 Ready-to-Use AI Prompts</h3><p>Copy. Paste. Edit. Use 50 prompts for client outreach, content creation, service delivery, and product building.</p></div><div className="bonus-aside"><span className="bonus-was">Included</span><span className="bonus-free">FREE</span></div></Reveal>
+          <Reveal className="mod-bonus" delay={0.3}><div><span className="bonus-badge">Bonus Included</span><h3>50 Action Prompts, Matched to the Playbooks</h3><p>Five focused prompts per playbook, plus service and channel examples. Replace the brackets, ask about missing facts and check the output. The free 300-prompt reference PDF is a separate resource.</p></div><div className="bonus-aside"><span className="bonus-was">Included</span><span className="bonus-free">FREE</span></div></Reveal>
         </div>
       </div>
     </section>
@@ -219,9 +236,11 @@ function Modules(){
 
 function PeekInside(){
   const screens=[
-    {label:'Foundation: Pick Your Lane',caption:'Track comparison and diagnostic, choose your income path in 12 minutes.',img:'/peek/foundation.webp'},
-    {label:'Execution Roadmap: 30-Day Plan',caption:'Day-by-day action map from zero to your first $500.',img:'/peek/exec.webp'},
-    {label:'Prompt Vault: 50 Ready-to-Use Prompts',caption:'Copy, paste, generate for outreach, content and delivery.',img:'/peek/vault.webp'},
+    {label:'Choose your offer',caption:'A three-question interview suggests work to inspect. Ten choices per track include scope, time and tradeoffs.',img:'/peek/2026-10/offer-choice.webp'},
+    {label:'Your next task',caption:'Your selected offer stays visible. Open the exact matching guide, then save the work you finish.',img:'/peek/2026-10/next-task.webp'},
+    {label:'Research beyond Maps',caption:'Exact Instagram steps, plus Facebook Groups, LinkedIn, websites and channel-specific research prompts.',img:'/peek/2026-10/client-research.webp'},
+    {label:'Make a useful product',caption:'A job-tracker example with filled and blank practice sheets, build steps and a check. Starters need adapting and testing.',img:'/peek/2026-10/product-example.webp'},
+    {label:'50 action prompts',caption:'Search by task or filter by playbook. Copy a focused prompt or download the full action pack.',img:'/peek/2026-10/action-prompts.webp'},
   ]
   const wrapRef=useRef<HTMLDivElement>(null)
   const isDown=useRef(false); const startX=useRef(0); const scrollLeft=useRef(0)
@@ -232,34 +251,44 @@ function PeekInside(){
   return (
     <section className="peek section" id="peek-inside" style={{overflow:'hidden'}}>
       <div className="container">
-        <div className="peek__head"><Reveal><div className="eyebrow">PEEK INSIDE</div></Reveal><Reveal><h2 className="h2">See exactly what you’re getting.<br/><span style={{color:'var(--purple)'}}>Before you buy.</span></h2></Reveal><Reveal><p style={{color:'var(--body)',fontSize:16,maxWidth:560,margin:'14px auto 0'}}>Real screenshots from the Blueprint. Scroll horizontally →</p></Reveal></div>
+        <div className="peek__head"><Reveal><div className="eyebrow">PEEK INSIDE</div></Reveal><Reveal><h2 className="h2">See exactly what you’re getting.<br/><span style={{color:'var(--purple)'}}>Before you buy.</span></h2></Reveal><Reveal><p style={{color:'var(--body)',fontSize:16,maxWidth:560,margin:'14px auto 0'}}>Current app screens. Use the arrows or swipe to inspect each one. Open an image to read it at full size.</p></Reveal></div>
       </div>
-      <div className="peek-track-wrap" ref={wrapRef} onMouseDown={onDown} onMouseLeave={onLeave} onMouseUp={onUp} onMouseMove={onMove}>
+      <div className="peek-track-wrap" ref={wrapRef} id="product-screens" tabIndex={0} role="region" aria-label="Blueprint screenshots" onMouseDown={onDown} onMouseLeave={onLeave} onMouseUp={onUp} onMouseMove={onMove}>
         <div className="peek-track">
           {screens.map((s,i)=>(
             <div key={i} className="peek-slide">
               <div className="peek-slide__imgWrap">
-                <img src={s.img} alt={s.label} width="640" height="360" loading="lazy" decoding="async" draggable={false}/>
-                <span className="peek-slide__badge">{s.label}</span>
-              </div>
-              <div className="peek-slide__body"><p className="peek-slide__caption">{s.caption}</p></div>
+                <a href={s.img} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size screenshot: ${s.label}`}><Image src={s.img} alt={s.label} width={1348} height={928} sizes="(max-width: 700px) 84vw, 580px" draggable={false}/></a>
+                              </div>
+              <div className="peek-slide__body"><span className="peek-slide__badge">{s.label}</span><p className="peek-slide__caption">{s.caption}</p></div>
             </div>
           ))}
         </div>
       </div>
       <div className="container">
-        <Reveal><div className="peek__cta"><p className="peek__cta-label">Everything above is inside the Blueprint: one $97 payment, lifetime access.</p><a className="btn btn--primary" href="#lead" onClick={e=>{e.preventDefault(); openModal()}}>Get Instant Access: $97<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a></div></Reveal>
+        <Reveal><div className="peek-controls"><button type="button" className="btn btn--dark" aria-controls="product-screens" onClick={()=>wrapRef.current?.scrollBy({left:-600,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}>← Previous screen</button><button type="button" className="btn btn--dark" aria-controls="product-screens" onClick={()=>wrapRef.current?.scrollBy({left:600,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}>Next screen →</button></div><div className="peek__cta"><a href="https://app.zerotopaidwithai.com/preview" target="_blank" rel="noopener noreferrer" className="product-preview-link">Open the free product preview ↗</a><p className="peek__cta-label">Inspect a free public preview too. One $97 payment gives lifetime Blueprint access.</p><a className="btn btn--primary" href="#lead" onClick={e=>{e.preventDefault(); openModal()}}>Get Instant Access: $97<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a></div></Reveal>
       </div>
     </section>
   )
 }
 
 function Playbooks(){
-  const playbooks=[{letter:'A',title:'Build and Sell a Service Offer',desc:'Outreach message templates, positioning framework, a 3-step follow-up sequence, and places to research potential buyers.',time:'Send your first targeted outreach'},{letter:'B',title:'Launch a Small Digital Product',desc:'Move from idea to storefront with a product prompt, setup checklist, and first promotional post.',time:'Publish one focused product'},{letter:'C',title:'Build a Faceless Content Funnel',desc:'Plan TikTok, Shorts, and Reels content without showing your face or buying ads.',time:'Publish your first short'},{letter:'D',title:'Scale What Produces Revenue',desc:'Increase useful volume, test higher prices, and add a second income stream after the first one works.',time:'Repeat the proven step'}]
+  const playbooks=[
+    {letter:'A',title:'Find and pitch your first service clients',desc:'Choose a service, research suitable businesses across five channels and ask permission to show a checked sample.',time:'Find ten suitable businesses'},
+    {letter:'B',title:'Build and test a small product',desc:'Define the buyer’s first task, make the file, test the instructions and set up price and delivery.',time:'Make one useful first task'},
+    {letter:'C',title:'Record seven useful demonstration videos',desc:'Write seven scripts, plan real shots, record reusable clips and edit a clear demonstration.',time:'Write the first script and shot list'},
+    {letter:'D',title:'Improve the work using real numbers',desc:'Record actions, replies, costs and paid orders. Use the evidence to choose one change to test.',time:'Review what happened'},
+    {letter:'E',title:'Make a carousel that teaches one useful step',desc:'Turn a lesson into readable slides with a clear opening, practical middle and one next action.',time:'Outline one useful lesson'},
+    {letter:'F',title:'Make and deliver your chosen service',desc:'Use the recipe for websites, copy, design, editing or another service. Check the files before handing them over.',time:'Make the service sample'},
+    {letter:'G',title:'Write clear words for your offer',desc:'Explain who the work is for, what they receive, what it costs and how to take the next step.',time:'Write the offer in plain words'},
+    {letter:'H',title:'Use AI visuals only where they help',desc:'Plan an optional visual, choose a tool, check costs and avoid changing real product facts.',time:'Decide whether a visual helps'},
+    {letter:'I',title:'Help an interested person take the next step',desc:'Answer the actual question, explain the offer, follow up appropriately and record the result.',time:'Answer one buyer question'},
+    {letter:'J',title:'Check eligibility and demonstrate an affiliate item',desc:'Check the program, inspect the real item, disclose the relationship and verify links and commissions.',time:'Check program eligibility first'},
+  ]
   return (
     <section className="playbooks section" id="playbooks">
       <div className="container">
-        <div className="playbooks__head"><Reveal><div className="eyebrow">THE FOUR PLAYBOOKS</div></Reveal><Reveal><h2 className="h2">A clear next step<br/><span style={{color:'var(--purple)'}}>for each bottleneck.</span></h2></Reveal><Reveal><p>Each playbook targets one obstacle with templates, scripts, and a short execution sequence.</p></Reveal></div>
+        <div className="playbooks__head"><Reveal><div className="eyebrow">THE TEN PLAYBOOKS</div></Reveal><Reveal><h2 className="h2">A clear next step<br/><span style={{color:'var(--purple)'}}>for each bottleneck.</span></h2></Reveal><Reveal><p>Use the guides connected to your chosen track. Examples cover the ten services and product ideas. Affiliate and AI-visual guides apply when you need them.</p></Reveal></div>
         <div className="pb-grid">{playbooks.map((pb,i)=><Reveal key={i} delay={i*0.1}><div className="pb-card"><span className="pb-letter">{pb.letter}</span><div><h4>{pb.title}</h4><p>{pb.desc}</p><span className="pb-time"><ClockIcon size={12} color="#4D9364"/>Next: {pb.time}</span></div></div></Reveal>)}</div>
       </div>
     </section>
@@ -268,15 +297,15 @@ function Playbooks(){
 
 function WallOfProofNew(){
   const proof=[
-    {title:'Pick one income track',body:'Use the diagnostic to choose digital products or service sales based on your time and working style.'},
-    {title:'Follow daily actions',body:'Use the 30-day roadmap to see the next task instead of collecting more disconnected advice.'},
-    {title:'Work from templates',body:'Start with outreach, offer, content, delivery, and follow-up templates already inside the platform.'},
-    {title:'Track your execution',body:'Use the journal, progress tracker, outreach tracker, and content scorecard to keep the work visible.'},
+    {title:'Choose work you understand',body:'Compare ten services or ten product ideas. Inspect what to make, who it helps and the tradeoff before choosing.'},
+    {title:'Follow one visible next task',body:'Your saved offer and next unfinished task stay together. The guide opens its relevant chapter in a new tab.'},
+    {title:'Compare your work with an example',body:'See sample copy, website HTML, captions, research rows and product worksheets. Fictional practice facts are clearly labeled.'},
+    {title:'Keep the work saved',body:'Save task notes and guide checks. Track outreach, content and collected revenue, and export tracker rows when needed.'},
   ]
   return (
     <section className="wall section" id="testimonials">
       <div className="container" style={{maxWidth:780}}>
-        <div className="wall__head"><Reveal><div className="eyebrow">PRODUCT PROOF</div></Reveal><Reveal><h2 className="h2">See the system<br/><span style={{color:'var(--purple-soft)'}}>before you decide.</span></h2></Reveal><Reveal><p>Real product screens. Clear actions. No invented income screenshots or anonymous promises.</p></Reveal></div>
+        <div className="wall__head"><Reveal><div className="eyebrow">PRODUCT PROOF</div></Reveal><Reveal><h2 className="h2">See the system<br/><span style={{color:'var(--purple-soft)'}}>before you decide.</span></h2></Reveal><Reveal><p>Inspect the current interface and the files it helps you make. The examples show the process, with fictional practice details.</p></Reveal></div>
         <div className="product-proof-grid">
           {proof.map((item,i)=><Reveal key={item.title} delay={i*0.06}><div className="mod-card"><span className="mod-tag">INSIDE</span><h3>{item.title}</h3><p>{item.body}</p></div></Reveal>)}
         </div>
@@ -291,7 +320,7 @@ function LeadMagnetGate(){
       <div className="container">
         <div className="lead-magnet-card">
           <Reveal><h2>Not Ready for the Full Blueprint Yet? Start Here.</h2></Reveal>
-          <Reveal><p>Download 300+ AI-powered UGC prompts for any product or niche. Copy, paste, generate. No experience needed. Free.</p></Reveal>
+          <Reveal><p>Download the free 300-prompt reference PDF. It covers ten categories, including outreach, content, UGC, products, delivery and copy. The paid Blueprint adds the guided sequence and 50 focused action prompts.</p></Reveal>
           <Reveal><LeadMagnetForm/></Reveal>
         </div>
       </div>
@@ -300,30 +329,39 @@ function LeadMagnetGate(){
 }
 
 function PricingSection(){
-  const items=[{name:'zerotopaidwithai: Full 5-module system',val:'$147 value'},{name:'Track A: Autonomous digital sales system',val:'$97 value'},{name:'Track B: Service client acquisition system',val:'$97 value'},{name:'Playbook A: First client in 7 days',val:'$47 value'},{name:'Playbook B: First product live in 5 days',val:'$47 value'},{name:'Playbook C: Faceless content funnel',val:'$47 value'},{name:'Playbook D: Scale to $2,000/month',val:'$47 value'},{name:'Prompt Vault: 50 AI prompts (Bonus)',val:'$49 value'},{name:'Lifetime updates: Free as AI evolves',val:'Priceless'}]
+  const items=[
+    {name:'Track quiz: Six questions and a saved starting route',val:'Included'},
+    {name:'Offer picker: Ten services and ten researched product ideas',val:'20 choices'},
+    {name:'Offer interview: Three questions, plus your own offer option',val:'Included'},
+    {name:'Playbooks: Connected guides with actions and checks',val:'10 guides'},
+    {name:'Action prompts: Searchable, copyable and downloadable',val:'50 prompts'},
+    {name:'Worked examples: Service files, product sheets and a website starter',val:'Included'},
+    {name:'Tool paths: Free starting tools and optional paid limits',val:'Included'},
+    {name:'Saved work: Tasks, notes, guide checks and exportable trackers',val:'Included'},
+    {name:'Lifetime access: Blueprint access and future updates',val:'Included'},
+  ]
   return (
     <section className="pricing section" id="pricing">
       <div className="container">
-        <div className="pricing__head"><Reveal><div className="eyebrow">ONE DECISION</div></Reveal><Reveal><h2 className="h2">Everything included.<br/><span style={{color:'var(--purple)'}}>One flat price.</span></h2></Reveal><Reveal><p>No monthly fees. No hidden upsells. No nonsense. One payment, lifetime access.</p></Reveal></div>
-        <UrgencyBanner/>
+        <div className="pricing__head"><Reveal><div className="eyebrow">ONE DECISION</div></Reveal><Reveal><h2 className="h2">Everything included.<br/><span style={{color:'var(--purple)'}}>One flat price.</span></h2></Reveal><Reveal><p>One payment for the Blueprint. Optional third-party tools, samples, hosting and platform fees are separate.</p></Reveal></div>
         <Reveal>
           <div className="price-card">
             <div className="price-top">
               <p className="price-eyebrow">zerotopaidwithai: Full Access</p>
-              <span className="price-was">Regular price: $197</span>
+              <span className="price-was price-current">Current price</span>
               <div className="price-amount"><sup>$</sup>97</div>
               <p className="price-period">One-time · Yours forever · Instant access</p>
-              <span className="price-save">Founding Member Price: Save $100</span>
+              <span className="price-save">All ten playbooks included</span>
             </div>
             <div className="price-stack">
-              <p className="price-stack-title">What’s included and what it’s worth</p>
+              <p className="price-stack-title">What your $97 includes</p>
               <ul className="price-items">{items.map((item,i)=><li className="price-item" key={i}><span className="price-item-name"><span className="check-svg"><CheckIcon size={14} color="#A78BFA"/></span><strong>{item.name.split(': ')[0]}</strong>{item.name.includes(': ') && <>: {item.name.split(': ').slice(1).join(': ')}</>}</span><span className="price-item-val">{item.val}</span></li>)}</ul>
-              <div className="price-total"><span className="price-total-label">Total value</span><span className="price-total-val">$578</span></div>
+              <div className="price-total"><span className="price-total-label">One-time payment</span><span className="price-total-val">$97</span></div>
             </div>
             <div className="price-cta-wrap">
               <a href="#lead" onClick={e=>{e.preventDefault(); openModal()}} className="btn btn--primary" style={{paddingInline:36,fontSize:16,height:48}}>Yes: Give Me Instant Access<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a>
               <GuaranteeSeal/>
-              <div className="price-guar"><span className="price-guar-icon"><ShieldIcon size={24} color="#4D9364"/></span><p><strong>30-Day Money-Back Guarantee.</strong> Complete the blueprint and work the 30-day roadmap. If you still do not see a clear, actionable path to your first sale, email us your finished checklist within 30 days of purchase and get every cent back.</p></div>
+              <div className="price-guar"><span className="price-guar-icon"><ShieldIcon size={24} color="#4D9364"/></span><p><strong>30-Day Money-Back Guarantee.</strong> Complete the blueprint and work through its steps. If you still do not see a clear, actionable path to your first sale, email us your finished checklist within 30 days of purchase and get every cent back.</p></div>
               <div className="price-trust"><span className="trust-item"><span className="trust-icon"><LockIcon size={14}/></span>Secure checkout</span><span className="trust-item"><span className="trust-icon"><BoltIcon size={14} color="#8F8A86"/></span>Instant delivery</span><span className="trust-item"><span className="trust-icon"><MailIcon size={14}/></span>Email support</span><span className="trust-item"><span className="trust-icon"><InfinityIcon size={14}/></span>Lifetime access</span></div>
             </div>
           </div>
@@ -348,7 +386,7 @@ function FinalCtaSection(){
         <Reveal><h2>You do not need another idea.<em>You need a sequence.</em></h2></Reveal>
         <Reveal><div className="finale-divider"/></Reveal>
         <Reveal><p className="finale-p">Start with one income track and one clear action sequence.<strong> Keep the Blueprint if it makes your next move obvious.</strong></p></Reveal>
-        <Reveal><div className="finale-story">Inside: the track picker, the 30-day action map, four execution playbooks, and the 50-prompt vault for product creation, outreach, content, and delivery.</div></Reveal>
+        <Reveal><div className="finale-story">Inside: the track quiz, ten services, ten product ideas, ten connected playbooks, 50 action prompts, worked examples and your saved next steps.</div></Reveal>
         <Reveal className="finale-action"><a href="#lead" onClick={e=>{e.preventDefault(); openModal()}} className="btn btn--primary" style={{paddingInline:36,fontSize:17,height:48}}>Get The Blueprint: $97<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a><span style={{fontSize:13,color:'var(--muted)'}}>One-time payment · Instant access · <strong style={{color:'var(--ink-soft)'}}>30-day guarantee</strong></span><GuaranteeSeal/></Reveal>
       </div>
     </section>
@@ -359,9 +397,9 @@ function FooterSection(){
   return (
     <footer className="footer">
       <p style={{fontSize:16,fontWeight:600,letterSpacing:'-0.02em',fontFamily:'var(--font-display)'}}>zerotopaidwithai</p>
-      <div className="footer__links"><a href="#pricing">Pricing</a><a href="#testimonials">Results</a><a href="#faq">FAQ</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:support@zerotopaidwithai.com">Contact</a></div>
+      <div className="footer__links"><a href="#pricing">Pricing</a><a href="#testimonials">Product proof</a><a href="#faq">FAQ</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="mailto:support@zerotopaidwithai.com">Contact</a></div>
       <p style={{fontSize:13,opacity:0.6,marginTop:16}}>© 2026 zerotopaidwithai. All rights reserved.</p>
-      <p className="footer-disc">Earnings disclaimer: Results shown are real but not typical and are not a guarantee of future income. Individual results depend entirely on effort, consistency, and market conditions. This is not a get-rich-quick scheme, it is a business education product requiring real work.</p>
+      <p className="footer-disc">The Blueprint teaches a process, not a guaranteed income or earning date. Practice examples use fictional facts. Your results depend on the offer, market, work and follow-up.</p>
     </footer>
   )
 }

@@ -19,9 +19,9 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             You&apos;re in, check your inbox
           </div>
           <div className="ty-heading">
-            <h1>Your <span>300+ AI Prompts</span> Are on the Way</h1>
+            <h1>Your <span>300 AI Prompts</span> Are on the Way</h1>
           </div>
-          <p className="ty-sub">We just sent the download link to your email. While you wait, watch this short video. It shows you exactly how to use these prompts to start making money this week.</p>
+          <p className="ty-sub">We just sent the download link to your email. While you wait, watch this short video. The PDF includes prompts for outreach, content, products and delivery. Start with one useful task.</p>
           <div className="ty-vsl-wrap">
             <ThankYouVSL />
           </div>
@@ -42,12 +42,12 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             <p className="ty-next__label">While you wait: 3 things to do right now</p>
             <div className="ty-next__grid">
               <div className="ty-next__step"><div className="ty-next__num">1</div><div><h3>Open the PDF</h3><p>Find the email, download the 77-page vault, and skim the table of contents.</p></div></div>
-              <div className="ty-next__step"><div className="ty-next__num">2</div><div><h3>Pick One Niche</h3><p>Choose a product type that fits you: fitness, beauty, tech, food, or lifestyle.</p></div></div>
-              <div className="ty-next__step"><div className="ty-next__num">3</div><div><h3>Generate Your First Video</h3><p>Copy a prompt, paste it into ChatGPT or Claude, and create your first UGC video today.</p></div></div>
+              <div className="ty-next__step"><div className="ty-next__num">2</div><div><h3>Pick One Task</h3><p>Choose a category such as outreach, content, copy or product development.</p></div></div>
+              <div className="ty-next__step"><div className="ty-next__num">3</div><div><h3>Try One Prompt</h3><p>Replace the brackets, paste the prompt into ChatGPT or Claude, then check the response.</p></div></div>
             </div>
           </div>
           <div className="ty-email-notice">
-            <p>We&apos;ll also send you a <strong>7-day email series</strong> with daily action steps to go from zero to your first $500 online using AI. No spam. Unsubscribe anytime.</p>
+            <p>We&apos;ll also send you a <strong>7-day email series</strong> with practical steps for planning AI-assisted services and products. No spam. Unsubscribe anytime.</p>
           </div>
         </main>
       </div>
@@ -63,7 +63,7 @@ export default function ThankYouPage({ searchParams }: { searchParams: { type?: 
             <h1>You Are In. Welcome.</h1>
             <p className="thankyou__sub">Check your email for access instructions. If nothing in 10 minutes, check spam, then email <a href="mailto:support@zerotopaidwithai.com" style={{ color: 'var(--purple)', fontWeight: 600 }}>support@zerotopaidwithai.com</a>.</p>
             <Link href="https://app.zerotopaidwithai.com/login.html" className="btn btn--primary" style={{ marginTop: 16, width: '100%', justifyContent: 'center' }}>Access the Blueprint</Link>
-            <p className="thankyou__note">The 30-day roadmap starts now. Open Day 1 when you&apos;re ready.</p>
+            <p className="thankyou__note">Open Start here, choose your track and offer, then follow My next steps.</p>
           </>
         ) : (
           <>

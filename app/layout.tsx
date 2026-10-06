@@ -1,18 +1,18 @@
 import type { Metadata } from 'next'
-import '@fontsource/poppins/400.css'
-import '@fontsource/poppins/500.css'
-import '@fontsource/poppins/600.css'
-import '@fontsource/poppins/700.css'
-import '@fontsource/sora/400.css'
-import '@fontsource/sora/600.css'
-import '@fontsource/sora/700.css'
+import '@fontsource/poppins/latin-400.css'
+import '@fontsource/poppins/latin-500.css'
+import '@fontsource/poppins/latin-600.css'
+import '@fontsource/poppins/latin-700.css'
+import '@fontsource/sora/latin-400.css'
+import '@fontsource/sora/latin-600.css'
+import '@fontsource/sora/latin-700.css'
 import './globals.css'
 import SmoothScroll from '@/components/SmoothScroll'
 
 export const metadata: Metadata = {
-  title: 'zerotopaidwithai: From Zero to Paid with AI | 30-Day System to Your First $500',
-  description: 'A 30-day execution roadmap for building an AI-assisted service or digital product using a free-first tool stack. $97 one-time.',
-  keywords: ['zerotopaidwithai','zero to paid with AI','make money with AI','AI income system','AI side hustle','earn with AI','AI freelance system','UGC prompts AI','free AI tools income','30 day AI system'],
+  title: 'AI Income Blueprint | 10 Playbooks, 20 Offer Ideas | $97',
+  description: 'Choose a service or product track. Get ten playbooks, twenty offer ideas, worked examples, fifty action prompts and saved next steps. $97 one-time.',
+  keywords: ['zerotopaidwithai','zero to paid with AI','make money with AI','AI income system','AI side hustle','earn with AI','AI freelance system','UGC prompts AI','free AI tools income','AI service playbooks'],
   applicationName: 'zerotopaidwithai',
   authors: [{ name: 'zerotopaidwithai' }],
   creator: 'zerotopaidwithai',
@@ -29,16 +29,16 @@ export const metadata: Metadata = {
     siteName: 'zerotopaidwithai',
     locale: 'en_US',
     title: 'zerotopaidwithai: From Zero to Paid with AI',
-    description: 'A 30-day execution roadmap for building an AI-assisted service or digital product using a free-first tool stack. $97 one-time.',
+    description: 'Choose a service or product track. Get ten playbooks, twenty offer ideas, worked examples, fifty action prompts and saved next steps. $97 one-time.',
     url: 'https://www.zerotopaidwithai.com',
-    images: [{ url: 'https://www.zerotopaidwithai.com/banner.webp', width: 1200, height: 675, alt: 'zerotopaidwithai: From Zero to Paid with AI' }],
+    images: [{ url: 'https://www.zerotopaidwithai.com/peek/2026-10/next-task.webp', width: 1348, height: 928, alt: 'zerotopaidwithai: From Zero to Paid with AI' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@zerotopaidwithai',
     title: 'zerotopaidwithai: From Zero to Paid with AI',
-    description: '30-day system to your first $500 online with free AI tools. Follow the sequence. Get paid.',
-    images: ['https://www.zerotopaidwithai.com/banner.webp'],
+    description: 'Ten playbooks, twenty offer ideas, fifty action prompts and a clear next task. AI Income Blueprint, $97 one-time.',
+    images: ['https://www.zerotopaidwithai.com/peek/2026-10/next-task.webp'],
   },
   alternates: { canonical: 'https://www.zerotopaidwithai.com' },
   category: 'education',

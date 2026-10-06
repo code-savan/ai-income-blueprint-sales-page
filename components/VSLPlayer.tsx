@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function HeroVSL() {
   const [started, setStarted] = useState(false)
@@ -10,7 +11,7 @@ export default function HeroVSL() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const boxRef = useRef<HTMLDivElement>(null)
   const VSL_URL = 'https://pub-855fb210496f45fa86233cee4863af77.r2.dev/1788442753811017.mp4'
-  const POSTER_URL = 'https://pub-855fb210496f45fa86233cee4863af77.r2.dev/1.jpeg'
+  const POSTER_URL = '/peek/2026-10/video-poster.webp'
 
   useEffect(() => {
     const v = videoRef.current
@@ -65,7 +66,7 @@ export default function HeroVSL() {
       <div ref={boxRef} style={{ borderRadius: 20, overflow: 'hidden', border: '1px solid rgba(124,58,237,0.18)', boxShadow: '0 20px 60px rgba(18,24,38,0.18), 0 2px 12px rgba(0,0,0,0.08)', background: '#0b1020', position: 'relative', aspectRatio: '16/9', width: '100%' }}>
         {!started ? (
           <button type="button" aria-label="Play video" onClick={() => setStarted(true)} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0, padding: 0, cursor: 'pointer', background: '#0b1020', display: 'block' }}>
-            <img src={POSTER_URL} alt="Hero thumbnail" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+            <Image src={POSTER_URL} alt="Video overview of AI Income Blueprint" width={1280} height={720} sizes="(max-width: 940px) 94vw, 900px" priority style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             <span style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 70% 60% at 50% 42%, rgba(124,58,237,0.22) 0%, transparent 62%), linear-gradient(180deg, rgba(11,16,32,0.06) 0%, rgba(11,16,32,0.55) 100%)' }} />
             <span style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 14 }}>
               <span style={{ width: 84, height: 84, borderRadius: 999, background: 'linear-gradient(180deg,#7C3AED 0%,#6D28D9 100%)', display: 'grid', placeItems: 'center', boxShadow: '0 12px 32px rgba(124,58,237,0.45), 0 0 0 1px rgba(255,255,255,0.12) inset', border: '1px solid rgba(255,255,255,0.14)', transition: 'transform .2s' }}>
@@ -77,7 +78,7 @@ export default function HeroVSL() {
               </span>
             </span>
             <span style={{ position: 'absolute', bottom: 14, left: 14, display: 'inline-flex', alignItems: 'center', gap: 8, background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.12)', color: '#fff', fontSize: 11, fontWeight: 600, padding: '6px 10px', borderRadius: 999 }}>
-              <span style={{ width: 6, height: 6, borderRadius: 999, background: '#22c55e', boxShadow: '0 0 8px rgba(34,197,94,0.6)' }} /> is this worth it $$$?
+              <span style={{ width: 6, height: 6, borderRadius: 999, background: '#22c55e', boxShadow: '0 0 8px rgba(34,197,94,0.6)' }} /> Video overview · Current contents below
             </span>
           </button>
         ) : (

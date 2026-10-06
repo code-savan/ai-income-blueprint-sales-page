@@ -1,19 +1,20 @@
 'use client'
 import { useEffect, useRef, useState, ReactNode } from 'react'
-type RevealProps = { children: ReactNode; delay?: number; className?: string; y?: number; once?: boolean }
-export default function Reveal({ children, delay = 0, className = '', y = 24, once = true }: RevealProps) {
+type RevealProps = { children: ReactNode; delay?: number; className?: string; y?: number; once?: boolean; eager?: boolean }
+export default function Reveal({ children, delay = 0, className = '', y = 24, once = true, eager = false }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(eager)
   useEffect(() => {
     const el = ref.current
-    if (!el) return
+    if (!el || eager) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setVisible(true); return }
     const io = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); if (once) io.unobserve(el) } else if (!once) setVisible(false) },
       { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
     )
     io.observe(el)
     return () => io.disconnect()
-  }, [once])
+  }, [once, eager])
   return (
     <div
       ref={ref}
