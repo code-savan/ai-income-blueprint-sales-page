@@ -27,7 +27,7 @@ Real app screenshots are in public/peek/2026-10. Four were captured during this 
 - product-example: job-tracker scope, starter worksheets and build checks.
 - action-prompts: searchable/filterable fifty-prompt pack.
 
-Images retain native 1348 × 928 resolution, encoded as quality-90 WebP. Total original WebP bytes for those five images: 360,802. They display without the previous enlargement/cropping transform. Each opens its full-size image. The gallery has Previous/Next buttons, swipe and a usable scrollbar. The public product preview is linked independently.
+Images retain native 1348 × 926 resolution, encoded as quality-90 WebP. Total original WebP bytes for those five images: 360,802. They display without the previous enlargement/cropping transform. Each opens its full-size image. The gallery has Previous/Next buttons, swipe and a usable scrollbar. The public product preview is linked independently.
 
 ## Loading changes
 
@@ -47,3 +47,9 @@ These are concrete resource/loading changes, not a claimed Lighthouse-score impr
 - Frontend premium strict static audit: zero findings. This is a marketing page, not an application-contract migration.
 - git diff --check: passed.
 - Browser release checks and deployment evidence are recorded below after deployment.
+
+## Live browser evidence
+
+Vercel deployment e87a6f6d8ce20878caf44df230d317c09efc2125 succeeded. The custom domain served the new headline, ten-guide contents, updated tool names and revised pricing. The initial live DOM showed nine background videos with preload=none and no source URL. Browsing the gallery loaded all five screenshots. A full-size image opened in its own tab at native resolution. The inclusion FAQ expanded and reported aria-expanded=true. The existing checkout modal opened, focused the name field and closed with Escape. No purchase or external form submission was performed.
+
+The final polish adds exact intrinsic image dimensions, unclipped FAQ answers, logical guide heading levels, main semantics and checkout-dialog keyboard containment/focus restoration. All payment endpoints, SDK configuration and plan IDs remain unchanged. Narrow-screen rules were inspected in the existing CSS. No physical-phone or measured Lighthouse test was performed.

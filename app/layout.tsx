@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'zerotopaidwithai: From Zero to Paid with AI',
     description: 'Choose a service or product track. Get ten playbooks, twenty offer ideas, worked examples, fifty action prompts and saved next steps. $97 one-time.',
     url: 'https://www.zerotopaidwithai.com',
-    images: [{ url: 'https://www.zerotopaidwithai.com/peek/2026-10/next-task.webp', width: 1348, height: 928, alt: 'zerotopaidwithai: From Zero to Paid with AI' }],
+    images: [{ url: 'https://www.zerotopaidwithai.com/peek/2026-10/next-task.webp', width: 1348, height: 926, alt: 'zerotopaidwithai: From Zero to Paid with AI' }],
   },
   twitter: {
     card: 'summary_large_image',

@@ -25,6 +25,7 @@ export default function BlueprintPage(){
       <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify({"@context":"https://schema.org","@type":"Product","name":"zerotopaidwithai","description":"A practical AI-assisted service or product guide with ten playbooks, ten service choices, ten product ideas, worked examples, 50 action prompts and saved tasks.","brand":{"@type":"Brand","name":"zerotopaidwithai"},"offers":{"@type":"Offer","price":"97","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://zerotopaidwithai.com/"}})}}/>
       <Nav/>
       <StickyBar hidden={modalOpen}/>
+      <main id="main">
       <Hero/>
       <Logowall/>
       <Spotlight/>
@@ -39,6 +40,7 @@ export default function BlueprintPage(){
       <PricingSection/>
       <FaqSection/>
       <FinalCtaSection/>
+      </main>
       <FooterSection/>
       <LeadModal isOpen={modalOpen} onClose={()=>setModalOpen(false)} source={modalSource}/>
     </>
@@ -192,7 +194,7 @@ function HowItWorks(){
         <Reveal><h2 className="h2 how__title">How it works</h2></Reveal>
         <div className="how__grid">
           <div className="how__steps">{steps.map((s,i)=><Reveal key={i} delay={i*0.1}><div className="how-step"><span className="how-step__num">{s.num}</span><h3 className="how-step__title">{s.title}</h3><p>{s.desc}</p></div></Reveal>)}</div>
-          <Reveal delay={0.2}><figure className="how-product-shot"><a href="#peek-inside"><Image src="/peek/2026-10/next-task.webp" alt="The Blueprint sidebar, saved service offer and next unfinished task" width={1348} height={928} sizes="(max-width: 820px) 92vw, 520px"/></a><figcaption>Your offer stays visible. The next task opens its matching guide.</figcaption></figure></Reveal>
+          <Reveal delay={0.2}><figure className="how-product-shot"><a href="#peek-inside"><Image src="/peek/2026-10/next-task.webp" alt="The Blueprint sidebar, saved service offer and next unfinished task" width={1348} height={926} sizes="(max-width: 820px) 92vw, 520px"/></a><figcaption>Your offer stays visible. The next task opens its matching guide.</figcaption></figure></Reveal>
         </div>
       </div>
     </section>
@@ -243,22 +245,24 @@ function PeekInside(){
     {label:'50 action prompts',caption:'Search by task or filter by playbook. Copy a focused prompt or download the full action pack.',img:'/peek/2026-10/action-prompts.webp'},
   ]
   const wrapRef=useRef<HTMLDivElement>(null)
+  const dragged=useRef(false)
+  const moveScreen=(direction:number)=>{const wrap=wrapRef.current; if(!wrap)return; const track=wrap.querySelector<HTMLElement>('.peek-track'); const slide=wrap.querySelector<HTMLElement>('.peek-slide'); const gap=track?parseFloat(getComputedStyle(track).gap)||20:20; wrap.scrollBy({left:direction*((slide?.getBoundingClientRect().width||580)+gap),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}
   const isDown=useRef(false); const startX=useRef(0); const scrollLeft=useRef(0)
-  const onDown=(e:React.MouseEvent)=>{ if(!wrapRef.current) return; isDown.current=true; wrapRef.current.classList.add('is-dragging'); startX.current=e.pageX - wrapRef.current.offsetLeft; scrollLeft.current=wrapRef.current.scrollLeft }
+  const onDown=(e:React.MouseEvent)=>{ if(!wrapRef.current) return; isDown.current=true; dragged.current=false; wrapRef.current.classList.add('is-dragging'); startX.current=e.pageX - wrapRef.current.offsetLeft; scrollLeft.current=wrapRef.current.scrollLeft }
   const onLeave=()=>{ isDown.current=false; wrapRef.current?.classList.remove('is-dragging')}
   const onUp=()=>{ isDown.current=false; wrapRef.current?.classList.remove('is-dragging')}
-  const onMove=(e:React.MouseEvent)=>{ if(!isDown.current || !wrapRef.current) return; e.preventDefault(); const x=e.pageX - wrapRef.current.offsetLeft; const walk=(x - startX.current)*1.2; wrapRef.current.scrollLeft=scrollLeft.current - walk }
+  const onMove=(e:React.MouseEvent)=>{ if(!isDown.current || !wrapRef.current) return; e.preventDefault(); const x=e.pageX - wrapRef.current.offsetLeft; const walk=(x - startX.current)*1.2; if(Math.abs(walk)>5) dragged.current=true; wrapRef.current.scrollLeft=scrollLeft.current - walk }
   return (
     <section className="peek section" id="peek-inside" style={{overflow:'hidden'}}>
       <div className="container">
         <div className="peek__head"><Reveal><div className="eyebrow">PEEK INSIDE</div></Reveal><Reveal><h2 className="h2">See exactly what you’re getting.<br/><span style={{color:'var(--purple)'}}>Before you buy.</span></h2></Reveal><Reveal><p style={{color:'var(--body)',fontSize:16,maxWidth:560,margin:'14px auto 0'}}>Current app screens. Use the arrows or swipe to inspect each one. Open an image to read it at full size.</p></Reveal></div>
       </div>
-      <div className="peek-track-wrap" ref={wrapRef} id="product-screens" tabIndex={0} role="region" aria-label="Blueprint screenshots" onMouseDown={onDown} onMouseLeave={onLeave} onMouseUp={onUp} onMouseMove={onMove}>
+      <div className="peek-track-wrap" ref={wrapRef} id="product-screens" tabIndex={0} role="region" aria-label="Blueprint screenshots" onMouseDown={onDown} onMouseLeave={onLeave} onMouseUp={onUp} onMouseMove={onMove} onKeyDown={()=>{dragged.current=false}}>
         <div className="peek-track">
           {screens.map((s,i)=>(
             <div key={i} className="peek-slide">
               <div className="peek-slide__imgWrap">
-                <a href={s.img} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size screenshot: ${s.label}`}><Image src={s.img} alt={s.label} width={1348} height={928} sizes="(max-width: 700px) 84vw, 580px" draggable={false}/></a>
+                <a href={s.img} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size screenshot: ${s.label}`} onClick={e=>{if(dragged.current)e.preventDefault()}}><Image src={s.img} alt={s.label} width={1348} height={926} sizes="(max-width: 700px) 84vw, 580px" draggable={false}/></a>
                               </div>
               <div className="peek-slide__body"><span className="peek-slide__badge">{s.label}</span><p className="peek-slide__caption">{s.caption}</p></div>
             </div>
@@ -266,7 +270,7 @@ function PeekInside(){
         </div>
       </div>
       <div className="container">
-        <Reveal><div className="peek-controls"><button type="button" className="btn btn--dark" aria-controls="product-screens" onClick={()=>wrapRef.current?.scrollBy({left:-600,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}>← Previous screen</button><button type="button" className="btn btn--dark" aria-controls="product-screens" onClick={()=>wrapRef.current?.scrollBy({left:600,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}>Next screen →</button></div><div className="peek__cta"><a href="https://app.zerotopaidwithai.com/preview" target="_blank" rel="noopener noreferrer" className="product-preview-link">Open the free product preview ↗</a><p className="peek__cta-label">Inspect a free public preview too. One $97 payment gives lifetime Blueprint access.</p><a className="btn btn--primary" href="#lead" onClick={e=>{e.preventDefault(); openModal()}}>Get Instant Access: $97<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a></div></Reveal>
+        <Reveal><div className="peek-controls"><button type="button" className="btn btn--dark" aria-controls="product-screens" onClick={()=>moveScreen(-1)}>← Previous screen</button><button type="button" className="btn btn--dark" aria-controls="product-screens" onClick={()=>moveScreen(1)}>Next screen →</button></div><div className="peek__cta"><a href="https://app.zerotopaidwithai.com/preview" target="_blank" rel="noopener noreferrer" className="product-preview-link">Open the free product preview ↗</a><p className="peek__cta-label">Inspect a free public preview too. One $97 payment gives lifetime Blueprint access.</p><a className="btn btn--primary" href="#lead" onClick={e=>{e.preventDefault(); openModal()}}>Get Instant Access: $97<span className="btn__arrow"><ArrowRight size={14} color="#fff"/></span></a></div></Reveal>
       </div>
     </section>
   )
@@ -289,7 +293,7 @@ function Playbooks(){
     <section className="playbooks section" id="playbooks">
       <div className="container">
         <div className="playbooks__head"><Reveal><div className="eyebrow">THE TEN PLAYBOOKS</div></Reveal><Reveal><h2 className="h2">A clear next step<br/><span style={{color:'var(--purple)'}}>for each bottleneck.</span></h2></Reveal><Reveal><p>Use the guides connected to your chosen track. Examples cover the ten services and product ideas. Affiliate and AI-visual guides apply when you need them.</p></Reveal></div>
-        <div className="pb-grid">{playbooks.map((pb,i)=><Reveal key={i} delay={i*0.1}><div className="pb-card"><span className="pb-letter">{pb.letter}</span><div><h4>{pb.title}</h4><p>{pb.desc}</p><span className="pb-time"><ClockIcon size={12} color="#4D9364"/>Next: {pb.time}</span></div></div></Reveal>)}</div>
+        <div className="pb-grid">{playbooks.map((pb,i)=><Reveal key={i} delay={i*0.1}><div className="pb-card"><span className="pb-letter">{pb.letter}</span><div><h3>{pb.title}</h3><p>{pb.desc}</p><span className="pb-time"><ClockIcon size={12} color="#4D9364"/>Next: {pb.time}</span></div></div></Reveal>)}</div>
       </div>
     </section>
   )

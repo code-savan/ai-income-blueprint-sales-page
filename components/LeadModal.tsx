@@ -19,12 +19,13 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
 
   useEffect(() => {
     if (isOpen) {
+      const previousFocus = document.activeElement as HTMLElement | null
       setMounted(true)
       requestAnimationFrame(() => requestAnimationFrame(() => setVisible(true)))
-      setTimeout(() => nameInput.current?.focus(), 300)
+      const focusTimer = setTimeout(() => nameInput.current?.focus(), 300)
       const prev = document.body.style.overflow
       document.body.style.overflow = 'hidden'
-      return () => { document.body.style.overflow = prev }
+      return () => { clearTimeout(focusTimer); document.body.style.overflow = prev; previousFocus?.focus() }
     } else {
       setVisible(false)
       document.body.style.overflow = ''
@@ -35,7 +36,17 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
 
   useEffect(() => {
     if (!isOpen) return
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { onClose(); return }
+      if (e.key !== 'Tab') return
+      const dialog = document.querySelector<HTMLElement>('.lead-modal')
+      const fields = Array.from(dialog?.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),input:not([disabled]),iframe') || []).filter(el => el.getClientRects().length)
+      if (!fields.length) return
+      const first = fields[0], last = fields[fields.length - 1]
+      if (!dialog?.contains(document.activeElement)) { e.preventDefault(); first.focus() }
+      else if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+    }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
   }, [isOpen, onClose])
@@ -72,7 +83,7 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
   return (
     <>
       <div ref={overlayRef} className={`lead-overlay ${visible ? 'show' : ''}`} onClick={(e) => { if (e.target === overlayRef.current) onClose() }} />
-      <div className={`lead-modal ${visible ? 'show' : ''} ${checkout ? 'lead-modal--checkout' : ''}`} style={checkout ? { maxWidth: 560, width: '95vw' } : undefined}>
+      <div role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" aria-hidden={!isOpen} className={`lead-modal ${visible ? 'show' : ''} ${checkout ? 'lead-modal--checkout' : ''}`} style={checkout ? { maxWidth: 560, width: '95vw' } : undefined}>
         <div className="lead-modal__inner" style={checkout ? { maxWidth: 560 } : undefined}>
           <button className="lead-modal__close" onClick={onClose} aria-label="Close">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
@@ -80,10 +91,10 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
           {!checkout ? (
             <>
               <div className="lead-modal__header">
-                <h2>You&rsquo;re One Step Away</h2>
+                <h2 id="lead-modal-title">You&rsquo;re One Step Away</h2>
                 <p>Enter your details and we&rsquo;ll open secure checkout.</p>
               </div>
-              <form onSubmit={handleSubmit} className="lead-modal__form">
+              <form noValidate onSubmit={handleSubmit} className="lead-modal__form">
                 <div className="lead-modal__field">
                   <label htmlFor="lead-name">Your Name</label>
                   <input ref={nameInput} id="lead-name" type="text" placeholder="e.g. John Doe" value={name} onChange={(e) => setName(e.target.value)} required autoComplete="name" />
@@ -92,7 +103,7 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
                   <label htmlFor="lead-email">Email Address</label>
                   <input id="lead-email" type="email" placeholder="e.g. john@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required autoComplete="email" />
                 </div>
-                {error && <p className="lead-modal__error">{error}</p>}
+                {error && <p className="lead-modal__error" role="alert">{error}</p>}
                 <button type="submit" className="btn btn--primary" disabled={submitting} style={{ width: '100%', height: 52, fontSize: 16 }}>
                   {submitting ? 'Opening Checkout…' : 'Continue to Checkout →'}
                 </button>
@@ -102,7 +113,7 @@ export default function LeadModal({ isOpen, onClose, source = 'cta' }: LeadModal
           ) : (
             <>
               <div className="lead-modal__header">
-                <h2>Complete Your Payment</h2>
+                <h2 id="lead-modal-title">Complete Your Payment</h2>
                 <p>Secure checkout powered by Whop, you&rsquo;re almost done, {name.split(' ')[0]}.</p>
               </div>
               <WhopCheckout sessionId={checkout.sessionId} planId={checkout.planId} email={email} onComplete={() => { window.location.href = `/thank-you?type=purchase&email=${encodeURIComponent(email.trim().toLowerCase())}` }} />
